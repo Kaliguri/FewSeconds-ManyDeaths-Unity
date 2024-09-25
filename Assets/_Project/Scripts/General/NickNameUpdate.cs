@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +12,11 @@ public class NickNameUpdate : MonoBehaviour
     private int playerID => playerInfoData.PlayerIDThisPlayer;
 
     void Start()
+    {
+        UpdatePlayerNickname();
+    }
+
+    private void UpdatePlayerNickname()
     {
         playerName.gameObject.SetActive(true);
         playerName.text = playerInfoData.NicknameList[playerID];
