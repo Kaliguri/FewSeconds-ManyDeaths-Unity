@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2283d1228b0c054f91e07d3217b84cb, type: 3}
+  m_Name: FireExplosion
+  m_EditorClassIdentifier: 
+  Name:
+    m_TableReference:
+      m_TableCollectionName: GUID:ae76812fab364d945afea95800a09de7
+    m_TableEntryReference:
+      m_KeyId: 482293919744
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: GUID:ae76812fab364d945afea95800a09de7
+    m_TableEntryReference:
+      m_KeyId: 486706327552
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SkillIcon: {fileID: -1548327875, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
+  SkillScript:
+    rid: 6274678218844536932
+  references:
+    version: 2
+    RefIds:
+    - rid: 6274678218844536932
+      type: {class: SkillScript, ns: , asm: Assembly-CSharp}
+      data:
+        EnergyCost: 0
+        SkillCooldown: 0

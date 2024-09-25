@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Magic Demolition_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: ae76812fab364d945afea95800a09de7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 275275657216
+    m_Localized: Preparation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 306481278976
+    m_Localized: "It applies the \u201CPreparation\u201D effect, which strengthens
+      and changes spells depending on the number of charges. Their effectiveness
+      also depends on the number of charges:\n1-2 charges give +20% damage\n3-4 charges
+      give +40% damage, but all charges are lost when moving independently\n5-6 charges
+      give +80%, but when using a spell, the character is stunned for 1 round\n7
+      charge gives +160% damage, but the character takes damage of 70% max hp."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360101261312
+    m_Localized: Fireball
+    m_Metadata:
+      m_Items: []
+  - m_Id: 404967731200
+    m_Localized: "Slow. Launches a fireball into the selected cell, located exactly
+      vertically/horizontally from its location. \nThe fireball deals 12 damage,
+      but for each passing cell, the damage increases by 10%.\nThe radius of damage
+      depends on the number of charges of \u201CPreparation\u201D:\n0-2 charge -
+      1 cell width\n3-4 charges - 3 cells wide\n5-7 charges - 5 cells wide"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 482293919744
+    m_Localized: Fire explosion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 486706327552
+    m_Localized: "Slow. Creates a magic circle in the selected cell, creating a magic
+      explosion that deals 15 units. damage.\nThe radius of damage depends on the
+      number of charges of \u201CPreparation\u201D:\n0-2 charge - 1x1 damage radius\n3-4
+      charges - 3x3 damage radius\n5-7 charges - 5x5 damage radius"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560849039360
+    m_Localized: Double cast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 562254131200
+    m_Localized: The following spell is cast twice.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

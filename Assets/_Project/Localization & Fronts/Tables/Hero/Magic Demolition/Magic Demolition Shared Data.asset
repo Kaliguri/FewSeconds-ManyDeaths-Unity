@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Magic Demolition Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Magic Demolition
+  m_TableCollectionNameGuidString: ae76812fab364d945afea95800a09de7
+  m_Entries:
+  - m_Id: 306481278976
+    m_Key: 1-1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275275657216
+    m_Key: 1-1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 404967731200
+    m_Key: 2-1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360101261312
+    m_Key: '2-1 _Name
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 486706327552
+    m_Key: 3-1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 482293919744
+    m_Key: 3-1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 562254131200
+    m_Key: 4-1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560849039360
+    m_Key: 4-1 _Name
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6274678218844536922
+  references:
+    version: 2
+    RefIds:
+    - rid: 6274678218844536922
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1724893698011

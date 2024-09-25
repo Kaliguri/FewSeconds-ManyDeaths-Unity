@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd67c797c98c4640975767049c60150, type: 3}
+  m_Name: Berserk - Serrated Blade
+  m_EditorClassIdentifier: 
+  TraitName: "\u0417\u0430\u0437\u0443\u0431\u0440\u0435\u043D\u043D\u044B\u0439
+    \u043A\u043B\u0438\u043D\u043E\u043A"
+  Description: 
+  HPActList:
+  - 220
+  - 200
+  - 180
+  - 160
+  AttacksInActList:
+  - ComboAttackList: []
+  - ComboAttackList: []
+  - ComboAttackList: []
+  - ComboAttackList: []
+  GameObjectSpritePrefab: {fileID: 0}
+  SceneName: 

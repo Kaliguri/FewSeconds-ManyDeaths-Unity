@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Main Menu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Main Menu
+  m_TableCollectionNameGuidString: e04c2a0e30be7224b81a652903df7a48
+  m_Entries:
+  - m_Id: 95100940288
+    m_Key: Host lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133915029504
+    m_Key: Join lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178739556352
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 191519600640
+    m_Key: Compendium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 217352318976
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 437217734656
+    m_Key: Training
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6274678218844536894
+  references:
+    version: 2
+    RefIds:
+    - rid: 6274678218844536894
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1724889925657

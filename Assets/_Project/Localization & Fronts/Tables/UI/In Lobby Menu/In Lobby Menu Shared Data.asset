@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: In Lobby Menu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: In Lobby Menu
+  m_TableCollectionNameGuidString: 84c3fd870064ab64b8be32739d5ceefb
+  m_Entries:
+  - m_Id: 11084836864
+    m_Key: Invite Friend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 181017063424
+    m_Key: Start game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 228886654976
+    m_Key: Exit in lobby
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6274678218844536905
+  references:
+    version: 2
+    RefIds:
+    - rid: 6274678218844536905
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1724892053954

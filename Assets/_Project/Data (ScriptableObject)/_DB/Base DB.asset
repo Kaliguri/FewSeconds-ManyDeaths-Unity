@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b13aa7e1764d342b28b306bcdc1636, type: 3}
+  m_Name: Base DB
+  m_EditorClassIdentifier: 
+  BossEncounterDataBaseList:
+  - {fileID: 11400000, guid: 2e3b121e45d402840b354be86b437481, type: 2}
+  QuestDataBaseList:
+  - {fileID: 11400000, guid: 6a34a079aeaed0948b316820cd24f22a, type: 2}
+  ItemDataList:
+  - {fileID: 11400000, guid: 3f106f7079d16404c8c2c6bf9f81f15e, type: 2}
+  - {fileID: 11400000, guid: 93918ca7416d5ea44815798453b2e4d2, type: 2}
+  CommandArtifactDataList:
+  - {fileID: 11400000, guid: 132e9fe5f8ee4eb40aa4539b6f6690c8, type: 2}

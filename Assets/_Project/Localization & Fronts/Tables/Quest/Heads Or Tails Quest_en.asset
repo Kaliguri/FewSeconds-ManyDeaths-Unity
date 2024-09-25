@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Heads Or Tails Quest_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: f0d4dd247663331448d1706783f5f8cb, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 20035481600
+    m_Localized: Heads or Tails?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72216817664
+    m_Localized: <b>[Tails]</b> You bet that the tails will fall out.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 122993061888
+    m_Localized: <b>[Heads]</b> You bet that heads will fall out.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151979896832
+    m_Localized: <b>[Run]</b> You don't want to participate in this game.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23051186176
+    m_Localized: 'Night. You are heading along a way located next to the forest.
+      You are very tired, but you have not yet found a good place to rest.
+
+
+      Your
+      eyes are already closing. You''re blinking. Suddenly you see an unusual coin
+      flying right in front of you. It reflects the moonlight and.. Is that <b><color=red>blood</color></b>?
+
+
+      An
+      otherworldly voice asks, "Heads? Or Tails? What are you betting on?"
+
+
+      Time
+      seemed to stand still, waiting for your decision.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

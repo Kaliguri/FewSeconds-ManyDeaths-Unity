@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Rifleman_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 3e284e18f151da04a8160ffcd97ecf64, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1666622763008
+    m_Localized: Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1670183727104
+    m_Localized: 'Slow. Fires a shot at the selected cell, dealing 10 units. damage.
+
+      Damage
+      increases 1.5 times if there is an ally nearby.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844809379840
+    m_Localized: Reload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1847728615424
+    m_Localized: "Reloads the clip, restoring 1 cartridge. \nThe skill can recover
+      2 rounds if there is an ally nearby."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1899448578048
+    m_Localized: Teamwork
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1901549924352
+    m_Localized: "Imposes a \u201CTeamwork\u201D effect on everyone in the 3x3 zone
+      (centered on himself), which increases the amount of energy received by 1 unit
+      (max by 2) for each game character in the area of action. There are two rounds
+      in effect."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1940619866112
+    m_Localized: Revenge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1942230478848
+    m_Localized: "The next \u201CShot\u201D will deal 4x damage."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
