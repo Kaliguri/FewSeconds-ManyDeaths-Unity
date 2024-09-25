@@ -5,6 +5,7 @@ using UnityEngine;
 public class CircleRotate : MonoBehaviour
 {
     [SerializeField] float speedRotate;
+    [SerializeField] RectTransform lightTransform;
     void Update()
     {
         /*
@@ -13,6 +14,12 @@ public class CircleRotate : MonoBehaviour
         */
 
         transform.Rotate(0,0,speedRotate);
+
+        /*
+        var tempPos = lightTransform.position;
+        lightTransform.position = new Vector3(tempPos.x,tempPos.y, 0);
+        */
+        
         /*
         Vector3 pos = gameObject.transform.position;
         pos = new Vector3(pos.x, pos.y, pos.z + speedRotate);

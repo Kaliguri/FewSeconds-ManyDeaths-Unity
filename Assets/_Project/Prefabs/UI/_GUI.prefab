@@ -436,7 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7191034970915266055}
   m_Layer: 5
-  m_Name: SkillPanelUI
+  m_Name: SkillPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1601,6 +1601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395238859406935559, guid: 5fe5e9151520c1d4487072c73ce858de,
+        type: 3}
+      propertyPath: infoRight
+      value: ???
       objectReference: {fileID: 0}
     - target: {fileID: 5828545222050337508, guid: 5fe5e9151520c1d4487072c73ce858de,
         type: 3}
