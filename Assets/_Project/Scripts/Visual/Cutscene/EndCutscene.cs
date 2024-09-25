@@ -12,6 +12,7 @@ public class EndCutscene : MonoBehaviour
     [Title("Settings")]
     [SerializeField] bool GoNextScene = true;
 
+    private SceneLoaderManager sceneManager => FindObjectOfType<SceneLoaderManager>();
     private InputActions inputActions;
 
     void Awake()
@@ -24,6 +25,8 @@ public class EndCutscene : MonoBehaviour
     public void NextSceneLoader()
     {
         if (GoNextScene)
-        { SceneManager.LoadScene(NextScene); }
+        {
+            sceneManager.LoadScene(NextScene); 
+        }
     }
 }
