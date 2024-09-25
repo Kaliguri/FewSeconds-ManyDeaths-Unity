@@ -102,8 +102,7 @@ public class PlayerMovementController : NetworkBehaviour
 
     private void ChangeEnergy(int newEnergy)
     {
-        int playerId = (int)combatPlayerDataInStage.PlayersHeroes[localId].GetComponent<NetworkObject>().OwnerClientId;
-        ChangePlayerEnergyRpc(newEnergy, playerId);
+        ChangePlayerEnergyRpc(newEnergy, localId);
         GlobalEventSystem.SendEnergyChange();
     }
 
@@ -173,7 +172,7 @@ public class PlayerMovementController : NetworkBehaviour
                 SendPlayerStartMoveRpc();
                 combatPlayerDataInStage.PlayersHeroes[localId].transform.position = MovementList[i] + tileZero;
                 ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[MovementList.Count - 1], MapClass.TileStates.Player);
-                ChangePlayerCoordinatesRpc(MovementList[i], (int)combatPlayerDataInStage.PlayersHeroes[localId].GetComponent<NetworkObject>().OwnerClientId);
+                ChangePlayerCoordinatesRpc(MovementList[i], localId);
                 SendPlayerEndMoveRpc();
                 yield return new WaitForSeconds(timeBetweenMovement);
             }

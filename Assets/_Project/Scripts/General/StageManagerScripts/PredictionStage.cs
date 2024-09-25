@@ -53,7 +53,7 @@ public class PredictionStage : GameState
             if (combatPlayerDataInStage._TotalStatsList[i] != null)
             {
                 int newEnergy = combatPlayerDataInStage._TotalStatsList[i].currentCombat.CurrentEnergy + combatPlayerDataInStage._TotalStatsList[i].general.EnergyPerTurn;
-                if (newEnergy > combatPlayerDataInStage._TotalStatsList[i].general.MaxEnergy) ChangePlayerEnergyRpc(combatPlayerDataInStage._TotalStatsList[i].general.MaxEnergy, (int)combatPlayerDataInStage.PlayersHeroes[localId].GetComponent<NetworkObject>().OwnerClientId);
+                if (newEnergy > combatPlayerDataInStage._TotalStatsList[i].general.MaxEnergy) ChangePlayerEnergyRpc(combatPlayerDataInStage._TotalStatsList[i].general.MaxEnergy, localId);
                 else ChangePlayerEnergyRpc(newEnergy, i);
             }
         }
