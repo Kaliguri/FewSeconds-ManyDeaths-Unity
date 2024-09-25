@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "FewSeconds-ManyDeaths.sln"
+    "dotnet.defaultSolution": "FewSeconds-ManyDeaths-Unity.sln"
 }
