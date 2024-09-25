@@ -37,6 +37,9 @@ public static class GlobalEventSystem
     public static UnityEvent <ulong> PlayerLobbyUpdate = new();
     public static void SendPlayerLobbyUpdate(ulong id) { PlayerLobbyUpdate.Invoke(id); }
 
+    public static UnityEvent PlayerHeroChange = new();
+    public static void SendPlayerHeroChange() { PlayerHeroChange.Invoke(); }
+
     public static UnityEvent PlayerColorChange = new();
     public static void SendPlayerColorChange() {  PlayerColorChange.Invoke(); }
 

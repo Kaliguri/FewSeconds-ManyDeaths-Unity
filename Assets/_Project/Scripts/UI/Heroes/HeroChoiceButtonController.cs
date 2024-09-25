@@ -24,9 +24,10 @@ public class HeroChoiceButtonController : MonoBehaviour
     {
         if (HeroData != null)
         {
-        playerInfoData.HeroDataList[playerID] = HeroData;
-        RestoreChoiceSkills();
-        GlobalEventSystem.SendHeroChanged();
+            playerInfoData.HeroDataList[playerID] = HeroData;
+            RestoreChoiceSkills();
+            GlobalEventSystem.SendHeroChanged();
+            GlobalEventSystem.SendPlayerHeroChange();
         }
     }
 
