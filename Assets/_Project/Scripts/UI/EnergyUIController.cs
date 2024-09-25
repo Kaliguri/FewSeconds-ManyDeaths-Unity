@@ -9,7 +9,7 @@ public class EnergyUIController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI EnergyText;
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
-    private int localId => (int)NetworkManager.Singleton.LocalClientId;
+    private int localId => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
 
     void Awake()
     {

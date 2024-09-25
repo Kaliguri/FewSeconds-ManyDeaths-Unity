@@ -87,6 +87,9 @@ public static class GlobalEventSystem
     public static UnityEvent PlayerActionUpdate = new();
     public static void SendPlayerActionUpdate() {  PlayerActionUpdate.Invoke(); }
 
+    public static UnityEvent<int> PlayerChoiceActionUpdate = new();
+    public static void SendPlayerChoiceActionUpdate(int id) { PlayerChoiceActionUpdate.Invoke(id); }
+
     #endregion
 
     #region Stage StartEnd Events

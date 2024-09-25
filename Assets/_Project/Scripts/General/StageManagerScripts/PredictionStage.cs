@@ -13,7 +13,7 @@ public class PredictionStage : GameState
         gameStateManager = manager;
         //GlobalEventSystem.PlayerSpawned.AddListener(RestoreEnergy);
 
-        localId = (int)NetworkManager.Singleton.LocalClientId;
+        localId = playerInfoData.PlayerIDThisPlayer;
     }
 
     public override void Enter()

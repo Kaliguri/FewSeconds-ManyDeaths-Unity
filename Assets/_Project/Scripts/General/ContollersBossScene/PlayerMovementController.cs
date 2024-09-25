@@ -23,7 +23,7 @@ public class PlayerMovementController : NetworkBehaviour
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private PlayerSkillManager playerSkillManager => FindObjectOfType<PlayerSkillManager>();
     private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
-    private int localId => (int)NetworkManager.Singleton.LocalClientId;
+    private int localId => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
     private float timeBetweenMovement = 1f;
 
     enum Movement

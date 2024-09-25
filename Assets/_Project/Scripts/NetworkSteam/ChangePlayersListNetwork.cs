@@ -9,12 +9,26 @@ public class ChangePlayersListNetwork : NetworkBehaviour
     PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>().GetComponent<PlayerInfoData>();
     private DBManager dBManager => FindObjectOfType<DBManager>().GetComponent<DBManager>();
     List<HeroData> heroDataList => dBManager.GetHeroDataList();
-    int playerID => (int)NetworkManager.Singleton.LocalClientId;
+    int playerID => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
 
     private void Awake()
     {
         GlobalEventSystem.PlayerColorChange.AddListener(ChangeColor);
         GlobalEventSystem.PlayerHeroChange.AddListener(ChangeHero);
+        GlobalEventSystem.PlayerChoiceActionUpdate.AddListener(ChangeSkill);
+    }
+
+    private void ChangeSkill(int SkillNumber)
+    {
+        int VariationSkillNumber = playerInfoData.SkillChoiceList[playerID][SkillNumber];
+        ChangeSkillRpc(SkillNumber, playerID, VariationSkillNumber);
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void ChangeSkillRpc(int SkillNumber, int ID, int VariationSkillNumber)
+    {
+        playerInfoData.SkillChoiceList[ID][SkillNumber] = VariationSkillNumber;
+        GlobalEventSystem.SendSkillChanged();
     }
 
     private void ChangeHero()

@@ -7,7 +7,7 @@ public class ColorBox : MonoBehaviour
 {
     Color color => GetComponent<Image>().color;
     PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>().GetComponent<PlayerInfoData>();
-    int playerID => (int)NetworkManager.Singleton.LocalClientId;
+    int playerID => playerInfoData.PlayerIDThisPlayer;
     public void ColorSelect ()
     {
         playerInfoData.ColorList[playerID] = color;
