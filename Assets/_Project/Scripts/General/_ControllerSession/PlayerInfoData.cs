@@ -8,9 +8,9 @@ using Sirenix.OdinInspector;
 public class PlayerInfoData : MonoBehaviour
 {
     [TabGroup("Multiplayer")]
-    public int PlayerIDThisPlayer => (int)NetworkManager.Singleton.LocalClientId;
-    [TabGroup("Multiplayer")]
     public int PlayerCount = 0;
+    [TabGroup("Multiplayer")]
+    public int PlayerIDThisPlayer = -1;
 
     [TabGroup("Player Colors & Nicknames")]
     public List<UnityEngine.Color> ColorList;
@@ -63,6 +63,7 @@ public class PlayerInfoData : MonoBehaviour
                 i++;
             }
             PlayerCount = i;
+            if (PlayerIDThisPlayer == -1) PlayerIDThisPlayer = i - 1;
             GlobalEventSystem.SendPlayerDataChanged();
         }
     }
