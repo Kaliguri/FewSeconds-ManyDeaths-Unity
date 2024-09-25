@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b13aa7e1764d342b28b306bcdc1636, type: 3}
   m_Name: Base DB
   m_EditorClassIdentifier: 
+  HeroDataList:
+  - {fileID: 11400000, guid: 9ec55dcb580619343be2ecb6ca305494, type: 2}
+  - {fileID: 11400000, guid: 3423157ecb49e7248b202f8ecb73d23d, type: 2}
+  - {fileID: 11400000, guid: a9de29b4fb521f047ad7fc7a6a04b89a, type: 2}
+  - {fileID: 11400000, guid: eea43ad1e6542514ab41f120637ac3ab, type: 2}
+  - {fileID: 11400000, guid: c4d3053894aab114384bebb2e573d8ed, type: 2}
+  - {fileID: 11400000, guid: 089ad942c2cff224584b5beb01d1f678, type: 2}
+  - {fileID: 11400000, guid: 36c5e3e04b73ef2448286ee06e912df0, type: 2}
+  - {fileID: 11400000, guid: 5a324532dc9e0f74e800a3783d343bb2, type: 2}
+  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
+  - {fileID: 11400000, guid: 14fb01d2ccf01ae4ea0239dbd9f53022, type: 2}
   BossEncounterDataBaseList:
   - {fileID: 11400000, guid: 2e3b121e45d402840b354be86b437481, type: 2}
   QuestDataBaseList:

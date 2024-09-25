@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 6381285455659261031}
   - component: {fileID: 8144929064231969570}
   m_Layer: 5
-  m_Name: Skill (Simple Tooltip)
+  m_Name: Skill (Simple Tooltip) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
