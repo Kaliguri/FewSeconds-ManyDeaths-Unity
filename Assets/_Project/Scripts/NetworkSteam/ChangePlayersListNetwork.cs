@@ -7,7 +7,7 @@ using Unity.Netcode;
 public class ChangePlayersListNetwork : NetworkBehaviour
 {
     PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>().GetComponent<PlayerInfoData>();
-    private DBManager dBManager => FindObjectOfType<DBManager>();
+    private DBManager dBManager => FindObjectOfType<DBManager>().GetComponent<DBManager>();
     List<HeroData> heroDataList => dBManager.GetHeroDataList();
     int playerID => (int)NetworkManager.Singleton.LocalClientId;
 
