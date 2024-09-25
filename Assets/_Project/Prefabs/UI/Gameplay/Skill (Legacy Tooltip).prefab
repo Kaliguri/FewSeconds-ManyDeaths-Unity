@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6855241458941281710}
   - component: {fileID: 5828545222050337508}
   m_Layer: 5
-  m_Name: Skill
+  m_Name: Skill (Legacy Tooltip)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

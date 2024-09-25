@@ -1,18 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 [DisallowMultipleComponent]
-public class SimpleTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class SimpleTooltipV2 : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public TextMeshProUGUI left;
-    public TextMeshProUGUI right;
-    
     public SimpleTooltipStyle simpleTooltipStyle;
-    public string infoLeft => left.text;
-    public string infoRight => right.text;
+    [TextArea] public string infoLeft = "";
+    [TextArea] public string infoRight = "";
     private STController tooltipController;
     private EventSystem eventSystem;
     private bool cursorInside = false;
@@ -56,7 +50,7 @@ public class SimpleTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public static STController AddTooltipPrefabToScene()
     {
-        return Instantiate(Resources.Load<GameObject>("SimpleTooltip")).GetComponentInChildren<STController>();
+        return Instantiate(Resources.Load<GameObject>("SimpleTooltipV2")).GetComponentInChildren<STController>();
     }
 
     private void OnMouseOver()
