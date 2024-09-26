@@ -17,32 +17,71 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 879be8cae531950429327524d611ef08
   m_SerializeEntries:
-  - m_GUID: 9f3b7cbc0ad578e4a9ef08a0104d19c3
-    m_Address: Berserk 1_ru
+  - m_GUID: 2311f6efa280a6849af1e0fe198784c0
+    m_Address: Chess Master_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a366d28d5fe29424f9211d7dc12a978e
-    m_Address: Main Menu_ru
+  - m_GUID: 2e38bd779cd49014a9cc05ca1a12c617
+    m_Address: Heads Or Tails Quest_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 464b79b19421b9f48a7e8fcd3023ede4
+    m_Address: Rifleman_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e64cc7f2b4077f4b92d4307712a6e41
+    m_Address: Magic Demolition_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c4e54b527e4a5845b902ea6e034ab5d
     m_Address: In Lobby Menu_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b60fb6248a79384f9a25dc7c10ab430
     m_Address: Character Choice_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2311f6efa280a6849af1e0fe198784c0
-    m_Address: Chess Master_ru
+  - m_GUID: 9f3b7cbc0ad578e4a9ef08a0104d19c3
+    m_Address: Berserk 1_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a103138c3a2503f4fba4278a93827deb
+    m_Address: Hero Type_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a366d28d5fe29424f9211d7dc12a978e
+    m_Address: Main Menu_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8aab568852afa949b46cf8a4db4f53d
+    m_Address: Priest_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
@@ -52,36 +91,7 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a8aab568852afa949b46cf8a4db4f53d
-    m_Address: Priest_ru
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ru
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 464b79b19421b9f48a7e8fcd3023ede4
-    m_Address: Rifleman_ru
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ru
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a103138c3a2503f4fba4278a93827deb
-    m_Address: Hero Type_ru
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ru
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4e64cc7f2b4077f4b92d4307712a6e41
-    m_Address: Magic Demolition_ru
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ru
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2e38bd779cd49014a9cc05ca1a12c617
-    m_Address: Heads Or Tails Quest_ru
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 3ed0f1efb07ee6a4f9f4ac9b1e75685c, type: 2}

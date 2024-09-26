@@ -36,7 +36,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4082220074733666337
   m_KeyGenerator:
     rid: 4082219843728441346
   references:
@@ -47,3 +48,8 @@ MonoBehaviour:
         asm: Unity.Localization}
       data:
         m_CustomEpoch: 1726401900391
+    - rid: 4082220074733666337
+      type: {class: PreloadAssetTableMetadata, ns: UnityEngine.Localization.Metadata,
+        asm: Unity.Localization}
+      data:
+        m_PreloadBehaviour: 1

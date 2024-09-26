@@ -5,9 +5,13 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Localization.Components;
+using UnityEngine.UI;
 
 public class TooltipV3Manager : MonoBehaviour
 {
+    [Title("General")]
+    public GameObject Background;
+    [Title("")]
     [Title("Text Localize")]
     public LocalizeStringEvent Header;
     public LocalizeStringEvent Description;
@@ -15,7 +19,6 @@ public class TooltipV3Manager : MonoBehaviour
 
     [Title("Dynamic Background")]
     [Title("Dynamic Background Reference")]
-    public RectTransform BackgroundRect;
     public List<GameObject> TextItemList;
 
     [Title("Dynamic Background Settings")]
@@ -23,14 +26,45 @@ public class TooltipV3Manager : MonoBehaviour
     public float ExtraHeightForBackground;
 
     [Title("Tooltip Style")]
-    public TooltipStyle Style;
-    void Update()
+    public TagFontStyle Style;
+
+    private List<LocalizeStringEvent> LocalizeStringEventList;
+
+    public void OnDestroy() { HideTooltip();}
+    public void OnDisable() { HideTooltip();}
+
+    void Start()
     {
-        UpdateText();
-        ResizeBackground();
+        LocalizeStringEventListInizizalize();
+        Refresh();
     }
 
-    void UpdateText()
+    void Update()
+    {
+        Refresh();
+    }
+
+    public void Refresh()
+    {
+        LocalizeRefresh();
+        UpdateTextSize();
+        UpdateTagFontStyte();
+        ResizeBackground();
+        Debug.Log("Refresh!");
+    }
+
+    public void ShowTooltip()
+    {
+        gameObject.SetActive(true);
+        Refresh();
+    }
+
+    public void HideTooltip()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void UpdateTextSize()
     {
         foreach (var item in TextItemList)
         {
@@ -48,7 +82,56 @@ public class TooltipV3Manager : MonoBehaviour
         var width = EndRectItem.sizeDelta.x + ExtraWidthForBackground;
         var height = math.abs(EndRectItem.localPosition.y) + EndRectItem.sizeDelta.y + ExtraHeightForBackground;
 
-        BackgroundRect.sizeDelta = new Vector2(width, height);
+        Background.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+    }
+
+    void UpdateTagFontStyte()
+    {
+        foreach (LocalizeStringEvent localizeSting in LocalizeStringEventList)
+        { localizeSting.GetComponent<TextMeshProUGUI>().text = SetTagFontStyle(localizeSting.GetComponent<TextMeshProUGUI>().text, Style); }
+    }
+
+    public string SetTagFontStyle(string text, TagFontStyle style)
+    {
+
+        // Convert all tags to TMPro markup
+        var styles = style.fontStyles;
+        for(int i = 0; i < styles.Length; i++)
+        {
+            string addTags = "</b></i></u></s>";
+            addTags += "<color=#" + ColorToHex(styles[i].color) + ">";
+            if (styles[i].bold) addTags += "<b>";
+            if (styles[i].italic) addTags += "<i>";
+            if (styles[i].underline) addTags += "<u>";
+            if (styles[i].strikethrough) addTags += "<s>";
+            text = text.Replace(styles[i].tag, addTags);
+        }
+
+        return text;
+    }
+
+    public string ColorToHex(Color color)
+    {
+        int r = (int)(color.r * 255);
+        int g = (int)(color.g * 255);
+        int b = (int)(color.b * 255);
+        return r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
+    }
+
+    void LocalizeStringEventListInizizalize()
+    {
+        LocalizeStringEventList = new List<LocalizeStringEvent>
+        {
+            Header,
+            Description,
+            NarrativeDescription
+        };
+    }
+
+    void LocalizeRefresh()
+    {
+        foreach (LocalizeStringEvent localizeSting in LocalizeStringEventList)
+        { localizeSting.RefreshString(); }
     }
 
 }

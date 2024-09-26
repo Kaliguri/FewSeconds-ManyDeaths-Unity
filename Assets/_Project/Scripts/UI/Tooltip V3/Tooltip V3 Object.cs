@@ -13,12 +13,12 @@ public class TooltipV3Object : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        tooltip.gameObject.SetActive(true);
+        tooltip.ShowTooltip();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        tooltip.gameObject.SetActive(false);
+        tooltip.HideTooltip();
     }
 
 

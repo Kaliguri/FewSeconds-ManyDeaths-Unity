@@ -4,17 +4,8 @@ using TMPro;
 using Sirenix.OdinInspector;
 
 [CreateAssetMenu(fileName = "TooltipStyle", menuName = "FewSecondsManyDeaths/TooltipStyle")]
-public class TooltipStyle : ScriptableObject
+public class TagFontStyle : ScriptableObject
 {
-
-    [Title("Tooltip Panel")]
-    public Sprite slicedSprite;
-    public Color color = Color.gray;
-
-    [Title("Font")]
-    public TMP_FontAsset fontAsset;
-    public Color defaultColor = Color.white;
-
     [Title("Formatting")]
     public Style[] fontStyles;
 }

@@ -66,9 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Name Name
-
-'
+  m_text: Name Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
   m_sharedMaterial: {fileID: 6774997285382995203, guid: ca4773f7c97a6d14995a88c2b6a1e785,
@@ -473,10 +471,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bc313404bd49948a2d737041a878b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Background: {fileID: 6911537790060959516}
   Header: {fileID: 7843994258155711752}
   Description: {fileID: 2618728752031583510}
   NarrativeDescription: {fileID: 1659238347489629853}
-  BackgroundRect: {fileID: 4196960827508107899}
   TextItemList:
   - {fileID: 2048125461049944207}
   - {fileID: 3606061204500597769}
@@ -625,7 +623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In prosess...
+  m_text: $In prosess...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
   m_sharedMaterial: {fileID: 6774997285382995203, guid: ca4773f7c97a6d14995a88c2b6a1e785,
