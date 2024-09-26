@@ -120,7 +120,16 @@ MonoBehaviour:
       _id: 1055980114
     name: Page 2
     _id: 1031699522
-  - items: []
+  - items:
+    - globalId:
+        globalObjectIdString: GlobalObjectId_V1-1-b6698467b2efb9b47bfe6c63ba502578-102900000-0
+      _typeString: UnityEditor.SceneAsset, UnityEditor.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      _obj: {fileID: 102900000, guid: b6698467b2efb9b47bfe6c63ba502578, type: 3}
+      isSceneGameObject: 0
+      isFolder: 0
+      isAsset: 1
+      _id: 1063722362
     name: Page 3
     _id: 1043949177
   - items: []

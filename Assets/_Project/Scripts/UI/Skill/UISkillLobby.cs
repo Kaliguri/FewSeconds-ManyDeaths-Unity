@@ -23,9 +23,7 @@ public class UISkillLobby : MonoBehaviour
     
     private int playerID => playerInfoData.PlayerIDThisPlayer;
     private int variation => playerInfoData.SkillChoiceList[playerID][UINumber];
-    private HeroData heroData => playerInfoData.HeroDataList[playerID];
-
-    private SkillData skillData => heroData.SkillList[UINumber].SkillVariationsList[variation]; 
+    private SkillData skillData => playerInfoData.HeroDataList[playerID].SkillList[UINumber].SkillVariationsList[variation]; 
 
     private Sprite skillIcon => skillData.SkillIcon;
     private LocalizedString skillname => skillData.Name;
