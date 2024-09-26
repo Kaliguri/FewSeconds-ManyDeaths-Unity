@@ -56,9 +56,9 @@ public class TooltipV3Manager : MonoBehaviour
 
             var textMeshPro = rectItem.GetComponent<TextMeshProUGUI>();
             textMeshPro.ForceMeshUpdate();
-            rectItem.sizeDelta = textMeshPro.GetRenderedValues(true);
+            rectItem.sizeDelta = new Vector2 (rectItem.sizeDelta.x, textMeshPro.GetRenderedValues(true).y);
         }
-
+        Debug.Log(offsetMin + " " + offsetMax);
         BackgroundRect.offsetMin = offsetMin;
         BackgroundRect.offsetMax = offsetMax;
     }
