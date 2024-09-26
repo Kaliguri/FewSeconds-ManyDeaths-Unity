@@ -20,6 +20,8 @@ public class SteamManager : MonoBehaviour
     private string FirstSessionScene => FindObjectOfType<SceneLoaderManager>().FirstSessionScene;
     private GameObject Controller;
 
+    private SceneLoaderManager sceneManager => FindObjectOfType<SceneLoaderManager>();
+
     private void OnEnable()
     {
         SteamMatchmaking.OnLobbyCreated += LobbyCreated;
@@ -122,7 +124,7 @@ public class SteamManager : MonoBehaviour
     {
         if (NetworkManager.Singleton.IsHost)
         {
-            NetworkManager.Singleton.SceneManager.LoadScene(FirstSessionScene, LoadSceneMode.Single);
+            sceneManager.LoadScene(FirstSessionScene, true);
         }
     }
 

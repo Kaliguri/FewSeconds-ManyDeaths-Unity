@@ -3,6 +3,7 @@ using UnityEngine;
 using Netcode;
 using UnityEngine.SceneManagement;
 using Unity.Netcode;
+using Sonity;
 
 public class EndCutscene : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class EndCutscene : MonoBehaviour
     [Title("Settings")]
     [SerializeField] bool GoNextScene = true;
 
+    [Title("Other")]
+    
     private SceneLoaderManager sceneManager => FindObjectOfType<SceneLoaderManager>();
     private InputActions inputActions;
 

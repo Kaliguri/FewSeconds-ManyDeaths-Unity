@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b80e83c0feb1444db6d74f0748b6ec9, type: 3}
-  m_Name: Heroes in the Dark (1) SE
+  m_Name: Heroes Melody SE
   m_EditorClassIdentifier: 
   internals:
     data:
       previewAudioMixerGroup: {fileID: 0}
       expandSoundContainers: 1
       expandTimeline: 1
-      expandPreview: 0
+      expandPreview: 1
       expandSettings: 0
       expandTriggerOnPlay: 1
       expandTriggerOnStop: 1

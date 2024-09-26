@@ -21,8 +21,8 @@ MonoBehaviour:
       expandSettings: 0
       previewCurves: 1
       audioMixerGroup: {fileID: 0}
-      priority: 0.5
-      distanceEnabled: 1
+      priority: 1
+      distanceEnabled: 0
       distanceScale: 100
       preventEndClicks: 1
       loopEnabled: 0
@@ -33,8 +33,8 @@ MonoBehaviour:
       randomStartPositionMax: 1
       startPosition: 0
       reverse: 0
-      neverStealVoice: 0
-      neverStealVoiceEffects: 0
+      neverStealVoice: 1
+      neverStealVoiceEffects: 1
       lockAxisEnable: 0
       lockAxis: 2
       lockAxisPosition: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
       pitchExpand: 0
       pitchSemitone: 0
       pitchRatio: 1
-      pitchRandomEnable: 1
+      pitchRandomEnable: 0
       pitchRandomRangeSemitoneBipolar: 0.25
       pitchIntensityEnable: 0
       pitchIntensityLowSemitone: -12
@@ -200,7 +200,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       spatialBlendExpand: 0
-      spatialBlend: 1
+      spatialBlend: 0
       spatialBlendDistanceRolloff: -4
       spatialBlendDistance3DIncrease: 0.5
       spatialBlendDistanceCurve:

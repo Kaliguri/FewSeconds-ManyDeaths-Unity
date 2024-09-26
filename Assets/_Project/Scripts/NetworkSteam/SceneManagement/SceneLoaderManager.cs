@@ -27,6 +27,8 @@ public class SceneLoaderManager : MonoBehaviour
     [SerializeField] string TrainingScenePath;
     public string TrainingScene;
 
+    private MusicReference music => FindObjectOfType<MusicReference>();
+
     private Scene m_LoadedScene;
 
     void Start()
@@ -53,6 +55,8 @@ public class SceneLoaderManager : MonoBehaviour
 
     public void LoadScene(string sceneName, bool IsNetworkScene)
     {
+        if (music != null) { OffMusic(); }
+
         if (IsNetworkScene)
         {
             if (NetworkManager.Singleton.IsHost && !string.IsNullOrEmpty(sceneName))
@@ -67,5 +71,11 @@ public class SceneLoaderManager : MonoBehaviour
                 SceneLoaderWrapperLocal.Instance.LoadScene(sceneName, useNetworkSceneManager: IsNetworkScene);
             }
         }
+    }
+
+    void OffMusic()
+    {
+        music.gameObject.SetActive(false);
+        Debug.Log("Music Off");
     }
 }

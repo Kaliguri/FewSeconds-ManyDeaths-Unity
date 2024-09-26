@@ -50,7 +50,8 @@ public class TooltipV3Manager : MonoBehaviour
         UpdateTextSize();
         UpdateTagFontStyte();
         ResizeBackground();
-        Debug.Log("Refresh!");
+
+        //Debug.Log("Refresh!");
     }
 
     public void ShowTooltip()
