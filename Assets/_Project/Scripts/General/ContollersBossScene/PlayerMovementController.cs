@@ -1,7 +1,9 @@
 using Sirenix.OdinInspector.Demos;
+using Sirenix.OdinInspector.Editor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -17,6 +19,7 @@ public class PlayerMovementController : NetworkBehaviour
     public Vector2 LastPosition;
     public List<Vector2> MovementList = new();
 
+    private List<Vector2> MovementListCheckPoints = new();
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private Tilemap gameplayTilemap => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().gameplayTilemap;
     private Vector2 tileZero => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().tileZero;
@@ -30,6 +33,7 @@ public class PlayerMovementController : NetworkBehaviour
 
     enum Movement
     {
+        None = 0,
         HorVer = 2,
         Diagonal = 3,
         TooFar = 10
@@ -41,16 +45,14 @@ public class PlayerMovementController : NetworkBehaviour
         gridPathfinding = new Pathfinding(mapClass.Max_A, mapClass.Max_B);
     }
 
-    //
-    private List<PathNode> CreatePathRoute(Vector2 fromTile, Vector2 toTile)
-    {
-        List<PathNode> paths = gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)toTile.x, (int)toTile.y);
-        return paths;
-    }
-
     private void OnEnable()
     {
         MovementList = new();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Disable();
     }
 
     public override void OnNetworkSpawn()
@@ -60,15 +62,21 @@ public class PlayerMovementController : NetworkBehaviour
 
         //Debug.Log("awakeByOwnerNet");
         inputActions = new InputActions();
-        inputActions.Combat.SelectTile.performed += _ => AddNewPointToList();
+        //inputActions.Combat.SelectTile.performed += _ => AddNewPointToList();
         inputActions.Combat.SelectTile.performed += _ => AddNewPointsToList();
-        inputActions.Combat.CancelAction.performed += _ => RemoveLastPointInList();
+        inputActions.Combat.CancelAction.performed += _ => RemoveLastPointsInList();
 
         GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(ApproveThePath);
         GlobalEventSystem.StartResultStageForPlayer.AddListener(StartMoving);
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(StartDefineMovement);
         GlobalEventSystem.PlayerActionChoosed.AddListener(PlayerActionChoosed);
         GlobalEventSystem.PlayerActionUnchoosed.AddListener(PlayerActionUnchoosed);
+    }
+
+    private List<PathNode> CreatePathRoute(Vector2 fromTile, Vector2 toTile)
+    {
+        List<PathNode> paths = gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)toTile.x, (int)toTile.y);
+        return paths;
     }
 
     private void PlayerActionUnchoosed()
@@ -80,74 +88,42 @@ public class PlayerMovementController : NetworkBehaviour
     {
         inputActions.Disable();
     }
-
-    void StartDefineMovement()
-    {
-        inputActions.Enable();
-        LastPosition = combatPlayerDataInStage.HeroCoordinates[localId];
-    }
-
-    public void RemoveLastPointInList()
-    {
-        if (MovementList.Count > 0)
-        {
-            //Debug.Log("Remove");
-            //Debug.Log(MovementList[MovementList.Count - 1]);
-
-            if (MovementList.Count == 1) 
-            { 
-                DefineMovement(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[0]);
-                LastPosition = combatPlayerDataInStage.HeroCoordinates[localId];
-            }
-            else 
-            { 
-                DefineMovement(MovementList[MovementList.Count - 1], MovementList[MovementList.Count - 2]);
-                LastPosition = MovementList[MovementList.Count - 2];
-            }
-
-            int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy + (int)MovementIndex;
-            ChangeEnergy(newEnergy);
-
-            mapClass.RemoveHero(MovementList[MovementList.Count - 1], localId);
-            MovementList.RemoveAt(MovementList.Count - 1);
-
-            GlobalEventSystem.SendPathChanged();
-        }
-    }
-
     private void ChangeEnergy(int newEnergy)
     {
         ChangePlayerEnergyRpc(newEnergy, localId);
         GlobalEventSystem.SendEnergyChange();
     }
 
-    public void AddNewPointToList()
+    void StartDefineMovement()
     {
-        Vector2 mouseWorldPos = inputActions.Combat.MousePosition.ReadValue<Vector2>();
-        mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseWorldPos);
-        Vector3Int tile = gameplayTilemap.WorldToCell(mouseWorldPos);
+        inputActions.Enable();
+        LastPosition = combatPlayerDataInStage.HeroCoordinates[localId];
+        MovementListCheckPoints.Add(LastPosition);
+    }
 
-        if (gameplayTilemap.HasTile(tile))
+    public void RemoveLastPointsInList()
+    {
+        if (MovementList.Count > 0)
         {
+            int lastCheckPointIndex = MovementList.LastIndexOf(MovementListCheckPoints[MovementListCheckPoints.Count - 2]);
 
-            Vector2 tileCenterPos = gameplayTilemap.GetCellCenterWorld(tile);
-            Vector2 targetPoint = tileCenterPos - tileZero;
-
-            bool isFree = mapClass.IsPlayable(targetPoint);
-
-            DefineMovement(LastPosition, targetPoint);
-
-            if (isFree && MovementIndex != Movement.TooFar && combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy >= (int)MovementIndex)
+            for (int i = lastCheckPointIndex; i < MovementList.Count; i++)
             {
-                MovementList.Add(targetPoint);
-                LastPosition = targetPoint;
-                GlobalEventSystem.SendPathChanged();
+                if (i == 0) DefineMovement(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[i]);
+                else DefineMovement(MovementList[i], MovementList[i - 1]);
 
-                mapClass.SetHero(targetPoint, localId);
-
-                int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy - (int)MovementIndex;
+                int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy + (int)MovementIndex;
                 ChangeEnergy(newEnergy);
             }
+
+            MovementList.RemoveRange(lastCheckPointIndex, MovementList.Count - lastCheckPointIndex);
+
+            MovementListCheckPoints.RemoveAt(MovementListCheckPoints.Count - 1);
+
+            if (MovementList.Count > 0) LastPosition = MovementList[MovementList.Count - 1];
+            else LastPosition = combatPlayerDataInStage.HeroCoordinates[localId];
+
+            GlobalEventSystem.SendPathChanged();
         }
     }
 
@@ -167,43 +143,42 @@ public class PlayerMovementController : NetworkBehaviour
 
             // Создаем путь от текущей позиции до выбранной
             List<PathNode> pathNodes = CreatePathRoute(LastPosition, targetPoint);
-
-            if (pathNodes != null && isFree)
+            if (pathNodes != null && isFree && LastPosition != pathNodes[pathNodes.Count - 1])
             {
                 foreach (PathNode node in pathNodes)
                 {
                     Vector2 point = new Vector2(node.x, node.y);
-                    Debug.Log(point);
 
-                    /*DefineMovement(LastPosition, point);
+                    DefineMovement(LastPosition, point);
 
                     if (combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy >= (int)MovementIndex)
                     {
                         MovementList.Add(point);
                         LastPosition = point;
-                        GlobalEventSystem.SendPathChanged();
 
                         mapClass.SetHero(point, localId);
 
                         int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy - (int)MovementIndex;
                         ChangeEnergy(newEnergy);
-                    }*/
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
+
+                GlobalEventSystem.SendPathChanged();
+                MovementListCheckPoints.Add(LastPosition);
             }
         }
     }
 
-
     private void DefineMovement(Vector2 PlayerCoor, Vector2 targetPoint)
     {
-        if (Math.Abs(PlayerCoor.x - targetPoint.x) > 1 || Math.Abs(PlayerCoor.y - targetPoint.y) > 1) MovementIndex = Movement.TooFar;
+        if (PlayerCoor.x == targetPoint.x && PlayerCoor.y == targetPoint.y) MovementIndex = Movement.None;
+        else if (Math.Abs(PlayerCoor.x - targetPoint.x) > 1 || Math.Abs(PlayerCoor.y - targetPoint.y) > 1) MovementIndex = Movement.TooFar;
         else if (PlayerCoor.x == targetPoint.x || PlayerCoor.y == targetPoint.y) MovementIndex = Movement.HorVer;
         else MovementIndex = Movement.Diagonal;
-    }
-
-    private void OnDisable()
-    {
-        inputActions.Disable();
     }
 
     private void ApproveThePath()
@@ -218,7 +193,21 @@ public class PlayerMovementController : NetworkBehaviour
 
     private void StartMoving(int orderInTurnPriority)
     {
-        if (turnPriority[orderInTurnPriority] == localId) StartCoroutine("MovePlayer", orderInTurnPriority);
+        if (turnPriority[orderInTurnPriority] == localId) 
+        {
+            CorrectingPath();
+            StartCoroutine("MovePlayer", orderInTurnPriority); 
+        }
+    }
+
+    private void CorrectingPath()
+    {
+        for (int i = MovementList.Count - 1; i >= 0; i--)
+        {
+            if (mapClass.TileState(MovementList[i]).Exists(x => x is Hero)) MovementList.RemoveAt(i);
+            else if (mapClass.TileState(MovementList[i]).Exists(x => x is Boss)) MovementList.RemoveAt(i);
+            else break;
+        }
     }
 
     IEnumerator MovePlayer(int orderInTurnPriority)
