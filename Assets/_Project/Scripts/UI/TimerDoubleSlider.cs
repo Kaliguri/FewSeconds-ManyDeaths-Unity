@@ -7,29 +7,23 @@ public class TimerDoubleSlider : MonoBehaviour
     [Title("Gameobjects Reference")]
     [Title("Left->Right Slider")]
     [SerializeField] GameObject leftSlider;
-    [SerializeField] Image leftSliderImage;
 
     [Title("Right->Left Slider")]
     [SerializeField] GameObject rightSlider;
-    [SerializeField] Image rightSliderImage;
 
-    [Title("Visual")]
-    [SerializeField] Sprite sliderImage; 
+    private float turnTime => FindObjectOfType<CombatStageManager>().PlayerTurnTime;
 
     void Awake()
     {
         GlobalEventSystem.PlayerTurnStageTimerUpdate.AddListener(UpdateValue);
+        GlobalEventSystem.PlayerTurnStageStarted.AddListener(StartPlayerTurnStage);
+        GlobalEventSystem.PlayerTurnStageEnded.AddListener(EndPlayerTurnStage);
     }
 
     void Start()
     {
-        ImageTransfer();
-    }
-
-    void ImageTransfer()
-    {
-        leftSliderImage.sprite = sliderImage;
-        rightSliderImage.sprite = sliderImage;
+        ValueTransfer(turnTime);
+        gameObject.SetActive(false);
     }
 
     public void ValueTransfer(float maxValue)
@@ -45,5 +39,15 @@ public class TimerDoubleSlider : MonoBehaviour
     {
         leftSlider.GetComponent<Slider>().value = timeValue;
         rightSlider.GetComponent<Slider>().value = timeValue;
+    }
+
+    private void StartPlayerTurnStage()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void EndPlayerTurnStage()
+    {
+        gameObject.SetActive(false);
     }
 }
