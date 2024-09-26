@@ -14,25 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fontStyles:
   - tag: '`'
-    color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 0}
+    color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
     bold: 0
     italic: 0
     underline: 0
     strikethrough: 0
   - tag: ~
-    color: {r: 0.990566, g: 0.5692542, b: 0.31305623, a: 0}
+    color: {r: 0.990566, g: 0.5692542, b: 0.31305623, a: 1}
     bold: 1
     italic: 0
     underline: 0
     strikethrough: 0
   - tag: '@'
-    color: {r: 1, g: 1, b: 1, a: 0}
+    color: {r: 1, g: 1, b: 1, a: 1}
     bold: 1
     italic: 0
     underline: 0
     strikethrough: 0
   - tag: $
-    color: {r: 0.58143467, g: 0.86116797, b: 0.8867924, a: 0}
+    color: {r: 0.58143467, g: 0.86116797, b: 0.8867924, a: 1}
     bold: 0
     italic: 1
     underline: 0
