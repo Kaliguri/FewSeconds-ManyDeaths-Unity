@@ -21,16 +21,19 @@ public class OnSpawn : NetworkBehaviour
         if (IsClient && IsOwner)
         {
             LocalClientSpawned?.Invoke(this);
+            Debug.Log("LocalClientSpawned");
         }
     }
 
     private void Awake()
     {
+        Debug.Log("i was born!");
         GlobalEventSystem.AllPlayerSpawned.AddListener(TransferData);
     }
 
     private void TransferData()
     {
+        Debug.Log("TransferData");
         combatPlayerDataInStage.UpdatePlayersHeroes(gameObject, playerID);
 
         Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(transform.position);
