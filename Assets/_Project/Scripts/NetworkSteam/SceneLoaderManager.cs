@@ -53,9 +53,19 @@ public class SceneLoaderManager : MonoBehaviour
 
     public void LoadScene(string sceneName, bool IsNetworkScene)
     {
-        if (NetworkManager.Singleton.IsHost && !string.IsNullOrEmpty(sceneName))
+        if (IsNetworkScene)
         {
-            SceneLoaderWrapper.Instance.LoadScene(sceneName, useNetworkSceneManager: IsNetworkScene);
+            if (NetworkManager.Singleton.IsHost && !string.IsNullOrEmpty(sceneName))
+            {
+                SceneLoaderWrapper.Instance.LoadScene(sceneName, useNetworkSceneManager: IsNetworkScene);
+            }
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(sceneName))
+            {
+                SceneLoaderWrapper.Instance.LoadScene(sceneName, useNetworkSceneManager: IsNetworkScene);
+            }
         }
     }
 }

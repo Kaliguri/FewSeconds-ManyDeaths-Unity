@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Main Menu
 --- !u!1 &2781804077111896897
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 3467877483833819364}
   - component: {fileID: 3916144560068433637}
   - component: {fileID: 4197008947877851911}
-  - component: {fileID: 8248337124178083555}
+  - component: {fileID: 8248343751625105299}
   m_Layer: 5
   m_Name: LoadingScreen
   m_TagString: Untagged
@@ -252,9 +252,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914824872117109161}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &4197008947877851911
 MonoBehaviour:
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 7340087
---- !u!114 &8248337124178083555
+--- !u!114 &8248343751625105299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3914824872117109161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79cfccc50c79ba24ea577147f8bb0ebb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fcbf5eb0902445d8108a8a5ec695a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CanvasGroup: {fileID: 3916144560068433637}
@@ -292,8 +292,7 @@ MonoBehaviour:
   m_SceneName: {fileID: 7510007246538001983}
   m_OtherPlayersProgressBars: []
   m_OtherPlayerNamesTexts: []
-  m_LoadingProgressManager: {fileID: 7089399430355484191, guid: 591d409f0f8fb5740b810938b23f2f79,
-    type: 3}
+  m_LoadingProgressManager: {fileID: 0}
 --- !u!1 &4639472334960730023
 GameObject:
   m_ObjectHideFlags: 0
