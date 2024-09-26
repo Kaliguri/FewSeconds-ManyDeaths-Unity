@@ -522,6 +522,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1612146130795829108, guid: 130215d8a3bafd041862dd7a455ed2da,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612146130795829108, guid: 130215d8a3bafd041862dd7a455ed2da,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612146130795829108, guid: 130215d8a3bafd041862dd7a455ed2da,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612146130795829108, guid: 130215d8a3bafd041862dd7a455ed2da,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -691,13 +706,28 @@ PrefabInstance:
     - target: {fileID: 4196960827508107899, guid: 130215d8a3bafd041862dd7a455ed2da,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 109
       objectReference: {fileID: 0}
+    - target: {fileID: 4661607161464548963, guid: 130215d8a3bafd041862dd7a455ed2da,
+        type: 3}
+      propertyPath: EndRectItem
+      value: 
+      objectReference: {fileID: 2089209033}
     - target: {fileID: 4661607161464548963, guid: 130215d8a3bafd041862dd7a455ed2da,
         type: 3}
       propertyPath: ScaleObject
       value: 
       objectReference: {fileID: 548055397}
+    - target: {fileID: 4661607161464548963, guid: 130215d8a3bafd041862dd7a455ed2da,
+        type: 3}
+      propertyPath: ExtraWidthForBackground
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661607161464548963, guid: 130215d8a3bafd041862dd7a455ed2da,
+        type: 3}
+      propertyPath: ExtraHeightForBackground
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5896456033986258202, guid: 130215d8a3bafd041862dd7a455ed2da,
         type: 3}
       propertyPath: m_Name
@@ -917,6 +947,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7c2ab19fc43e9c4a8f7f85236af3d5a, type: 3}
+--- !u!224 &2089209033 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9000416198062306277, guid: 130215d8a3bafd041862dd7a455ed2da,
+    type: 3}
+  m_PrefabInstance: {fileID: 910918986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
