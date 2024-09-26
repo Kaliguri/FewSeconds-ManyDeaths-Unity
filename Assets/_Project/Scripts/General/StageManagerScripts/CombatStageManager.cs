@@ -11,7 +11,7 @@ using System;
 
 public class CombatStageManager : NetworkBehaviour
 {
-    [SerializeField] private float playerTurnTime;
+    public float PlayerTurnTime;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI confirmationText;
     [SerializeField] private Button confirmationButton;
@@ -46,7 +46,7 @@ public class CombatStageManager : NetworkBehaviour
         var bossTurnStage = gameObject.GetComponent<BossTurnStage>();
 
         predictionStage.Initialize(this);
-        playerTurnStage.Initialize(this, playerTurnTime, timerText, confirmationText, confirmationButton);
+        playerTurnStage.Initialize(this, PlayerTurnTime, timerText, confirmationText, confirmationButton);
         resultStage.Initialize(this);
         bossTurnStage.Initialize(this);
 

@@ -86,6 +86,13 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe20c7cb4ba1e65419bb1634325aacd8
+    m_Address: Stage Name_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffc416ff44fe94449a0b9fc5c06f8e73
     m_Address: Berserk 1_en
     m_ReadOnly: 1

@@ -128,6 +128,9 @@ public static class GlobalEventSystem
     public static UnityEvent BossTurnStageStarted = new();
     public static void SendBossTurnStageStarted() { BossTurnStageStarted.Invoke(); }
 
+    public static UnityEvent <float> PlayerTurnStageTimerUpdate = new();
+    public static void SendPlayerTurnStageTimerUpdate(float timeValue) { PlayerTurnStageTimerUpdate.Invoke(timeValue); }
+
     #endregion
 
     #region Combat

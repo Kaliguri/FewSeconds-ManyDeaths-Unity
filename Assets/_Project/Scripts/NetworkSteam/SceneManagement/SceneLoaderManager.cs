@@ -76,6 +76,6 @@ public class SceneLoaderManager : MonoBehaviour
     void OffMusic()
     {
         music.gameObject.SetActive(false);
-        Debug.Log("Music Off");
+        //Debug.Log("Music Off");
     }
 }

@@ -75,7 +75,7 @@ public class PlayerTurnStage : GameState
         }
     }
 
-    private IEnumerator Timer()
+    private IEnumerator Timer() //Use TimerManager!
     {
         UpdateTimerUIRpc();
         while (remainingTime.Value > 0)
@@ -120,6 +120,8 @@ public class PlayerTurnStage : GameState
         if (timerText != null)
         {
             timerText.text = $"{remainingTime.Value}";
+            GlobalEventSystem.SendPlayerTurnStageTimerUpdate(remainingTime.Value);
+
         }
     }
 

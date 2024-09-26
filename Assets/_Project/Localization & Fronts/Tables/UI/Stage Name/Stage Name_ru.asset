@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Stage Name_ru
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ru
+  m_SharedData: {fileID: 11400000, guid: 9dec38d25bc2dad498a66b47a34b1856, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 298633736192
+    m_Localized: "\u0421\u0442\u0430\u0434\u0438\u044F \u041F\u0440\u0435\u0434\u0441\u043A\u0430\u0437\u0430\u043D\u0438\u044F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 301796241408
+    m_Localized: "\u0421\u0442\u0430\u0434\u0438\u044F \u0425\u043E\u0434\u0430 \u0418\u0433\u0440\u043E\u043A\u043E\u0432"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303885004800
+    m_Localized: "\u0421\u0442\u0430\u0434\u0438\u044F \u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u0430
+      \u0418\u0433\u0440\u043E\u043A\u043E\u0432"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 306359644160
+    m_Localized: "\u0421\u0442\u0430\u0434\u0438\u044F \u0425\u043E\u0434\u0430 \u0411\u043E\u0441\u0441\u0430"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

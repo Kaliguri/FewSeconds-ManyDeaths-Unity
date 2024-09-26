@@ -17,28 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: a6d3966ebf43df942a116d5506984838
   m_SerializeEntries:
-  - m_GUID: 342c294cddf253a4582887de19a50727
-    m_Address: Assets/Localization/Tables/Boss/Berserk Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e04c2a0e30be7224b81a652903df7a48
-    m_Address: Assets/_Project/Localization/Tables/UI/Main Menu Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 84c3fd870064ab64b8be32739d5ceefb
-    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/In Lobby Menu/In Lobby
-      Menu Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f7b636a4f2cbfe3438bc80e25673b50c
-    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Character Choice/Character
-      Choice Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ca6463ffdecc95418fe0f37302147e0
     m_Address: Assets/_Project/Localization & Fronts/Tables/Hero/Chess Master/Chess
       Master Shared Data.asset
@@ -51,9 +29,8 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bf4188e66a021a24aaa032659a997710
-    m_Address: Assets/_Project/Localization & Fronts/Tables/Hero/Priest/Priest Shared
-      Data.asset
+  - m_GUID: 342c294cddf253a4582887de19a50727
+    m_Address: Assets/Localization/Tables/Boss/Berserk Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -63,8 +40,14 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ccf0cd8aa40226547b22b413dd887098
-    m_Address: Assets/_Project/Localization & Fronts/Tables/Hero/Hero Type/Hero Type
+  - m_GUID: 84c3fd870064ab64b8be32739d5ceefb
+    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/In Lobby Menu/In Lobby
+      Menu Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dec38d25bc2dad498a66b47a34b1856
+    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Stage Name/Stage Name
       Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
@@ -75,9 +58,32 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf4188e66a021a24aaa032659a997710
+    m_Address: Assets/_Project/Localization & Fronts/Tables/Hero/Priest/Priest Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccf0cd8aa40226547b22b413dd887098
+    m_Address: Assets/_Project/Localization & Fronts/Tables/Hero/Hero Type/Hero Type
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e04c2a0e30be7224b81a652903df7a48
+    m_Address: Assets/_Project/Localization/Tables/UI/Main Menu Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0d4dd247663331448d1706783f5f8cb
     m_Address: Assets/_Project/Localization & Fronts/Tables/Quest/Heads Or Tails
       Quest Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7b636a4f2cbfe3438bc80e25673b50c
+    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Character Choice/Character
+      Choice Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

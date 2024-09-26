@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Stage Name Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Stage Name
+  m_TableCollectionNameGuidString: 9dec38d25bc2dad498a66b47a34b1856
+  m_Entries:
+  - m_Id: 298633736192
+    m_Key: Prediction Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 301796241408
+    m_Key: Player Turn Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303885004800
+    m_Key: Player Result Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 306359644160
+    m_Key: Boss Turn Stage
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4082220101084381184
+  references:
+    version: 2
+    RefIds:
+    - rid: 4082220101084381184
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1727383558375
