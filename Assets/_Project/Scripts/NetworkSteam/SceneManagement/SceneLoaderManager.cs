@@ -57,14 +57,14 @@ public class SceneLoaderManager : MonoBehaviour
         {
             if (NetworkManager.Singleton.IsHost && !string.IsNullOrEmpty(sceneName))
             {
-                SceneLoaderWrapper.Instance.LoadScene(sceneName, useNetworkSceneManager: IsNetworkScene);
+                SceneLoaderWrapperLocal.Instance.LoadScene(sceneName, useNetworkSceneManager: IsNetworkScene);
             }
         }
         else
         {
             if (!string.IsNullOrEmpty(sceneName))
             {
-                SceneLoaderWrapper.Instance.LoadScene(sceneName, useNetworkSceneManager: IsNetworkScene);
+                SceneLoaderWrapperLocal.Instance.LoadScene(sceneName, useNetworkSceneManager: IsNetworkScene);
             }
         }
     }
