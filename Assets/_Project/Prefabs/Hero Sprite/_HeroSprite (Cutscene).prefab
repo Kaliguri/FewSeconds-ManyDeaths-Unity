@@ -154,15 +154,15 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f9cb5ab5b1
   m_ShapePath:
   - {x: -0.15041935, y: -0.40511388, z: 0}
-  - {x: -0.1703952, y: 0.4200959, z: 0}
-  - {x: 0.15041934, y: 0.42508984, z: 0}
+  - {x: -0.15265568, y: -0.2895252, z: 0}
+  - {x: 0.16815886, y: -0.27566096, z: 0}
   - {x: 0.16040726, y: -0.40511394, z: 0}
-  m_ShapePathHash: -1367311147
+  m_ShapePathHash: -585615629
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44654
+  m_InstanceId: -382872
   m_LocalBounds:
-    m_Center: {x: -0.004993975, y: 0.00998795, z: 0}
-    m_Extent: {x: 0.16540122, y: 0.4151019, z: 0}
+    m_Center: {x: 0.007751599, y: -0.34038746, z: 0}
+    m_Extent: {x: 0.16040727, y: 0.06472649, z: 0}
 --- !u!114 &5272505969202071862
 MonoBehaviour:
   m_ObjectHideFlags: 0

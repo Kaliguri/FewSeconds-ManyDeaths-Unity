@@ -27,7 +27,7 @@ public class SceneLoaderManager : MonoBehaviour
     [SerializeField] string TrainingScenePath;
     public string TrainingScene;
 
-    private MusicReference music => FindObjectOfType<MusicReference>();
+    private SoundManagerReference music => FindObjectOfType<SoundManagerReference>();
 
     private Scene m_LoadedScene;
 
