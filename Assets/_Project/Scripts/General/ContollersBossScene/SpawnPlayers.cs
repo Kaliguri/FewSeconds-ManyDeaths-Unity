@@ -40,14 +40,12 @@ public class SpawnPlayers : NetworkBehaviour
 
         player.name = "Player_" + id;
         player.GetComponent<NetworkObject>().SpawnAsPlayerObject(id, true);
-        //player.GetComponent<CoordinatesController>().ChangeCoordinates(SpawnCoordinate[i]);
-
-        GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().ChangeCell(SpawnCoordinate[i], MapClass.TileStates.Player);
+        Debug.Log("SpawnAsPlayer");
 
         OnlyForClientRpc(SpawnCoordinate[i], id);
     }
 
-    [ClientRpc]
+    [Rpc(SendTo.ClientsAndHost)]
     void OnlyForClientRpc(Vector2 PlayerMapCoordinates, ulong sourceNetworkObjectId)
     {
         GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().ChangeCell(PlayerMapCoordinates, MapClass.TileStates.Player);

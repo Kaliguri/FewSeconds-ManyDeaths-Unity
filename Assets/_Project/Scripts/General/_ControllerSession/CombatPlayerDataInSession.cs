@@ -113,14 +113,14 @@ public class CombatPlayerDataInSession : MonoBehaviour
 
         _HeroStatsEffectList[DataNumber] = new GeneralStats();
         _TalentsStatsEffectList[DataNumber] = new GeneralStats();
-        _ItemsStatsEffectList[DataNumber] = new GeneralStats();;
+        _ItemsStatsEffectList[DataNumber] = new GeneralStats();
         _CommandArtifactsStatsEffectList[DataNumber] = new GeneralStats();
         _StatsEffectList[DataNumber] = new GeneralStats();
 
         PlayersTalentsList[DataNumber] = new PlayerTalents();
         PlayersItemsList[DataNumber] = new PlayerItems();
-        PlayersCommandArtifactsList[DataNumber] = new CommandArtifactData();
-        CurrentEffectList[DataNumber] = new EffectData();
+        PlayersCommandArtifactsList[DataNumber] = ScriptableObject.CreateInstance<CommandArtifactData>();
+        CurrentEffectList[DataNumber] = ScriptableObject.CreateInstance<EffectData>();
 
         }
     }
