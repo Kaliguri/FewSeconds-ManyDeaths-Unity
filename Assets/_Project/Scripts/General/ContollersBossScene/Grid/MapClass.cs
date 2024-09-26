@@ -8,7 +8,6 @@ using UnityEngine.Tilemaps;
 public class MapClass : NetworkBehaviour
 {
     [Title("Settings")]
-    [Header("Settings")]
     [SerializeField] int Max_A;
     [SerializeField] int Max_B;
 
