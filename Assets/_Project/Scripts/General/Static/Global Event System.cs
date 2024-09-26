@@ -104,15 +104,15 @@ public static class GlobalEventSystem
     public static UnityEvent PredictionStageStarted = new();
     public static void SendPredictionStageStarted() { PredictionStageStarted.Invoke(); }
 
-    public static UnityEvent PredictionEnd = new();
-    public static void SendPredictionEnd() { PredictionEnd.Invoke(); }
+    public static UnityEvent PredictionStageEnded = new();
+    public static void SendPredictionStageEnded() { PredictionStageEnded.Invoke(); }
 
 
     public static UnityEvent PlayerTurnStageStarted = new();
     public static void SendPlayerTurnStageStarted() { PlayerTurnStageStarted.Invoke(); }
 
-    public static UnityEvent PlayerTurnStageEnd = new();
-    public static void SendPlayerTurnStageEnd() { PlayerTurnStageEnd.Invoke(); }
+    public static UnityEvent PlayerTurnStageEnded = new();
+    public static void SendPlayerTurnStageEnded() { PlayerTurnStageEnded.Invoke(); }
 
 
     public static UnityEvent ResultStageEnded = new();

@@ -32,7 +32,7 @@ public class PredictionStage : GameState
 
     public override void Exit()
     {
-        GlobalEventSystem.SendPredictionEnd();
+        GlobalEventSystem.SendPredictionStageEnded();
         //Debug.Log("Exiting Prediction Stage");
     }
 
