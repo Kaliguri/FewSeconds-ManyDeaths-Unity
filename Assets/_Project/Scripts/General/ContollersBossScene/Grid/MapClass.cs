@@ -9,8 +9,8 @@ using UnityEngine.Tilemaps;
 public class MapClass : NetworkBehaviour
 {
     [Title("Settings")]
-    [SerializeField] int Max_A;
-    [SerializeField] int Max_B;
+    [SerializeField] public int Max_A;
+    [SerializeField] public int Max_B;
 
     [HideInInspector]
     public Vector2 tileZero;

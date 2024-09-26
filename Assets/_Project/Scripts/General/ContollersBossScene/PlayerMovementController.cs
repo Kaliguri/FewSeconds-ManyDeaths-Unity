@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector.Demos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ public class PlayerMovementController : NetworkBehaviour
     private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
     private int localId => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
     private float timeBetweenMovement = 1f;
+    Pathfinding gridPathfinding;
 
     enum Movement
     {
@@ -33,6 +35,18 @@ public class PlayerMovementController : NetworkBehaviour
         TooFar = 10
     }
     private Movement MovementIndex;
+
+    private void Awake()
+    {
+        gridPathfinding = new Pathfinding(mapClass.Max_A, mapClass.Max_B);
+    }
+
+    //
+    private List<PathNode> CreatePathRoute(Vector2 fromTile, Vector2 toTile)
+    {
+        List<PathNode> paths = gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)toTile.x, (int)toTile.y);
+        return paths;
+    }
 
     private void OnEnable()
     {
@@ -47,6 +61,7 @@ public class PlayerMovementController : NetworkBehaviour
         //Debug.Log("awakeByOwnerNet");
         inputActions = new InputActions();
         inputActions.Combat.SelectTile.performed += _ => AddNewPointToList();
+        inputActions.Combat.SelectTile.performed += _ => AddNewPointsToList();
         inputActions.Combat.CancelAction.performed += _ => RemoveLastPointInList();
 
         GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(ApproveThePath);
@@ -135,6 +150,49 @@ public class PlayerMovementController : NetworkBehaviour
             }
         }
     }
+
+    public void AddNewPointsToList()
+    {
+        Vector2 mouseWorldPos = inputActions.Combat.MousePosition.ReadValue<Vector2>();
+        mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseWorldPos);
+        Vector3Int tile = gameplayTilemap.WorldToCell(mouseWorldPos);
+
+        if (gameplayTilemap.HasTile(tile))
+        {
+            Vector2 tileCenterPos = gameplayTilemap.GetCellCenterWorld(tile);
+            Vector2 targetPoint = tileCenterPos - tileZero;
+
+            // ѕровер€ем, что клетка доступна
+            bool isFree = mapClass.IsPlayable(targetPoint);
+
+            // —оздаем путь от текущей позиции до выбранной
+            List<PathNode> pathNodes = CreatePathRoute(LastPosition, targetPoint);
+
+            if (pathNodes != null && isFree)
+            {
+                foreach (PathNode node in pathNodes)
+                {
+                    Vector2 point = new Vector2(node.x, node.y);
+                    Debug.Log(point);
+
+                    /*DefineMovement(LastPosition, point);
+
+                    if (combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy >= (int)MovementIndex)
+                    {
+                        MovementList.Add(point);
+                        LastPosition = point;
+                        GlobalEventSystem.SendPathChanged();
+
+                        mapClass.SetHero(point, localId);
+
+                        int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy - (int)MovementIndex;
+                        ChangeEnergy(newEnergy);
+                    }*/
+                }
+            }
+        }
+    }
+
 
     private void DefineMovement(Vector2 PlayerCoor, Vector2 targetPoint)
     {
