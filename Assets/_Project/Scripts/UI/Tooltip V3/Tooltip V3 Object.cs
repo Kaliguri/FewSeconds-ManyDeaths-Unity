@@ -1,14 +1,13 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class TooltipV3Object : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private TooltipV3Manager tooltip;
+    private TooltipV3ParentManager tooltip;
 
     void Start()
     {
-        tooltip = GetComponentInChildren<TooltipV3Manager>();
+        tooltip = GetComponentInChildren<TooltipV3ParentManager>();
         tooltip.gameObject.SetActive(false);
     }
     public void OnPointerEnter(PointerEventData eventData)

@@ -5,9 +5,8 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Localization.Components;
-using UnityEngine.UI;
 
-public class TooltipV3Manager : MonoBehaviour
+public class TooltipV3SkillManager : TooltipV3ParentManager
 {
     [Title("General")]
     public GameObject Background;
@@ -44,7 +43,7 @@ public class TooltipV3Manager : MonoBehaviour
         Refresh();
     }
 
-    public void Refresh()
+    public override void Refresh()
     {
         LocalizeRefresh();
         UpdateTextSize();
@@ -54,13 +53,13 @@ public class TooltipV3Manager : MonoBehaviour
         //Debug.Log("Refresh!");
     }
 
-    public void ShowTooltip()
+    public override void ShowTooltip()
     {
         gameObject.SetActive(true);
         Refresh();
     }
 
-    public void HideTooltip()
+    public override void HideTooltip()
     {
         gameObject.SetActive(false);
     }
@@ -94,7 +93,7 @@ public class TooltipV3Manager : MonoBehaviour
 
     public string SetTagFontStyle(string text, TagFontStyle style)
     {
-
+        
         // Convert all tags to TMPro markup
         var styles = style.fontStyles;
         for(int i = 0; i < styles.Length; i++)
@@ -107,7 +106,7 @@ public class TooltipV3Manager : MonoBehaviour
             if (styles[i].strikethrough) addTags += "<s>";
             text = text.Replace(styles[i].tag, addTags);
         }
-
+        
         return text;
     }
 

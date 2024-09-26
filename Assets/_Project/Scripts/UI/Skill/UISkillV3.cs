@@ -9,7 +9,7 @@ public class UISkillV3 : MonoBehaviour
 
     [Header("GameObj")]
     [SerializeField] Image IconObj;
-    [SerializeField] TooltipV3Manager tooltipManager;
+    [SerializeField] TooltipV3SkillManager tooltipManager;
 
     [Header("Other")]
     public int UINumber;

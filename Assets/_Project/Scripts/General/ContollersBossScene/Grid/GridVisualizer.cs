@@ -1,15 +1,8 @@
-using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
-#if UNITY_EDITOR
-using VFavorites.Libs;
-#endif
 
-using static UnityEngine.InputSystem.InputSettings;
 
 public class GridVisualizer : MonoBehaviour
 {
