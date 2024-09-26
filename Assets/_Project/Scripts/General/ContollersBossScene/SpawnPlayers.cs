@@ -42,7 +42,7 @@ public class SpawnPlayers : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void SendAllPlayersSpawnedRpc()
     {
-        GlobalEventSystem.SendAllPlayerSpawned();
+        //GlobalEventSystem.SendAllPlayerSpawned();
     }
 
     private void SpawnPlayer(int i, ulong id)
