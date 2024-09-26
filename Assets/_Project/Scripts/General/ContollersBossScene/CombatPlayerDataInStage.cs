@@ -83,7 +83,7 @@ public class CombatPlayerDataInStage : MonoBehaviour
         return null;
     }
 
-    private void Start()
+    private void Awake()
     {
         Inizialize();
     }
