@@ -24,102 +24,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     ""name"": ""InputActions"",
     ""maps"": [
         {
-            ""name"": ""Debugs"",
-            ""id"": ""3b03e3e2-cf77-4497-8ee1-83578b8b500d"",
-            ""actions"": [
-                {
-                    ""name"": ""MousePosition"",
-                    ""type"": ""Value"",
-                    ""id"": ""8a4d6919-fc91-4506-ae9f-df4f7c31968d"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""MouseClick"",
-                    ""type"": ""Button"",
-                    ""id"": ""943cd009-5ac6-4291-a82c-2ef7687f4afd"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""212ee244-f450-4732-b15e-d0eda340b0fb"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""bed6bd42-fda0-4e54-88b5-d47f0b319d15"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MousePosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Movement"",
-            ""id"": ""0557320d-f843-4e93-9019-2b90f325ddbd"",
-            ""actions"": [
-                {
-                    ""name"": ""MousePosition"",
-                    ""type"": ""Value"",
-                    ""id"": ""77686660-dd63-449a-9ae6-203c7b16f6ef"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""MouseClick"",
-                    ""type"": ""Button"",
-                    ""id"": ""cf7063f6-97f9-4e42-af87-3add9fa33a9c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""67adc5a5-c2e5-4ca5-ade4-553c83db70b3"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""MouseClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a0bbffc7-9ae8-4f52-8f1f-4649de7353a4"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""MousePosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""Combat"",
             ""id"": ""ba5b5499-d6a9-4241-bf0f-8031d8d2aa72"",
             ""actions"": [
@@ -151,7 +55,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Skill 1"",
+                    ""name"": ""SkillQ"",
                     ""type"": ""Button"",
                     ""id"": ""d1c7c020-4cf8-456c-bc33-b317b95f119a"",
                     ""expectedControlType"": ""Button"",
@@ -160,7 +64,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Skill 2"",
+                    ""name"": ""SkillW"",
                     ""type"": ""Button"",
                     ""id"": ""5fd4f7ee-ebd5-4570-935f-41081c109fcf"",
                     ""expectedControlType"": ""Button"",
@@ -169,7 +73,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Skill 3"",
+                    ""name"": ""SkillE"",
                     ""type"": ""Button"",
                     ""id"": ""0b8285fa-6eab-4165-89f3-adcc842e3b0b"",
                     ""expectedControlType"": ""Button"",
@@ -178,7 +82,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Skill 4"",
+                    ""name"": ""SkillR"",
                     ""type"": ""Button"",
                     ""id"": ""7b8d34e9-18e5-4e4b-9610-099c8ee78984"",
                     ""expectedControlType"": ""Button"",
@@ -228,7 +132,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Skill 1"",
+                    ""action"": ""SkillQ"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -239,7 +143,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Skill 2"",
+                    ""action"": ""SkillW"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -250,7 +154,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Skill 3"",
+                    ""action"": ""SkillE"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -261,7 +165,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Skill 4"",
+                    ""action"": ""SkillR"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -355,23 +259,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Debugs
-        m_Debugs = asset.FindActionMap("Debugs", throwIfNotFound: true);
-        m_Debugs_MousePosition = m_Debugs.FindAction("MousePosition", throwIfNotFound: true);
-        m_Debugs_MouseClick = m_Debugs.FindAction("MouseClick", throwIfNotFound: true);
-        // Movement
-        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_MousePosition = m_Movement.FindAction("MousePosition", throwIfNotFound: true);
-        m_Movement_MouseClick = m_Movement.FindAction("MouseClick", throwIfNotFound: true);
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
         m_Combat_SelectTile = m_Combat.FindAction("SelectTile", throwIfNotFound: true);
         m_Combat_MousePosition = m_Combat.FindAction("MousePosition", throwIfNotFound: true);
         m_Combat_CancelAction = m_Combat.FindAction("CancelAction", throwIfNotFound: true);
-        m_Combat_Skill1 = m_Combat.FindAction("Skill 1", throwIfNotFound: true);
-        m_Combat_Skill2 = m_Combat.FindAction("Skill 2", throwIfNotFound: true);
-        m_Combat_Skill3 = m_Combat.FindAction("Skill 3", throwIfNotFound: true);
-        m_Combat_Skill4 = m_Combat.FindAction("Skill 4", throwIfNotFound: true);
+        m_Combat_SkillQ = m_Combat.FindAction("SkillQ", throwIfNotFound: true);
+        m_Combat_SkillW = m_Combat.FindAction("SkillW", throwIfNotFound: true);
+        m_Combat_SkillE = m_Combat.FindAction("SkillE", throwIfNotFound: true);
+        m_Combat_SkillR = m_Combat.FindAction("SkillR", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_SkipCutscene = m_UI.FindAction("Skip Cutscene", throwIfNotFound: true);
@@ -435,124 +331,16 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Debugs
-    private readonly InputActionMap m_Debugs;
-    private List<IDebugsActions> m_DebugsActionsCallbackInterfaces = new List<IDebugsActions>();
-    private readonly InputAction m_Debugs_MousePosition;
-    private readonly InputAction m_Debugs_MouseClick;
-    public struct DebugsActions
-    {
-        private @InputActions m_Wrapper;
-        public DebugsActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MousePosition => m_Wrapper.m_Debugs_MousePosition;
-        public InputAction @MouseClick => m_Wrapper.m_Debugs_MouseClick;
-        public InputActionMap Get() { return m_Wrapper.m_Debugs; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(DebugsActions set) { return set.Get(); }
-        public void AddCallbacks(IDebugsActions instance)
-        {
-            if (instance == null || m_Wrapper.m_DebugsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_DebugsActionsCallbackInterfaces.Add(instance);
-            @MousePosition.started += instance.OnMousePosition;
-            @MousePosition.performed += instance.OnMousePosition;
-            @MousePosition.canceled += instance.OnMousePosition;
-            @MouseClick.started += instance.OnMouseClick;
-            @MouseClick.performed += instance.OnMouseClick;
-            @MouseClick.canceled += instance.OnMouseClick;
-        }
-
-        private void UnregisterCallbacks(IDebugsActions instance)
-        {
-            @MousePosition.started -= instance.OnMousePosition;
-            @MousePosition.performed -= instance.OnMousePosition;
-            @MousePosition.canceled -= instance.OnMousePosition;
-            @MouseClick.started -= instance.OnMouseClick;
-            @MouseClick.performed -= instance.OnMouseClick;
-            @MouseClick.canceled -= instance.OnMouseClick;
-        }
-
-        public void RemoveCallbacks(IDebugsActions instance)
-        {
-            if (m_Wrapper.m_DebugsActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IDebugsActions instance)
-        {
-            foreach (var item in m_Wrapper.m_DebugsActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_DebugsActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public DebugsActions @Debugs => new DebugsActions(this);
-
-    // Movement
-    private readonly InputActionMap m_Movement;
-    private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
-    private readonly InputAction m_Movement_MousePosition;
-    private readonly InputAction m_Movement_MouseClick;
-    public struct MovementActions
-    {
-        private @InputActions m_Wrapper;
-        public MovementActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MousePosition => m_Wrapper.m_Movement_MousePosition;
-        public InputAction @MouseClick => m_Wrapper.m_Movement_MouseClick;
-        public InputActionMap Get() { return m_Wrapper.m_Movement; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
-        public void AddCallbacks(IMovementActions instance)
-        {
-            if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
-            @MousePosition.started += instance.OnMousePosition;
-            @MousePosition.performed += instance.OnMousePosition;
-            @MousePosition.canceled += instance.OnMousePosition;
-            @MouseClick.started += instance.OnMouseClick;
-            @MouseClick.performed += instance.OnMouseClick;
-            @MouseClick.canceled += instance.OnMouseClick;
-        }
-
-        private void UnregisterCallbacks(IMovementActions instance)
-        {
-            @MousePosition.started -= instance.OnMousePosition;
-            @MousePosition.performed -= instance.OnMousePosition;
-            @MousePosition.canceled -= instance.OnMousePosition;
-            @MouseClick.started -= instance.OnMouseClick;
-            @MouseClick.performed -= instance.OnMouseClick;
-            @MouseClick.canceled -= instance.OnMouseClick;
-        }
-
-        public void RemoveCallbacks(IMovementActions instance)
-        {
-            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IMovementActions instance)
-        {
-            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public MovementActions @Movement => new MovementActions(this);
-
     // Combat
     private readonly InputActionMap m_Combat;
     private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
     private readonly InputAction m_Combat_SelectTile;
     private readonly InputAction m_Combat_MousePosition;
     private readonly InputAction m_Combat_CancelAction;
-    private readonly InputAction m_Combat_Skill1;
-    private readonly InputAction m_Combat_Skill2;
-    private readonly InputAction m_Combat_Skill3;
-    private readonly InputAction m_Combat_Skill4;
+    private readonly InputAction m_Combat_SkillQ;
+    private readonly InputAction m_Combat_SkillW;
+    private readonly InputAction m_Combat_SkillE;
+    private readonly InputAction m_Combat_SkillR;
     public struct CombatActions
     {
         private @InputActions m_Wrapper;
@@ -560,10 +348,10 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @SelectTile => m_Wrapper.m_Combat_SelectTile;
         public InputAction @MousePosition => m_Wrapper.m_Combat_MousePosition;
         public InputAction @CancelAction => m_Wrapper.m_Combat_CancelAction;
-        public InputAction @Skill1 => m_Wrapper.m_Combat_Skill1;
-        public InputAction @Skill2 => m_Wrapper.m_Combat_Skill2;
-        public InputAction @Skill3 => m_Wrapper.m_Combat_Skill3;
-        public InputAction @Skill4 => m_Wrapper.m_Combat_Skill4;
+        public InputAction @SkillQ => m_Wrapper.m_Combat_SkillQ;
+        public InputAction @SkillW => m_Wrapper.m_Combat_SkillW;
+        public InputAction @SkillE => m_Wrapper.m_Combat_SkillE;
+        public InputAction @SkillR => m_Wrapper.m_Combat_SkillR;
         public InputActionMap Get() { return m_Wrapper.m_Combat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -582,18 +370,18 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @CancelAction.started += instance.OnCancelAction;
             @CancelAction.performed += instance.OnCancelAction;
             @CancelAction.canceled += instance.OnCancelAction;
-            @Skill1.started += instance.OnSkill1;
-            @Skill1.performed += instance.OnSkill1;
-            @Skill1.canceled += instance.OnSkill1;
-            @Skill2.started += instance.OnSkill2;
-            @Skill2.performed += instance.OnSkill2;
-            @Skill2.canceled += instance.OnSkill2;
-            @Skill3.started += instance.OnSkill3;
-            @Skill3.performed += instance.OnSkill3;
-            @Skill3.canceled += instance.OnSkill3;
-            @Skill4.started += instance.OnSkill4;
-            @Skill4.performed += instance.OnSkill4;
-            @Skill4.canceled += instance.OnSkill4;
+            @SkillQ.started += instance.OnSkillQ;
+            @SkillQ.performed += instance.OnSkillQ;
+            @SkillQ.canceled += instance.OnSkillQ;
+            @SkillW.started += instance.OnSkillW;
+            @SkillW.performed += instance.OnSkillW;
+            @SkillW.canceled += instance.OnSkillW;
+            @SkillE.started += instance.OnSkillE;
+            @SkillE.performed += instance.OnSkillE;
+            @SkillE.canceled += instance.OnSkillE;
+            @SkillR.started += instance.OnSkillR;
+            @SkillR.performed += instance.OnSkillR;
+            @SkillR.canceled += instance.OnSkillR;
         }
 
         private void UnregisterCallbacks(ICombatActions instance)
@@ -607,18 +395,18 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @CancelAction.started -= instance.OnCancelAction;
             @CancelAction.performed -= instance.OnCancelAction;
             @CancelAction.canceled -= instance.OnCancelAction;
-            @Skill1.started -= instance.OnSkill1;
-            @Skill1.performed -= instance.OnSkill1;
-            @Skill1.canceled -= instance.OnSkill1;
-            @Skill2.started -= instance.OnSkill2;
-            @Skill2.performed -= instance.OnSkill2;
-            @Skill2.canceled -= instance.OnSkill2;
-            @Skill3.started -= instance.OnSkill3;
-            @Skill3.performed -= instance.OnSkill3;
-            @Skill3.canceled -= instance.OnSkill3;
-            @Skill4.started -= instance.OnSkill4;
-            @Skill4.performed -= instance.OnSkill4;
-            @Skill4.canceled -= instance.OnSkill4;
+            @SkillQ.started -= instance.OnSkillQ;
+            @SkillQ.performed -= instance.OnSkillQ;
+            @SkillQ.canceled -= instance.OnSkillQ;
+            @SkillW.started -= instance.OnSkillW;
+            @SkillW.performed -= instance.OnSkillW;
+            @SkillW.canceled -= instance.OnSkillW;
+            @SkillE.started -= instance.OnSkillE;
+            @SkillE.performed -= instance.OnSkillE;
+            @SkillE.canceled -= instance.OnSkillE;
+            @SkillR.started -= instance.OnSkillR;
+            @SkillR.performed -= instance.OnSkillR;
+            @SkillR.canceled -= instance.OnSkillR;
         }
 
         public void RemoveCallbacks(ICombatActions instance)
@@ -707,25 +495,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
         }
     }
-    public interface IDebugsActions
-    {
-        void OnMousePosition(InputAction.CallbackContext context);
-        void OnMouseClick(InputAction.CallbackContext context);
-    }
-    public interface IMovementActions
-    {
-        void OnMousePosition(InputAction.CallbackContext context);
-        void OnMouseClick(InputAction.CallbackContext context);
-    }
     public interface ICombatActions
     {
         void OnSelectTile(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnCancelAction(InputAction.CallbackContext context);
-        void OnSkill1(InputAction.CallbackContext context);
-        void OnSkill2(InputAction.CallbackContext context);
-        void OnSkill3(InputAction.CallbackContext context);
-        void OnSkill4(InputAction.CallbackContext context);
+        void OnSkillQ(InputAction.CallbackContext context);
+        void OnSkillW(InputAction.CallbackContext context);
+        void OnSkillE(InputAction.CallbackContext context);
+        void OnSkillR(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -15,7 +15,7 @@ public class SpawnPlayerForTraining : MonoBehaviour
         Vector2 Coordinates = SpawnCoordinate[0] + zeroPoint;
         GameObject player = Instantiate(Player, Coordinates, Quaternion.identity);
 
-        GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().ChangeCell(SpawnCoordinate[0], MapClass.TileStates.Player);
+        GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().SetHero(SpawnCoordinate[0], 0);
 
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using Sirenix.OdinInspector;
 using Unity.Netcode;
 using UnityEngine;
@@ -13,23 +14,16 @@ public class MapClass : NetworkBehaviour
 
     [HideInInspector]
     public Vector2 tileZero;
-    public enum TileStates
-    {
-        Free = 0,
-        Terrain = 1,
-        Player = 2,
-        Boss = 3,
-        Other = 4
-    }
+
     public Tilemap gameplayTilemap => FindObjectOfType<GameplayTilemapTag>().gameObject.GetComponent<Tilemap>();
-    private TileStates[,] Map;
+    private TileInfo[,] TileMap;
     private GameObject DownLeftPoint => FindObjectOfType<DownLeftPointTag>().gameObject;
     private Vector3Int DownLeftTile;
     //[SerializeField] TileBase terrainTile;
 
     void Awake()
     {
-        Map = new TileStates[Max_A, Max_B];
+        TileMap = new TileInfo[Max_A, Max_B];
         DownLeftTile = gameplayTilemap.WorldToCell(DownLeftPoint.transform.position);
         tileZero = gameplayTilemap.GetCellCenterWorld(DownLeftTile);
         FindTerrain();
@@ -41,31 +35,63 @@ public class MapClass : NetworkBehaviour
         {
             for (int j = 0; j < Max_B; j++)
             {
-                //Vector2 TempPoint = new((float)i, (float)j);
-                //TempPoint += tileZero;
-                //Vector3Int TempTile = gameplayTilemap.WorldToCell(TempPoint);
-                
+                Vector2 TempPoint = new((float)i, (float)j);
+                TempPoint += tileZero;
+                Vector3Int TempTile = gameplayTilemap.WorldToCell(TempPoint);
+
                 //if (gameplayTilemap.GetTile(TempTile) != terrainTile) Map[i,j] = TileStates.Free;
                 //else Map[i,j] = TileStates.Terrain;
-                Map[i,j] = TileStates.Free;
+                TileMap[i, j] = new TileInfo();
+                if (!gameplayTilemap.HasTile(TempTile))
+                {
+                    TileMap[i, j].MapObjectList = new()
+                    {
+                        new NoPlayableTile()
+                    };
+                }
             }
         }
     }
 
-    public bool IsFree(Vector2 tile)
+    public bool IsPlayable(Vector2 tile)
     {
-        if (Map[(int)tile.x, (int)tile.y] == TileStates.Free) return true;
-        return false;
+        if (TileMap[(int)tile.x, (int)tile.y].MapObjectList.Exists(x => x is NoPlayableTile)) return false;
+        return true;
     }
 
-    public TileStates TileState(Vector2 tile)
+    public List<MapObject> TileState(Vector2 tile)
     {
-        return Map[(int)tile.x, (int)tile.y];
+        return TileMap[(int)tile.x, (int)tile.y].MapObjectList;
     }
 
-    public void ChangeCell(Vector2 tile, TileStates State)
+    public void SetHero(Vector2 tile, int playerID)
     {
-        Map[(int)tile.x, (int)tile.y] = State;
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new Hero(playerID));
+    }
+
+    public void SetBoss(Vector2 tile)
+    {
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new Boss());
+    }
+
+    public void SetTempBloked(Vector2 tile)
+    {
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new TempBloked());
+    }
+
+    public void RemoveHero(Vector2 tile, int playerID)
+    {
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Remove(new Hero(playerID));
+    }
+
+    public void RemoveBoss(Vector2 tile)
+    {
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Remove(new Boss());
+    }
+
+    public void RemoveTempBloked(Vector2 tile)
+    {
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Remove(new TempBloked());
     }
 }
 
@@ -73,7 +99,7 @@ public class MapClass : NetworkBehaviour
 public class TileInfo
 {
     public bool isFreeToMove => MapObjectList.Count == 0;
-    public List<MapObject> MapObjectList = new List<MapObject>{new PermanentlyBlocked()};
+    public List<MapObject> MapObjectList = new();
     public List<TileFffect> TileEffectList;
 
 }
@@ -87,6 +113,11 @@ public class MapObject
 public class Hero : MapObject
 {
     public int PlayerID;
+
+    public Hero(int playerID)
+    {
+        PlayerID = playerID;
+    }
 }
 
 [Serializable]
@@ -102,7 +133,7 @@ public class TempBloked : MapObject
 
 }
 
-public class PermanentlyBlocked : MapObject
+public class NoPlayableTile : MapObject
 {
 
 }

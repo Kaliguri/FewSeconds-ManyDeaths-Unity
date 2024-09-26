@@ -102,7 +102,7 @@ public class GridVisualizer : MonoBehaviour
         GlobalEventSystem.ResultStageStarted.AddListener(SendClearAprovedAffectedAreas);
     }
 
-    private void SendClearAprovedAffectedAreas(int arg0)
+    private void SendClearAprovedAffectedAreas()
     {
         ClearAprovedAffectedAreas();
     }
@@ -280,14 +280,14 @@ public class GridVisualizer : MonoBehaviour
         if (gameplayTilemap.HasTile(tile))
         {
             Vector2 TileCenter = gameplayTilemap.GetCellCenterWorld(tile);
-            MapClass.TileStates tileState = mapClass.TileState(TileCenter - tileZero);
+            List<MapObject> tileState = mapClass.TileState(TileCenter - tileZero);
 
             if (isPlayerCasting) UpdateSkillAffectedArea(TileCenter);
             else
             {
-                if (tileState == MapClass.TileStates.Player) tileSelector = Instantiate(allyTypeTileSelector, TileCenter, Quaternion.identity);
-                else if (tileState == MapClass.TileStates.Boss) tileSelector = Instantiate(enemyTypeTileSelector, TileCenter, Quaternion.identity);
-                else if (tileState == MapClass.TileStates.Terrain) tileSelector = Instantiate(terrainTypeTileSelector, TileCenter, Quaternion.identity);
+                if (tileState.Exists(x => x is Hero)) tileSelector = Instantiate(allyTypeTileSelector, TileCenter, Quaternion.identity);
+                else if (tileState.Exists(x => x is Boss)) tileSelector = Instantiate(enemyTypeTileSelector, TileCenter, Quaternion.identity);
+                else if (tileState.Exists(x => x is TempBloked)) tileSelector = Instantiate(terrainTypeTileSelector, TileCenter, Quaternion.identity);
                 else tileSelector = Instantiate(standartTileSelector, TileCenter, Quaternion.identity);
             }
         }

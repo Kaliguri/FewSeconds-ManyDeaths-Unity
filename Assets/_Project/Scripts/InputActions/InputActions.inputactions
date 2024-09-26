@@ -2,102 +2,6 @@
     "name": "InputActions",
     "maps": [
         {
-            "name": "Debugs",
-            "id": "3b03e3e2-cf77-4497-8ee1-83578b8b500d",
-            "actions": [
-                {
-                    "name": "MousePosition",
-                    "type": "Value",
-                    "id": "8a4d6919-fc91-4506-ae9f-df4f7c31968d",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "MouseClick",
-                    "type": "Button",
-                    "id": "943cd009-5ac6-4291-a82c-2ef7687f4afd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "212ee244-f450-4732-b15e-d0eda340b0fb",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bed6bd42-fda0-4e54-88b5-d47f0b319d15",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MousePosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Movement",
-            "id": "0557320d-f843-4e93-9019-2b90f325ddbd",
-            "actions": [
-                {
-                    "name": "MousePosition",
-                    "type": "Value",
-                    "id": "77686660-dd63-449a-9ae6-203c7b16f6ef",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "MouseClick",
-                    "type": "Button",
-                    "id": "cf7063f6-97f9-4e42-af87-3add9fa33a9c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "67adc5a5-c2e5-4ca5-ade4-553c83db70b3",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "MouseClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a0bbffc7-9ae8-4f52-8f1f-4649de7353a4",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "MousePosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "Combat",
             "id": "ba5b5499-d6a9-4241-bf0f-8031d8d2aa72",
             "actions": [
@@ -129,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skill 1",
+                    "name": "SkillQ",
                     "type": "Button",
                     "id": "d1c7c020-4cf8-456c-bc33-b317b95f119a",
                     "expectedControlType": "Button",
@@ -138,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skill 2",
+                    "name": "SkillW",
                     "type": "Button",
                     "id": "5fd4f7ee-ebd5-4570-935f-41081c109fcf",
                     "expectedControlType": "Button",
@@ -147,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skill 3",
+                    "name": "SkillE",
                     "type": "Button",
                     "id": "0b8285fa-6eab-4165-89f3-adcc842e3b0b",
                     "expectedControlType": "Button",
@@ -156,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skill 4",
+                    "name": "SkillR",
                     "type": "Button",
                     "id": "7b8d34e9-18e5-4e4b-9610-099c8ee78984",
                     "expectedControlType": "Button",
@@ -206,7 +110,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "Skill 1",
+                    "action": "SkillQ",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -217,7 +121,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "Skill 2",
+                    "action": "SkillW",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -228,7 +132,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "Skill 3",
+                    "action": "SkillE",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -239,7 +143,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "Skill 4",
+                    "action": "SkillR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
