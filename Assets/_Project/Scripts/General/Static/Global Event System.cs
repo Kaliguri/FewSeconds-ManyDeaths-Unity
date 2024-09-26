@@ -6,7 +6,8 @@ public static class GlobalEventSystem
     public static UnityEvent HeroChanged = new();
     public static void SendHeroChanged() { HeroChanged.Invoke(); }
 
-
+    public static UnityEvent PlayerTurnEndConfirmed = new();
+    public static void SendPlayerTurnEndConfirmed() { PlayerTurnEndConfirmed.Invoke(); }
 
     public static UnityEvent PlayerInfoDataInitialized = new();
     public static void SendPlayerInfoDatanInitialized() { PlayerInfoDataInitialized.Invoke(); }
@@ -25,6 +26,12 @@ public static class GlobalEventSystem
 
     public static UnityEvent StartCombat = new();
     public static void SendStartCombat() { StartCombat.Invoke(); }
+
+    public static UnityEvent<int> StartResultStageForPlayer = new();
+    public static void SendStartResultStageForPlayer(int orderInTurnPreority) { StartResultStageForPlayer.Invoke(orderInTurnPreority); }
+
+    public static UnityEvent<int> StartCastPlayer = new();
+    public static void SendStartCastPlayer(int orderInTurnPreority) { StartCastPlayer.Invoke(orderInTurnPreority); }
 
     #region PlayerInfoUpdate
 
@@ -52,9 +59,6 @@ public static class GlobalEventSystem
 
     public static UnityEvent <int> PlayerEndMoving = new();
     public static void SendPlayerEndMoving(int orderInTurnPreority) { PlayerEndMoving.Invoke(orderInTurnPreority); }
-
-    public static UnityEvent <int> AllPlayersEndMoving = new();
-    public static void SendAllPlayersEndMoving(int orderInTurnPreority) { AllPlayersEndMoving.Invoke(orderInTurnPreority); }
 
     public static UnityEvent PathChanged = new();   
     public static void SendPathChanged() { PathChanged.Invoke(); }
@@ -100,22 +104,22 @@ public static class GlobalEventSystem
     public static UnityEvent PredictionStageStarted = new();
     public static void SendPredictionStageStarted() { PredictionStageStarted.Invoke(); }
 
-    public static UnityEvent PredictionEndConfirmed = new();
-    public static void SendPredictionEndConfirmed() { PredictionEndConfirmed.Invoke(); }
+    public static UnityEvent PredictionEnd = new();
+    public static void SendPredictionEnd() { PredictionEnd.Invoke(); }
 
 
     public static UnityEvent PlayerTurnStageStarted = new();
     public static void SendPlayerTurnStageStarted() { PlayerTurnStageStarted.Invoke(); }
 
-    public static UnityEvent PlayerTurnEndConfirmed = new();
-    public static void SendPlayerTurnEndConfirmed() { PlayerTurnEndConfirmed.Invoke(); }
+    public static UnityEvent PlayerTurnStageEnd = new();
+    public static void SendPlayerTurnStageEnd() { PlayerTurnStageEnd.Invoke(); }
 
 
     public static UnityEvent ResultStageEnded = new();
     public static void SendResultStageEnded() { ResultStageEnded.Invoke(); }
 
-    public static UnityEvent <int> ResultStageStarted = new();
-    public static void SendResultStageStarted(int orderInTurnPreority) { ResultStageStarted.Invoke(orderInTurnPreority); }
+    public static UnityEvent ResultStageStarted = new();
+    public static void SendResultStageStarted() { ResultStageStarted.Invoke(); }
 
 
     public static UnityEvent BossTurnStageEnded = new();

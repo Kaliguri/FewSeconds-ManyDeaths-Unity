@@ -18,11 +18,14 @@ public class BossTurnStage : GameState
             // пока просто кидаемся на следущую стадию
             StartCoroutine(nameof(GiveTimePass));
         }
+
+        GlobalEventSystem.SendBossTurnStageStarted();
     }
 
 
     public override void Exit()
     {
+        GlobalEventSystem.SendBossTurnStageEnded();
         //Debug.Log("Exiting Boss Turn Stage");
     }
 

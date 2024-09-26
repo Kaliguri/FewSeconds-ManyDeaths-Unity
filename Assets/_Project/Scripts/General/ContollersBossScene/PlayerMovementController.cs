@@ -50,7 +50,7 @@ public class PlayerMovementController : NetworkBehaviour
         inputActions.Combat.CancelAction.performed += _ => RemoveLastPointInList();
 
         GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(ApproveThePath);
-        GlobalEventSystem.ResultStageStarted.AddListener(StartMoving);
+        GlobalEventSystem.StartResultStageForPlayer.AddListener(StartMoving);
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(StartDefineMovement);
         GlobalEventSystem.PlayerActionChoosed.AddListener(PlayerActionChoosed);
         GlobalEventSystem.PlayerActionUnchoosed.AddListener(PlayerActionUnchoosed);
@@ -93,7 +93,7 @@ public class PlayerMovementController : NetworkBehaviour
             int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy + (int)MovementIndex;
             ChangeEnergy(newEnergy);
 
-            mapClass.ChangeCell(MovementList[MovementList.Count - 1], MapClass.TileStates.Free);
+            mapClass.RemoveHero(MovementList[MovementList.Count - 1], localId);
             MovementList.RemoveAt(MovementList.Count - 1);
 
             GlobalEventSystem.SendPathChanged();
@@ -108,7 +108,7 @@ public class PlayerMovementController : NetworkBehaviour
 
     public void AddNewPointToList()
     {
-        Vector2 mouseWorldPos = inputActions.Movement.MousePosition.ReadValue<Vector2>();
+        Vector2 mouseWorldPos = inputActions.Combat.MousePosition.ReadValue<Vector2>();
         mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseWorldPos);
         Vector3Int tile = gameplayTilemap.WorldToCell(mouseWorldPos);
 
@@ -118,7 +118,7 @@ public class PlayerMovementController : NetworkBehaviour
             Vector2 tileCenterPos = gameplayTilemap.GetCellCenterWorld(tile);
             Vector2 targetPoint = tileCenterPos - tileZero;
 
-            bool isFree = mapClass.IsFree(targetPoint);
+            bool isFree = mapClass.IsPlayable(targetPoint);
 
             DefineMovement(LastPosition, targetPoint);
 
@@ -128,7 +128,7 @@ public class PlayerMovementController : NetworkBehaviour
                 LastPosition = targetPoint;
                 GlobalEventSystem.SendPathChanged();
 
-                mapClass.ChangeCell(targetPoint, MapClass.TileStates.Player);
+                mapClass.SetHero(targetPoint, localId);
 
                 int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy - (int)MovementIndex;
                 ChangeEnergy(newEnergy);
@@ -171,7 +171,7 @@ public class PlayerMovementController : NetworkBehaviour
             {
                 SendPlayerStartMoveRpc();
                 combatPlayerDataInStage.PlayersHeroes[localId].transform.position = MovementList[i] + tileZero;
-                ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[MovementList.Count - 1], MapClass.TileStates.Player);
+                ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[MovementList.Count - 1], localId);
                 ChangePlayerCoordinatesRpc(MovementList[i], localId);
                 SendPlayerEndMoveRpc();
                 yield return new WaitForSeconds(timeBetweenMovement);
@@ -209,9 +209,9 @@ public class PlayerMovementController : NetworkBehaviour
     }
 
     [Rpc(SendTo.ClientsAndHost)]
-    void ChangeMapStatesRpc(Vector2 OldPlayerCoordinates, Vector2 NewPlayerCoordinates, MapClass.TileStates State)
+    void ChangeMapStatesRpc(Vector2 OldPlayerCoordinates, Vector2 NewPlayerCoordinates, int playerID)
     {
-        mapClass.ChangeCell(OldPlayerCoordinates, MapClass.TileStates.Free);
-        mapClass.ChangeCell(NewPlayerCoordinates, State);
+        mapClass.RemoveHero(OldPlayerCoordinates, playerID);
+        mapClass.SetHero(NewPlayerCoordinates, playerID);
     }
 }

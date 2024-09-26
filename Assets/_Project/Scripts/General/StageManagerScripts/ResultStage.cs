@@ -30,7 +30,7 @@ public class ResultStage : GameState
     [Rpc(SendTo.ClientsAndHost)]
     private void SendResultStageStartedRpc(int orderInTurnPriority)
     {
-        GlobalEventSystem.SendResultStageStarted(orderInTurnPriority);
+        GlobalEventSystem.SendStartResultStageForPlayer(orderInTurnPriority);
     }
 
     private void ConfirmPlayerEndResultTurning(int orderInTurnPriority)
@@ -42,7 +42,7 @@ public class ResultStage : GameState
     [Rpc(SendTo.ClientsAndHost)]
     private void SendSendAllPlayersEndMovingRpc(int orderInTurnPriority)
     {
-        GlobalEventSystem.SendAllPlayersEndMoving(orderInTurnPriority);
+        GlobalEventSystem.SendStartCastPlayer(orderInTurnPriority);
     }
 
     public override void Enter()
@@ -55,11 +55,13 @@ public class ResultStage : GameState
             PlayerEndResultTurn.Value = 0;
         }
 
-        GlobalEventSystem.SendResultStageStarted(0);
+        GlobalEventSystem.SendResultStageStarted();
+        GlobalEventSystem.SendStartResultStageForPlayer(0);
     }
 
     public override void Exit()
     {
+        GlobalEventSystem.SendResultStageEnded();
         //Debug.Log("Exiting Result Stage");
     }
 
@@ -68,7 +70,7 @@ public class ResultStage : GameState
         if (PlayerEndMovind.Value >= playerCount && !EndMoving)
         {
             EndMoving = true;
-            GlobalEventSystem.SendAllPlayersEndMoving(0);
+            GlobalEventSystem.SendStartCastPlayer(0);
         }
 
         if (NetworkManager.Singleton.IsServer)

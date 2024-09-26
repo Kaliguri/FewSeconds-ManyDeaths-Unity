@@ -53,14 +53,14 @@ public class PlayerSkillManager : NetworkBehaviour
         inputActions = new InputActions();
         inputActions.Combat.SelectTile.performed += _ => AddSkillToList();
         inputActions.Combat.CancelAction.performed += _ => CanselAction();
-        inputActions.Combat.Skill1.performed += _ => SelectSkillByButton(0);
-        inputActions.Combat.Skill2.performed += _ => SelectSkillByButton(1);
-        inputActions.Combat.Skill3.performed += _ => SelectSkillByButton(2);
-        inputActions.Combat.Skill4.performed += _ => SelectSkillByButton(3);
+        inputActions.Combat.SkillQ.performed += _ => SelectSkillByButton(0);
+        inputActions.Combat.SkillW.performed += _ => SelectSkillByButton(1);
+        inputActions.Combat.SkillE.performed += _ => SelectSkillByButton(2);
+        inputActions.Combat.SkillR.performed += _ => SelectSkillByButton(3);
 
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(StartDefineSkills);
         GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(ApproveTheSkills);
-        GlobalEventSystem.AllPlayersEndMoving.AddListener(StartSkillSystem);
+        GlobalEventSystem.StartCastPlayer.AddListener(StartSkillSystem);
         GlobalEventSystem.PlayerActionEnd.AddListener(CastAction);
     }
 

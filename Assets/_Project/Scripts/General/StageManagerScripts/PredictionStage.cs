@@ -18,6 +18,8 @@ public class PredictionStage : GameState
 
     public override void Enter()
     {
+        GlobalEventSystem.SendPredictionStageStarted();
+
         //Debug.Log("Entering Prediction Stage");
         RestoreEnergy();
 
@@ -30,6 +32,7 @@ public class PredictionStage : GameState
 
     public override void Exit()
     {
+        GlobalEventSystem.SendPredictionEnd();
         //Debug.Log("Exiting Prediction Stage");
     }
 
