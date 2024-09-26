@@ -24,16 +24,13 @@ public class OnSpawn : NetworkBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-
-        TransferData();
-
+        GlobalEventSystem.AllPlayerSpawned.AddListener(TransferData);
     }
 
     private void TransferData()
     {
-        Debug.Log("Where");
         combatPlayerDataInStage.UpdatePlayersHeroes(gameObject, playerID);
 
         Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(transform.position);

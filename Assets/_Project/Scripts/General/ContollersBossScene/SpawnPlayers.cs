@@ -31,6 +31,18 @@ public class SpawnPlayers : NetworkBehaviour
                 i++;
             }
         }
+        SendAllPlayersSpawned();
+    }
+
+    private void SendAllPlayersSpawned()
+    {
+        SendAllPlayersSpawnedRpc();
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void SendAllPlayersSpawnedRpc()
+    {
+        GlobalEventSystem.SendAllPlayerSpawned();
     }
 
     private void SpawnPlayer(int i, ulong id)
@@ -40,13 +52,12 @@ public class SpawnPlayers : NetworkBehaviour
 
         player.name = "Player_" + id;
         player.GetComponent<NetworkObject>().SpawnAsPlayerObject(id, true);
-        Debug.Log("SpawnAsPlayer");
 
-        OnlyForClientRpc(SpawnCoordinate[i], id);
+        SendPlayerSpawnedRpc(SpawnCoordinate[i], id);
     }
 
     [Rpc(SendTo.ClientsAndHost)]
-    void OnlyForClientRpc(Vector2 PlayerMapCoordinates, ulong sourceNetworkObjectId)
+    void SendPlayerSpawnedRpc(Vector2 PlayerMapCoordinates, ulong sourceNetworkObjectId)
     {
         GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().ChangeCell(PlayerMapCoordinates, MapClass.TileStates.Player);
         GlobalEventSystem.SendPlayerSpawned();

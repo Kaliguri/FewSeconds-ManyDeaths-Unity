@@ -34,6 +34,9 @@ public static class GlobalEventSystem
     public static UnityEvent PlayerSpawned = new();
     public static void SendPlayerSpawned() { PlayerSpawned.Invoke(); }
 
+    public static UnityEvent AllPlayerSpawned = new();
+    public static void SendAllPlayerSpawned() { AllPlayerSpawned.Invoke(); }
+
     public static UnityEvent <ulong> PlayerLobbyUpdate = new();
     public static void SendPlayerLobbyUpdate(ulong id) { PlayerLobbyUpdate.Invoke(id); }
 

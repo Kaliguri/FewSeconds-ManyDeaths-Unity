@@ -13,7 +13,7 @@ public class NickNameUpdate : MonoBehaviour
 
     void Start()
     {
-        UpdatePlayerNickname();
+        GlobalEventSystem.AllPlayerSpawned.AddListener(UpdatePlayerNickname);
     }
 
     private void UpdatePlayerNickname()
