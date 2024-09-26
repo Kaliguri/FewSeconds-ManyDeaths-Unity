@@ -1,0 +1,342 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3950744971690817189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 194494338952938283}
+  - component: {fileID: 887414568650286018}
+  - component: {fileID: 2722936028573642183}
+  - component: {fileID: 2660416858667158479}
+  - component: {fileID: 8671311012598848670}
+  - component: {fileID: 2248271971674120578}
+  - component: {fileID: 1089981751190943644}
+  - component: {fileID: 3689117866521032984}
+  m_Layer: 0
+  m_Name: Cutscene Manager (Timeline)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &194494338952938283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950744971690817189}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &887414568650286018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950744971690817189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 7878bb9df28339c448da50da48466345, type: 2}
+    - {fileID: 11400000, guid: d62a2da21d008004a96308c18b0cedbd, type: 2}
+    - {fileID: 11400000, guid: af1d450a59fac3b4690025fb4648d148, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: BerserkCastscene, Assembly-CSharp
+          m_MethodName: StartCastscene_1_Part_1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8671311012598848670}
+          m_TargetAssemblyTypeName: EndCutscene, Assembly-CSharp
+          m_MethodName: NextSceneLoader
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
+          m_MethodName: PlayFeedbacks
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2660416858667158479}
+          m_TargetAssemblyTypeName: BerserkCastsceneV2, Assembly-CSharp
+          m_MethodName: TochesFading
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!320 &2722936028573642183
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950744971690817189}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -8187409055270987635, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6014160204001188497, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6124677521847239560, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3165556577452874224, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 887414568650286018}
+  - key: {fileID: -7521152490174673095, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1945041439787967716, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8859205468725556338, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4250237261675998456, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4659034349573789542, guid: 4c7a055dc06b4644bb1a7369d50625e8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3165556577452874224, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 887414568650286018}
+  - key: {fileID: -6124677521847239560, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6014160204001188497, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7521152490174673095, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1945041439787967716, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8859205468725556338, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4250237261675998456, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4659034349573789542, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8187409055270987635, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6914754168683321118, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2358941337603680650, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 887414568650286018}
+  - key: {fileID: -7652770693679349107, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4181962384667028339, guid: 3cde61185ff90cb4a847d367395dbb14, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References:
+    - 84b07392498359c49a24774f321f0bc7: {fileID: 0}
+    - 2ba0fc688b109b545abff58ebe404791: {fileID: 0}
+    - 13ddfdfc4952a51449a47436971ca217: {fileID: 0}
+--- !u!114 &2660416858667158479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950744971690817189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6166f34f9c0751444b37f04084d86fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torchList1:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  timeFadeParticleTorches: 0.7
+  torchList2: []
+--- !u!114 &8671311012598848670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950744971690817189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc2635f6c7822b43a1ac2a63d3dda13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScenePath: Boss Encounter/Berserk/Berserk - 1 (Boss Encounter).unity
+  NextScene: Berserk - 1 (Boss Encounter)
+  GoNextScene: 0
+--- !u!114 &2248271971674120578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950744971690817189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13f932e26377674da870b449f550e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroGameobjectList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  IsWithoutDependenceOnPlayerCount: 0
+  IsWithoutPlayerInfoData: 0
+  maxPlayer: 4
+  heroDataList:
+  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
+  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
+  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
+  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
+--- !u!114 &1089981751190943644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950744971690817189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66279608a803c5f4aac337e929ec6076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &3689117866521032984
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950744971690817189}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
