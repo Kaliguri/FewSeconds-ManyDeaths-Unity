@@ -14,6 +14,7 @@ public class UISkillLobby : MonoBehaviour
     [SerializeField] private LocalizeStringEvent DescriptionObj;
 
     [Header("Other")]
+    public int HeroListUINumber;
     public int UINumber;
 
     [SerializeField] private GameObject HeroList;
@@ -22,8 +23,8 @@ public class UISkillLobby : MonoBehaviour
     [SerializeField] private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     
     private int playerID => playerInfoData.PlayerIDThisPlayer;
-    private int variation => playerInfoData.SkillChoiceList[playerID][UINumber];
-    private SkillData skillData => playerInfoData.HeroDataList[playerID].SkillList[UINumber].SkillVariationsList[variation]; 
+    private int variation => playerInfoData.SkillChoiceList[HeroListUINumber][UINumber];
+    private SkillData skillData => playerInfoData.HeroDataList[HeroListUINumber].SkillList[UINumber].SkillVariationsList[variation]; 
 
     private Sprite skillIcon => skillData.SkillIcon;
     private LocalizedString skillname => skillData.Name;

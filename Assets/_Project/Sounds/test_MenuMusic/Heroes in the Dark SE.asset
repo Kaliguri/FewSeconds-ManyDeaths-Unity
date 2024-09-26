@@ -18,7 +18,7 @@ MonoBehaviour:
       expandSoundContainers: 1
       expandTimeline: 1
       expandPreview: 0
-      expandSettings: 0
+      expandSettings: 1
       expandTriggerOnPlay: 1
       expandTriggerOnStop: 1
       expandTriggerOnTail: 1

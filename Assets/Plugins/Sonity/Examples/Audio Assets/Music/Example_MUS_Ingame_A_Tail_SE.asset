@@ -19,10 +19,10 @@ MonoBehaviour:
       expandTimeline: 1
       expandPreview: 0
       expandSettings: 0
-      expandTriggerOnPlay: 0
+      expandTriggerOnPlay: 1
       expandTriggerOnStop: 0
       expandTriggerOnTail: 1
-      expandAllSoundTag: 0
+      expandAllSoundTag: 1
       timelineSoundContainerData:
       - delay: 0
         volumeRatio: 1

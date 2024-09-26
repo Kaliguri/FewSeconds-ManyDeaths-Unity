@@ -22,7 +22,7 @@ MonoBehaviour:
       expandTriggerOnPlay: 1
       expandTriggerOnStop: 1
       expandTriggerOnTail: 1
-      expandAllSoundTag: 0
+      expandAllSoundTag: 1
       timelineSoundContainerData:
       - delay: 0
         volumeRatio: 1
@@ -83,8 +83,6 @@ MonoBehaviour:
       cooldownTime: 0
       probability: 100
       passParameters: 1
-      ignoreLocalPause: 0
-      ignoreGlobalPause: 0
       expandIntensity: 0
       intensityAdd: 0
       intensityMultiplier: 1
@@ -116,11 +114,8 @@ MonoBehaviour:
         m_RotationOrder: 4
       intensityThresholdEnable: 0
       intensityThreshold: 0
-      intensityScaleAdd: 0
-      intensityScaleMultiplier: 1
       intensityRecord: 0
       intensityDebugResolution: 100
-      intensityDebugZoom: 0.9
       intensityDebugValueList: []
       triggerOnPlayEnable: 0
       triggerOnPlaySoundEvents: []
