@@ -254,7 +254,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &4197008947877851911
 MonoBehaviour:
@@ -290,8 +290,16 @@ MonoBehaviour:
   m_FadeOutDuration: 0.1
   m_ProgressBar: {fileID: 6172939778238513606}
   m_SceneName: {fileID: 7510007246538001983}
-  m_OtherPlayersProgressBars: []
-  m_OtherPlayerNamesTexts: []
+  m_OtherPlayersProgressBars:
+  - {fileID: 6172939778238513606}
+  - {fileID: 6172939778238513606}
+  - {fileID: 6172939778238513606}
+  - {fileID: 6172939778238513606}
+  m_OtherPlayerNamesTexts:
+  - {fileID: 7510007246538001983}
+  - {fileID: 7510007246538001983}
+  - {fileID: 7510007246538001983}
+  - {fileID: 7510007246538001983}
   m_LoadingProgressManager: {fileID: 0}
 --- !u!1 &4639472334960730023
 GameObject:
@@ -575,8 +583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 500, y: 2}
+  m_AnchoredPosition: {x: 0, y: -77.5}
+  m_SizeDelta: {x: 500, y: 52.6454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6172939778238513606
 MonoBehaviour:
