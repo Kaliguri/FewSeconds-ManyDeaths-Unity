@@ -1,6 +1,8 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Netcode;
 using UnityEngine.SceneManagement;
+using Unity.Netcode;
 
 public class EndCutscene : MonoBehaviour
 {
@@ -17,16 +19,19 @@ public class EndCutscene : MonoBehaviour
 
     void Awake()
     {
-        inputActions = new InputActions();
-        inputActions.UI.SkipCutscene.performed += _ => NextSceneLoader();
-        inputActions.Enable();
+        if (NetworkManager.Singleton.IsHost)
+        {
+            inputActions = new InputActions();
+            inputActions.UI.SkipCutscene.performed += _ => NextSceneLoader();
+            inputActions.Enable();
+        }
     }
 
     public void NextSceneLoader()
     {
         if (GoNextScene)
         {
-            sceneManager.LoadScene(NextScene); 
+            sceneManager.LoadScene(NextScene, true);
         }
     }
 }

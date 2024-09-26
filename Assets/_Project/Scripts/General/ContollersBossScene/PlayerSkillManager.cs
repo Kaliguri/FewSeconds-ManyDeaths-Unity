@@ -104,7 +104,6 @@ public class PlayerSkillManager : NetworkBehaviour
             SkillList.Clear();
             skillNumberList.Clear();
             TargetTileList.Clear();
-            Debug.Log("SendPlayerEndResultTurn");
             Invoke("SendPlayerEndResultTurnEvent", timeBetweenPlayerCast);
         }
     }

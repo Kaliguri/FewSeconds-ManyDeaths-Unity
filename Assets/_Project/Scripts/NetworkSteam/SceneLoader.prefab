@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5566685021521268074
+--- !u!1 &5492269826556798690
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4774846327512828880}
-  - component: {fileID: 235437057141523934}
-  - component: {fileID: 5959825661190224337}
-  - component: {fileID: 7089399430355484191}
+  - component: {fileID: 165928885965732840}
+  - component: {fileID: 6841880008081548308}
+  - component: {fileID: 8958617486352104122}
+  - component: {fileID: 6901339795534792850}
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4774846327512828880
+--- !u!4 &165928885965732840
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566685021521268074}
+  m_GameObject: {fileID: 5492269826556798690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -34,19 +34,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &235437057141523934
+--- !u!114 &6841880008081548308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566685021521268074}
+  m_GameObject: {fileID: 5492269826556798690}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1916038877
+  GlobalObjectIdHash: 2100157596
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 0
@@ -55,28 +55,27 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &5959825661190224337
+--- !u!114 &8958617486352104122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566685021521268074}
+  m_GameObject: {fileID: 5492269826556798690}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d202c9ed4a2c4a6fa83f21f1c21394ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ClientLoadingScreen: {fileID: 8248337124178083555, guid: cff3895d59896cf4f96b52d0a713953b,
-    type: 3}
-  m_LoadingProgressManager: {fileID: 7089399430355484191}
---- !u!114 &7089399430355484191
+  m_ClientLoadingScreen: {fileID: 0}
+  m_LoadingProgressManager: {fileID: 0}
+--- !u!114 &6901339795534792850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566685021521268074}
+  m_GameObject: {fileID: 5492269826556798690}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 831202463f434661b4f61a409b08867f, type: 3}
