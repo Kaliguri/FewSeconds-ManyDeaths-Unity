@@ -42,7 +42,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277762163696606702}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0921a98ffc415344a2d380f2b2183ed, type: 3}
   m_Name: 
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bc5bc2db7c3d1499d2d177b71c9830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenMovement: 1
   LastPosition: {x: 0, y: 0}
   MovementList: []
 --- !u!1 &1330119505526371537
@@ -371,7 +372,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3845002735458891163}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdadb4c3d3d2bfe4aaefb61c04e32fa1, type: 3}
   m_Name: 
@@ -416,6 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b5bf197b533f94c97cac500a7d0b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeBeforeFirstPlayerMovement: 1
+  TimeBetweenPlayerMovement: 1
 --- !u!114 &827612055042703160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5043534020704879265}
   - component: {fileID: 5345183280946286926}
+  - component: {fileID: 414495376311514204}
   m_Layer: 0
   m_Name: _Controllers Boss Scene
   m_TagString: Controllers
@@ -487,6 +491,23 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &414495376311514204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7711682317342342888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38423a2bb63a7a64a8d9d3c3ce478351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkBehaviours:
+  - {fileID: 919860015342924514}
+  - {fileID: 8283470364432405059}
+  combatPlayerDataInStage: {fileID: 4572515052974823652}
+  TimeBeforeEnabled: 0.5
 --- !u!1 &8782590885041711199
 GameObject:
   m_ObjectHideFlags: 0

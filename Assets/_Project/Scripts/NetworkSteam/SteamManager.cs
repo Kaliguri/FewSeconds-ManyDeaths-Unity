@@ -4,6 +4,7 @@ using Steamworks.Data;
 using Unity.Netcode;
 using Netcode.Transports.Facepunch;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SteamManager : MonoBehaviour
 {   
@@ -43,6 +44,7 @@ public class SteamManager : MonoBehaviour
 
     private void LobbyEntered(Lobby lobby)
     {
+        Debug.Log("LobbyEntered");
         LobbySaver.instance.currentLobby = lobby;
         //LobbyID.text = lobby.Id.ToString();
         ChangeUI();
@@ -62,13 +64,13 @@ public class SteamManager : MonoBehaviour
             lobby.SetPublic();
             lobby.SetJoinable(true);
             lobby.SetGameServer(lobby.Owner.Id);
+            Controller = Instantiate(ControllersSession);
             NetworkManager.Singleton.StartHost();
         }
     }
 
     public async void HostLobby()
     {
-        Controller = Instantiate(ControllersSession);
         await SteamMatchmaking.CreateLobbyAsync(4);
     }
 

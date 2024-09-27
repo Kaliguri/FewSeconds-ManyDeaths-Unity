@@ -21,7 +21,7 @@ public class MapClass : NetworkBehaviour
     private Vector3Int DownLeftTile;
     //[SerializeField] TileBase terrainTile;
 
-    void Awake()
+    void Start()
     {
         TileMap = new TileInfo[Max_A, Max_B];
         DownLeftTile = gameplayTilemap.WorldToCell(DownLeftPoint.transform.position);

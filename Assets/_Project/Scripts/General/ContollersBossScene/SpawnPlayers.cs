@@ -18,7 +18,12 @@ public class SpawnPlayers : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        Invoke(nameof(SpawnAllPlayers), 1f);
+        base.OnNetworkSpawn();
+    }
+
+    private void Start()
+    {
+        SpawnAllPlayers();
     }
 
     private void SpawnAllPlayers()

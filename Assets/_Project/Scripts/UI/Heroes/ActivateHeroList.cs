@@ -44,6 +44,13 @@ public class ActivateHeroList : MonoBehaviour
 
     void DisableList(ulong PlayerID)
     {
+        if (playerInfoData == null)
+        {
+            activeHeroList.SetActive(false);
+            disableHeroList.SetActive(true);
+            isActive = false;
+            return;
+        }
         if (isActive && UINumber + 1 > playerCount)
         {
             activeHeroList.SetActive(false);
