@@ -15,6 +15,7 @@ public class SpawnPlayers : NetworkBehaviour
     [SerializeField] Vector2[] SpawnCoordinate;
     private Vector2 zeroPoint => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().tileZero;
     private int localID => GameObject.FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
+    private float TimeBeforeSendAllPlayersSpawned = 0.3f;
 
     public override void OnNetworkSpawn()
     {
@@ -36,7 +37,7 @@ public class SpawnPlayers : NetworkBehaviour
                 SpawnPlayer(i, id);
                 i++;
             }
-            SendAllPlayersSpawnedRpc();
+            Invoke(nameof(SendAllPlayersSpawnedRpc), TimeBeforeSendAllPlayersSpawned);
         }
     }
 
