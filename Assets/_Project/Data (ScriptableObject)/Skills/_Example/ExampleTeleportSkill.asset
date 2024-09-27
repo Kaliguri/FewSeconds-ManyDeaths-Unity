@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2283d1228b0c054f91e07d3217b84cb, type: 3}
-  m_Name: ExampleSkill
+  m_Name: ExampleTeleportSkill
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 632034766848
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 634136113152
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SkillIcon: {fileID: 0}
+  SkillIcon: {fileID: 2040432176, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
   SkillScript:
     rid: 8463286615730290710
   references:
@@ -42,6 +42,7 @@ MonoBehaviour:
         EnergyCost: 0
         SkillCooldown: 0
         HasConditionsForSelectedCell: 1
+        IsMovable: 0
         TargetCount: 2
         skillList:
         - rid: 8463286615730290711
@@ -52,8 +53,9 @@ MonoBehaviour:
         EnergyCost: 0
         SkillCooldown: 0
         HasConditionsForSelectedCell: 1
+        IsMovable: 0
         TargetCount: 1
-        ExampleSkill1Prefab: {fileID: 1186777461074907986, guid: 61d264c6d39423c4a89c1b6f6e064802,
+        ExampleSkill1Prefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}
     - rid: 8463286615730290712
       type: {class: ExampleSkill2, ns: , asm: Assembly-CSharp}
@@ -61,6 +63,7 @@ MonoBehaviour:
         EnergyCost: 0
         SkillCooldown: 0
         HasConditionsForSelectedCell: 1
+        IsMovable: 0
         TargetCount: 1
-        ExampleSkill1Prefab: {fileID: 1186777461074907986, guid: 61d264c6d39423c4a89c1b6f6e064802,
+        ExampleSkill1Prefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}

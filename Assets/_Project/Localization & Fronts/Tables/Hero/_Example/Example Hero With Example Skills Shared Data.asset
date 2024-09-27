@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Example Hero With Example Skills Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Example Hero With Example Skills
+  m_TableCollectionNameGuidString: 23cf76a08c6148c489582d86455ecd5d
+  m_Entries:
+  - m_Id: 200776429568
+    m_Key: Damage _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155771547648
+    m_Key: Damage Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 621783887872
+    m_Key: Heal _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 623939760128
+    m_Key: Heal Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 626338902016
+    m_Key: Shield _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628264087552
+    m_Key: Shield Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 632034766848
+    m_Key: Teleport _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 634136113152
+    m_Key: Teleport Description
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4082220119189356549
+  references:
+    version: 2
+    RefIds:
+    - rid: 4082220119189356549
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1727467715597

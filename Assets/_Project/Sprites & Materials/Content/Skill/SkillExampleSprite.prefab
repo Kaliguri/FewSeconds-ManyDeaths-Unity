@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6865290108388959980
+--- !u!1001 &1491401558636633038
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
       propertyPath: m_Name
-      value: _Path (End)
+      value: AOE Tile For Skill Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 726831059037436721, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.535
+      value: -0.534
       objectReference: {fileID: 0}
     - target: {fileID: 726831059037436721, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.952
+      value: -0.475
       objectReference: {fileID: 0}
     - target: {fileID: 726831059037436721, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
@@ -72,22 +72,22 @@ PrefabInstance:
     - target: {fileID: 2246639013717248662, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.23529412
+      value: 0.3137255
       objectReference: {fileID: 0}
     - target: {fileID: 2246639013717248662, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.2941177
       objectReference: {fileID: 0}
     - target: {fileID: 2246639013717248662, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.3087243
       objectReference: {fileID: 0}
     - target: {fileID: 2246639013717248662, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.8117647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Priest
   m_EditorClassIdentifier: 
   m_SharedTableData: {fileID: 11400000, guid: bf4188e66a021a24aaa032659a997710, type: 2}
-  m_Tables:
-  - {fileID: 11400000, guid: b29d28aed49855f4a99fe5bb24f5e776, type: 2}
-  - {fileID: 11400000, guid: a8aab568852afa949b46cf8a4db4f53d, type: 2}
+  m_Tables: []
   m_Extensions: []
   m_Group: String Table
   references:

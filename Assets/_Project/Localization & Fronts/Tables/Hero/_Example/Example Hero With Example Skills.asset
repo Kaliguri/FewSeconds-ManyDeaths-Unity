@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: Rifleman
+  m_Name: Example Hero With Example Skills
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: 3e284e18f151da04a8160ffcd97ecf64, type: 2}
-  m_Tables: []
+  m_SharedTableData: {fileID: 11400000, guid: 23cf76a08c6148c489582d86455ecd5d, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: fa33b7dee3a80ab4290030dab4df6b47, type: 2}
+  - {fileID: 11400000, guid: 698632f048345ac42bbfbe8ae87d53e5, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:

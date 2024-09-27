@@ -30,6 +30,11 @@ public class EndCutscene : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        inputActions.Disable();
+    }
+
     public void NextSceneLoader()
     {
         if (GoNextScene)

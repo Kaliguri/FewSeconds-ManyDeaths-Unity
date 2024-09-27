@@ -9,13 +9,11 @@ public class ExampleSkill2 : SkillScript
     [SerializeField] GameObject ExampleSkill1Prefab;
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int skillIndex = 0)
     {
-        ActualHeroPosition = actualHeroPosition;
-        HeroPosition = heroPosition;
-        CastPosition = castPosition;
+        CastStart(heroPosition, actualHeroPosition, castPosition);
 
         SpawnSkillPrefab(skillIndex);
 
-        MonoInstance.instance.Invoke(nameof(EndCast), SkillDuration);
+        CastEnd();
     }
 
     protected override void SpawnSkillPrefab(int skillIndex)

@@ -7,8 +7,7 @@ using UnityEngine;
 public class NetworkBootstrap : MonoBehaviour
 {
     [SerializeField] private List<NetworkBehaviour> networkBehaviours = new();
-    [SerializeField] private CombatPlayerDataInStage combatPlayerDataInStage;
-    [SerializeField] private GridVisualizer gridVisualizer;
+    [SerializeField] private List<MonoBehaviour> monoBehaviours = new();
     [SerializeField] private float TimeBeforeEnabled = 1f;
 
     void Start()
@@ -18,10 +17,14 @@ public class NetworkBootstrap : MonoBehaviour
 
     private void StartScripts()
     {
-        for (int i = 0; i < networkBehaviours.Count; i++)
+        foreach (NetworkBehaviour networkBehaviour in networkBehaviours)
         {
-            networkBehaviours[i].enabled = true;
+            networkBehaviour.enabled = true;
         }
-        combatPlayerDataInStage.enabled = true;
+
+        foreach (MonoBehaviour monoBehaviour in monoBehaviours)
+        {
+            monoBehaviour.enabled = true;
+        }
     }
 }

@@ -11,7 +11,7 @@ public class MonoInstance : MonoBehaviour
         MonoInstance.instance = this;
     }
 
-    public void EndCast() 
+    public void CastEndPart2() 
     {
         Debug.Log("EndCast");
         GlobalEventSystem.SendPlayerActionEnd();

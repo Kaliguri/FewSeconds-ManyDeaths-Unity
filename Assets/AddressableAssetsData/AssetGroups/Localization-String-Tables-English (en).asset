@@ -50,7 +50,6 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
-    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71f6fa6157ab0d04db17a51da85cbd7a
     m_Address: Character Choice_en
@@ -81,6 +80,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea45f15025b730c4a8a17b84b514d4d3
     m_Address: Heads Or Tails Quest_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa33b7dee3a80ab4290030dab4df6b47
+    m_Address: Example Hero With Example Skills_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

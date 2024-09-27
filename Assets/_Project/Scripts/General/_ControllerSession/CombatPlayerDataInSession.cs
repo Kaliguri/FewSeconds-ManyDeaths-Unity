@@ -183,46 +183,6 @@ public class CombatPlayerDataInSession : MonoBehaviour
 }
 
 [Serializable]
-public class GeneralPlayerStats
-{
-    [Title("HP")]
-    public float MaxHP = 0;
-    public float StartHP = 0;
-
-    [Title("Energy")]
-    public int MaxEnergy;
-    public int EnergyPerTurn;
-
-    [Title("Skill")]
-    public float AbilityPower;
-
-    [Title("Modifiers")]
-    public Modifiers Modifiers;
-
-    [Title("Level")]
-    public int Level = 1;
-    public float HPIncreaseFromLVLUP = 0.2f;
-}
-
-[Serializable]
-public class CombatStats
-{
-    public float CurrentHP = 0;
-    public float CurrentShield = 0;
-    public int CurrentEnergy = 0;
-}
-
-[Serializable]
-public class AllPlayerStats
-{
-    [Title("Combat (Current...)")]
-    public CombatStats currentCombat = new CombatStats();
-
-    [Title("General")]
-    public GeneralPlayerStats general = new GeneralPlayerStats();
-}
-
-[Serializable]
 public class PlayerTalents
 {
      public List<ItemData> TalentsList;

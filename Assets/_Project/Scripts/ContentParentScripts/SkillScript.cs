@@ -28,9 +28,35 @@ public class SkillScript
         return this;
     }
 
-    public virtual void Cast(Vector2 HeroPosition, Vector2 ActualHeroPosition, Vector2[] CastPosition, int skillIndex = 0)
+    public virtual void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int skillIndex = 0)
     {
+        CastStart(heroPosition, actualHeroPosition, castPosition);
+
         Debug.Log("Cast");
+
+        CastEnd();
+    }
+
+    protected void CastStart(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition)
+    {
+        SetPosition(heroPosition, actualHeroPosition, castPosition);
+    }
+
+    protected void SetPosition(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition)
+    {
+        ActualHeroPosition = actualHeroPosition;
+        HeroPosition = heroPosition;
+        CastPosition = castPosition;
+    }
+
+    protected void CastEnd(bool isContainerSkill = false)
+    {
+        if (!isContainerSkill)
+        { MonoInstance.instance.Invoke(nameof(CastEndPart2), SkillDuration); }
+    }
+
+    protected void CastEndPart2() 
+    {
         GlobalEventSystem.SendPlayerActionEnd();
     }
 
@@ -44,11 +70,7 @@ public class SkillScript
         return new List<Vector2>();
     }
 
-    protected virtual void EndCast() 
-    {
-        Debug.Log("EndCast");
-        GlobalEventSystem.SendPlayerActionEnd();
-    }
+
 
     protected virtual void SpawnSkillPrefab(int skillIndex)
     {

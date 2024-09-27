@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Chess Master
   m_EditorClassIdentifier: 
   m_SharedTableData: {fileID: 11400000, guid: 1ca6463ffdecc95418fe0f37302147e0, type: 2}
-  m_Tables:
-  - {fileID: 11400000, guid: 2d8ff1db312856743ac7596322fecd4a, type: 2}
-  - {fileID: 11400000, guid: 2311f6efa280a6849af1e0fe198784c0, type: 2}
+  m_Tables: []
   m_Extensions: []
   m_Group: String Table
   references:

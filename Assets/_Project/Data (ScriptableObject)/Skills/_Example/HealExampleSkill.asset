@@ -10,34 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2283d1228b0c054f91e07d3217b84cb, type: 3}
-  m_Name: _Movement
+  m_Name: HealExampleSkill
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 621783887872
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 623939760128
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SkillIcon: {fileID: -37705742, guid: e80c21d2e92d6cc499728e26666f3a92, type: 3}
+  SkillIcon: {fileID: 1169671575, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
   SkillScript:
-    rid: 6274678218844536842
+    rid: 4082220119189356555
   references:
     version: 2
     RefIds:
-    - rid: 6274678218844536842
+    - rid: 4082220119189356555
       type: {class: SkillScript, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
         SkillCooldown: 0
+        HasConditionsForSelectedCell: 0
+        IsMovable: 0
+        TargetCount: 1

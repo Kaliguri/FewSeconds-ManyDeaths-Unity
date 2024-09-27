@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Hero Type
   m_EditorClassIdentifier: 
   m_SharedTableData: {fileID: 11400000, guid: ccf0cd8aa40226547b22b413dd887098, type: 2}
-  m_Tables:
-  - {fileID: 11400000, guid: 1b3be1bdd0b9ccf41b41e0d46e7d6679, type: 2}
-  - {fileID: 11400000, guid: a103138c3a2503f4fba4278a93827deb, type: 2}
+  m_Tables: []
   m_Extensions: []
   m_Group: String Table
   references:

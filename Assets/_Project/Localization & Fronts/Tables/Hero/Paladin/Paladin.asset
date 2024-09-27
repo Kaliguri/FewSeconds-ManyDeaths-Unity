@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Paladin
   m_EditorClassIdentifier: 
   m_SharedTableData: {fileID: 11400000, guid: 302d6b22d324a3f458ce0c94bd696ba2, type: 2}
-  m_Tables:
-  - {fileID: 11400000, guid: d0595a9641485334d8fa6bfdc08f5433, type: 2}
-  - {fileID: 11400000, guid: e4e124cee8701ba49a6cd3124855f678, type: 2}
+  m_Tables: []
   m_Extensions: []
   m_Group: String Table
   references:
