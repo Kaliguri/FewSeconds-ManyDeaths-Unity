@@ -33,7 +33,7 @@ class CreatorType //Who cast damage, shield, heal and etc.
 
 class HeroCreator : CreatorType // Hero, his talents, items, tileEffects, effects
 {
-
+    AllPlayerStats stats;
 }
 
 class BossCreator : CreatorType // Boss, his tyleEffects, effects

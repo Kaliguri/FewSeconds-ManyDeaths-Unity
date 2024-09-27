@@ -9,12 +9,12 @@ public class CombatPlayerDataInSession : MonoBehaviour
 
     [Title("Stats")]
     [Title("Total Stats")]
-    public AllStats[] _TotalStatsList;
+    public AllPlayerStats[] _TotalStatsList;
 
 
     [TabGroup("Hero Stats")]
     [Title("Hero Stats Effect On Stats")]
-    public GeneralStats[] _HeroStatsEffectList;
+    public GeneralPlayerStats[] _HeroStatsEffectList;
 
     [TabGroup("Hero Stats")]
     [Title("Settings")]
@@ -31,7 +31,7 @@ public class CombatPlayerDataInSession : MonoBehaviour
     
     [TabGroup("Effects")]
     [Title("Effects On Stats")]
-    public GeneralStats[] _StatsEffectList;
+    public GeneralPlayerStats[] _StatsEffectList;
     [TabGroup("Effects")]
     [Title("Effects")]
     public EffectData[] CurrentEffectList;
@@ -41,7 +41,7 @@ public class CombatPlayerDataInSession : MonoBehaviour
 
     [TabGroup("Talents")]
     [Title("Talents Effect On Stats")]
-    public GeneralStats[] _TalentsStatsEffectList;
+    public GeneralPlayerStats[] _TalentsStatsEffectList;
 
     [TabGroup("Talents")]
     [Title("Talents")]
@@ -52,7 +52,7 @@ public class CombatPlayerDataInSession : MonoBehaviour
 
     [TabGroup("Items")]
     [Title("Items Effect On Stats")]
-    public GeneralStats[] _ItemsStatsEffectList;
+    public GeneralPlayerStats[] _ItemsStatsEffectList;
 
     [TabGroup("Items")]
     [Title("Items")]
@@ -63,7 +63,7 @@ public class CombatPlayerDataInSession : MonoBehaviour
 
     [TabGroup("Command Artifacts")]
     [Title("Artifacts Effect On Stats")]
-    public GeneralStats[] _CommandArtifactsStatsEffectList;
+    public GeneralPlayerStats[] _CommandArtifactsStatsEffectList;
 
 
     [TabGroup("Command Artifacts")]
@@ -93,13 +93,13 @@ public class CombatPlayerDataInSession : MonoBehaviour
     void InitialiseArrayes()
     {
 
-        _TotalStatsList = new AllStats[maxPlayer];
+        _TotalStatsList = new AllPlayerStats[maxPlayer];
 
-        _HeroStatsEffectList = new GeneralStats[maxPlayer];
-        _TalentsStatsEffectList = new GeneralStats[maxPlayer];
-        _ItemsStatsEffectList = new GeneralStats[maxPlayer];
-        _CommandArtifactsStatsEffectList = new GeneralStats[maxPlayer];
-        _StatsEffectList = new GeneralStats[maxPlayer];
+        _HeroStatsEffectList = new GeneralPlayerStats[maxPlayer];
+        _TalentsStatsEffectList = new GeneralPlayerStats[maxPlayer];
+        _ItemsStatsEffectList = new GeneralPlayerStats[maxPlayer];
+        _CommandArtifactsStatsEffectList = new GeneralPlayerStats[maxPlayer];
+        _StatsEffectList = new GeneralPlayerStats[maxPlayer];
 
         PlayersTalentsList = new PlayerTalents[maxPlayer];
         PlayersItemsList = new PlayerItems[maxPlayer];
@@ -109,13 +109,13 @@ public class CombatPlayerDataInSession : MonoBehaviour
         for (int DataNumber = 0; DataNumber < maxPlayer; DataNumber++ )
         {
 
-        _TotalStatsList[DataNumber] = new AllStats();
+        _TotalStatsList[DataNumber] = new AllPlayerStats();
 
-        _HeroStatsEffectList[DataNumber] = new GeneralStats();
-        _TalentsStatsEffectList[DataNumber] = new GeneralStats();
-        _ItemsStatsEffectList[DataNumber] = new GeneralStats();
-        _CommandArtifactsStatsEffectList[DataNumber] = new GeneralStats();
-        _StatsEffectList[DataNumber] = new GeneralStats();
+        _HeroStatsEffectList[DataNumber] = new GeneralPlayerStats();
+        _TalentsStatsEffectList[DataNumber] = new GeneralPlayerStats();
+        _ItemsStatsEffectList[DataNumber] = new GeneralPlayerStats();
+        _CommandArtifactsStatsEffectList[DataNumber] = new GeneralPlayerStats();
+        _StatsEffectList[DataNumber] = new GeneralPlayerStats();
 
         PlayersTalentsList[DataNumber] = new PlayerTalents();
         PlayersItemsList[DataNumber] = new PlayerItems();
@@ -162,7 +162,7 @@ public class CombatPlayerDataInSession : MonoBehaviour
 
     }
 
-    public AllStats[] AddtionHeroStats(AllStats[] resultList, GeneralStats[] addedList)
+    public AllPlayerStats[] AddtionHeroStats(AllPlayerStats[] resultList, GeneralPlayerStats[] addedList)
     {
         for (int DataNumber = 0; DataNumber < maxPlayer; DataNumber++ )
         {
@@ -183,7 +183,7 @@ public class CombatPlayerDataInSession : MonoBehaviour
 }
 
 [Serializable]
-public class GeneralStats
+public class GeneralPlayerStats
 {
     [Title("HP")]
     public float MaxHP = 0;
@@ -210,13 +210,13 @@ public class CombatStats
 }
 
 [Serializable]
-public class AllStats
+public class AllPlayerStats
 {
     [Title("Combat (Current...)")]
     public CombatStats currentCombat = new CombatStats();
 
     [Title("General")]
-    public GeneralStats general = new GeneralStats();
+    public GeneralPlayerStats general = new GeneralPlayerStats();
 }
 
 [Serializable]
@@ -224,7 +224,7 @@ public class PlayerTalents
 {
      public List<ItemData> TalentsList;
 
-    public static implicit operator PlayerTalents(GeneralStats v)
+    public static implicit operator PlayerTalents(GeneralPlayerStats v)
     {
         throw new NotImplementedException();
     }

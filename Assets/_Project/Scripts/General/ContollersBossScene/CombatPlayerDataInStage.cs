@@ -11,18 +11,18 @@ public class CombatPlayerDataInStage : MonoBehaviour
     [Title("Stats")]
     [Title("Total Stats")]
     [PropertySpace(SpaceAfter = 30)]
-    public AllStats[] _TotalStatsList;
+    public AllPlayerStats[] _TotalStatsList;
 
 
 
     [TabGroup("Hero Stats")]
     [Title("Hero Stats Effect On Stats")]
-    public GeneralStats[] _HeroStatsEffectList;
+    public GeneralPlayerStats[] _HeroStatsEffectList;
 
 
     [TabGroup("Effects")]
     [Title("Effects On Stats")]
-    public GeneralStats[] _StatsEffectList;
+    public GeneralPlayerStats[] _StatsEffectList;
     [TabGroup("Effects")]
     [Title("Effects")]
     public EffectData[] CurrentEffectList;
@@ -31,7 +31,7 @@ public class CombatPlayerDataInStage : MonoBehaviour
 
     [TabGroup("Talents")]
     [Title("Talents Effect On Stats")]
-    public GeneralStats[] _TalentsStatsEffectList;
+    public GeneralPlayerStats[] _TalentsStatsEffectList;
     [TabGroup("Talents")]
     [Title("Talents")]
     public PlayerTalents[] PlayersTalentsList;
@@ -40,7 +40,7 @@ public class CombatPlayerDataInStage : MonoBehaviour
 
     [TabGroup("Items")]
     [Title("Items Effect On Stats")]
-    public GeneralStats[] _ItemsStatsEffectList;
+    public GeneralPlayerStats[] _ItemsStatsEffectList;
     [TabGroup("Items")]
     [Title("Items")]
     public PlayerItems[] PlayersItemsList;
@@ -49,7 +49,7 @@ public class CombatPlayerDataInStage : MonoBehaviour
 
     [TabGroup("Command Artifacts")]
     [Title("Artifacts Effect On Stats")]
-    public GeneralStats[] _CommandArtifactsStatsEffectList;
+    public GeneralPlayerStats[] _CommandArtifactsStatsEffectList;
 
     [TabGroup("Command Artifacts")]
     [Title("Artifacts")]
