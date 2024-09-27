@@ -26,6 +26,7 @@ public class OnSpawn : NetworkBehaviour
 
     private void Awake()
     {
+        Debug.Log("AddListener");
         GlobalEventSystem.AllPlayerSpawned.AddListener(TransferData);
     }
 

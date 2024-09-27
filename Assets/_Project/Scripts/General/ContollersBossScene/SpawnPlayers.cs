@@ -44,6 +44,7 @@ public class SpawnPlayers : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void SendAllPlayersSpawnedRpc()
     {
+        Debug.Log("SendAllPlayerSpawned");
         GlobalEventSystem.SendAllPlayerSpawned();
     }
 
