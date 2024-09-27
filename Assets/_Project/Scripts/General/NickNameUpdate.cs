@@ -11,7 +11,7 @@ public class NickNameUpdate : MonoBehaviour
     private PlayerInfoData playerInfoData => FindObjectOfType<PlayerInfoData>().GetComponent<PlayerInfoData>();
     private int playerID => playerInfoData.PlayerIDThisPlayer;
 
-    void Start()
+    void Awake()
     {
         GlobalEventSystem.AllPlayerSpawned.AddListener(UpdatePlayerNickname);
     }

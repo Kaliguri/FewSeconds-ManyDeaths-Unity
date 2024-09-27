@@ -31,13 +31,8 @@ public class SpawnPlayers : NetworkBehaviour
                 SpawnPlayer(i, id);
                 i++;
             }
+            SendAllPlayersSpawnedRpc();
         }
-        SendAllPlayersSpawned();
-    }
-
-    private void SendAllPlayersSpawned()
-    {
-        SendAllPlayersSpawnedRpc();
     }
 
     [Rpc(SendTo.ClientsAndHost)]
