@@ -21,7 +21,7 @@ public class UISkill : MonoBehaviour
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private PlayerSkillManager playerSkillManager => GameObject.FindObjectOfType<PlayerSkillManager>();
     private int playerID => playerInfoData.PlayerIDThisPlayer;
-    private int variation => playerInfoData.SkillChoiceList[playerID][UINumber];
+    private int variation => playerInfoData.SkillChoiceList[playerID].variationList[UINumber];
     private HeroData heroData => playerInfoData.HeroDataList[playerID];
 
     private SkillData skillData => heroData.SkillList[UINumber].SkillVariationsList[variation];

@@ -33,8 +33,8 @@ public class HeroChoiceButtonController : MonoBehaviour
 
     void RestoreChoiceSkills()
     {
-        for (int SkillNumber = 0; SkillNumber < playerInfoData.SkillChoiceList[playerID].Count; SkillNumber++) 
-        { playerInfoData.SkillChoiceList[playerID][SkillNumber] = 0; }
+        for (int SkillNumber = 0; SkillNumber < playerInfoData.SkillChoiceList[playerID].variationList.Count; SkillNumber++) 
+        { playerInfoData.SkillChoiceList[playerID].variationList[SkillNumber] = 0; }
 
     }
 }

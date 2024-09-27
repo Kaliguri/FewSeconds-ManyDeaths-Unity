@@ -25,7 +25,7 @@ public class SkillChoiceButtonController : MonoBehaviour
         //Debug.Log(playerInfoData.SkillChoiceList.Count);
         //Debug.Log(playerInfoData.SkillChoiceList[playerID].Count);
 
-        playerInfoData.SkillChoiceList[playerID][SkillNumber] = VariationSkillNumber;
+        playerInfoData.SkillChoiceList[playerID].variationList[SkillNumber] = VariationSkillNumber;
         GlobalEventSystem.SendSkillChanged();
         GlobalEventSystem.SendPlayerChoiceActionUpdate(SkillNumber, playerID, VariationSkillNumber);
     }

@@ -4,6 +4,7 @@ using Unity.Netcode;
 using Steamworks;
 using Steamworks.Data;
 using Sirenix.OdinInspector;
+using System;
 
 public class PlayerInfoData : MonoBehaviour
 {
@@ -21,12 +22,12 @@ public class PlayerInfoData : MonoBehaviour
     public List<HeroData> HeroDataList;
 
     [TabGroup("Heroes")]
-    public List<List<int>> SkillChoiceList = new()
+    public List<SkillChoiceContainer> SkillChoiceList = new()
     {
-        new List<int> {0,0,0,0},
-        new List<int> {0,0,0,0},
-        new List<int> {0,0,0,0},
-        new List<int> {0,0,0,0}
+        new SkillChoiceContainer(),
+        new SkillChoiceContainer(),
+        new SkillChoiceContainer(),
+        new SkillChoiceContainer()
     };
 
     [TabGroup("Turn Order")]
@@ -76,4 +77,10 @@ public class PlayerInfoData : MonoBehaviour
         {SkillChoiceList.Add(TempList);}
     }
     */
+}
+
+[Serializable]
+public class SkillChoiceContainer
+{
+    public List<int> variationList = new() {0,0,0,0};
 }

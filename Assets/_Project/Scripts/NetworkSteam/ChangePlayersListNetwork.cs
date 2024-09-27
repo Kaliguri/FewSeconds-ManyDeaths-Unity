@@ -27,7 +27,7 @@ public class ChangePlayersListNetwork : NetworkBehaviour
     private void ChangeSkillRpc(int SkillNumber, int ID, int variationSkillNumber)
     {
         Debug.Log("SkillNumber = " + SkillNumber + "; playerId = " + ID + "; variationSkillNumber = " + variationSkillNumber);
-        playerInfoData.SkillChoiceList[ID][SkillNumber] = variationSkillNumber;
+        playerInfoData.SkillChoiceList[ID].variationList[SkillNumber] = variationSkillNumber;
         GlobalEventSystem.SendSkillChanged();
     }
 
@@ -54,9 +54,9 @@ public class ChangePlayersListNetwork : NetworkBehaviour
 
     void RestoreChoiceSkills()
     {
-        for (int SkillNumber = 0; SkillNumber < playerInfoData.SkillChoiceList[playerID].Count; SkillNumber++)
+        for (int SkillNumber = 0; SkillNumber < playerInfoData.SkillChoiceList[playerID].variationList.Count; SkillNumber++)
         { 
-            playerInfoData.SkillChoiceList[playerID][SkillNumber] = 0; 
+            playerInfoData.SkillChoiceList[playerID].variationList[SkillNumber] = 0; 
         }
     }
 

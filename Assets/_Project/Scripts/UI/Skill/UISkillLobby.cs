@@ -23,7 +23,7 @@ public class UISkillLobby : MonoBehaviour
     [SerializeField] private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     
     private int playerID => playerInfoData.PlayerIDThisPlayer;
-    private int variation => playerInfoData.SkillChoiceList[HeroListUINumber][UINumber];
+    private int variation => playerInfoData.SkillChoiceList[HeroListUINumber].variationList[UINumber];
     private SkillData skillData => playerInfoData.HeroDataList[HeroListUINumber].SkillList[UINumber].SkillVariationsList[variation]; 
 
     private Sprite skillIcon => skillData.SkillIcon;

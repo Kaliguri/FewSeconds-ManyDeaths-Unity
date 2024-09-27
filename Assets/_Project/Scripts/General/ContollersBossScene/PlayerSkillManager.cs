@@ -66,7 +66,7 @@ public class PlayerSkillManager : NetworkBehaviour
 
     private void SelectSkillByButton(int skillNumber)
     {
-        SkillScript skillByButton = heroData.SkillList[skillNumber].SkillVariationsList[playerInfoData.SkillChoiceList[playerID][skillNumber]].SkillScript;
+        SkillScript skillByButton = heroData.SkillList[skillNumber].SkillVariationsList[playerInfoData.SkillChoiceList[playerID].variationList[skillNumber]].SkillScript;
         Debug.Log(skillNumber + " ChoosenSkill used");
         GetSkill(skillByButton, skillNumber);
     }
@@ -116,7 +116,7 @@ public class PlayerSkillManager : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void CastActionRpc(int casterPlayerId, int skillNumber, Vector2 CasterPosition, Vector2 ActualCasterPosition, Vector2[] TargetPoints, int skillIndex)
     {
-        int variation = playerInfoData.SkillChoiceList[casterPlayerId][skillNumber];
+        int variation = playerInfoData.SkillChoiceList[casterPlayerId].variationList[skillNumber];
         SkillScript skillScript = heroData.SkillList[skillNumber].SkillVariationsList[variation].SkillScript;
         skillScript.Cast(CasterPosition, ActualCasterPosition, TargetPoints, skillIndex);
     }
