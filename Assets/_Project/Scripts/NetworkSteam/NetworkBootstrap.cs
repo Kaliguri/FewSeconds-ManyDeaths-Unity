@@ -8,6 +8,7 @@ public class NetworkBootstrap : MonoBehaviour
 {
     [SerializeField] private List<NetworkBehaviour> networkBehaviours = new();
     [SerializeField] private CombatPlayerDataInStage combatPlayerDataInStage;
+    [SerializeField] private GridVisualizer gridVisualizer;
     [SerializeField] private float TimeBeforeEnabled = 1f;
 
     void Start()

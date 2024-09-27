@@ -44,7 +44,6 @@ public class SteamManager : MonoBehaviour
 
     private void LobbyEntered(Lobby lobby)
     {
-        Debug.Log("LobbyEntered");
         LobbySaver.instance.currentLobby = lobby;
         //LobbyID.text = lobby.Id.ToString();
         ChangeUI();
