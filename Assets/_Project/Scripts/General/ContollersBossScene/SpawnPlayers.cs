@@ -18,10 +18,10 @@ public class SpawnPlayers : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        SceneLoaded();
+        Invoke(nameof(SpawnAllPlayers), 1f);
     }
 
-    private void SceneLoaded()
+    private void SpawnAllPlayers()
     {
         if (NetworkManager.Singleton.IsHost)
         {
