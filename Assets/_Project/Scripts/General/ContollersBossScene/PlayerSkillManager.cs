@@ -128,7 +128,6 @@ public class PlayerSkillManager : NetworkBehaviour
         else
         {
             skillSelected = false;
-            GlobalEventSystem.SendPlayerActionUnchoosed();
         }
     }
 

@@ -87,14 +87,14 @@ public class CombatStageManager : NetworkBehaviour
 
     private void Update()
     {
-        if (currentStage != null)
-        {
-            currentStage.UpdateStage();
-        }
-
         if (currentStageIndexNet.Value != currentStageIndex && !NetworkManager.Singleton.IsServer)
         {
             NextStage(currentStageIndexNet.Value);
+        }
+
+        if (currentStage != null)
+        {
+            currentStage.UpdateStage();
         }
     }
 }

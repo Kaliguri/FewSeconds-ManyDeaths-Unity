@@ -69,6 +69,9 @@ public static class GlobalEventSystem
     public static UnityEvent PlayerEndMove = new();
     public static void SendPlayerEndMove() { PlayerEndMove.Invoke(); }
 
+    public static UnityEvent AllPlayersEndMoving = new();
+    public static void SendAllPlayersEndMoving() { AllPlayersEndMoving.Invoke(); }
+
     #endregion
 
     #region Actions

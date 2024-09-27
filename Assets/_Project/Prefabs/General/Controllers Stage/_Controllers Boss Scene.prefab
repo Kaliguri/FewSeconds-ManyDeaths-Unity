@@ -295,8 +295,10 @@ MonoBehaviour:
     type: 3}
   pathEndTilePrefab: {fileID: 330825679165775675, guid: 4f8c4124cb423804db8b20044ee92670,
     type: 3}
-  pathTileSelectorPrefab: {fileID: 0}
-  pathEndTileSelectorPrefab: {fileID: 0}
+  pathTileSelectorPrefab: {fileID: 330825679165775675, guid: 4f8c4124cb423804db8b20044ee92670,
+    type: 3}
+  pathEndTileSelectorPrefab: {fileID: 7692725535772613510, guid: 99e9677e049aeb04a91fa0269a06bcfc,
+    type: 3}
   VisualizeSpritePrefab: {fileID: 345301630910941340, guid: 272b78875872d6142be58c6971d14c60,
     type: 3}
   fig: 0
@@ -374,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdadb4c3d3d2bfe4aaefb61c04e32fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTurnTime: 10
+  PlayerTurnTime: 0
   timerText: {fileID: 0}
   confirmationText: {fileID: 0}
   confirmationButton: {fileID: 0}

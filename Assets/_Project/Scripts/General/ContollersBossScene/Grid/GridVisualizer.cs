@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -48,6 +50,7 @@ public class GridVisualizer : MonoBehaviour
 
     #endregion
 
+    #region ChangableParameters
     [TabGroup("For CombatGridMethods Test")]
     [SerializeField] GameObject VisualizeSpritePrefab;
 
@@ -61,8 +64,9 @@ public class GridVisualizer : MonoBehaviour
     [SerializeField] int width = 1, maxDistance = 5, cutValue = 0;
     [TabGroup("For CombatGridMethods Test")]
     public List<Vector2> VisualizeCoordinateList = new();
+    #endregion
 
-
+    #region LinkParameters
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private Tilemap gameplayTilemap => mapClass.gameplayTilemap;
     private Vector2 tileZero => mapClass.tileZero;
@@ -77,8 +81,11 @@ public class GridVisualizer : MonoBehaviour
     Vector2[] heroPositions => combatPlayerDataInStage.HeroCoordinates;
     private List<Vector2> pathCoordinates => playerMovementController.MovementList;
     private Vector2 castPosition => playerMovementController.LastPosition;
+    #endregion
 
-    private List<GameObject> pathList = new();
+    #region PrivateParameters
+    private List<GameObject> playerPathList = new();
+    private List<GameObject> playersPathList = new();
     private List<GameObject> availableTileGameObjectList = new();
     private List<GameObject> playersTilesGameObjectList = new();
     private List<GameObject> playersAffectedTilesList = new();
@@ -86,6 +93,7 @@ public class GridVisualizer : MonoBehaviour
     private GameObject tileSkillSelector;
     private InputActions inputActions;
     private bool isPlayerCasting = false;
+    #endregion
 
     void Awake()
     {
@@ -100,163 +108,17 @@ public class GridVisualizer : MonoBehaviour
         GlobalEventSystem.PlayerActionAproved.AddListener(PlayerActionUnchoosed);
         GlobalEventSystem.PathChanged.AddListener(ChangePath);
         GlobalEventSystem.ResultStageStarted.AddListener(SendClearAprovedAffectedAreas);
+        GlobalEventSystem.ResultStageStarted.AddListener(SendPathTiles);
+        GlobalEventSystem.AllPlayersEndMoving.AddListener(ClearPlayersPathTiles);
     }
-
-    private void SendClearAprovedAffectedAreas()
-    {
-        ClearAprovedAffectedAreas();
-    }
-
     void Start()
     {
-        SetVisualizeCoordinateList();
         inputActions.Enable();
     }
 
     private void FixedUpdate()
     {
         UpdateTileSelector();
-    }
-
-    private void CreatePlayersTiles()
-    {
-        for (int i = 0; i < heroPositions.Length; i++)
-        {
-            GameObject playerTile = Instantiate(heroTile, heroPositions[i] + mapClass.tileZero, Quaternion.identity);
-
-            Color color = playerInfoData.ColorList[i];
-            playerTile.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, playerTile.GetComponent<SpriteRenderer>().color.a);
-
-            playersTilesGameObjectList.Add(playerTile);
-        }
-    }
-
-    private void HidePlayersTiles()
-    {
-        for (int i = 0; i < playersTilesGameObjectList.Count; i++)
-        {
-            playersTilesGameObjectList[i].GetComponent<SpriteRenderer>().enabled = false;
-        }
-    }
-
-    private void ShowPlayersTiles()
-    {
-        for (int i = 0; i < playersTilesGameObjectList.Count; i++)
-        {
-            playersTilesGameObjectList[i].transform.position = heroPositions[i] + tileZero;
-            playersTilesGameObjectList[i].GetComponent<SpriteRenderer>().enabled = true;
-        }
-    }
-
-    private void PlayerActionUpdate()
-    {
-        UpdateAprovedAffectedAreas();
-        UpdateSkillAvaliableArea();
-    }
-
-    private void ChangePath()
-    {
-        ClearPath();
-        CreatePath();
-    }
-
-    private void CreatePath()
-    {
-        for (int i = 0; i < pathCoordinates.Count; i++)
-        {
-            GameObject pathObject;
-            if (i == pathCoordinates.Count - 1) pathObject = Instantiate(pathEndTilePrefab, pathCoordinates[i] + tileZero, Quaternion.identity);
-            else pathObject = Instantiate(pathTilePrefab, pathCoordinates[i] + tileZero, Quaternion.identity);
-            pathList.Add(pathObject);
-        }
-    }
-
-    private void ClearPath()
-    {
-        for (int i = 0; i < pathList.Count; i++)
-        {
-            GameObject pathObject = pathList[i];
-            Destroy(pathObject);
-        }
-        pathList.Clear();
-    }
-
-    private void PlayerActionUnchoosed()
-    {
-        UpdateAprovedAffectedAreas();
-        isPlayerCasting = false;
-        ClearAvaliableArea();
-    }
-
-    private void UpdateAprovedAffectedAreas()
-    {
-        ClearAprovedAffectedAreas();
-        for (int i = 0; i < TargetTileList.Count; i++)
-        {
-            SkillScript skill = SkillList[i];
-            for (int skillIndex = 0; skillIndex < TargetTileList[i].Count; skillIndex++)
-            {
-                CreateAprovedAffectedArea(skill, i, skillIndex);
-            }
-        }
-    }
-
-    private void CreateAprovedAffectedArea(SkillScript skill, int i, int skillIndex)
-    {
-        List<Vector2> affectedAreaList = skill.Area(castPosition, TargetTileList[i][skillIndex], skillIndex);
-        for (int k = 0; k < affectedAreaList.Count; k++)
-        {
-            Vector3Int tile = gameplayTilemap.WorldToCell(affectedAreaList[k] + tileZero);
-            if (mapClass.gameplayTilemap.HasTile(tile))
-            {
-                GameObject areaTile = Instantiate(skillAffectedTilePrefab, affectedAreaList[k] + tileZero, Quaternion.identity);
-                playersAffectedTilesList.Add(areaTile);
-            }
-        }
-    }
-
-    private void ClearAprovedAffectedAreas()
-    {
-        for (int i = 0; i < playersAffectedTilesList.Count; i++)
-        {
-            GameObject tile = playersAffectedTilesList[i];
-            Destroy(tile);
-        }
-        playersAffectedTilesList.Clear();
-    }
-
-    private void PlayerActionChoosed()
-    {
-        isPlayerCasting = true;
-        UpdateSkillAvaliableArea();
-    }
-
-    private void UpdateSkillAvaliableArea()
-    {
-        if (skillSelected.HasConditionsForSelectedCell)
-        {
-            ClearAvaliableArea();
-            List<Vector2> availableTilesList = skillSelected.AvailableTiles(castPosition, targetPoints);
-            for (int i = 0; i < availableTilesList.Count; i++)
-            {
-                Vector3Int tileAvaliable = gameplayTilemap.WorldToCell(availableTilesList[i] + tileZero);
-                if (gameplayTilemap.HasTile(tileAvaliable))
-                {
-                    GameObject availableTile = Instantiate(skillAvaliableTilePrefab, availableTilesList[i] + tileZero, Quaternion.identity);
-                    availableTileGameObjectList.Add(availableTile);
-                }
-            }
-        }
-    }
-
-    private void ClearAvaliableArea()
-    {
-        for (int i = 0; i < availableTileGameObjectList.Count; i++)
-        {
-            GameObject avaliableTileGameObject = availableTileGameObjectList[i];
-            Destroy(avaliableTileGameObject);
-        }
-        availableTileGameObjectList.Clear();
     }
 
     private void UpdateTileSelector()
@@ -293,6 +155,144 @@ public class GridVisualizer : MonoBehaviour
         }
     }
 
+    #region PlayersPath
+
+    private void SendPathTiles()
+    {
+        ClearPath();
+        bool isLast = false;
+        for (int i = 1; i < pathCoordinates.Count; i++)
+        {
+            if (i == pathCoordinates.Count - 1) isLast = true;
+            SendPlayerPathTileRpc(pathCoordinates[i] + tileZero, isLast, playerID);
+        }
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void SendPlayerPathTileRpc(Vector2 Location, bool isLast, int PlayerID)
+    {
+        GameObject pathObject;
+        if (isLast) pathObject = Instantiate(pathEndTilePrefab, Location, Quaternion.identity);
+        else pathObject = Instantiate(pathTilePrefab, Location, Quaternion.identity);
+        Color color = playerInfoData.ColorList[PlayerID];
+        pathObject.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, pathObject.GetComponent<SpriteRenderer>().color.a);
+        playersPathList.Add(pathObject);
+    }
+
+    private void ClearPlayersPathTiles()
+    {
+        for (int i = 0; i < playersPathList.Count; i++)
+        {
+            GameObject pathObject = playersPathList[i];
+            Destroy(pathObject);
+        }
+        playersPathList.Clear();
+    }
+    #endregion
+
+    #region PlayerAction
+    private void PlayerActionUpdate()
+    {
+        UpdateAprovedAffectedAreas();
+        UpdateSkillAvaliableArea();
+    }
+
+    private void PlayerActionUnchoosed()
+    {
+        UpdateAprovedAffectedAreas();
+        isPlayerCasting = false;
+        ClearAvaliableArea();
+    }
+
+    private void PlayerActionChoosed()
+    {
+        isPlayerCasting = true;
+        UpdateSkillAvaliableArea();
+    }
+
+    #endregion
+
+    #region PlayersTiles
+
+    private void CreatePlayersTiles()
+    {
+        for (int i = 0; i < heroPositions.Length; i++)
+        {
+            GameObject playerTile = Instantiate(heroTile, heroPositions[i] + mapClass.tileZero, Quaternion.identity);
+
+            Color color = playerInfoData.ColorList[i];
+            playerTile.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, playerTile.GetComponent<SpriteRenderer>().color.a);
+
+            playersTilesGameObjectList.Add(playerTile);
+        }
+    }
+
+    private void HidePlayersTiles()
+    {
+        for (int i = 0; i < playersTilesGameObjectList.Count; i++)
+        {
+            playersTilesGameObjectList[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
+    }
+
+    private void ShowPlayersTiles()
+    {
+        for (int i = 0; i < playersTilesGameObjectList.Count; i++)
+        {
+            playersTilesGameObjectList[i].transform.position = heroPositions[i] + tileZero;
+            playersTilesGameObjectList[i].GetComponent<SpriteRenderer>().enabled = true;
+        }
+    }
+    #endregion
+
+    #region AvaliableArea
+
+    private void UpdateSkillAvaliableArea()
+    {
+        if (skillSelected.HasConditionsForSelectedCell)
+        {
+            ClearAvaliableArea();
+            List<Vector2> availableTilesList = skillSelected.AvailableTiles(castPosition, targetPoints);
+            for (int i = 0; i < availableTilesList.Count; i++)
+            {
+                Vector3Int tileAvaliable = gameplayTilemap.WorldToCell(availableTilesList[i] + tileZero);
+                if (gameplayTilemap.HasTile(tileAvaliable))
+                {
+                    GameObject availableTile = Instantiate(skillAvaliableTilePrefab, availableTilesList[i] + tileZero, Quaternion.identity);
+                    availableTileGameObjectList.Add(availableTile);
+                }
+            }
+        }
+    }
+
+    private void ClearAvaliableArea()
+    {
+        for (int i = 0; i < availableTileGameObjectList.Count; i++)
+        {
+            GameObject avaliableTileGameObject = availableTileGameObjectList[i];
+            Destroy(avaliableTileGameObject);
+        }
+        availableTileGameObjectList.Clear();
+    }
+
+    #endregion
+
+    #region AffectedArea
+    private void SendClearAprovedAffectedAreas()
+    {
+        ClearAprovedAffectedAreas();
+    }
+
+    private void ClearAprovedAffectedAreas()
+    {
+        for (int i = 0; i < playersAffectedTilesList.Count; i++)
+        {
+            GameObject tile = playersAffectedTilesList[i];
+            Destroy(tile);
+        }
+        playersAffectedTilesList.Clear();
+    }
+
     private void UpdateSkillAffectedArea(Vector2 TileCenter)
     {
         List<Vector2> affectedAreaList = skillSelected.Area(castPosition, TileCenter - tileZero, targetPoints);
@@ -307,6 +307,64 @@ public class GridVisualizer : MonoBehaviour
         }
     }
 
+    private void UpdateAprovedAffectedAreas()
+    {
+        ClearAprovedAffectedAreas();
+        for (int i = 0; i < TargetTileList.Count; i++)
+        {
+            SkillScript skill = SkillList[i];
+            for (int skillIndex = 0; skillIndex < TargetTileList[i].Count; skillIndex++)
+            {
+                CreateAprovedAffectedArea(skill, i, skillIndex);
+            }
+        }
+    }
+
+    private void CreateAprovedAffectedArea(SkillScript skill, int i, int skillIndex)
+    {
+        List<Vector2> affectedAreaList = skill.Area(castPosition, TargetTileList[i][skillIndex], skillIndex);
+        for (int k = 0; k < affectedAreaList.Count; k++)
+        {
+            Vector3Int tile = gameplayTilemap.WorldToCell(affectedAreaList[k] + tileZero);
+            if (mapClass.gameplayTilemap.HasTile(tile))
+            {
+                GameObject areaTile = Instantiate(skillAffectedTilePrefab, affectedAreaList[k] + tileZero, Quaternion.identity);
+                playersAffectedTilesList.Add(areaTile);
+            }
+        }
+    }
+
+    #endregion
+
+    #region PlayerPath
+    private void ChangePath()
+    {
+        ClearPath();
+        CreatePath();
+    }
+
+    private void CreatePath()
+    {
+        for (int i = 1; i < pathCoordinates.Count; i++)
+        {
+            GameObject pathObject;
+            if (i == pathCoordinates.Count - 1) pathObject = Instantiate(pathEndTileSelectorPrefab, pathCoordinates[i] + tileZero, Quaternion.identity);
+            else pathObject = Instantiate(pathTileSelectorPrefab, pathCoordinates[i] + tileZero, Quaternion.identity);
+            playerPathList.Add(pathObject);
+        }
+    }
+
+    private void ClearPath()
+    {
+        for (int i = 0; i < playerPathList.Count; i++)
+        {
+            GameObject pathObject = playerPathList[i];
+            Destroy(pathObject);
+        }
+        playerPathList.Clear();
+    }
+    #endregion
+
     [TabGroup("For CombatGridMethods Test")]
     [Button("Visualise Attack")]
     public void VisualiseAttack()
@@ -314,7 +372,7 @@ public class GridVisualizer : MonoBehaviour
         switch (fig)
         {
             case CombatGridMethods.figs.Line:
-                VisualizeCoordinateList = CombatGridMethods.CoordinateLine(character, cell, width,maxDistance);
+                VisualizeCoordinateList = CombatGridMethods.CoordinateLine(character, cell, width, maxDistance);
                 break;
             case CombatGridMethods.figs.Diagonal:
                 VisualizeCoordinateList = CombatGridMethods.DiagonalLine(character, cell, width, maxDistance);
@@ -326,7 +384,7 @@ public class GridVisualizer : MonoBehaviour
                 VisualizeCoordinateList = CombatGridMethods.AllDiagonalLines(character, width, maxDistance);
                 break;
             case CombatGridMethods.figs.Square:
-                VisualizeCoordinateList = CombatGridMethods.Perforation( CombatGridMethods.SquareAOE(character, cell, width, true), CombatGridMethods.SquareAOE(character, cell, cutValue, false));
+                VisualizeCoordinateList = CombatGridMethods.Perforation(CombatGridMethods.SquareAOE(character, cell, width, true), CombatGridMethods.SquareAOE(character, cell, cutValue, false));
                 break;
             case CombatGridMethods.figs.HorseCell:
                 VisualizeCoordinateList = CombatGridMethods.HorseCell(character, cell, true);
@@ -345,10 +403,5 @@ public class GridVisualizer : MonoBehaviour
                 Destroy(attackObject, 1f);
             }
         }
-    }
-
-    public void SetVisualizeCoordinateList()
-    {
-        VisualizeCoordinateList = new List<Vector2>{new Vector2(1, 1), new Vector2(1,2)};
     }
 }

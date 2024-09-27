@@ -140,7 +140,7 @@ public class NoPlayableTile : MapObject
 
 
 [Serializable]
-public class TileFffect : MapObject
+public class TileFffect
 {
-
+    public TileEffectData tileEffectData;
 }

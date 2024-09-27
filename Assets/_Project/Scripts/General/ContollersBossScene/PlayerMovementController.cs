@@ -1,9 +1,9 @@
-using Sirenix.OdinInspector.Demos;
 using Sirenix.OdinInspector.Editor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -16,6 +16,8 @@ public class SelectedPath
 
 public class PlayerMovementController : NetworkBehaviour
 {
+    [SerializeField] private float timeBetweenMovement = 1f;
+    
     public Vector2 LastPosition;
     public List<Vector2> MovementList = new();
 
@@ -28,7 +30,6 @@ public class PlayerMovementController : NetworkBehaviour
     private PlayerSkillManager playerSkillManager => FindObjectOfType<PlayerSkillManager>();
     private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
     private int localId => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
-    private float timeBetweenMovement = 1f;
     Pathfinding gridPathfinding;
 
     enum Movement
@@ -156,8 +157,6 @@ public class PlayerMovementController : NetworkBehaviour
                         MovementList.Add(point);
                         LastPosition = point;
 
-                        mapClass.SetHero(point, localId);
-
                         int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy - (int)MovementIndex;
                         ChangeEnergy(newEnergy);
                     }
@@ -204,6 +203,11 @@ public class PlayerMovementController : NetworkBehaviour
     {
         for (int i = MovementList.Count - 1; i >= 0; i--)
         {
+            List<MapObject> tileStates = mapClass.TileState(MovementList[i]);
+            for (int j = 0; j < tileStates.Count; j++)
+            {
+                Debug.Log(tileStates[j]);
+            }
             if (mapClass.TileState(MovementList[i]).Exists(x => x is Hero)) MovementList.RemoveAt(i);
             else if (mapClass.TileState(MovementList[i]).Exists(x => x is Boss)) MovementList.RemoveAt(i);
             else break;
@@ -218,10 +222,12 @@ public class PlayerMovementController : NetworkBehaviour
             {
                 SendPlayerStartMoveRpc();
                 combatPlayerDataInStage.PlayersHeroes[localId].transform.position = MovementList[i] + tileZero;
-                ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[MovementList.Count - 1], localId);
                 ChangePlayerCoordinatesRpc(MovementList[i], localId);
                 SendPlayerEndMoveRpc();
-                yield return new WaitForSeconds(timeBetweenMovement);
+                ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[MovementList.Count - 1], localId);
+                if (i < MovementList.Count - 1) yield return new WaitForSeconds(timeBetweenMovement);
+                //if we want to not wait when we step on player tile we use line belowe
+                //if (!mapClass.TileState(MovementList[i]).Exists(x => x is Hero)) yield return new WaitForSeconds(timeBetweenMovement);
             }
             
             MovementList.Clear();

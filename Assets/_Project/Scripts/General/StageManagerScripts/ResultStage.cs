@@ -7,10 +7,14 @@ using UnityEngine;
 
 public class ResultStage : GameState
 {
+    [SerializeField] private float TimeBeforeFirstPlayerMovement = 1f;
+    [SerializeField] private float TimeBetweenPlayerMovement = 1f;
+
     private NetworkVariable<int> PlayerEndMovind = new();
     private NetworkVariable<int> PlayerEndResultTurn = new();
     private PlayerInfoData playerInfoData => FindObjectOfType<PlayerInfoData>();
     private int playerCount;
+    private int _orderInTurnPriority;
     private bool EndMoving = false;
 
     public void Initialize(CombatStageManager manager)
@@ -23,14 +27,20 @@ public class ResultStage : GameState
 
     private void ConfirmPlayerEndMoving(int orderInTurnPriority)
     {
-        SendResultStageStartedRpc(orderInTurnPriority + 1);
+        _orderInTurnPriority = orderInTurnPriority + 1;
+        SendResultStageStartedRpc();
         ConfirmPlayerEndMovingRpc();
     }
 
     [Rpc(SendTo.ClientsAndHost)]
-    private void SendResultStageStartedRpc(int orderInTurnPriority)
+    private void SendResultStageStartedRpc()
     {
-        GlobalEventSystem.SendStartResultStageForPlayer(orderInTurnPriority);
+        Invoke(nameof(SendStartResultStageForOversPlayer), TimeBetweenPlayerMovement);
+    }
+
+    private void SendStartResultStageForOversPlayer()
+    {
+        GlobalEventSystem.SendStartResultStageForPlayer(_orderInTurnPriority);
     }
 
     private void ConfirmPlayerEndResultTurning(int orderInTurnPriority)
@@ -56,6 +66,11 @@ public class ResultStage : GameState
         }
 
         GlobalEventSystem.SendResultStageStarted();
+        Invoke(nameof(SendStartResultStageForFirstPlayer), TimeBeforeFirstPlayerMovement);
+    }
+
+    private void SendStartResultStageForFirstPlayer()
+    {
         GlobalEventSystem.SendStartResultStageForPlayer(0);
     }
 
@@ -70,6 +85,7 @@ public class ResultStage : GameState
         if (PlayerEndMovind.Value >= playerCount && !EndMoving)
         {
             EndMoving = true;
+            GlobalEventSystem.SendAllPlayersEndMoving();
             GlobalEventSystem.SendStartCastPlayer(0);
         }
 
