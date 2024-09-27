@@ -196,6 +196,9 @@ public class GeneralPlayerStats
     [Title("Skill")]
     public float AbilityPower;
 
+    [Title("Modifiers")]
+    public Modifiers Modifiers;
+
     [Title("Level")]
     public int Level = 1;
     public float HPIncreaseFromLVLUP = 0.2f;
