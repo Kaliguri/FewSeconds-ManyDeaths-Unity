@@ -30,15 +30,14 @@ public class UISkillLobby : MonoBehaviour
     private LocalizedString skillname => skillData.Name;
     private LocalizedString description => skillData.Description;
 
-    /*void Awake()
+    void Awake()
     {
         GlobalEventSystem.SkillChanged.AddListener(DataTransfer);
     }
-    */
+    
     void Start()
     {
-        //skillData = heroData.SkillList[UINumber].SkillVariationsList[variation];
-        //DataTransfer();
+        DataTransfer();
     }
     
     
