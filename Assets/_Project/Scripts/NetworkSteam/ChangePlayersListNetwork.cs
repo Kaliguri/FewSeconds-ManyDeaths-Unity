@@ -18,15 +18,16 @@ public class ChangePlayersListNetwork : NetworkBehaviour
         GlobalEventSystem.PlayerChoiceActionUpdate.AddListener(ChangeSkill);
     }
 
-    private void ChangeSkill(int SkillNumber, int playerId, int variationSkillNumber)
+    private void ChangeSkill(int SkillNumber, int ID, int variationSkillNumber)
     {
-        ChangeSkillRpc(SkillNumber, playerId, variationSkillNumber);
+        ChangeSkillRpc(SkillNumber, ID, variationSkillNumber);
     }
 
     [Rpc(SendTo.ClientsAndHost)]
-    private void ChangeSkillRpc(int SkillNumber, int ID, int VariationSkillNumber)
+    private void ChangeSkillRpc(int SkillNumber, int ID, int variationSkillNumber)
     {
-        playerInfoData.SkillChoiceList[ID][SkillNumber] = VariationSkillNumber;
+        Debug.Log("SkillNumber = " + SkillNumber + "; playerId = " + playerId + "; variationSkillNumber = " + variationSkillNumber);
+        playerInfoData.SkillChoiceList[ID][SkillNumber] = variationSkillNumber;
         GlobalEventSystem.SendSkillChanged();
     }
 
