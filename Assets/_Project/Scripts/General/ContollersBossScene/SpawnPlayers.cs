@@ -15,7 +15,7 @@ public class SpawnPlayers : NetworkBehaviour
     [SerializeField] Vector2[] SpawnCoordinate;
     private Vector2 zeroPoint => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().tileZero;
     private int localID => GameObject.FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
-    private float TimeBeforeSendAllPlayersSpawned = 1f;
+    private float TimeBeforeSendAllPlayersSpawned = 0.5f;
 
     public override void OnNetworkSpawn()
     {
@@ -54,9 +54,10 @@ public class SpawnPlayers : NetworkBehaviour
         GameObject player = Instantiate(Player, Coordinates, Quaternion.identity);
 
         player.name = "Player_" + id;
+        player.GetComponent<InHero>().ownerPlayerID = i;
         player.GetComponent<NetworkObject>().SpawnAsPlayerObject(id, true);
 
-        SendPlayerSpawnedRpc(SpawnCoordinate[i], localID);
+        SendPlayerSpawnedRpc(SpawnCoordinate[i], i);
     }
 
     [Rpc(SendTo.ClientsAndHost)]

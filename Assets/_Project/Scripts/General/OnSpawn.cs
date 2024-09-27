@@ -11,7 +11,7 @@ public class OnSpawn : NetworkBehaviour
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private PlayerInfoData playerInfoData => FindObjectOfType<PlayerInfoData>().GetComponent<PlayerInfoData>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
-    private int playerID => playerInfoData.PlayerIDThisPlayer;
+    private int ownerPlayerID => GetComponent<InHero>().ownerPlayerID;
 
     public override void OnNetworkSpawn()
     {
@@ -32,12 +32,12 @@ public class OnSpawn : NetworkBehaviour
 
     private void TransferData()
     {
-        combatPlayerDataInStage.UpdatePlayersHeroes(gameObject, playerID);
+        combatPlayerDataInStage.UpdatePlayersHeroes(gameObject, ownerPlayerID);
 
         Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(transform.position);
         Vector2 tileCenterPos = mapClass.gameplayTilemap.GetCellCenterWorld(tile);
         Vector2 targetPoint = tileCenterPos - mapClass.tileZero;
-        combatPlayerDataInStage.UpdatePlayersCoordinates(targetPoint, playerID);
+        combatPlayerDataInStage.UpdatePlayersCoordinates(targetPoint, ownerPlayerID);
     }
 
     public override void OnNetworkDespawn()
