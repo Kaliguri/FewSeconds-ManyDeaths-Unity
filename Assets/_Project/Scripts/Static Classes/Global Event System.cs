@@ -97,8 +97,8 @@ public static class GlobalEventSystem
     public static UnityEvent PlayerActionUpdate = new();
     public static void SendPlayerActionUpdate() {  PlayerActionUpdate.Invoke(); }
 
-    public static UnityEvent<int, int> PlayerChoiceActionUpdate = new();
-    public static void SendPlayerChoiceActionUpdate(int uiNumber, int id) { PlayerChoiceActionUpdate.Invoke(uiNumber, id); }
+    public static UnityEvent<int, int, int> PlayerChoiceActionUpdate = new();
+    public static void SendPlayerChoiceActionUpdate(int uiNumber, int id, int variationSkillNumber) { PlayerChoiceActionUpdate.Invoke(uiNumber, id, variationSkillNumber); }
 
     #endregion
 
