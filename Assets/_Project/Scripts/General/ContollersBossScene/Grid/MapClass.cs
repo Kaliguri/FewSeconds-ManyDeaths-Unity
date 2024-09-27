@@ -39,8 +39,8 @@ public class MapClass : NetworkBehaviour
                 TempPoint += tileZero;
                 Vector3Int TempTile = gameplayTilemap.WorldToCell(TempPoint);
 
-                //if (gameplayTilemap.GetTile(TempTile) != terrainTile) Map[i,j] = TileStates.Free;
-                //else Map[i,j] = TileStates.Terrain;
+                //if (gameplayTilemap.GetTile(TempTile) != terrainTile) Map[i,j] = GetMapObjectLists.Free;
+                //else Map[i,j] = GetMapObjectLists.Terrain;
                 TileMap[i, j] = new TileInfo();
                 if (!gameplayTilemap.HasTile(TempTile))
                 {
@@ -59,7 +59,7 @@ public class MapClass : NetworkBehaviour
         return true;
     }
 
-    public List<MapObject> TileState(Vector2 tile)
+    public List<MapObject> GetMapObjectList(Vector2 tile)
     {
         return TileMap[(int)tile.x, (int)tile.y].MapObjectList;
     }

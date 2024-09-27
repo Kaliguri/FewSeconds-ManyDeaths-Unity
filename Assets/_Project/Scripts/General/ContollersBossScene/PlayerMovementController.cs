@@ -139,10 +139,10 @@ public class PlayerMovementController : NetworkBehaviour
             Vector2 tileCenterPos = gameplayTilemap.GetCellCenterWorld(tile);
             Vector2 targetPoint = tileCenterPos - tileZero;
 
-            // Проверяем, что клетка доступна
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             bool isFree = mapClass.IsPlayable(targetPoint);
 
-            // Создаем путь от текущей позиции до выбранной
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             List<PathNode> pathNodes = CreatePathRoute(LastPosition, targetPoint);
             if (pathNodes != null && isFree && LastPosition != pathNodes[pathNodes.Count - 1])
             {
@@ -203,13 +203,13 @@ public class PlayerMovementController : NetworkBehaviour
     {
         for (int i = MovementList.Count - 1; i >= 0; i--)
         {
-            List<MapObject> tileStates = mapClass.TileState(MovementList[i]);
-            for (int j = 0; j < tileStates.Count; j++)
+            List<MapObject> GetMapObjectLists = mapClass.GetMapObjectList(MovementList[i]);
+            for (int j = 0; j < GetMapObjectLists.Count; j++)
             {
-                Debug.Log(tileStates[j]);
+                Debug.Log(GetMapObjectLists[j]);
             }
-            if (mapClass.TileState(MovementList[i]).Exists(x => x is Hero)) MovementList.RemoveAt(i);
-            else if (mapClass.TileState(MovementList[i]).Exists(x => x is Boss)) MovementList.RemoveAt(i);
+            if (mapClass.GetMapObjectList(MovementList[i]).Exists(x => x is Hero)) MovementList.RemoveAt(i);
+            else if (mapClass.GetMapObjectList(MovementList[i]).Exists(x => x is Boss)) MovementList.RemoveAt(i);
             else break;
         }
     }
@@ -227,7 +227,7 @@ public class PlayerMovementController : NetworkBehaviour
                 ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[MovementList.Count - 1], localId);
                 if (i < MovementList.Count - 1) yield return new WaitForSeconds(timeBetweenMovement);
                 //if we want to not wait when we step on player tile we use line belowe
-                //if (!mapClass.TileState(MovementList[i]).Exists(x => x is Hero)) yield return new WaitForSeconds(timeBetweenMovement);
+                //if (!mapClass.GetMapObjectList(MovementList[i]).Exists(x => x is Hero)) yield return new WaitForSeconds(timeBetweenMovement);
             }
             
             MovementList.Clear();

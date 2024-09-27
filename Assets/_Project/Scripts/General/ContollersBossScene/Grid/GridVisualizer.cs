@@ -51,18 +51,18 @@ public class GridVisualizer : MonoBehaviour
     #endregion
 
     #region ChangableParameters
-    [TabGroup("For GridCombatMethods Test")]
+    [TabGroup("For GridAreaMethods Test")]
     [SerializeField] GameObject VisualizeSpritePrefab;
 
-    [TabGroup("For GridCombatMethods Test")]
-    [SerializeField] GridCombatMethods.figs fig;
+    [TabGroup("For GridAreaMethods Test")]
+    [SerializeField] GridAreaMethods.figs fig;
 
-    [TabGroup("For GridCombatMethods Test")]
+    [TabGroup("For GridAreaMethods Test")]
     [SerializeField] Vector2 character, cell;
 
-    [TabGroup("For GridCombatMethods Test")]
+    [TabGroup("For GridAreaMethods Test")]
     [SerializeField] int width = 1, maxDistance = 5, cutValue = 0;
-    [TabGroup("For GridCombatMethods Test")]
+    [TabGroup("For GridAreaMethods Test")]
     public List<Vector2> VisualizeCoordinateList = new();
     #endregion
 
@@ -142,14 +142,14 @@ public class GridVisualizer : MonoBehaviour
         if (gameplayTilemap.HasTile(tile))
         {
             Vector2 TileCenter = gameplayTilemap.GetCellCenterWorld(tile);
-            List<MapObject> tileState = mapClass.TileState(TileCenter - tileZero);
+            List<MapObject> GetMapObjectList = mapClass.GetMapObjectList(TileCenter - tileZero);
 
             if (isPlayerCasting) UpdateSkillAffectedArea(TileCenter);
             else
             {
-                if (tileState.Exists(x => x is Hero)) tileSelector = Instantiate(allyTypeTileSelector, TileCenter, Quaternion.identity);
-                else if (tileState.Exists(x => x is Boss)) tileSelector = Instantiate(enemyTypeTileSelector, TileCenter, Quaternion.identity);
-                else if (tileState.Exists(x => x is TempBloked)) tileSelector = Instantiate(terrainTypeTileSelector, TileCenter, Quaternion.identity);
+                if (GetMapObjectList.Exists(x => x is Hero)) tileSelector = Instantiate(allyTypeTileSelector, TileCenter, Quaternion.identity);
+                else if (GetMapObjectList.Exists(x => x is Boss)) tileSelector = Instantiate(enemyTypeTileSelector, TileCenter, Quaternion.identity);
+                else if (GetMapObjectList.Exists(x => x is TempBloked)) tileSelector = Instantiate(terrainTypeTileSelector, TileCenter, Quaternion.identity);
                 else tileSelector = Instantiate(standartTileSelector, TileCenter, Quaternion.identity);
             }
         }
@@ -365,32 +365,32 @@ public class GridVisualizer : MonoBehaviour
     }
     #endregion
 
-    [TabGroup("For GridCombatMethods Test")]
+    [TabGroup("For GridAreaMethods Test")]
     [Button("Visualise Attack")]
     public void VisualiseAttack()
     {
         switch (fig)
         {
-            case GridCombatMethods.figs.Line:
-                VisualizeCoordinateList = GridCombatMethods.CoordinateLine(character, cell, width, maxDistance);
+            case GridAreaMethods.figs.Line:
+                VisualizeCoordinateList = GridAreaMethods.CoordinateLine(character, cell, width, maxDistance);
                 break;
-            case GridCombatMethods.figs.Diagonal:
-                VisualizeCoordinateList = GridCombatMethods.DiagonalLine(character, cell, width, maxDistance);
+            case GridAreaMethods.figs.Diagonal:
+                VisualizeCoordinateList = GridAreaMethods.DiagonalLine(character, cell, width, maxDistance);
                 break;
-            case GridCombatMethods.figs.AllCardinalLines:
-                VisualizeCoordinateList = GridCombatMethods.AllCardinalLines(character, width, maxDistance);
+            case GridAreaMethods.figs.AllCardinalLines:
+                VisualizeCoordinateList = GridAreaMethods.AllCardinalLines(character, width, maxDistance);
                 break;
-            case GridCombatMethods.figs.AllDiagonalLines:
-                VisualizeCoordinateList = GridCombatMethods.AllDiagonalLines(character, width, maxDistance);
+            case GridAreaMethods.figs.AllDiagonalLines:
+                VisualizeCoordinateList = GridAreaMethods.AllDiagonalLines(character, width, maxDistance);
                 break;
-            case GridCombatMethods.figs.Square:
-                VisualizeCoordinateList = GridCombatMethods.Perforation(GridCombatMethods.SquareAOE(character, cell, width, true), GridCombatMethods.SquareAOE(character, cell, cutValue, false));
+            case GridAreaMethods.figs.Square:
+                VisualizeCoordinateList = GridAreaMethods.Perforation(GridAreaMethods.SquareAOE(character, cell, width, true), GridAreaMethods.SquareAOE(character, cell, cutValue, false));
                 break;
-            case GridCombatMethods.figs.HorseCell:
-                VisualizeCoordinateList = GridCombatMethods.HorseCell(character, cell, true);
+            case GridAreaMethods.figs.HorseCell:
+                VisualizeCoordinateList = GridAreaMethods.HorseCell(character, cell, true);
                 break;
-            case GridCombatMethods.figs.CircleAOE:
-                VisualizeCoordinateList = GridCombatMethods.CircleAOE(character, cell, width);
+            case GridAreaMethods.figs.CircleAOE:
+                VisualizeCoordinateList = GridAreaMethods.CircleAOE(character, cell, width);
                 break;
         }
         if (VisualizeCoordinateList == null) return;
