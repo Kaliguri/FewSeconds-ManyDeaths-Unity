@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageExampleSkill : SkillScript
+public class HealExampleSkill : SkillScript
 {
-    [SerializeField] float Damage;
+    [SerializeField] float Heal;
     [SerializeField] GameObject ExampleSkillPrefab;
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int skillIndex = 0)

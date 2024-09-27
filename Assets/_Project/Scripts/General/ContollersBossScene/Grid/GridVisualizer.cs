@@ -249,20 +249,19 @@ public class GridVisualizer : MonoBehaviour
 
     private void UpdateSkillAvaliableArea()
     {
-        if (skillSelected.HasConditionsForSelectedCell)
+
+        ClearAvaliableArea();
+        List<Vector2> availableTilesList = skillSelected.AvailableTiles(castPosition, castPosition, targetPoints);
+        for (int i = 0; i < availableTilesList.Count; i++)
         {
-            ClearAvaliableArea();
-            List<Vector2> availableTilesList = skillSelected.AvailableTiles(castPosition, targetPoints);
-            for (int i = 0; i < availableTilesList.Count; i++)
+            Vector3Int tileAvaliable = gameplayTilemap.WorldToCell(availableTilesList[i] + tileZero);
+            if (gameplayTilemap.HasTile(tileAvaliable))
             {
-                Vector3Int tileAvaliable = gameplayTilemap.WorldToCell(availableTilesList[i] + tileZero);
-                if (gameplayTilemap.HasTile(tileAvaliable))
-                {
-                    GameObject availableTile = Instantiate(skillAvaliableTilePrefab, availableTilesList[i] + tileZero, Quaternion.identity);
-                    availableTileGameObjectList.Add(availableTile);
-                }
+                GameObject availableTile = Instantiate(skillAvaliableTilePrefab, availableTilesList[i] + tileZero, Quaternion.identity);
+                availableTileGameObjectList.Add(availableTile);
             }
         }
+        
     }
 
     private void ClearAvaliableArea()
@@ -378,10 +377,10 @@ public class GridVisualizer : MonoBehaviour
                 VisualizeCoordinateList = GridAreaMethods.DiagonalLine(character, cell, width, maxDistance);
                 break;
             case GridAreaMethods.figs.AllCardinalLines:
-                VisualizeCoordinateList = GridAreaMethods.AllCardinalLines(character, width, maxDistance);
+                VisualizeCoordinateList = GridAreaMethods.AllCardinalLines(character, character, width, maxDistance);
                 break;
             case GridAreaMethods.figs.AllDiagonalLines:
-                VisualizeCoordinateList = GridAreaMethods.AllDiagonalLines(character, width, maxDistance);
+                VisualizeCoordinateList = GridAreaMethods.AllDiagonalLines(character, character, width, maxDistance);
                 break;
             case GridAreaMethods.figs.Square:
                 VisualizeCoordinateList = GridAreaMethods.Perforation(GridAreaMethods.SquareAOE(character, cell, width, true), GridAreaMethods.SquareAOE(character, cell, cutValue, false));

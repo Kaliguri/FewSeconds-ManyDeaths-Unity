@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class ExampleSkill : SkillScript
+public class TeleportExampleSkill : SkillScript
 {
     [SerializeReference, SubclassSelector]
     public List<SkillScript> skillList;
@@ -18,14 +18,13 @@ public class ExampleSkill : SkillScript
 
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
-        Debug.Log("Meow");
         List<Vector2> areaList = skillList[skillIndex].Area(characterCellCoordinate, selectedCellCoordinate);
         return areaList;
     }
 
-    public override List<Vector2> AvailableTiles(Vector2 characterCellCoordinate, int skillIndex = 0)
+    public override List<Vector2> AvailableTiles(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
-        List<Vector2> availableTilesList = skillList[skillIndex].AvailableTiles(characterCellCoordinate);
+        List<Vector2> availableTilesList = skillList[skillIndex].AvailableTiles(characterCellCoordinate, selectedCellCoordinate);
         return availableTilesList;
     }
 }

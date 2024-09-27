@@ -41,7 +41,8 @@ MonoBehaviour:
       data:
         EnergyCost: 0
         SkillCooldown: 0
-        HasConditionsForSelectedCell: 0
         IsMovable: 0
         TargetCount: 1
         Damage: 0
+        ExampleSkillPrefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
+          type: 3}

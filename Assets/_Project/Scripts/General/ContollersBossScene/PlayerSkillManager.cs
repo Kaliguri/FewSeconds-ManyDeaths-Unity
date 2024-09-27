@@ -161,12 +161,11 @@ public class PlayerSkillManager : NetworkBehaviour
 
             if (TargetPoints < ChoosenSkill.TargetCount)
             {
-                if (ChoosenSkill.HasConditionsForSelectedCell)
-                {
-                    availableTilesList = ChoosenSkill.AvailableTiles(actualCastPosition, TargetPoints);
 
-                    if (!availableTilesList.Contains(selectedCellCoordinate)) return;
-                }
+                availableTilesList = ChoosenSkill.AvailableTiles(actualCastPosition, selectedCellCoordinate, TargetPoints);
+
+                if (!availableTilesList.Contains(selectedCellCoordinate)) return;
+
 
                 if (TargetPoints == 0) 
                 {

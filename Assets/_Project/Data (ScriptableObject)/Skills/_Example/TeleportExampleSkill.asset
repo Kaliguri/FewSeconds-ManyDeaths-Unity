@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2283d1228b0c054f91e07d3217b84cb, type: 3}
-  m_Name: ExampleTeleportSkill
+  m_Name: TeleportExampleSkill
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
@@ -32,38 +32,35 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: 2040432176, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
   SkillScript:
-    rid: 8463286615730290710
+    rid: 4082220119189356581
   references:
     version: 2
     RefIds:
-    - rid: 8463286615730290710
-      type: {class: ExampleSkill, ns: , asm: Assembly-CSharp}
+    - rid: 4082220119189356581
+      type: {class: TeleportExampleSkill, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
         SkillCooldown: 0
-        HasConditionsForSelectedCell: 1
         IsMovable: 0
-        TargetCount: 2
+        TargetCount: 1
         skillList:
-        - rid: 8463286615730290711
-        - rid: 8463286615730290712
-    - rid: 8463286615730290711
-      type: {class: ExampleSkill1, ns: , asm: Assembly-CSharp}
+        - rid: 4082220119189356582
+        - rid: 4082220119189356583
+    - rid: 4082220119189356582
+      type: {class: TeleportExampleSubSkill1, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
         SkillCooldown: 0
-        HasConditionsForSelectedCell: 1
         IsMovable: 0
         TargetCount: 1
-        ExampleSkill1Prefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
+        ExampleSkillPrefab: {fileID: 1186777461074907986, guid: 5e199d2ae94b04e439788d7f328c85bd,
           type: 3}
-    - rid: 8463286615730290712
-      type: {class: ExampleSkill2, ns: , asm: Assembly-CSharp}
+    - rid: 4082220119189356583
+      type: {class: TeleportExampleSubSkill2, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
         SkillCooldown: 0
-        HasConditionsForSelectedCell: 1
         IsMovable: 0
         TargetCount: 1
-        ExampleSkill1Prefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
+        ExampleSkillPrefab: {fileID: 1186777461074907986, guid: 5e199d2ae94b04e439788d7f328c85bd,
           type: 3}

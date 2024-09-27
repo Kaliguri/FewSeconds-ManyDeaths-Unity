@@ -32,15 +32,17 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: -1851428079, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
   SkillScript:
-    rid: 4082220119189356556
+    rid: 4082220119189356580
   references:
     version: 2
     RefIds:
-    - rid: 4082220119189356556
-      type: {class: SkillScript, ns: , asm: Assembly-CSharp}
+    - rid: 4082220119189356580
+      type: {class: ShieldExampleSkill, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
         SkillCooldown: 0
-        HasConditionsForSelectedCell: 0
         IsMovable: 0
         TargetCount: 1
+        Heal: 0
+        ExampleSkillPrefab: {fileID: 1186777461074907986, guid: 5596741cfa3805e4b9276c8c0d96c153,
+          type: 3}

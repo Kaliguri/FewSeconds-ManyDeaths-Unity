@@ -11,7 +11,6 @@ public class SkillScript
     public int SkillCooldown;
 
     [Header("Other")]
-    public bool HasConditionsForSelectedCell = false;
     public bool IsMovable = false;
     public int TargetCount = 1;
 
@@ -65,20 +64,25 @@ public class SkillScript
         return new List<Vector2>();
     }
 
-    public virtual List<Vector2> AvailableTiles(Vector2 characterCellCoordinate, int skillIndex = 0)
+    public virtual List<Vector2> AvailableTiles(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
         return new List<Vector2>();
     }
-
-
-
-    protected virtual void SpawnSkillPrefab(int skillIndex)
-    {
-
-    }
-
     protected virtual List<Vector2> GetArea(int skillIndex)
     {
         return new List<Vector2>();
+    }
+
+    protected void SpawnSkillObjects(List<Vector2> area, GameObject Skillobject)
+    {
+        for (int i = 0; i < area.Count; i++)
+            {
+                Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(area[i] + mapClass.tileZero);
+                if (mapClass.gameplayTilemap.HasTile(tile))
+                {
+                    GameObject affectedObject = MonoInstance.Instantiate(Skillobject, area[i] + mapClass.tileZero, Quaternion.identity);
+                    MonoInstance.Destroy(affectedObject, SkillPrefabDuration);
+                }
+            }
     }
 }

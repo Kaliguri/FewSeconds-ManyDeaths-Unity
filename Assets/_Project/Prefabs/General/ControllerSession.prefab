@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCount: 0
+  PlayerIDThisPlayer: -1
   ColorList:
   - {r: 0.8490566, g: 0.35724452, b: 0.6866935, a: 1}
   - {r: 0.23322885, g: 0.6195108, b: 0.690566, a: 1}
@@ -171,10 +172,15 @@ MonoBehaviour:
   - 
   - 
   HeroDataList:
-  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
-  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
-  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
-  - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
+  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
+  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
+  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
+  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
+  SkillChoiceList:
+  - variationList: 00000000000000000000000000000000
+  - variationList: 00000000000000000000000000000000
+  - variationList: 00000000000000000000000000000000
+  - variationList: 00000000000000000000000000000000
   TurnPriority: 00000000010000000200000003000000
 --- !u!114 &9010912978174925477
 MonoBehaviour:

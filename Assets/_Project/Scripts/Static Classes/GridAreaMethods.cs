@@ -63,7 +63,7 @@ public class GridAreaMethods
         return result;
     }
 
-    public static List<Vector2> AllCardinalLines(Vector2 characterCellCoordinate, int width = 1, int maxDistance = 100)
+    public static List<Vector2> AllCardinalLines(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int width = 1, int maxDistance = 100)
     {
         List<List<Vector2>> result = new();
 
@@ -114,7 +114,7 @@ public class GridAreaMethods
         return result;
     }
 
-    public static List<Vector2> AllDiagonalLines(Vector2 characterCellCoordinate, int width = 1, int maxDistance = 100)
+    public static List<Vector2> AllDiagonalLines(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int width = 1, int maxDistance = 100)
     {
         List<List<Vector2>> result = new();
 
@@ -191,7 +191,7 @@ public class GridAreaMethods
         if (radius % 2 == 0) t.Add(SquareAOE(characterCellCoordinate, selectedCellCoordinate, radius/2));
 
         for (int i = 0; i < radius; i += 2)
-            t.Add(AllCardinalLines(selectedCellCoordinate, i + 1, radius - i/2));
+            t.Add(AllCardinalLines(selectedCellCoordinate, selectedCellCoordinate, i + 1, radius - i/2));
 
         List<Vector2> result = CombineLists(t);
 
