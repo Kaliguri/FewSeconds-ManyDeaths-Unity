@@ -51,18 +51,18 @@ public class GridVisualizer : MonoBehaviour
     #endregion
 
     #region ChangableParameters
-    [TabGroup("For CombatGridMethods Test")]
+    [TabGroup("For GridCombatMethods Test")]
     [SerializeField] GameObject VisualizeSpritePrefab;
 
-    [TabGroup("For CombatGridMethods Test")]
-    [SerializeField] CombatGridMethods.figs fig;
+    [TabGroup("For GridCombatMethods Test")]
+    [SerializeField] GridCombatMethods.figs fig;
 
-    [TabGroup("For CombatGridMethods Test")]
+    [TabGroup("For GridCombatMethods Test")]
     [SerializeField] Vector2 character, cell;
 
-    [TabGroup("For CombatGridMethods Test")]
+    [TabGroup("For GridCombatMethods Test")]
     [SerializeField] int width = 1, maxDistance = 5, cutValue = 0;
-    [TabGroup("For CombatGridMethods Test")]
+    [TabGroup("For GridCombatMethods Test")]
     public List<Vector2> VisualizeCoordinateList = new();
     #endregion
 
@@ -365,32 +365,32 @@ public class GridVisualizer : MonoBehaviour
     }
     #endregion
 
-    [TabGroup("For CombatGridMethods Test")]
+    [TabGroup("For GridCombatMethods Test")]
     [Button("Visualise Attack")]
     public void VisualiseAttack()
     {
         switch (fig)
         {
-            case CombatGridMethods.figs.Line:
-                VisualizeCoordinateList = CombatGridMethods.CoordinateLine(character, cell, width, maxDistance);
+            case GridCombatMethods.figs.Line:
+                VisualizeCoordinateList = GridCombatMethods.CoordinateLine(character, cell, width, maxDistance);
                 break;
-            case CombatGridMethods.figs.Diagonal:
-                VisualizeCoordinateList = CombatGridMethods.DiagonalLine(character, cell, width, maxDistance);
+            case GridCombatMethods.figs.Diagonal:
+                VisualizeCoordinateList = GridCombatMethods.DiagonalLine(character, cell, width, maxDistance);
                 break;
-            case CombatGridMethods.figs.AllCardinalLines:
-                VisualizeCoordinateList = CombatGridMethods.AllCardinalLines(character, width, maxDistance);
+            case GridCombatMethods.figs.AllCardinalLines:
+                VisualizeCoordinateList = GridCombatMethods.AllCardinalLines(character, width, maxDistance);
                 break;
-            case CombatGridMethods.figs.AllDiagonalLines:
-                VisualizeCoordinateList = CombatGridMethods.AllDiagonalLines(character, width, maxDistance);
+            case GridCombatMethods.figs.AllDiagonalLines:
+                VisualizeCoordinateList = GridCombatMethods.AllDiagonalLines(character, width, maxDistance);
                 break;
-            case CombatGridMethods.figs.Square:
-                VisualizeCoordinateList = CombatGridMethods.Perforation(CombatGridMethods.SquareAOE(character, cell, width, true), CombatGridMethods.SquareAOE(character, cell, cutValue, false));
+            case GridCombatMethods.figs.Square:
+                VisualizeCoordinateList = GridCombatMethods.Perforation(GridCombatMethods.SquareAOE(character, cell, width, true), GridCombatMethods.SquareAOE(character, cell, cutValue, false));
                 break;
-            case CombatGridMethods.figs.HorseCell:
-                VisualizeCoordinateList = CombatGridMethods.HorseCell(character, cell, true);
+            case GridCombatMethods.figs.HorseCell:
+                VisualizeCoordinateList = GridCombatMethods.HorseCell(character, cell, true);
                 break;
-            case CombatGridMethods.figs.CircleAOE:
-                VisualizeCoordinateList = CombatGridMethods.CircleAOE(character, cell, width);
+            case GridCombatMethods.figs.CircleAOE:
+                VisualizeCoordinateList = GridCombatMethods.CircleAOE(character, cell, width);
                 break;
         }
         if (VisualizeCoordinateList == null) return;

@@ -41,13 +41,13 @@ public class ExampleSkill1 : SkillScript
 
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
-        List<Vector2> areaList = CombatGridMethods.SquareAOE(characterCellCoordinate, selectedCellCoordinate);
+        List<Vector2> areaList = GridCombatMethods.SquareAOE(characterCellCoordinate, selectedCellCoordinate);
         return areaList;
     }
 
     public override List<Vector2> AvailableTiles(Vector2 characterCellCoordinate, int skillIndex = 0)
     {
-        List<Vector2> availableTilesList = CombatGridMethods.AllCardinalLines(characterCellCoordinate);
+        List<Vector2> availableTilesList = GridCombatMethods.AllCardinalLines(characterCellCoordinate);
         return availableTilesList;
     }
 }
