@@ -21,7 +21,7 @@ public class PlayerSkillManager : NetworkBehaviour
     private bool skillSelected;
     private InputActions inputActions;
     private List<int> skillNumberList = new();
-    private List<Vector2> castPosition = new();
+    private List<Vector2> selectedCellCoordinate = new();
     private List<Vector2> availableTilesList = new();
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
@@ -84,10 +84,10 @@ public class PlayerSkillManager : NetworkBehaviour
         if (currentAction < SkillList.Count)
         {
             Vector2[] TargetPoints = TargetTileList[currentAction].ToArray();
-            Vector2 CastPosition = castPosition[currentAction];
+            Vector2 SelectedCellCoordinate = selectedCellCoordinate[currentAction];
             int _skillID = skillNumberList[currentAction];
             int currentSkillIndex = skillIndex;
-            CastActionRpc(playerID, _skillID, CastPosition, actualCastPosition, TargetPoints, currentSkillIndex);
+            CastActionRpc(playerID, _skillID, SelectedCellCoordinate, actualCastPosition, TargetPoints, currentSkillIndex);
 
             skillIndex++;
             if (skillIndex == SkillList[currentAction].TargetCount)
@@ -168,7 +168,7 @@ public class PlayerSkillManager : NetworkBehaviour
                 {
                     SkillList.Add(ChoosenSkill);
                     skillNumberList.Add(skillID);
-                    castPosition.Add(actualCastPosition);
+                    selectedCellCoordinate.Add(actualCastPosition);
                     TargetTileList.Add(new List<Vector2> { selectedCellCoordinate });
                     //Debug.Log("AddFirstPoint");
                 }

@@ -7,9 +7,9 @@ public class TeleportExampleSubSkill1 : SkillScript
 {
     [SerializeField] GameObject ExampleSkillPrefab;
 
-    public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int playerID, int skillIndex = 0)
+    public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
-        CastStart(heroPosition, actualHeroPosition, castPosition);
+        CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
 
         SpawnSkillPrefab(skillIndex);
                 
@@ -18,7 +18,7 @@ public class TeleportExampleSubSkill1 : SkillScript
 
     protected override List<Vector2> GetArea(int skillIndex)
     {
-        List<Vector2> area = Area(HeroPosition, CastPosition[skillIndex]);
+        List<Vector2> area = Area(HeroPosition, SelectedCellCoordinate[skillIndex]);
         return area;
     }
 

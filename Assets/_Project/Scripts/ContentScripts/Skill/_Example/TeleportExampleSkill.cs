@@ -7,11 +7,11 @@ public class TeleportExampleSkill : SkillScript
 {
     [SerializeReference, SubclassSelector]
     public List<SkillScript> skillList;
-    public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int playerID, int skillIndex = 0)
+    public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
-        CastStart(heroPosition, actualHeroPosition, castPosition);
+        CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
 
-        skillList[skillIndex].Cast(heroPosition, actualHeroPosition, castPosition, skillIndex);
+        skillList[skillIndex].Cast(heroPosition, actualHeroPosition, selectedCellCoordinate, skillIndex);
         
         CastEnd(true);
     }

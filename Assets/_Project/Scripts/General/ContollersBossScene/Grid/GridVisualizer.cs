@@ -80,7 +80,7 @@ public class GridVisualizer : MonoBehaviour
     private PlayerMovementController playerMovementController => FindObjectOfType<PlayerMovementController>();
     Vector2[] heroPositions => combatPlayerDataInStage.HeroCoordinates;
     private List<Vector2> pathCoordinates => playerMovementController.MovementList;
-    private Vector2 castPosition => playerMovementController.LastPosition;
+    private Vector2 selectedCellCoordinate => playerMovementController.LastPosition;
     #endregion
 
     #region PrivateParameters
@@ -251,7 +251,7 @@ public class GridVisualizer : MonoBehaviour
     {
 
         ClearAvaliableArea();
-        List<Vector2> availableTilesList = skillSelected.AvailableTiles(castPosition, castPosition, targetPoints);
+        List<Vector2> availableTilesList = skillSelected.AvailableTiles(selectedCellCoordinate, selectedCellCoordinate, targetPoints);
         for (int i = 0; i < availableTilesList.Count; i++)
         {
             Vector3Int tileAvaliable = gameplayTilemap.WorldToCell(availableTilesList[i] + tileZero);
@@ -294,7 +294,7 @@ public class GridVisualizer : MonoBehaviour
 
     private void UpdateSkillAffectedArea(Vector2 TileCenter)
     {
-        List<Vector2> affectedAreaList = skillSelected.Area(castPosition, TileCenter - tileZero, targetPoints);
+        List<Vector2> affectedAreaList = skillSelected.Area(selectedCellCoordinate, TileCenter - tileZero, targetPoints);
         for (int i = 0; i < affectedAreaList.Count; i++)
         {
             Vector3Int tile = gameplayTilemap.WorldToCell(affectedAreaList[i] + tileZero);
@@ -321,7 +321,7 @@ public class GridVisualizer : MonoBehaviour
 
     private void CreateAprovedAffectedArea(SkillScript skill, int i, int skillIndex)
     {
-        List<Vector2> affectedAreaList = skill.Area(castPosition, TargetTileList[i][skillIndex], skillIndex);
+        List<Vector2> affectedAreaList = skill.Area(selectedCellCoordinate, TargetTileList[i][skillIndex], skillIndex);
         for (int k = 0; k < affectedAreaList.Count; k++)
         {
             Vector3Int tile = gameplayTilemap.WorldToCell(affectedAreaList[k] + tileZero);

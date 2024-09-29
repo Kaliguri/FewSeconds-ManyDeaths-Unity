@@ -20,7 +20,7 @@ public class SkillScript
 
     protected Vector2 HeroPosition;
     protected Vector2 ActualHeroPosition;
-    protected Vector2[] CastPosition;
+    protected Vector2[] SelectedCellCoordinate;
     protected float SkillPrefabDuration = 1f;
     protected float SkillDuration = 1f;
 
@@ -30,25 +30,25 @@ public class SkillScript
         return this;
     }
 
-    public virtual void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int playerID, int skillIndex = 0)
+    public virtual void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
-        CastStart(heroPosition, actualHeroPosition, castPosition);
+        CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
 
         Debug.Log("Cast");
 
         CastEnd();
     }
 
-    protected void CastStart(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition)
+    protected void CastStart(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)
     {
-        SetPosition(heroPosition, actualHeroPosition, castPosition);
+        SetPosition(heroPosition, actualHeroPosition, selectedCellCoordinate);
     }
 
-    protected void SetPosition(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition)
+    protected void SetPosition(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)
     {
         ActualHeroPosition = actualHeroPosition;
         HeroPosition = heroPosition;
-        CastPosition = castPosition;
+        SelectedCellCoordinate = selectedCellCoordinate;
     }
 
     protected void CastEnd(bool isContainerSkill = false)
