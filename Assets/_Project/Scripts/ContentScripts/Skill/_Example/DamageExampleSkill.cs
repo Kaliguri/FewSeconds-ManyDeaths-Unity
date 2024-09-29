@@ -10,7 +10,7 @@ public class DamageExampleSkill : SkillScript
     {
         CastStart(heroPosition, actualHeroPosition, castPosition);
 
-        SpawnSkillPrefab();
+        SpawnSkillSpawnSpritesPrefab();
         ApplayDamage(playerID);
                 
         CastEnd();
@@ -29,9 +29,10 @@ public class DamageExampleSkill : SkillScript
         return areaList;
     }
 
-    void SpawnSkillPrefab()
+    void SpawnSkillSpawnSpritesPrefab()
     {
         SpawnSkillObjects(GetArea(), ExampleSkillPrefab);
+        Debug.Log("SpawnSprites:" + GetArea().Count);
     }
     
     void ApplayDamage(int playerID)
@@ -39,6 +40,9 @@ public class DamageExampleSkill : SkillScript
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
             CombatMethods.ApplayDamage(Damage, GetHeroCombatObject(playerID), combatObject);
+            
         }
+
+        Debug.Log("ApplayDamage: " +  GetAffectedCombatObjectList());
     }
 }
