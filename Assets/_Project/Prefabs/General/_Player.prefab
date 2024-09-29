@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1803412693585924443
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -967.4722, y: -539.2898}
+  m_AnchoredPosition: {x: -967.4722, y: -539.3805}
   m_SizeDelta: {x: 837.9, y: 150.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5571761796205235714
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
-  m_sharedMaterial: {fileID: 6774997285382995203, guid: ca4773f7c97a6d14995a88c2b6a1e785,
+  m_sharedMaterial: {fileID: 8317584145244895877, guid: ca4773f7c97a6d14995a88c2b6a1e785,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd322753d085714da47b019bbfea195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerPlayerID: 0
   currentPrefab: {fileID: 1026413734755640803}
 --- !u!114 &1415092046430088569
 MonoBehaviour:
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1698064910
+  GlobalObjectIdHash: 2786830917
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -476,7 +477,7 @@ PrefabInstance:
     - target: {fileID: 5684641763627588181, guid: e7ca64854ed9db9419a46e03c24abb5b,
         type: 3}
       propertyPath: m_InstanceId
-      value: -43662
+      value: -247966
       objectReference: {fileID: 0}
     - target: {fileID: 5968982020234036894, guid: e7ca64854ed9db9419a46e03c24abb5b,
         type: 3}

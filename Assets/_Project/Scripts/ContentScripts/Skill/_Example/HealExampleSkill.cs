@@ -6,7 +6,7 @@ public class HealExampleSkill : SkillScript
     [SerializeField] float Heal;
     [SerializeField] GameObject ExampleSkillPrefab;
     
-    public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int skillIndex = 0)
+    public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, castPosition);
 

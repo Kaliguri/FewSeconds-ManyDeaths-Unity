@@ -1,24 +1,42 @@
 
 
 using System;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 
 public static class CombatMethods
 {
 
-    static void ApplayDamage(CombatObject creatorType, CombatObject targetType)
+    public static void ApplayDamage(float damageValue, CombatObject creatorType, CombatObject targetType)
     {
+        float DamageModif  = creatorType.Modifiers.DamageModif * targetType.Modifiers.DamageResist;
 
-    }
-
-    static void ApplayShield(CombatObject creatorType, CombatObject targetType)
-    {
-
+        if (targetType is HeroCombatObject)
+        {
+            targetType.Data.CurrentHP -= damageValue * DamageModif;
+            GlobalEventSystem.SendPlayerHPChanged();
+        }
     }
     
-    static void ApplayHeal(CombatObject creatorType, CombatObject targetType)
+    public static void ApplayHeal(float healValue, CombatObject creatorType, CombatObject targetType)
+    {        
+        float HealModif  = creatorType.Modifiers.HealModif * targetType.Modifiers.HealEffectiveResist;
+
+        if (targetType is HeroCombatObject)
+        {
+            targetType.Data.CurrentHP += healValue * HealModif;
+            GlobalEventSystem.SendPlayerHPChanged();
+        }
+    }
+
+    public static void ApplayShield(float shieldValue, CombatObject creatorType, CombatObject targetType)
     {
+        float ShieldModif  = creatorType.Modifiers.ShieldModif * targetType.Modifiers.ShieldEffectiveResist;
+
+        if (targetType is HeroCombatObject)
+        {
+            targetType.Data.CurrentShield += shieldValue * ShieldModif;
+            GlobalEventSystem.SendPlayerShieldChanged();
+        }
 
     }
 
@@ -82,28 +100,41 @@ class StandartTarget : TargetType // Terrain, minion and etc.
 #endregion
 
 [Serializable]
-class CombatObject //Who cast damage, shield, heal and etc.
+public class CombatObject //Who cast damage, shield, heal and etc.
 {
-    public int CreatorID = 0;
+    public int ObjectID = 0;
     public CombatStats CombatStats = new CombatStats();
     public Modifiers Modifiers = new Modifiers();
+    public CombatStats Data = new CombatStats();
+
 }
 
-class HeroCombatObject: CombatObject // Hero, his talents, items, tileEffects, effects
+public class HeroCombatObject: CombatObject // Hero, his talents, items, tileEffects, effects
 {
-    public new int CreatorID; //Player ID
+    public new int ObjectID; //Player ID
+
+    private CombatPlayerDataInStage playersData;
+    private AllPlayerStats stats => playersData._TotalStatsList[ObjectID];
+
     public new CombatStats CombatStats => stats.currentCombat;
     public new Modifiers Modifiers => stats.general.Modifiers;
+    public new CombatStats Data => stats.currentCombat;
 
-    private AllPlayerStats stats;
+    public HeroCombatObject(int objectID, CombatPlayerDataInStage combatPlayerDataInStage)
+    {
+        ObjectID = objectID;
+        playersData = combatPlayerDataInStage;
+    }
+
+    
 }
 
-class BossCombatObject : CombatObject // Boss, his tyleEffects, effects
+public class BossCombatObject : CombatObject // Boss, his tyleEffects, effects
 {
 
 }
 
-class StandartCombatObject : CombatObject // Items, Minions, nobody TileEffects
+public class StandartCombatObject : CombatObject // Items, Minions, nobody TileEffects
 {
 
 }
@@ -112,8 +143,8 @@ public class Modifiers
 {
     [Title("Resist")] 
     public float DamageResist = 0f;
-    public float ShieldResist = 0f;
-    public float HealResist = 0f;
+    public float ShieldEffectiveResist = 0f;
+    public float HealEffectiveResist = 0f;
 
     [Title("Cast Modifiers")] 
     public float DamageModif = 1f;

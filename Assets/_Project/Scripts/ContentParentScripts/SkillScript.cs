@@ -14,7 +14,10 @@ public class SkillScript
     public bool IsMovable = false;
     public int TargetCount = 1;
 
-    protected MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
+    protected MapClass mapClass => GameObject.FindObjectOfType<MapClass>();
+    protected CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
+
+
     protected Vector2 HeroPosition;
     protected Vector2 ActualHeroPosition;
     protected Vector2[] CastPosition;
@@ -27,7 +30,7 @@ public class SkillScript
         return this;
     }
 
-    public virtual void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int skillIndex = 0)
+    public virtual void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, castPosition);
 
@@ -68,7 +71,7 @@ public class SkillScript
     {
         return new List<Vector2>();
     }
-    protected virtual List<Vector2> GetArea(int skillIndex)
+    protected virtual List<Vector2> GetArea(int skillIndex = 0)
     {
         return new List<Vector2>();
     }
@@ -84,5 +87,31 @@ public class SkillScript
                     MonoInstance.Destroy(affectedObject, SkillPrefabDuration);
                 }
             }
+    }
+
+    protected List<MapObject> GetAffectedMapObjectList(int skillIndex = 0)
+    {
+        return mapClass.MapObjectCheck(GetArea(skillIndex)); 
+    }
+
+    protected List<CombatObject> GetAffectedCombatObjectList(int skillIndex = 0)
+    {
+        List<MapObject> MapObjectList = GetAffectedMapObjectList(skillIndex);
+        List<CombatObject> combatObjectList = new List<CombatObject>();
+
+        foreach (MapObject mapObject in MapObjectList)
+        {
+            if (mapObject is Hero)
+            {
+                combatObjectList.Add(new HeroCombatObject(mapObject.ID, combatPlayerDataInStage));
+            }
+        }
+
+        return combatObjectList;
+    }
+
+    protected CombatObject GetHeroCombatObject(int playerID)
+    {
+        return new HeroCombatObject(playerID, combatPlayerDataInStage);
     }
 }

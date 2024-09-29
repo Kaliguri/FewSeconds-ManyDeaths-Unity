@@ -67,6 +67,7 @@ MonoBehaviour:
     - ca1a50f37bed6ce4e9307d55e21a8264
     - ba3007c82deaac84e9b4a37d8bb4ba78
     - be39eedddeedd1c42b0836d8d2bf5fc4
+    - eecf168063a94d84a9ffa487e7b34cbd
     values:
     - colorIndex: 6
       iconNameOrGuid: SceneAsset Icon
@@ -174,3 +175,5 @@ MonoBehaviour:
       iconNameOrGuid: 
     - colorIndex: 2
       iconNameOrGuid: LightingDataAsset Icon
+    - colorIndex: 1
+      iconNameOrGuid: 

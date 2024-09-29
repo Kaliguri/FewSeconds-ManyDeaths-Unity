@@ -93,6 +93,18 @@ public class MapClass : NetworkBehaviour
     {
         TileMap[(int)tile.x, (int)tile.y].MapObjectList.Remove(new TempBloked());
     }
+
+    public List<MapObject> MapObjectCheck(List<Vector2> areaList)
+    {
+        List<MapObject> mapObjectList = new List<MapObject>();
+
+        foreach (Vector2 tile in areaList)
+        {
+            mapObjectList.AddRange(GetMapObjectList(tile));
+        }
+
+        return mapObjectList;
+    } 
 }
 
 [Serializable]
@@ -107,16 +119,14 @@ public class TileInfo
 [Serializable]
 public class MapObject
 {
-
+    public int ID;
 }
 [Serializable]
 public class Hero : MapObject
 {
-    public int PlayerID;
-
     public Hero(int playerID)
     {
-        PlayerID = playerID;
+        ID = playerID;
     }
 }
 
@@ -125,7 +135,6 @@ public class Boss : MapObject
 {
 
 }
-
 
 [Serializable]
 public class TempBloked : MapObject

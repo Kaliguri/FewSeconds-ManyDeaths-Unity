@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
-using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
-using System.Globalization;
+
 
 public class PlayerSkillManager : NetworkBehaviour
 {
@@ -118,7 +115,7 @@ public class PlayerSkillManager : NetworkBehaviour
     {
         int variation = playerInfoData.SkillChoiceList[casterPlayerId].variationList[skillNumber];
         SkillScript skillScript = heroData.SkillList[skillNumber].SkillVariationsList[variation].SkillScript;
-        skillScript.Cast(CasterPosition, ActualCasterPosition, TargetPoints, skillIndex);
+        skillScript.Cast(CasterPosition, ActualCasterPosition, TargetPoints, casterPlayerId, skillIndex);
     }
 
     private void ApproveTheSkills()

@@ -6,11 +6,12 @@ public class DamageExampleSkill : SkillScript
     [SerializeField] float Damage;
     [SerializeField] GameObject ExampleSkillPrefab;
     
-    public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int skillIndex = 0)
+    public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] castPosition, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, castPosition);
 
-        SpawnSkillPrefab(skillIndex);
+        SpawnSkillPrefab();
+        ApplayDamage(playerID);
                 
         CastEnd();
         
@@ -28,8 +29,16 @@ public class DamageExampleSkill : SkillScript
         return areaList;
     }
 
-    void SpawnSkillPrefab(int skillIndex)
+    void SpawnSkillPrefab()
     {
-        SpawnSkillObjects(GetArea(skillIndex), ExampleSkillPrefab);
+        SpawnSkillObjects(GetArea(), ExampleSkillPrefab);
+    }
+    
+    void ApplayDamage(int playerID)
+    {
+        foreach (CombatObject combatObject in GetAffectedCombatObjectList())
+        {
+            CombatMethods.ApplayDamage(Damage, GetHeroCombatObject(playerID), combatObject);
+        }
     }
 }
