@@ -32,7 +32,7 @@ public class EndCutscene : MonoBehaviour
 
     void OnDisable()
     {
-        inputActions.Disable();
+        if (NetworkManager.Singleton.IsHost) inputActions.Disable();
     }
 
     public void NextSceneLoader()
