@@ -14,6 +14,11 @@ public class InHero : NetworkBehaviour
         SetOridginSprite();
     }
 
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+    }
+
     public void Transformation (GameObject graphicPrefab)
     {
         var NewSprite = Instantiate(graphicPrefab, transform);
