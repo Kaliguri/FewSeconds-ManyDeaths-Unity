@@ -167,6 +167,7 @@ public class StandartCombatObject : CombatObject // Items, Minions, nobody TileE
 
 }
 
+[Serializable]
 public class Modifiers
 {
     [Title("Resist")] 
