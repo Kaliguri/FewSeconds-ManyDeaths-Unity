@@ -44,7 +44,6 @@ public class SpawnPlayers : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void SendAllPlayersSpawnedRpc()
     {
-        Debug.Log("SendAllPlayerSpawned");
         GlobalEventSystem.SendAllPlayerSpawned();
     }
 
@@ -53,7 +52,6 @@ public class SpawnPlayers : NetworkBehaviour
         Vector2 Coordinates = SpawnCoordinate[i] + zeroPoint;
         GameObject player = Instantiate(Player, Coordinates, Quaternion.identity);
 
-        player.name = "Player_" + id;
         player.GetComponent<InHero>().ownerPlayerID.Value = i;
         player.GetComponent<NetworkObject>().SpawnAsPlayerObject(id, true);
 
