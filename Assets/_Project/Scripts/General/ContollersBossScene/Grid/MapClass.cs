@@ -81,17 +81,18 @@ public class MapClass : NetworkBehaviour
 
     public void RemoveHero(Vector2 tile, int playerID)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Remove(new Hero(playerID));
+        Debug.Log("RemoveHero");
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Hero && x.ID == playerID);
     }
 
     public void RemoveBoss(Vector2 tile)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Remove(new Boss());
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Boss);
     }
 
     public void RemoveTempBloked(Vector2 tile)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Remove(new TempBloked());
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is TempBloked);
     }
 
     public List<MapObject> MapObjectCheck(List<Vector2> areaList)

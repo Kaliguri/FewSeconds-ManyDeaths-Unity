@@ -145,9 +145,9 @@ public class PlayerMovementController : NetworkBehaviour
             List<PathNode> pathNodes = CreatePathRoute(LastPosition, targetPoint);
             if (pathNodes != null && isFree && LastPosition != pathNodes[pathNodes.Count - 1])
             {
-                foreach (PathNode node in pathNodes)
+                for (int i = 0; i < pathNodes.Count; i++)
                 {
-                    Vector2 point = new Vector2(node.x, node.y);
+                    Vector2 point = new Vector2(pathNodes[i].x, pathNodes[i].y);
 
                     DefineMovement(LastPosition, point);
 
@@ -159,10 +159,7 @@ public class PlayerMovementController : NetworkBehaviour
                         int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy - (int)MovementIndex;
                         ChangeEnergy(newEnergy);
                     }
-                    else
-                    {
-                        break;
-                    }
+                    else break;
                 }
 
                 GlobalEventSystem.SendPathChanged();
