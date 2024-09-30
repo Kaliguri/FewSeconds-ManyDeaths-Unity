@@ -8,6 +8,11 @@ public abstract class GameState : NetworkBehaviour
 {
     protected CombatStageManager gameStateManager;
 
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+    }
+
     public abstract void Enter();
 
     public abstract void Exit();

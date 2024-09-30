@@ -25,7 +25,6 @@ public class PlayerSkillManager : NetworkBehaviour
     private List<Vector2> availableTilesList = new();
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
-    private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private PlayerMovementController playerMovementController => FindObjectOfType<PlayerMovementController>();
     MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private Tilemap gameplayTilemap => mapClass.gameplayTilemap;

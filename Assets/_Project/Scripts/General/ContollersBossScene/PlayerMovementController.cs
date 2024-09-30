@@ -60,9 +60,7 @@ public class PlayerMovementController : NetworkBehaviour
 
         base.OnNetworkSpawn();
 
-        //Debug.Log("awakeByOwnerNet");
         inputActions = new InputActions();
-        //inputActions.Combat.SelectTile.performed += _ => AddNewPointToList();
         inputActions.Combat.SelectTile.performed += _ => AddNewPointsToList();
         inputActions.Combat.CancelAction.performed += _ => RemoveLastPointsInList();
 
@@ -188,6 +186,7 @@ public class PlayerMovementController : NetworkBehaviour
 
     private void StartMoving(int orderInTurnPriority)
     {
+        Debug.Log("StartMoving for player " + orderInTurnPriority);
         if (turnPriority[orderInTurnPriority] == localId) 
         {
             CorrectingPath();

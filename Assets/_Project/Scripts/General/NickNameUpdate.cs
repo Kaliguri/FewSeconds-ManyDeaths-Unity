@@ -18,7 +18,6 @@ public class NickNameUpdate : MonoBehaviour
 
     private void UpdatePlayerNickname()
     {
-        Debug.Log("UpdatePlayerNickname");
         playerName.gameObject.SetActive(true);
         playerName.text = playerInfoData.NicknameList[playerID];
     }
