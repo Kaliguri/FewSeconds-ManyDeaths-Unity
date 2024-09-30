@@ -102,12 +102,14 @@ public class ResultStage : GameState
     private void ConfirmPlayerEndMovingRpc()
     {
         PlayerEndMovind.Value += 1;
+        UnityEngine.Debug.Log(PlayerEndMovind.Value);
     }
 
     [Rpc(SendTo.Server)]
     private void ConfirmPlayerEndResultTurnRpc()
     {
         PlayerEndResultTurn.Value += 1;
+        UnityEngine.Debug.Log(PlayerEndMovind.Value);
     }
 
     private void EndTurn()
