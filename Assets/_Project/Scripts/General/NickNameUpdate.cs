@@ -9,7 +9,7 @@ public class NickNameUpdate : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerName;
 
     private PlayerInfoData playerInfoData => FindObjectOfType<PlayerInfoData>().GetComponent<PlayerInfoData>();
-    private int playerID => playerInfoData.PlayerIDThisPlayer;
+    private int playerID => GetComponent<InHero>().ownerPlayerID.Value;
 
     void Awake()
     {
