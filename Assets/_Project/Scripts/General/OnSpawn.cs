@@ -11,7 +11,7 @@ public class OnSpawn : NetworkBehaviour
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private PlayerInfoData playerInfoData => FindObjectOfType<PlayerInfoData>().GetComponent<PlayerInfoData>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
-    private int ownerPlayerID => GetComponent<InHero>().ownerPlayerID;
+    private int ownerPlayerID => playerInfoData.PlayerIDThisPlayer;
 
     public override void OnNetworkSpawn()
     {

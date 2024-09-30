@@ -3,7 +3,7 @@ using UnityEngine;
 public class InHero : MonoBehaviour
 {
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
-    public int ownerPlayerID;
+    public int ownerPlayerID => playerInfoData.PlayerIDThisPlayer;
     private GameObject heroSpritePrefab => playerInfoData.HeroDataList[ownerPlayerID].GameObjectSpritePrefab;
 
     [SerializeField] private GameObject currentPrefab;
