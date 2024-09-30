@@ -9,47 +9,53 @@ public static class CombatMethods
 
     public static void ApplayDamage(float damageValue, CombatObject creatorType, CombatObject targetType)
     {
-        float DamageModif = 1;
-        
-        if (creatorType is HeroCombatObject)
+        float damageModif = creatorType.GetModifiers().DamageModif * (1 - targetType.GetModifiers().DamageResist);
+        damageValue *= damageModif;
+
+        if (damageValue > targetType.GetData().CurrentShield)
         {
-            DamageModif = creatorType.GetModifiers().DamageModif;
+            damageValue -= targetType.GetData().CurrentShield;
+            targetType.GetData().CurrentShield = 0;
+            targetType.GetData().CurrentHP -= damageValue;
         }
-
-
-
+        else
+        {
+            targetType.GetData().CurrentShield -= damageValue;
+        }
 
         if (targetType is HeroCombatObject)
         {   
-            DamageModif *=  1 - targetType.GetModifiers().DamageResist;
-            targetType.GetData().CurrentHP -= damageValue * DamageModif;
+            GlobalEventSystem.SendPlayerShieldChanged();
             GlobalEventSystem.SendPlayerHPChanged();
         }
     }
     
     public static void ApplayHeal(float healValue, CombatObject creatorType, CombatObject targetType)
     {        
-        float HealModif  = creatorType.Modifiers.HealModif * targetType.Modifiers.HealEffectiveResist;
+        float healModif = creatorType.GetModifiers().HealModif * (1 - targetType.GetModifiers().HealEffectiveResist);
+        healValue *= healModif;
+
+        targetType.GetData().CurrentHP += healValue;
 
         if (targetType is HeroCombatObject)
-        {
-            targetType.Data.CurrentHP += healValue * HealModif;
+        {   
             GlobalEventSystem.SendPlayerHPChanged();
         }
+        
     }
 
     public static void ApplayShield(float shieldValue, CombatObject creatorType, CombatObject targetType)
     {
-        float ShieldModif  = creatorType.Modifiers.ShieldModif * targetType.Modifiers.ShieldEffectiveResist;
+        float shieldModif = creatorType.GetModifiers().ShieldModif * (1 - targetType.GetModifiers().ShieldEffectiveResist);
+        shieldValue *= shieldModif;
+
+        targetType.GetData().CurrentShield += shieldValue;
 
         if (targetType is HeroCombatObject)
-        {
-            targetType.Data.CurrentShield += shieldValue * ShieldModif;
+        {   
             GlobalEventSystem.SendPlayerShieldChanged();
         }
-
     }
-
 }
 #region LegacyTypes
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

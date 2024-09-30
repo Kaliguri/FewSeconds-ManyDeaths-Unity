@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class DamageExampleSkill : SkillScript
 {
-    [SerializeField] float Damage;
+    [Header("DamageExampleSkill")]
+    [SerializeField] float Damage = 20f;
     [SerializeField] GameObject ExampleSkillPrefab;
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
@@ -43,7 +45,5 @@ public class DamageExampleSkill : SkillScript
             CombatMethods.ApplayDamage(Damage, GetHeroCombatObject(playerID), combatObject);
             
         }
-
-        Debug.Log("ApplayDamage: " +  GetAffectedCombatObjectList().Count);
     }
 }

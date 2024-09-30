@@ -43,6 +43,6 @@ MonoBehaviour:
         SkillCooldown: 0
         IsMovable: 0
         TargetCount: 1
-        Heal: 0
+        Shield: 25
         ExampleSkillPrefab: {fileID: 1186777461074907986, guid: 5596741cfa3805e4b9276c8c0d96c153,
           type: 3}

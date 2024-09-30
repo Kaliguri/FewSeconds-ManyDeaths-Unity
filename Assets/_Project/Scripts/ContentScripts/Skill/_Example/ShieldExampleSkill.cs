@@ -1,16 +1,19 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class ShieldExampleSkill : SkillScript
 {
-    [SerializeField] float Heal;
+    [Header("ShieldExampleSkill")]
+    [SerializeField] float Shield = 20f;
     [SerializeField] GameObject ExampleSkillPrefab;
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
 
-        SpawnSkillPrefab(skillIndex);
+        SpawnSkillSpawnSpritesPrefab();
+        ApplayShield(playerID);
                 
         CastEnd();
         
@@ -28,8 +31,19 @@ public class ShieldExampleSkill : SkillScript
         return areaList;
     }
 
-    void SpawnSkillPrefab(int skillIndex)
+
+    void SpawnSkillSpawnSpritesPrefab()
     {
-        SpawnSkillObjects(GetArea(skillIndex), ExampleSkillPrefab);
+        SpawnSkillObjects(GetArea(), ExampleSkillPrefab);
+        //Debug.Log("SpawnSprites:" + GetArea().Count);
+    }
+    
+    void ApplayShield(int playerID)
+    {
+        foreach (CombatObject combatObject in GetAffectedCombatObjectList())
+        {
+            CombatMethods.ApplayShield(Shield, GetHeroCombatObject(playerID), combatObject);
+            
+        }
     }
 }
