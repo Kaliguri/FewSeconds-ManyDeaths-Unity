@@ -29,10 +29,11 @@ public class DamageExampleSkill : SkillScript
         return areaList;
     }
 
+
     void SpawnSkillSpawnSpritesPrefab()
     {
         SpawnSkillObjects(GetArea(), ExampleSkillPrefab);
-        Debug.Log("SpawnSprites:" + GetArea().Count);
+        //Debug.Log("SpawnSprites:" + GetArea().Count);
     }
     
     void ApplayDamage(int playerID)
@@ -43,6 +44,6 @@ public class DamageExampleSkill : SkillScript
             
         }
 
-        Debug.Log("ApplayDamage: " +  GetAffectedCombatObjectList());
+        Debug.Log("ApplayDamage: " +  GetAffectedCombatObjectList().Count);
     }
 }

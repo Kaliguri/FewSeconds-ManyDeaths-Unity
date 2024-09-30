@@ -2,17 +2,27 @@
 
 using System;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 public static class CombatMethods
 {
 
     public static void ApplayDamage(float damageValue, CombatObject creatorType, CombatObject targetType)
     {
-        float DamageModif  = creatorType.Modifiers.DamageModif * targetType.Modifiers.DamageResist;
+        float DamageModif = 1;
+        
+        if (creatorType is HeroCombatObject)
+        {
+            DamageModif = creatorType.GetModifiers().DamageModif;
+        }
+
+
+
 
         if (targetType is HeroCombatObject)
-        {
-            targetType.Data.CurrentHP -= damageValue * DamageModif;
+        {   
+            DamageModif *=  1 - targetType.GetModifiers().DamageResist;
+            targetType.GetData().CurrentHP -= damageValue * DamageModif;
             GlobalEventSystem.SendPlayerHPChanged();
         }
     }
@@ -103,27 +113,45 @@ class StandartTarget : TargetType // Terrain, minion and etc.
 public class CombatObject //Who cast damage, shield, heal and etc.
 {
     public int ObjectID = 0;
-    public CombatStats CombatStats = new CombatStats();
-    public Modifiers Modifiers = new Modifiers();
-    public CombatStats Data = new CombatStats();
+    public Modifiers Modifiers;
+    public CombatStats Data;
+
+    public virtual CombatStats GetData()
+    {
+        return Data;
+    } 
+    public virtual Modifiers GetModifiers()
+    {
+        return Modifiers;
+    } 
+     
 
 }
 
 public class HeroCombatObject: CombatObject // Hero, his talents, items, tileEffects, effects
 {
-    public new int ObjectID; //Player ID
+    //public new int ObjectID; //Player ID
 
     private CombatPlayerDataInStage playersData;
     private AllPlayerStats stats => playersData._TotalStatsList[ObjectID];
 
-    public new CombatStats CombatStats => stats.currentCombat;
     public new Modifiers Modifiers => stats.general.Modifiers;
     public new CombatStats Data => stats.currentCombat;
+
+    public override CombatStats GetData()
+    {
+        return Data;
+    } 
+    public override Modifiers GetModifiers()
+    {
+        return Modifiers;
+    } 
 
     public HeroCombatObject(int objectID, CombatPlayerDataInStage combatPlayerDataInStage)
     {
         ObjectID = objectID;
         playersData = combatPlayerDataInStage;
+        Debug.Log(playersData._TotalStatsList[ObjectID].general.Modifiers.DamageModif);
     }
 
     
@@ -176,7 +204,7 @@ public class GeneralPlayerStats
     public float AbilityPower;
 
     [Title("Modifiers")]
-    public Modifiers Modifiers;
+    public Modifiers Modifiers = new Modifiers();
 
     [Title("Level")]
     public int Level = 1;

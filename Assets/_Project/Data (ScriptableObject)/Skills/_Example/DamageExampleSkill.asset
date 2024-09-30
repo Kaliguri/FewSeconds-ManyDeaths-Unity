@@ -43,6 +43,6 @@ MonoBehaviour:
         SkillCooldown: 0
         IsMovable: 0
         TargetCount: 1
-        Damage: 0
+        Damage: 50
         ExampleSkillPrefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}

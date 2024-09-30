@@ -16,12 +16,6 @@ public class TeleportExampleSubSkill2 : SkillScript
         CastEnd();
     }
 
-    protected override List<Vector2> GetArea(int skillIndex)
-    {
-        List<Vector2> area = Area(HeroPosition, SelectedCellCoordinate[skillIndex]);
-        return area;
-    }
-
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
         List<Vector2> areaList = GridAreaMethods.CircleAOE(characterCellCoordinate, selectedCellCoordinate);

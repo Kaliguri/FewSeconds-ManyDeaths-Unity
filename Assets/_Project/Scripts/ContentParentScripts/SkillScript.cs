@@ -67,11 +67,13 @@ public class SkillScript
         return new List<Vector2>();
     }
 
-    public virtual List<Vector2> AvailableTiles(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
-    {
-        return new List<Vector2>();
-    }
     protected virtual List<Vector2> GetArea(int skillIndex = 0)
+    {
+        List<Vector2> area = Area(HeroPosition, SelectedCellCoordinate[skillIndex]);
+        return area;
+    }
+
+    public virtual List<Vector2> AvailableTiles(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
         return new List<Vector2>();
     }
@@ -110,7 +112,7 @@ public class SkillScript
         return combatObjectList;
     }
 
-    protected CombatObject GetHeroCombatObject(int playerID)
+    protected HeroCombatObject GetHeroCombatObject(int playerID)
     {
         return new HeroCombatObject(playerID, combatPlayerDataInStage);
     }
