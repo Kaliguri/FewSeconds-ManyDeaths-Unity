@@ -32,6 +32,7 @@ public class OnSpawn : NetworkBehaviour
 
     private void TransferData()
     {
+        Debug.Log("TransferData");
         combatPlayerDataInStage.UpdatePlayersHeroes(gameObject, ownerPlayerID);
 
         Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(transform.position);
