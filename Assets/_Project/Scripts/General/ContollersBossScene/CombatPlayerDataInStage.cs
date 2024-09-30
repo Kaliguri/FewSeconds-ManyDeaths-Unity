@@ -98,6 +98,7 @@ public class CombatPlayerDataInStage : MonoBehaviour
 
     void InitialiseArrayes()
     {
+        Debug.Log("InitialiseArrayes in CombatPlayerDataInStage");
         PlayersHeroes = new GameObject[playerCount];
         HeroCoordinates = new Vector2[playerCount];
     }
@@ -127,6 +128,8 @@ public class CombatPlayerDataInStage : MonoBehaviour
 
     public void UpdatePlayersHeroes(GameObject Hero, int PlayerId)
     {
+        Debug.Log(PlayersHeroes.Length);
+        Debug.Log("UpdatePlayersHeroes");
         PlayersHeroes[PlayerId] = Hero;
     }
 }
