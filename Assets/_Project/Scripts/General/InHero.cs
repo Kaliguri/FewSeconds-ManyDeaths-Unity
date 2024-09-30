@@ -1,10 +1,11 @@
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
-public class InHero : MonoBehaviour
+public class InHero : NetworkBehaviour
 {
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
-    public int ownerPlayerID => playerInfoData.PlayerIDThisPlayer;
-    private GameObject heroSpritePrefab => playerInfoData.HeroDataList[ownerPlayerID].GameObjectSpritePrefab;
+    public NetworkVariable<int> ownerPlayerID;
+    private GameObject heroSpritePrefab => playerInfoData.HeroDataList[ownerPlayerID.Value].GameObjectSpritePrefab;
 
     [SerializeField] private GameObject currentPrefab;
 

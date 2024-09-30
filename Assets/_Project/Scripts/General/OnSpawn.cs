@@ -9,9 +9,8 @@ public class OnSpawn : NetworkBehaviour
     public static event Action LocalClientDespawned;
 
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
-    private PlayerInfoData playerInfoData => FindObjectOfType<PlayerInfoData>().GetComponent<PlayerInfoData>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
-    private int ownerPlayerID => playerInfoData.PlayerIDThisPlayer;
+    private int ownerPlayerID => GetComponent<InHero>().ownerPlayerID.Value;
 
     public override void OnNetworkSpawn()
     {

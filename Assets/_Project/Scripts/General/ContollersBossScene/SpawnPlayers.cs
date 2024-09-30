@@ -54,7 +54,7 @@ public class SpawnPlayers : NetworkBehaviour
         GameObject player = Instantiate(Player, Coordinates, Quaternion.identity);
 
         player.name = "Player_" + id;
-        player.GetComponent<InHero>().ownerPlayerID = i;
+        player.GetComponent<InHero>().ownerPlayerID.Value = i;
         player.GetComponent<NetworkObject>().SpawnAsPlayerObject(id, true);
 
         SendPlayerSpawnedRpc(SpawnCoordinate[i], i);
