@@ -81,7 +81,6 @@ public class MapClass : NetworkBehaviour
 
     public void RemoveHero(Vector2 tile, int playerID)
     {
-        Debug.Log("RemoveHero");
         TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Hero && x.ID == playerID);
     }
 

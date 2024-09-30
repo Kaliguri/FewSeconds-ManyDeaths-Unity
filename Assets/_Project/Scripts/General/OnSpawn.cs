@@ -25,13 +25,11 @@ public class OnSpawn : NetworkBehaviour
 
     private void Awake()
     {
-        Debug.Log("AddListener");
         GlobalEventSystem.AllPlayerSpawned.AddListener(TransferData);
     }
 
     private void TransferData()
     {
-        Debug.Log("TransferData on " + gameObject.name);
         combatPlayerDataInStage.UpdatePlayersHeroes(gameObject, ownerPlayerID);
 
         Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(transform.position);
