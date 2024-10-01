@@ -18,7 +18,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
     [Title("Dynamic Background")]
     [Title("Dynamic Background Reference")]
-    public List<GameObject> TextItemList;
+    public GameObject PseudoHeader;
 
     [Title("Dynamic Background Settings")]
     public float ExtraWidthForBackground;
@@ -46,7 +46,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     public override void Refresh()
     {
         LocalizeRefresh();
-        UpdateTextSize();
+        //UpdateTextSize();
         UpdateTagFontStyte();
         ResizeBackground();
 
@@ -64,6 +64,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
         gameObject.SetActive(false);
     }
 
+    /*
     void UpdateTextSize()
     {
         foreach (var item in TextItemList)
@@ -75,10 +76,11 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
             rectItem.sizeDelta = new Vector2(rectItem.sizeDelta.x , textItem.GetRenderedValues(true).y);
         }
     }
+    */
 
     void ResizeBackground()
     {
-        var EndRectItem = TextItemList.Last().GetComponent<RectTransform>();
+        var EndRectItem = PseudoHeader.GetComponent<RectTransform>();
         var width = EndRectItem.sizeDelta.x + ExtraWidthForBackground;
         var height = math.abs(EndRectItem.localPosition.y) + EndRectItem.sizeDelta.y + ExtraHeightForBackground;
 
