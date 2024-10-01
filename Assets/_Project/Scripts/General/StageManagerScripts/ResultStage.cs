@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -27,21 +24,26 @@ public class ResultStage : GameState
 
     private void ConfirmPlayerEndMoving(int orderInTurnPriority)
     {
-        UnityEngine.Debug.Log(_orderInTurnPriority);
+        Debug.Log(_orderInTurnPriority);
         _orderInTurnPriority = orderInTurnPriority + 1;
-        SendResultStageStartedRpc();
+        SendResultStageStartedAfterTime();
         ConfirmPlayerEndMovingRpc();
     }
 
-    [Rpc(SendTo.ClientsAndHost)]
-    private void SendResultStageStartedRpc()
+    private void SendResultStageStartedAfterTime()
     {
-        Invoke(nameof(SendStartResultStageForOversPlayer), TimeBetweenPlayerMovement);
+        Invoke(nameof(SendStartResultStageForPlayer), TimeBetweenPlayerMovement);
     }
 
-    private void SendStartResultStageForOversPlayer()
+    private void SendStartResultStageForPlayer()
     {
-        GlobalEventSystem.SendStartResultStageForPlayer(_orderInTurnPriority);
+        SendStartResultStageForPlayerRpc(_orderInTurnPriority);
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void SendStartResultStageForPlayerRpc(int orderInTurnPriority)
+    {
+        GlobalEventSystem.SendStartResultStageForPlayer(orderInTurnPriority);
     }
 
     private void ConfirmPlayerEndResultTurning(int orderInTurnPriority)

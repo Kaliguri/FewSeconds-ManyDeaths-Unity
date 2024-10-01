@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 
-public class GridVisualizer : MonoBehaviour
+public class GridVisualizer : NetworkBehaviour
 {
     #region Tile Sprites
 
@@ -111,6 +111,12 @@ public class GridVisualizer : MonoBehaviour
         GlobalEventSystem.ResultStageStarted.AddListener(SendPathTiles);
         GlobalEventSystem.AllPlayersEndMoving.AddListener(ClearPlayersPathTiles);
     }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+    }
+
     void Start()
     {
         inputActions.Enable();
