@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Rifleman (RSV 2024 Edition) Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Rifleman (RSV 2024 Edition)
+  m_TableCollectionNameGuidString: 303b1c8311a6a5646abc9e36cd5174ba
+  m_Entries:
+  - m_Id: 23697108992
+    m_Key: Biography
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21029531648
+    m_Key: _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303377494016
+    m_Key: Skill 1 - 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355403640832
+    m_Key: Skill 1 - 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367609065472
+    m_Key: Skill 2 - 1
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4835066123673665539
+  references:
+    version: 2
+    RefIds:
+    - rid: 4835066123673665539
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1727765407104

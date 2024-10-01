@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
-using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class HeroListController : MonoBehaviour
@@ -16,7 +15,7 @@ public class HeroListController : MonoBehaviour
 
     [Title("Hero Info")]
     [SerializeField] Image HeroTypeObj; 
-    [SerializeField] TextMeshProUGUI HeroNameObj;
+    [SerializeField] LocalizeStringEvent HeroNameObj;
     
     [Title("Hero Sprite")]
     [SerializeField] Transform SpriteParent;
@@ -41,7 +40,7 @@ public class HeroListController : MonoBehaviour
     
     private Sprite HeroTypeIcon => HeroData.HeroTypeData.Icon;
     private Color HeroTypeIconColor => HeroData.HeroTypeData.IconColor;
-    private string HeroName => HeroData.Name;
+    private LocalizedString HeroName => HeroData.Name;
 
     private GameObject SpritePrefab => HeroData.GameObjectSpritePrefab;
 
@@ -77,7 +76,7 @@ public class HeroListController : MonoBehaviour
         HeroTypeObj.sprite = HeroTypeIcon;
         HeroTypeObj.color = HeroTypeIconColor;
 
-        HeroNameObj.text = HeroName;
+        HeroNameObj.StringReference = HeroName;
         
     }
     void SpriteDataTransfer()

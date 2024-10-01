@@ -24,6 +24,12 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22690582879ce5d4cb203b00897d6d9e
+    m_Address: Skeleton Priest (RSV 2024 Edition)_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d8ff1db312856743ac7596322fecd4a
     m_Address: Chess Master_en
     m_ReadOnly: 1
@@ -37,6 +43,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f96097f5bdd71947ad2f8049408bb04
+    m_Address: Rifleman (RSV 2024 Edition)_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62fceb5a7c3493448a7ef4d4a29eefa0
     m_Address: Rifleman_en
@@ -67,6 +79,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b29d28aed49855f4a99fe5bb24f5e776
     m_Address: Priest_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c24ec718cde8a934b98a0dad5b4a06aa
+    m_Address: Shieldbearer (RSV 2024 Edition)_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf1ec90d4d4691843b66319f544974b3
+    m_Address: Chess Master (RSV 2024 Edition)_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

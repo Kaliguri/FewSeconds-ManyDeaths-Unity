@@ -17,12 +17,30 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 879be8cae531950429327524d611ef08
   m_SerializeEntries:
+  - m_GUID: 01b397ef5b078334ea5f1b1dbe86afea
+    m_Address: Chess Master (RSV 2024 Edition)_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08d325d109d39674691f3228ac5b9122
+    m_Address: Rifleman (RSV 2024 Edition)_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2311f6efa280a6849af1e0fe198784c0
     m_Address: Chess Master_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b23ea09c79c6ac4cba32e4190133f74
+    m_Address: Skeleton Priest (RSV 2024 Edition)_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e38bd779cd49014a9cc05ca1a12c617
     m_Address: Heads Or Tails Quest_ru
@@ -71,6 +89,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ru
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f90f531afce0b14c971dbb44cd4a97d
+    m_Address: Shieldbearer (RSV 2024 Edition)_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f3b7cbc0ad578e4a9ef08a0104d19c3
     m_Address: Berserk 1_ru

@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class AboutHeroController : MonoBehaviour
 {
     [Header("Object Reference")]
-    [SerializeField] private TextMeshProUGUI HeroNameText;
-    [SerializeField] private TextMeshProUGUI HeroDescriptionText;
+    [SerializeField] private LocalizeStringEvent HeroNameText;
+    [SerializeField] private LocalizeStringEvent HeroDescriptionText;
     [SerializeField] private Image HeroIcon;
 
     [Space]
@@ -30,8 +28,8 @@ public class AboutHeroController : MonoBehaviour
     }
     void DataTranfer()
     {
-        HeroNameText.text = HeroData.Name;
-        HeroDescriptionText.text = HeroData.Description;
+        HeroNameText.StringReference = HeroData.Name;
+        HeroDescriptionText.StringReference = HeroData.Description;
         HeroIcon.sprite = HeroData.HeroIcon;
 
         SpriteDataTransfer();

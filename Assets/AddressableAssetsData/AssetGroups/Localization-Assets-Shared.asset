@@ -35,14 +35,32 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 303b1c8311a6a5646abc9e36cd5174ba
+    m_Address: Assets/_Project/Localization & Fronts/Tables/RSV 2024 Edition/Hero/Rifleman
+      (RSV 2024 Edition)/Rifleman (RSV 2024 Edition) Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 342c294cddf253a4582887de19a50727
     m_Address: Assets/Localization/Tables/Boss/Berserk Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38d81710b9133724880fa2124e6eed64
+    m_Address: Assets/_Project/Localization & Fronts/Tables/RSV 2024 Edition/Hero/Shieldbearer
+      (RSV 2024 Edition)/Shieldbearer (RSV 2024 Edition) Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e284e18f151da04a8160ffcd97ecf64
     m_Address: Assets/_Project/Localization & Fronts/Tables/Hero/Rifleman/Rifleman
       Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 444065e69da6ffb49930ab123184a827
+    m_Address: Assets/_Project/Localization & Fronts/Tables/RSV 2024 Edition/Hero/Skeleton
+      Priest (RSV 2024 Edition)/Skeleton Priest (RSV 2024 Edition) Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -67,6 +85,12 @@ MonoBehaviour:
   - m_GUID: bf4188e66a021a24aaa032659a997710
     m_Address: Assets/_Project/Localization & Fronts/Tables/Hero/Priest/Priest Shared
       Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caaf4f6a0b6030e4f81a87811b371496
+    m_Address: Assets/_Project/Localization & Fronts/Tables/RSV 2024 Edition/Hero/Chess
+      Master (RSV 2024 Edition)/Chess Master (RSV 2024 Edition) Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
