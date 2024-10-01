@@ -28,6 +28,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     public TagFontStyle Style;
 
     private List<LocalizeStringEvent> LocalizeStringEventList;
+    private RectTransform CanvasRect => transform.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
 
     public void OnDestroy() { HideTooltip();}
     public void OnDisable() { HideTooltip();}
@@ -49,6 +50,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
         //UpdateTextSize();
         UpdateTagFontStyte();
         ResizeBackground();
+        EdgeDetection();
 
         //Debug.Log("Refresh!");
     }
@@ -79,6 +81,46 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     */
 
     void ResizeBackground()
+    {
+        var backgroundRect = Background.GetComponent<RectTransform>();
+
+        Vector3[] corners = new Vector3[4];
+        backgroundRect.GetWorldCorners(corners);
+
+        // Определяем минимальные и максимальные координаты
+        float minX = corners[0].x;
+        float maxX = corners[2].x;
+        float minY = corners[0].y;
+        float maxY = corners[2].y;
+
+        // Получаем размеры экрана
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        var tooltipTransform = gameObject.GetComponent<RectTransform>();
+
+        // Корректируем положение по X
+        if (minX < 0)
+        {
+            tooltipTransform.position += new Vector3(-minX, 0, 0);
+        }
+        else if (maxX > screenWidth)
+        {
+            tooltipTransform.position += new Vector3(screenWidth - maxX, 0, 0);
+        }
+
+        // Корректируем положение по Y
+        if (minY < 0)
+        {
+            tooltipTransform.position += new Vector3(0, -minY, 0);
+        }
+        else if (maxY > screenHeight)
+        {
+            tooltipTransform.position += new Vector3(0, screenHeight - maxY, 0);
+        }
+    }
+
+    void EdgeDetection()
     {
         var EndRectItem = PseudoHeader.GetComponent<RectTransform>();
         var width = EndRectItem.sizeDelta.x + ExtraWidthForBackground;
