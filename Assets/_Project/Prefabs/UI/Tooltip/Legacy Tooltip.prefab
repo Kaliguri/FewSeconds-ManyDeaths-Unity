@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 1825990145928819688}
   - component: {fileID: 1616733490950010274}
   m_Layer: 5
-  m_Name: Tooltip
+  m_Name: Legacy Tooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
