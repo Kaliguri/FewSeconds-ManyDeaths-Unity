@@ -27,6 +27,7 @@ public class ResultStage : GameState
 
     private void ConfirmPlayerEndMoving(int orderInTurnPriority)
     {
+        UnityEngine.Debug.Log(_orderInTurnPriority);
         _orderInTurnPriority = orderInTurnPriority + 1;
         SendResultStageStartedRpc();
         ConfirmPlayerEndMovingRpc();

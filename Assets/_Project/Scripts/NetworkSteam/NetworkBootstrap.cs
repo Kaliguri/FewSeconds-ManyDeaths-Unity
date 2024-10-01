@@ -12,6 +12,7 @@ public class NetworkBootstrap : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("StartNetworkBootstrap");
         Invoke(nameof(StartScripts), TimeBeforeEnabled);
     }
 

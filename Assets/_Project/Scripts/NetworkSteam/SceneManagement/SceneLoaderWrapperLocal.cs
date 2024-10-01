@@ -178,6 +178,7 @@ public class SceneLoaderWrapperLocal : NetworkBehaviour
                 }
             case SceneEventType.SynchronizeComplete: // Client told server that they finished synchronizing
                 // Only executes on server
+                Debug.Log("SynchronizeComplete");
                 if (NetworkManager.IsServer)
                 {
                     // Send client RPC to make sure the client stops the loading screen after the server handles what it needs to after the client finished synchronizing, for example character spawning done server side should still be hidden by loading screen.
