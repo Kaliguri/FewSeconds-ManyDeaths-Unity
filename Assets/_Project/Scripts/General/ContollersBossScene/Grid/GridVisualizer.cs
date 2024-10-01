@@ -73,6 +73,7 @@ public class GridVisualizer : NetworkBehaviour
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private Tilemap gameplayTilemap => mapClass.gameplayTilemap;
     private Vector2 tileZero => mapClass.tileZero;
+    private PlayerSkillManager playerSkillManager => FindObjectOfType<PlayerSkillManager>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private SkillScript skillSelected => FindObjectOfType<PlayerSkillManager>().ChoosenSkill;
@@ -111,6 +112,7 @@ public class GridVisualizer : NetworkBehaviour
         GlobalEventSystem.PlayerActionChoosed.AddListener(PlayerActionChoosed);
         GlobalEventSystem.PlayerActionUpdate.AddListener(PlayerActionUpdate);
         GlobalEventSystem.PlayerActionUnchoosed.AddListener(PlayerActionUnchoosed);
+        GlobalEventSystem.PlayerActionUnchoosed.AddListener(PlayersStartMoving);
         GlobalEventSystem.PlayerActionAproved.AddListener(PlayerActionUnchoosed);
         GlobalEventSystem.PathChanged.AddListener(ChangePath);
         GlobalEventSystem.ResultStageStarted.AddListener(SendClearAprovedAffectedAreas);
@@ -213,7 +215,7 @@ public class GridVisualizer : NetworkBehaviour
 
     private void PlayersStartMoving()
     {
-        isPlayerMoving = true;
+        if (playerSkillManager.IsSkillListEmpty) isPlayerMoving = true;
     }
 
     #region PlayersPath
@@ -261,7 +263,6 @@ public class GridVisualizer : NetworkBehaviour
     private void PlayerActionUnchoosed()
     {
         UpdateAprovedAffectedAreas();
-        isPlayerMoving = true;
         isPlayerCasting = false;
         ClearAvaliableArea();
     }
