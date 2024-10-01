@@ -141,7 +141,7 @@ public class PlayerMovementController : NetworkBehaviour
 
             // ������� ���� �� ������� ������� �� ���������
             List<PathNode> pathNodes = CreatePathRoute(LastPosition, targetPoint);
-            if (MovementList.Count > 0 && pathNodes[0] == LastPosition && combatPlayerDataInStage._TotalStatsList[playerId].currentCombat.CurrentEnergy == 0)
+            if (pathNodes[0] == LastPosition && combatPlayerDataInStage._TotalStatsList[playerId].currentCombat.CurrentEnergy == 0)
             {
                 return; 
             }
