@@ -3,6 +3,9 @@ using UnityEngine;
 
 public static class GlobalEventSystem
 {
+    public static UnityEvent AllPlayersLoadedScene = new();
+    public static void SendAllPlayersLoadedScene() {  AllPlayersLoadedScene.Invoke(); }
+
     public static UnityEvent HeroChanged = new();
     public static void SendHeroChanged() { HeroChanged.Invoke(); }
 

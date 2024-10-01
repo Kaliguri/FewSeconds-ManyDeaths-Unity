@@ -67,6 +67,9 @@ public class PlayerInfoData : MonoBehaviour
             if (PlayerIDThisPlayer == -1) PlayerIDThisPlayer = i - 1;
             GlobalEventSystem.SendPlayerDataChanged();
         }
+
+        SteamFriends.SetRichPresence("steam_player_group", "Few Seconds - Many Deaths");
+        SteamFriends.SetRichPresence("steam_player_group_size", PlayerCount.ToString());
     }
 
     /*void InizializeSkillChoiceList()

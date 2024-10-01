@@ -8,11 +8,10 @@ public class NetworkBootstrap : MonoBehaviour
 {
     [SerializeField] private List<NetworkBehaviour> networkBehaviours = new();
     [SerializeField] private List<MonoBehaviour> monoBehaviours = new();
-    [SerializeField] private float TimeBeforeEnabled = 1f;
 
-    void Start()
+    private void Awake()
     {
-        Invoke(nameof(StartScripts), TimeBeforeEnabled);
+        GlobalEventSystem.AllPlayersLoadedScene.AddListener(StartScripts);
     }
 
     private void StartScripts()

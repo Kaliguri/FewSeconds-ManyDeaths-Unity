@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 
-public class GridVisualizer : MonoBehaviour
+public class GridVisualizer : NetworkBehaviour
 {
     #region Tile Sprites
 
@@ -99,7 +99,8 @@ public class GridVisualizer : MonoBehaviour
     {
         inputActions = new InputActions();
 
-        GlobalEventSystem.StartCombat.AddListener(CreatePlayersTiles);
+        GlobalEventSystem.PlayerTurnStageStarted.AddListener(ShowPlayersTiles);
+        GlobalEventSystem.AllPlayerSpawned.AddListener(CreatePlayersTiles);
         GlobalEventSystem.PlayerStartMove.AddListener(HidePlayersTiles);
         GlobalEventSystem.PlayerEndMove.AddListener(ShowPlayersTiles);
         GlobalEventSystem.PlayerActionChoosed.AddListener(PlayerActionChoosed);
@@ -111,6 +112,12 @@ public class GridVisualizer : MonoBehaviour
         GlobalEventSystem.ResultStageStarted.AddListener(SendPathTiles);
         GlobalEventSystem.AllPlayersEndMoving.AddListener(ClearPlayersPathTiles);
     }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+    }
+
     void Start()
     {
         inputActions.Enable();
@@ -225,6 +232,7 @@ public class GridVisualizer : MonoBehaviour
 
             playersTilesGameObjectList.Add(playerTile);
         }
+        HidePlayersTiles();
     }
 
     private void HidePlayersTiles()

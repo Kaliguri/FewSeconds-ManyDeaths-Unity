@@ -151,6 +151,7 @@ public class SceneLoaderWrapperLocal : NetworkBehaviour
                 break;
             case SceneEventType.LoadEventCompleted: // Server told client that all clients finished loading a scene
                 // Only executes on client or host
+                GlobalEventSystem.SendAllPlayersLoadedScene();
                 if (NetworkManager.Singleton.IsClient)
                 {
                     m_ClientLoadingScreen.StopLoadingScreen();
