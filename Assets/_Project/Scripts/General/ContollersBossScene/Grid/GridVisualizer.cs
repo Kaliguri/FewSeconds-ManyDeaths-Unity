@@ -99,7 +99,8 @@ public class GridVisualizer : NetworkBehaviour
     {
         inputActions = new InputActions();
 
-        GlobalEventSystem.StartCombat.AddListener(CreatePlayersTiles);
+        GlobalEventSystem.PlayerTurnStageStarted.AddListener(ShowPlayersTiles);
+        GlobalEventSystem.AllPlayerSpawned.AddListener(CreatePlayersTiles);
         GlobalEventSystem.PlayerStartMove.AddListener(HidePlayersTiles);
         GlobalEventSystem.PlayerEndMove.AddListener(ShowPlayersTiles);
         GlobalEventSystem.PlayerActionChoosed.AddListener(PlayerActionChoosed);
@@ -231,6 +232,7 @@ public class GridVisualizer : NetworkBehaviour
 
             playersTilesGameObjectList.Add(playerTile);
         }
+        HidePlayersTiles();
     }
 
     private void HidePlayersTiles()
