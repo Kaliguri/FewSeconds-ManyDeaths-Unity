@@ -60,7 +60,7 @@ public class PlayerSkillManager : NetworkBehaviour
 
     public void GetSkill(SkillScript skillScript, int SkillNumber)
     {
-        if (skillCooldownManager.GetSkillCooldown(SkillNumber, playerID) == 0 && combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy >= skillScript.EnergyCost)
+        if (skillCooldownManager.GetSkillCooldown(playerID, SkillNumber) == 0 && combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy >= skillScript.EnergyCost)
         {
             ChoosenSkill = skillScript;
             skillID = SkillNumber;
@@ -145,7 +145,7 @@ public class PlayerSkillManager : NetworkBehaviour
     {
         if (SkillList.Count > 0)
         {
-            SendChangeSkillCooldownRpc(skillNumberList[skillNumberList.Count - 1], playerID, 0);
+            SendChangeSkillCooldownRpc(playerID, skillNumberList[skillNumberList.Count - 1], 0);
             int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy + SkillList[SkillList.Count - 1].EnergyCost;
             ChangeEnergy(newEnergy);
 
@@ -196,7 +196,7 @@ public class PlayerSkillManager : NetworkBehaviour
             { 
                 skillSelected = false; 
                 GlobalEventSystem.SendPlayerActionAproved();
-                SendChangeSkillCooldownRpc(skillID, playerID, ChoosenSkill.SkillCooldown);
+                SendChangeSkillCooldownRpc(playerID, skillID, ChoosenSkill.SkillCooldown);
             }
             else GlobalEventSystem.SendPlayerActionUpdate();
         }
@@ -215,8 +215,8 @@ public class PlayerSkillManager : NetworkBehaviour
     }
 
     [Rpc(SendTo.ClientsAndHost)]
-    private void SendChangeSkillCooldownRpc(int skillId, int playerId, int skillCooldown)
+    private void SendChangeSkillCooldownRpc(int playerId, int skillId, int skillCooldown)
     {
-        skillCooldownManager.SetSkillCooldown(skillId, playerId, skillCooldown);
+        skillCooldownManager.SetSkillCooldown(playerId, skillId, skillCooldown);
     }
 }

@@ -39,8 +39,8 @@ MonoBehaviour:
     - rid: 4082220119189356580
       type: {class: ShieldExampleSkill, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 0
-        SkillCooldown: 0
+        EnergyCost: 2
+        SkillCooldown: 1
         IsMovable: 0
         TargetCount: 1
         Shield: 25

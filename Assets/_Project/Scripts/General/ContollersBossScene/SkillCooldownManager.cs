@@ -22,14 +22,16 @@ public class SkillCooldownManager : MonoBehaviour
         }
     }
 
-    public int GetSkillCooldown(int skillId, int playerId)
+    public int GetSkillCooldown(int playerId, int skillId)
     {
         return playersSkillCooldownLists[playerId].skillsCooldownList[skillId];
     }
 
-    public void SetSkillCooldown(int skillId, int playerId, int skillCooldown)
+    public void SetSkillCooldown(int playerId, int skillId, int skillCooldown)
     {
+        Debug.Log(playerId + " " + skillId + " " + skillCooldown);
         playersSkillCooldownLists[playerId].skillsCooldownList[skillId] = skillCooldown;
+        GlobalEventSystem.SendUpdateCooldown();
     }
 
     private void SkillCooldownDecrease()
@@ -38,9 +40,15 @@ public class SkillCooldownManager : MonoBehaviour
         {
             for (int j = 0; j < playersSkillCooldownLists[i].skillsCooldownList.Count; j++)
             {
-                if (playersSkillCooldownLists[i].skillsCooldownList[j] > 0) playersSkillCooldownLists[i].skillsCooldownList[j]--;
+                if (playersSkillCooldownLists[i].skillsCooldownList[j] > 0) 
+                {
+                    playersSkillCooldownLists[i].skillsCooldownList[j]--;
+                    
+                };
             }
         }
+
+        GlobalEventSystem.SendUpdateCooldown();
     }
 }
 

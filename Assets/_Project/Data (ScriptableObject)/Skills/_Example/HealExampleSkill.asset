@@ -39,7 +39,7 @@ MonoBehaviour:
     - rid: 4082220119189356579
       type: {class: HealExampleSkill, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 0
+        EnergyCost: 2
         SkillCooldown: 0
         IsMovable: 0
         TargetCount: 1

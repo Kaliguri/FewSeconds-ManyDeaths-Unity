@@ -39,8 +39,8 @@ MonoBehaviour:
     - rid: 4082220119189356581
       type: {class: TeleportExampleSkill, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 0
-        SkillCooldown: 0
+        EnergyCost: 3
+        SkillCooldown: 1
         IsMovable: 0
         TargetCount: 1
         skillList:

@@ -103,6 +103,9 @@ public static class GlobalEventSystem
     public static UnityEvent<int, int, int> PlayerChoiceActionUpdate = new();
     public static void SendPlayerChoiceActionUpdate(int uiNumber, int id, int variationSkillNumber) { PlayerChoiceActionUpdate.Invoke(uiNumber, id, variationSkillNumber); }
 
+    public static UnityEvent UpdateCooldown = new();
+    public static void SendUpdateCooldown() { UpdateCooldown.Invoke(); }
+
     #endregion
 
     #region Stage StartEnd Events

@@ -23,6 +23,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a324532dc9e0f74e800a3783d343bb2, type: 2}
   - {fileID: 11400000, guid: 1e1977874db0d484f9d3977c828360c2, type: 2}
   - {fileID: 11400000, guid: 14fb01d2ccf01ae4ea0239dbd9f53022, type: 2}
+  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
+  - {fileID: 11400000, guid: 7d8fbe6b1d6816142ba33df6c817adbe, type: 2}
+  - {fileID: 11400000, guid: 14e2834b59db3e149bc36a1c8dadb53d, type: 2}
+  - {fileID: 11400000, guid: d9b1d7f4412b6d7409e7e7e0eaee4372, type: 2}
+  - {fileID: 11400000, guid: bbb9b5726c00d4d44a5afdc7c3a921ff, type: 2}
   BossEncounterDataBaseList:
   - {fileID: 11400000, guid: 2e3b121e45d402840b354be86b437481, type: 2}
   QuestDataBaseList:
