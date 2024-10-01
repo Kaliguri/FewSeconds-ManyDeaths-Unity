@@ -29,7 +29,6 @@ public class SkillCooldownManager : MonoBehaviour
 
     public void SetSkillCooldown(int playerId, int skillId, int skillCooldown)
     {
-        Debug.Log(playerId + " " + skillId + " " + skillCooldown);
         playersSkillCooldownLists[playerId].skillsCooldownList[skillId] = skillCooldown;
         GlobalEventSystem.SendUpdateCooldown();
     }

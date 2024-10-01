@@ -27,8 +27,7 @@ public class DamageExampleSkill : SkillScript
 
     public override List<Vector2> AvailableTiles(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
-        List<Vector2> areaList = GridAreaMethods.SquareAOE(characterCellCoordinate, selectedCellCoordinate, radius: 20);
-        return areaList;
+        return mapClass.AllTiles;
     }
 
 

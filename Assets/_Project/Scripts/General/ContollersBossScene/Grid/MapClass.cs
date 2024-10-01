@@ -14,8 +14,9 @@ public class MapClass : NetworkBehaviour
 
     [HideInInspector]
     public Vector2 tileZero;
-
     public Tilemap gameplayTilemap => FindObjectOfType<GameplayTilemapTag>().gameObject.GetComponent<Tilemap>();
+    public List<Vector2> AllTiles = new();
+
     private TileInfo[,] TileMap;
     private GameObject DownLeftPoint => FindObjectOfType<DownLeftPointTag>().gameObject;
     private Vector3Int DownLeftTile;
@@ -49,6 +50,7 @@ public class MapClass : NetworkBehaviour
                         new NoPlayableTile()
                     };
                 }
+                else AllTiles.Add(new Vector2(i, j));
             }
         }
     }
@@ -100,7 +102,8 @@ public class MapClass : NetworkBehaviour
 
         foreach (Vector2 tile in areaList)
         {
-            mapObjectList.AddRange(GetMapObjectList(tile));
+            Vector3Int tileOnMap = gameplayTilemap.WorldToCell(tile + tileZero);
+            if (gameplayTilemap.HasTile(tileOnMap)) mapObjectList.AddRange(GetMapObjectList(tile));
         }
 
         return mapObjectList;
