@@ -1,17 +1,11 @@
-using System;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Localization.Components;
-using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.UI;
 
 public class SkillChoiceButtonController : MonoBehaviour
 {
     [Header("GameObj Reference")]
     public Image IconObj;
-    public LocalizeStringEvent NameObj;
-    public LocalizeStringEvent DescriptionObj;
+    [SerializeField] TooltipV3SkillManager tooltipManager;
 
     [Header("Other")]
     public int SkillNumber;
@@ -19,6 +13,14 @@ public class SkillChoiceButtonController : MonoBehaviour
 
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private int playerID => playerInfoData.PlayerIDThisPlayer;
+
+    public void DataTransferInPrefab(SkillData skillData)
+    {
+        IconObj.sprite = skillData.SkillIcon;
+        tooltipManager.Header.StringReference = skillData.Name;
+        tooltipManager.Description.StringReference = skillData.Description;
+    }
+
     
     public void SkillChoice()
     {

@@ -10,8 +10,7 @@ public class UISkillLobby : MonoBehaviour
 
     [Header("GameObj")]
     [SerializeField] private Image IconObj;
-    [SerializeField] private LocalizeStringEvent NameObj;
-    [SerializeField] private LocalizeStringEvent DescriptionObj;
+    [SerializeField] TooltipV3SkillManager tooltipManager;
 
     [Header("Other")]
     public int HeroListUINumber;
@@ -33,19 +32,19 @@ public class UISkillLobby : MonoBehaviour
     void Awake()
     {
         GlobalEventSystem.SkillChanged.AddListener(DataTransfer);
+        
     }
     
     void Start()
     {
         DataTransfer();
     }
-    
-    
+
     public void DataTransfer()
     {
         IconObj.sprite = skillIcon;
-        NameObj.StringReference = skillname;
-        DescriptionObj.StringReference = description;
+        tooltipManager.Header.StringReference = skillname;
+        tooltipManager.Description.StringReference = description;
     }
 
 }

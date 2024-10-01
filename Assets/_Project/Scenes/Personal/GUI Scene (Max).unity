@@ -156,6 +156,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8317584145244895877, guid: ca4773f7c97a6d14995a88c2b6a1e785,
         type: 2}
+    - target: {fileID: 1222110351715679595, guid: 5530ac5ef54671e4493cc9311798d239,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1073977278}
     - target: {fileID: 1315612267151941324, guid: 5530ac5ef54671e4493cc9311798d239,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -612,6 +617,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4661607161464548963, guid: 130215d8a3bafd041862dd7a455ed2da,
+        type: 3}
+      propertyPath: uiCamera
+      value: 
+      objectReference: {fileID: 1073977278}
     - target: {fileID: 5896456033986258202, guid: 130215d8a3bafd041862dd7a455ed2da,
         type: 3}
       propertyPath: m_Name
@@ -697,6 +707,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1825990145928819688, guid: 130215d8a3bafd041862dd7a455ed2da,
     type: 3}
   m_PrefabInstance: {fileID: 910918986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1073977278 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2683253739861395870, guid: f7c2ab19fc43e9c4a8f7f85236af3d5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1607948105}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1607948105
 PrefabInstance:

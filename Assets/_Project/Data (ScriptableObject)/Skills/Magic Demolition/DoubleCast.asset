@@ -32,31 +32,16 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: -1970675587, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
   SkillScript:
-    rid: 8463286551934664720
+    rid: 4835066123673665538
   references:
     version: 2
     RefIds:
-    - rid: 8463286551934664720
-      type: {class: ExampleSkill, ns: , asm: Assembly-CSharp}
+    - rid: 4835066123673665538
+      type: {class: DamageExampleSkill, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
         SkillCooldown: 0
-        HasConditionsForSelectedCell: 0
-        TargetCount: 2
-        skillList:
-        - rid: 8463286597880905742
-        - rid: 8463286597880905743
-    - rid: 8463286597880905742
-      type: {class: ExampleSkill1, ns: , asm: Assembly-CSharp}
-      data:
-        EnergyCost: 0
-        SkillCooldown: 0
-        HasConditionsForSelectedCell: 0
+        IsMovable: 0
         TargetCount: 1
-    - rid: 8463286597880905743
-      type: {class: ExampleSkill2, ns: , asm: Assembly-CSharp}
-      data:
-        EnergyCost: 0
-        SkillCooldown: 0
-        HasConditionsForSelectedCell: 0
-        TargetCount: 1
+        Damage: 20
+        ExampleSkillPrefab: {fileID: 0}

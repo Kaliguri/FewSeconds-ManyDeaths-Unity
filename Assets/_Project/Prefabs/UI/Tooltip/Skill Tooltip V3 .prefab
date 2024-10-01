@@ -597,8 +597,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1825990145928819688}
   - component: {fileID: 4661607161464548963}
+  - component: {fileID: 7510305708744643956}
   m_Layer: 5
-  m_Name: Tooltip V3
+  m_Name: 'Skill Tooltip V3 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,6 +639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Background: {fileID: 6911537790060959516}
+  IndentX: 0.1
+  IndentY: 0.1
   Header: {fileID: 7843994258155711752}
   Description: {fileID: 2618728752031583510}
   NarrativeDescription: {fileID: 1659238347489629853}
@@ -645,6 +648,29 @@ MonoBehaviour:
   ExtraWidthForBackground: 200
   ExtraHeightForBackground: 100
   Style: {fileID: 11400000, guid: 3dcfee0a36127ac4687f055d5b4d6f53, type: 2}
+--- !u!223 &7510305708744643956
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896456033986258202}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: -1313514805
+  m_SortingOrder: 10
+  m_TargetDisplay: 0
 --- !u!1 &6911537790060959516
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5803922}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.84313726}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

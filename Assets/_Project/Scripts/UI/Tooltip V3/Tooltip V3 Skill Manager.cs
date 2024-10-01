@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Cinemachine;
 using Sirenix.OdinInspector;
 using TMPro;
 using Unity.Mathematics;
@@ -8,9 +9,8 @@ using UnityEngine.Localization.Components;
 
 public class TooltipV3SkillManager : TooltipV3ParentManager
 {
-    [Title("General")]
-    public GameObject Background;
-    [Title("")]
+    [Title("Tooltip V3 Skill")]
+
     [Title("Text Localize")]
     public LocalizeStringEvent Header;
     public LocalizeStringEvent Description;
@@ -18,22 +18,21 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
     [Title("Dynamic Background")]
     [Title("Dynamic Background Reference")]
-    public GameObject PseudoHeader;
+    [SerializeField] GameObject PseudoHeader;
 
     [Title("Dynamic Background Settings")]
-    public float ExtraWidthForBackground;
-    public float ExtraHeightForBackground;
+    [SerializeField] float ExtraWidthForBackground;
+    [SerializeField] float ExtraHeightForBackground;
 
     [Title("Tooltip Style")]
-    public TagFontStyle Style;
+    [SerializeField] TagFontStyle Style;
 
     private List<LocalizeStringEvent> LocalizeStringEventList;
-    private RectTransform CanvasRect => transform.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
 
     public void OnDestroy() { HideTooltip();}
     public void OnDisable() { HideTooltip();}
 
-    void Start()
+    void Awake()
     {
         LocalizeStringEventListInizizalize();
         Refresh();
@@ -82,46 +81,6 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
     void ResizeBackground()
     {
-        var backgroundRect = Background.GetComponent<RectTransform>();
-
-        Vector3[] corners = new Vector3[4];
-        backgroundRect.GetWorldCorners(corners);
-
-        // Определяем минимальные и максимальные координаты
-        float minX = corners[0].x;
-        float maxX = corners[2].x;
-        float minY = corners[0].y;
-        float maxY = corners[2].y;
-
-        // Получаем размеры экрана
-        float screenWidth = Screen.width;
-        float screenHeight = Screen.height;
-
-        var tooltipTransform = gameObject.GetComponent<RectTransform>();
-
-        // Корректируем положение по X
-        if (minX < 0)
-        {
-            tooltipTransform.position += new Vector3(-minX, 0, 0);
-        }
-        else if (maxX > screenWidth)
-        {
-            tooltipTransform.position += new Vector3(screenWidth - maxX, 0, 0);
-        }
-
-        // Корректируем положение по Y
-        if (minY < 0)
-        {
-            tooltipTransform.position += new Vector3(0, -minY, 0);
-        }
-        else if (maxY > screenHeight)
-        {
-            tooltipTransform.position += new Vector3(0, screenHeight - maxY, 0);
-        }
-    }
-
-    void EdgeDetection()
-    {
         var EndRectItem = PseudoHeader.GetComponent<RectTransform>();
         var width = EndRectItem.sizeDelta.x + ExtraWidthForBackground;
         var height = math.abs(EndRectItem.localPosition.y) + EndRectItem.sizeDelta.y + ExtraHeightForBackground;
@@ -131,8 +90,8 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
     void UpdateTagFontStyte()
     {
-        foreach (LocalizeStringEvent localizeSting in LocalizeStringEventList)
-        { localizeSting.GetComponent<TextMeshProUGUI>().text = SetTagFontStyle(localizeSting.GetComponent<TextMeshProUGUI>().text, Style); }
+        foreach (LocalizeStringEvent localizeString in LocalizeStringEventList)
+        { localizeString.GetComponent<TextMeshProUGUI>().text = SetTagFontStyle(localizeString.GetComponent<TextMeshProUGUI>().text, Style); }
     }
 
     public string SetTagFontStyle(string text, TagFontStyle style)
@@ -174,8 +133,8 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
     void LocalizeRefresh()
     {
-        foreach (LocalizeStringEvent localizeSting in LocalizeStringEventList)
-        { localizeSting.RefreshString(); }
+        foreach (LocalizeStringEvent localizeString in LocalizeStringEventList)
+        { localizeString.RefreshString(); }
     }
 
 }
