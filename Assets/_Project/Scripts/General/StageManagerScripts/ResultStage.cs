@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResultStage : GameState
 {
     [SerializeField] private float TimeBeforeFirstPlayerMovement = 1f;
+    [SerializeField] private float TimeBeforeFirstPlayerCast = 1f;
     [SerializeField] private float TimeBetweenPlayerMovement = 1f;
 
     private NetworkVariable<int> PlayerEndMovind = new();
@@ -88,7 +89,7 @@ public class ResultStage : GameState
         {
             EndMoving = true;
             GlobalEventSystem.SendAllPlayersEndMoving();
-            GlobalEventSystem.SendStartCastPlayer(0);
+            Invoke(nameof(SendStartCastPlayer), TimeBeforeFirstPlayerCast);
         }
 
         if (NetworkManager.Singleton.IsServer)
@@ -98,6 +99,11 @@ public class ResultStage : GameState
                 EndTurn();
             }
         }
+    }
+
+    private void SendStartCastPlayer()
+    {
+        GlobalEventSystem.SendStartCastPlayer(0);
     }
 
     [Rpc(SendTo.Server)]
