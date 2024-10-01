@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Demos;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -16,6 +17,7 @@ public class MapClass : NetworkBehaviour
     public Vector2 tileZero;
     public Tilemap gameplayTilemap => FindObjectOfType<GameplayTilemapTag>().gameObject.GetComponent<Tilemap>();
     public List<Vector2> AllTiles = new();
+    public Pathfinding gridPathfinding;
 
     private TileInfo[,] TileMap;
     private GameObject DownLeftPoint => FindObjectOfType<DownLeftPointTag>().gameObject;
@@ -28,6 +30,7 @@ public class MapClass : NetworkBehaviour
         DownLeftTile = gameplayTilemap.WorldToCell(DownLeftPoint.transform.position);
         tileZero = gameplayTilemap.GetCellCenterWorld(DownLeftTile);
         FindTerrain();
+        gridPathfinding = new Pathfinding(Max_A, Max_B);
     }
 
     void FindTerrain()

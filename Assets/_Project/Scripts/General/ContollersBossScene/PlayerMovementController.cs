@@ -29,9 +29,8 @@ public class PlayerMovementController : NetworkBehaviour
     private PlayerSkillManager playerSkillManager => FindObjectOfType<PlayerSkillManager>();
     private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
     private int playerId => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
-    Pathfinding gridPathfinding;
 
-    enum Movement
+    public enum Movement
     {
         None = 0,
         HorVer = 2,
@@ -39,11 +38,6 @@ public class PlayerMovementController : NetworkBehaviour
         TooFar = 10
     }
     private Movement MovementIndex;
-
-    private void Awake()
-    {
-        gridPathfinding = new Pathfinding(mapClass.Max_A, mapClass.Max_B);
-    }
 
     private void OnEnable()
     {
@@ -73,7 +67,7 @@ public class PlayerMovementController : NetworkBehaviour
 
     private List<PathNode> CreatePathRoute(Vector2 fromTile, Vector2 toTile)
     {
-        List<PathNode> paths = gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)toTile.x, (int)toTile.y);
+        List<PathNode> paths = mapClass.gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)toTile.x, (int)toTile.y);
         return paths;
     }
 

@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using Sirenix.OdinInspector;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
+using static UnityEditor.FilePathAttribute;
 
 
 public class GridVisualizer : NetworkBehaviour
@@ -93,6 +96,7 @@ public class GridVisualizer : NetworkBehaviour
     private GameObject tileSkillSelector;
     private InputActions inputActions;
     private bool isPlayerCasting = false;
+    private bool isPlayerMoving = false;
     #endregion
 
     void Awake()
@@ -100,6 +104,7 @@ public class GridVisualizer : NetworkBehaviour
         inputActions = new InputActions();
 
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(ShowPlayersTiles);
+        GlobalEventSystem.PlayerTurnStageStarted.AddListener(PlayersStartMoving);
         GlobalEventSystem.AllPlayerSpawned.AddListener(CreatePlayersTiles);
         GlobalEventSystem.PlayerStartMove.AddListener(HidePlayersTiles);
         GlobalEventSystem.PlayerEndMove.AddListener(ShowPlayersTiles);
@@ -110,6 +115,7 @@ public class GridVisualizer : NetworkBehaviour
         GlobalEventSystem.PathChanged.AddListener(ChangePath);
         GlobalEventSystem.ResultStageStarted.AddListener(SendClearAprovedAffectedAreas);
         GlobalEventSystem.ResultStageStarted.AddListener(SendPathTiles);
+        GlobalEventSystem.ResultStageStarted.AddListener(PlayersEndMoving);
         GlobalEventSystem.AllPlayersEndMoving.AddListener(ClearPlayersPathTiles);
     }
 
@@ -158,8 +164,56 @@ public class GridVisualizer : NetworkBehaviour
                 else if (GetMapObjectList.Exists(x => x is Boss)) tileSelector = Instantiate(enemyTypeTileSelector, TileCenter, Quaternion.identity);
                 else if (GetMapObjectList.Exists(x => x is TempBloked)) tileSelector = Instantiate(terrainTypeTileSelector, TileCenter, Quaternion.identity);
                 else tileSelector = Instantiate(standartTileSelector, TileCenter, Quaternion.identity);
+
+                if (isPlayerMoving) UpdatePath(TileCenter);
             }
         }
+    }
+
+    private void UpdatePath(Vector2 tileCenter)
+    {
+        Vector2 tileIndex = tileCenter - tileZero;
+        List<PathNode> path = mapClass.gridPathfinding.FindPath((int)selectedCellCoordinate.x, (int)selectedCellCoordinate.y, (int)tileIndex.x, (int)tileIndex.y);
+        Vector2 LastPosition = selectedCellCoordinate;
+        int currentEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy;
+
+        for (int i = 0; i < path.Count; i++)
+        {
+            Vector2 point = new Vector2(path[i].x, path[i].y);
+
+            PlayerMovementController.Movement MovementIndex = DefineMovement(LastPosition, point);
+
+            if (currentEnergy >= (int)MovementIndex)
+            {
+                GameObject pathTile;
+                if (i == path.Count - 1) pathTile = Instantiate(pathEndTileSelectorPrefab, point + tileZero, Quaternion.identity);
+                else pathTile = Instantiate(pathTileSelectorPrefab, point + tileZero, Quaternion.identity);
+                currentEnergy -= (int)MovementIndex;
+                LastPosition = point;
+                Destroy(pathTile, Time.fixedDeltaTime);
+            }
+            else break;
+        }
+    }
+
+    private PlayerMovementController.Movement DefineMovement(Vector2 PlayerCoor, Vector2 targetPoint)
+    {
+        PlayerMovementController.Movement MovementIndex;
+        if (PlayerCoor.x == targetPoint.x && PlayerCoor.y == targetPoint.y) MovementIndex = PlayerMovementController.Movement.None;
+        else if (Math.Abs(PlayerCoor.x - targetPoint.x) > 1 || Math.Abs(PlayerCoor.y - targetPoint.y) > 1) MovementIndex = PlayerMovementController.Movement.TooFar;
+        else if (PlayerCoor.x == targetPoint.x || PlayerCoor.y == targetPoint.y) MovementIndex = PlayerMovementController.Movement.HorVer;
+        else MovementIndex = PlayerMovementController.Movement.Diagonal;
+        return MovementIndex;
+    }
+
+    private void PlayersEndMoving()
+    {
+        isPlayerMoving = false;
+    }
+
+    private void PlayersStartMoving()
+    {
+        isPlayerMoving = true;
     }
 
     #region PlayersPath
@@ -207,6 +261,7 @@ public class GridVisualizer : NetworkBehaviour
     private void PlayerActionUnchoosed()
     {
         UpdateAprovedAffectedAreas();
+        isPlayerMoving = true;
         isPlayerCasting = false;
         ClearAvaliableArea();
     }
@@ -214,6 +269,7 @@ public class GridVisualizer : NetworkBehaviour
     private void PlayerActionChoosed()
     {
         isPlayerCasting = true;
+        isPlayerMoving = false;
         UpdateSkillAvaliableArea();
     }
 
