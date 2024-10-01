@@ -143,8 +143,8 @@ public class PlayerSkillManager : NetworkBehaviour
 
     private void CanselAction()
     {
-        SendChangeSkillCooldownRpc(playerID, skillNumberList[skillNumberList.Count - 1], 0);
-        int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy + SkillList[SkillList.Count - 1].EnergyCost;
+        SendChangeSkillCooldownRpc(playerID, skillID, 0);
+        int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy + ChoosenSkill.EnergyCost;
         ChangeEnergy(newEnergy);
 
         if (SkillList.Count > 0)
