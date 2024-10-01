@@ -132,11 +132,8 @@ public class PlayerSkillManager : NetworkBehaviour
     private void ApproveTheSkills()
     {
         inputActions.Disable();
-        if (TargetPoints < ChoosenSkill.TargetCount) CanselAction();
-        else
-        {
-            skillSelected = false;
-        }
+        if (skillSelected) CanselAction();
+        skillSelected = false;
     }
 
     void StartDefineSkills()
@@ -156,9 +153,9 @@ public class PlayerSkillManager : NetworkBehaviour
             skillNumberList.RemoveAt(skillNumberList.Count - 1);
             TargetTileList.RemoveAt(TargetTileList.Count - 1);
 
-            skillSelected = false;
-            GlobalEventSystem.SendPlayerActionUnchoosed();
         }
+        skillSelected = false;
+        GlobalEventSystem.SendPlayerActionUnchoosed();
     }
 
     private void AddSkillToList()
