@@ -39,8 +39,8 @@ MonoBehaviour:
     - rid: 4082220119189356554
       type: {class: DamageExampleSkill, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 0
-        SkillCooldown: 0
+        EnergyCost: 1
+        SkillCooldown: 2
         IsMovable: 0
         TargetCount: 1
         Damage: 50

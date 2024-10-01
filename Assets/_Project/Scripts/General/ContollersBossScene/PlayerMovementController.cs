@@ -28,7 +28,7 @@ public class PlayerMovementController : NetworkBehaviour
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private PlayerSkillManager playerSkillManager => FindObjectOfType<PlayerSkillManager>();
     private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
-    private int localId => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
+    private int playerId => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
     Pathfinding gridPathfinding;
 
     enum Movement
@@ -88,14 +88,14 @@ public class PlayerMovementController : NetworkBehaviour
     }
     private void ChangeEnergy(int newEnergy)
     {
-        ChangePlayerEnergyRpc(newEnergy, localId);
+        ChangePlayerEnergyRpc(newEnergy, playerId);
         GlobalEventSystem.SendEnergyChange();
     }
 
     void StartDefineMovement()
     {
         inputActions.Enable();
-        LastPosition = combatPlayerDataInStage.HeroCoordinates[localId];
+        LastPosition = combatPlayerDataInStage.HeroCoordinates[playerId];
         MovementListCheckPoints.Add(LastPosition);
     }
 
@@ -107,10 +107,10 @@ public class PlayerMovementController : NetworkBehaviour
 
             for (int i = lastCheckPointIndex; i < MovementList.Count; i++)
             {
-                if (i == 0) DefineMovement(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[i]);
+                if (i == 0) DefineMovement(combatPlayerDataInStage.HeroCoordinates[playerId], MovementList[i]);
                 else DefineMovement(MovementList[i], MovementList[i - 1]);
 
-                int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy + (int)MovementIndex;
+                int newEnergy = combatPlayerDataInStage._TotalStatsList[playerId].currentCombat.CurrentEnergy + (int)MovementIndex;
                 ChangeEnergy(newEnergy);
             }
 
@@ -119,7 +119,7 @@ public class PlayerMovementController : NetworkBehaviour
             MovementListCheckPoints.RemoveAt(MovementListCheckPoints.Count - 1);
 
             if (MovementList.Count > 0) LastPosition = MovementList[MovementList.Count - 1];
-            else LastPosition = combatPlayerDataInStage.HeroCoordinates[localId];
+            else LastPosition = combatPlayerDataInStage.HeroCoordinates[playerId];
 
             GlobalEventSystem.SendPathChanged();
         }
@@ -141,9 +141,8 @@ public class PlayerMovementController : NetworkBehaviour
 
             // ������� ���� �� ������� ������� �� ���������
             List<PathNode> pathNodes = CreatePathRoute(LastPosition, targetPoint);
-            if (MovementList.Count > 0 && pathNodes[0] == LastPosition && combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy == 0)
+            if (pathNodes[0] == LastPosition && combatPlayerDataInStage._TotalStatsList[playerId].currentCombat.CurrentEnergy == 0)
             {
-                Debug.Log("MovementList.Count > 0 && pathNodes[0] == LastPosition && combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy == 0");
                 return; 
             }
 
@@ -155,12 +154,12 @@ public class PlayerMovementController : NetworkBehaviour
 
                     DefineMovement(LastPosition, point);
 
-                    if (combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy >= (int)MovementIndex)
+                    if (combatPlayerDataInStage._TotalStatsList[playerId].currentCombat.CurrentEnergy >= (int)MovementIndex)
                     {
                         MovementList.Add(point);
                         LastPosition = point;
 
-                        int newEnergy = combatPlayerDataInStage._TotalStatsList[localId].currentCombat.CurrentEnergy - (int)MovementIndex;
+                        int newEnergy = combatPlayerDataInStage._TotalStatsList[playerId].currentCombat.CurrentEnergy - (int)MovementIndex;
                         ChangeEnergy(newEnergy);
                     }
                     else break;
@@ -192,8 +191,7 @@ public class PlayerMovementController : NetworkBehaviour
 
     private void StartMoving(int orderInTurnPriority)
     {
-        Debug.Log("StartMoving for player " + orderInTurnPriority);
-        if (turnPriority[orderInTurnPriority] == localId) 
+        if (turnPriority[orderInTurnPriority] == playerId) 
         {
             CorrectingPath();
             StartCoroutine("MovePlayer", orderInTurnPriority); 
@@ -222,10 +220,10 @@ public class PlayerMovementController : NetworkBehaviour
             for (int i = 0; i < MovementList.Count; i++)
             {
                 SendPlayerStartMoveRpc();
-                combatPlayerDataInStage.PlayersHeroes[localId].transform.position = MovementList[i] + tileZero;
-                ChangePlayerCoordinatesRpc(MovementList[i], localId);
+                combatPlayerDataInStage.PlayersHeroes[playerId].transform.position = MovementList[i] + tileZero;
+                ChangePlayerCoordinatesRpc(MovementList[i], playerId);
                 SendPlayerEndMoveRpc();
-                ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[localId], MovementList[MovementList.Count - 1], localId);
+                ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[playerId], MovementList[MovementList.Count - 1], playerId);
                 if (i < MovementList.Count - 1) yield return new WaitForSeconds(timeBetweenMovement);
                 //if we want to not wait when we step on player tile we use line belowe
                 //if (!mapClass.GetMapObjectList(MovementList[i]).Exists(x => x is Hero)) yield return new WaitForSeconds(timeBetweenMovement);

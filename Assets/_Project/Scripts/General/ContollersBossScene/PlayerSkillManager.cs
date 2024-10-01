@@ -24,6 +24,8 @@ public class PlayerSkillManager : NetworkBehaviour
     private List<Vector2> characterCastCoordinate = new();
     private List<Vector2> availableTilesList = new();
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
+    private SkillCooldownManager skillCooldownManager => GameObject.FindObjectOfType<SkillCooldownManager>();
+    private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
     private PlayerMovementController playerMovementController => FindObjectOfType<PlayerMovementController>();
     MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
@@ -34,15 +36,6 @@ public class PlayerSkillManager : NetworkBehaviour
     private Vector2 actualCastPosition => playerMovementController.LastPosition;
     private int _orderInTurnPriority;
 
-    public void GetSkill(SkillScript skillScript, int SkillNumber)
-    {
-        ChoosenSkill = skillScript;
-        skillID = SkillNumber;
-        if (skillSelected) CanselAction();
-        TargetPoints = 0;
-        GlobalEventSystem.SendPlayerActionChoosed();
-        skillSelected = true;
-    }
 
     private void Awake()
     {
@@ -60,10 +53,29 @@ public class PlayerSkillManager : NetworkBehaviour
         GlobalEventSystem.PlayerActionEnd.AddListener(CastAction);
     }
 
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+    }
+
+    public void GetSkill(SkillScript skillScript, int SkillNumber)
+    {
+        if (skillCooldownManager.GetSkillCooldown(SkillNumber, playerID) == 0 && combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy >= skillScript.EnergyCost)
+        {
+            ChoosenSkill = skillScript;
+            skillID = SkillNumber;
+            if (skillSelected) CanselAction();
+            TargetPoints = 0;
+            int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy - ChoosenSkill.EnergyCost;
+            ChangeEnergy(newEnergy);
+            GlobalEventSystem.SendPlayerActionChoosed();
+            skillSelected = true;
+        }
+    }
+
     private void SelectSkillByButton(int skillNumber)
     {
         SkillScript skillByButton = heroData.SkillList[skillNumber].SkillVariationsList[playerInfoData.SkillChoiceList[playerID].variationList[skillNumber]].SkillScript;
-        Debug.Log(skillNumber + " ChoosenSkill used");
         GetSkill(skillByButton, skillNumber);
     }
 
@@ -120,11 +132,8 @@ public class PlayerSkillManager : NetworkBehaviour
     private void ApproveTheSkills()
     {
         inputActions.Disable();
-        if (TargetPoints < ChoosenSkill.TargetCount) CanselAction();
-        else
-        {
-            skillSelected = false;
-        }
+        if (skillSelected) CanselAction();
+        skillSelected = false;
     }
 
     void StartDefineSkills()
@@ -134,15 +143,19 @@ public class PlayerSkillManager : NetworkBehaviour
 
     private void CanselAction()
     {
-        skillSelected = false;
-        GlobalEventSystem.SendPlayerActionUnchoosed();
-
         if (SkillList.Count > 0)
         {
+            SendChangeSkillCooldownRpc(skillNumberList[skillNumberList.Count - 1], playerID, 0);
+            int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy + SkillList[SkillList.Count - 1].EnergyCost;
+            ChangeEnergy(newEnergy);
+
             SkillList.RemoveAt(SkillList.Count - 1);
             skillNumberList.RemoveAt(skillNumberList.Count - 1);
             TargetTileList.RemoveAt(TargetTileList.Count - 1);
+
         }
+        skillSelected = false;
+        GlobalEventSystem.SendPlayerActionUnchoosed();
     }
 
     private void AddSkillToList()
@@ -183,8 +196,27 @@ public class PlayerSkillManager : NetworkBehaviour
             { 
                 skillSelected = false; 
                 GlobalEventSystem.SendPlayerActionAproved();
+                SendChangeSkillCooldownRpc(skillID, playerID, ChoosenSkill.SkillCooldown);
             }
             else GlobalEventSystem.SendPlayerActionUpdate();
         }
+    }
+
+    private void ChangeEnergy(int newEnergy)
+    {
+        ChangePlayerEnergyRpc(newEnergy, playerID);
+        GlobalEventSystem.SendEnergyChange();
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void ChangePlayerEnergyRpc(int newEnergy, int id)
+    {
+        combatPlayerDataInStage._TotalStatsList[id].currentCombat.CurrentEnergy = newEnergy;
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void SendChangeSkillCooldownRpc(int skillId, int playerId, int skillCooldown)
+    {
+        skillCooldownManager.SetSkillCooldown(skillId, playerId, skillCooldown);
     }
 }

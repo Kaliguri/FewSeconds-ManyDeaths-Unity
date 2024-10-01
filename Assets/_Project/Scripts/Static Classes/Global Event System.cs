@@ -61,7 +61,7 @@ public static class GlobalEventSystem
     #region Players Moving
 
     public static UnityEvent <int> PlayerEndMoving = new();
-    public static void SendPlayerEndMoving(int orderInTurnPreority) { PlayerEndMoving.Invoke(orderInTurnPreority); Debug.Log("move player " + orderInTurnPreority); }
+    public static void SendPlayerEndMoving(int orderInTurnPreority) { PlayerEndMoving.Invoke(orderInTurnPreority); }
 
     public static UnityEvent PathChanged = new();   
     public static void SendPathChanged() { PathChanged.Invoke(); }
