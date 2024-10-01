@@ -12,18 +12,7 @@ public class NetworkBootstrap : MonoBehaviour
 
     private void Awake()
     {
-        GlobalEventSystem.AllPlayersLoadedScene.AddListener(StartScript);
-    }
-
-    private void StartScript()
-    {
-        Debug.Log("TheoreticalStartNetworkBootstrap");
-    }
-
-    void Start()
-    {
-        Debug.Log("ActualStartNetworkBootstrap");
-        Invoke(nameof(StartScripts), TimeBeforeEnabled);
+        GlobalEventSystem.AllPlayersLoadedScene.AddListener(StartScripts);
     }
 
     private void StartScripts()
