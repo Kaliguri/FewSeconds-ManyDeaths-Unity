@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -85,8 +85,8 @@ GameObject:
   m_Component:
   - component: {fileID: 378971545236154016}
   - component: {fileID: 2009532292644521192}
-  - component: {fileID: 6395174363823536731}
   - component: {fileID: 6736972912769133014}
+  - component: {fileID: 3777125645803921033}
   m_Layer: 5
   m_Name: Skill (Tooltip V3)
   m_TagString: Untagged
@@ -131,18 +131,6 @@ MonoBehaviour:
   IconObj: {fileID: 7961087274467313639}
   tooltipManager: {fileID: 5633378017307886488}
   UINumber: 0
---- !u!114 &6395174363823536731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7634514397036173341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e60ed81311a478408a530883b8c100d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6736972912769133014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +160,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &3777125645803921033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7634514397036173341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60ed81311a478408a530883b8c100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointerObject: {fileID: 8461322614287909560}
 --- !u!1 &8461322614287909560
 GameObject:
   m_ObjectHideFlags: 0

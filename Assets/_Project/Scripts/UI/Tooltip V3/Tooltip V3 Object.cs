@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 public class TooltipV3Object : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] GameObject PointerObject;
     private TooltipV3ParentManager tooltip;
 
     void Start()
@@ -12,12 +13,14 @@ public class TooltipV3Object : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        tooltip.ShowTooltip();
+        if (eventData.pointerEnter == PointerObject)
+        { tooltip.ShowTooltip(); }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        tooltip.HideTooltip();
+        if (eventData.pointerEnter == PointerObject)
+        { tooltip.HideTooltip(); }
     }
 
 
