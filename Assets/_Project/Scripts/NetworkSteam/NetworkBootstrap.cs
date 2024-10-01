@@ -10,9 +10,19 @@ public class NetworkBootstrap : MonoBehaviour
     [SerializeField] private List<MonoBehaviour> monoBehaviours = new();
     [SerializeField] private float TimeBeforeEnabled = 1f;
 
+    private void Awake()
+    {
+        GlobalEventSystem.AllPlayersLoadedScene.AddListener(StartScript);
+    }
+
+    private void StartScript()
+    {
+        Debug.Log("TheoreticalStartNetworkBootstrap");
+    }
+
     void Start()
     {
-        Debug.Log("StartNetworkBootstrap");
+        Debug.Log("ActualStartNetworkBootstrap");
         Invoke(nameof(StartScripts), TimeBeforeEnabled);
     }
 
