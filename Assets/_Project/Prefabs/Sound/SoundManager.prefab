@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4796163816734636}
   - component: {fileID: -2683738262453034793}
-  - component: {fileID: 5730725457316870957}
-  - component: {fileID: 8324679449768834614}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -31,7 +29,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3838589362220151512}
+  - {fileID: 7544103204276469856}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-2683738262453034793
@@ -82,32 +82,96 @@ MonoBehaviour:
       statisticsShowVoices: 0
       statisticsShowPlays: 0
       statisticsShowVolume: 0
---- !u!114 &5730725457316870957
+--- !u!1 &5221535257330197655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3838589362220151512}
+  - component: {fileID: 1280854522988093524}
+  m_Layer: 0
+  m_Name: SoundVolumeManager (Audio Mixer)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3838589362220151512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221535257330197655}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4796163816734636}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1280854522988093524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576988032187696}
+  m_GameObject: {fileID: 5221535257330197655}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fda2ebac1adb18046b6a71cd3e2cb177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 4f6850d2ad95acd4f873da585045b0d8, type: 2}
-  useDontDestroyOnLoad: 1
---- !u!114 &8324679449768834614
+  useDontDestroyOnLoad: 0
+--- !u!1 &8584239197922133927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7544103204276469856}
+  - component: {fileID: 3050391979602026122}
+  m_Layer: 0
+  m_Name: ButtonUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7544103204276469856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8584239197922133927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4796163816734636}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3050391979602026122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576988032187696}
+  m_GameObject: {fileID: 8584239197922133927}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74b31a2c3d27e88468bc2a762d3664f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundButtonHover: {fileID: 0}
-  soundButtonClick: {fileID: 0}
-  useDontDestroyOnLoad: 1
+  soundButtonHover: {fileID: 11400000, guid: ae1e3a9e09fa129498636d43318b0c8d, type: 2}
+  soundButtonClick: {fileID: 11400000, guid: 22077feb78dcdb54c93934dc6c2f9a80, type: 2}
+  useDontDestroyOnLoad: 0

@@ -1,22 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using SonityTemplate;
 using UnityEngine;
 
 public class ButtonSFX : MonoBehaviour
 {
-    private AudioSource AudioSource => GetComponent<AudioSource>();
+    private TemplateSoundPlayUI UITemplate => FindObjectOfType<TemplateSoundPlayUI>();
 
-    [SerializeField] private AudioClip EnterSFX;
-    [SerializeField] private AudioClip ClickSFX;
-
-
-        public void PlayEnterSFX()
+    public void PlayButtonHover()
     {
-        AudioSource.PlayOneShot(EnterSFX);
+        UITemplate.PlayButtonHover();
     }
-    public void PlayClickSFX()
+    public void PlayButtonClick()
     {
-        AudioSource.PlayOneShot(ClickSFX);
+        UITemplate.PlayButtonClick();
     }
 
 }
