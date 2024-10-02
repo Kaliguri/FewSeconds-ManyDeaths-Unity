@@ -94,8 +94,7 @@ public class HeroListController : MonoBehaviour
     {
         foreach (var Skill in SkillsList)
         {
-            Skill.GetComponent<UISkillLobby>().HeroListUINumber = UINumber;
-            Skill.GetComponent<UISkillLobby>().DataTransfer();
+            Skill.GetComponent<UISkillV3>().DataTransfer();
         }
     }
 

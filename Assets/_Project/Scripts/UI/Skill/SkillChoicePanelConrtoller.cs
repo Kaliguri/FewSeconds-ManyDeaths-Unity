@@ -38,7 +38,9 @@ public class SkillChoicePanelConrtoller : MonoBehaviour
             if (SkillVariantNumber < SkillList.Count && PrefabNumber < SkillList[SkillVariantNumber].SkillVariationsList.Count )
             {  
                 Prefab.SetActive(true);
-                Data.DataTransferInPrefab(SkillList[SkillVariantNumber].SkillVariationsList[PrefabNumber]);
+
+                Data.skillData = SkillList[SkillVariantNumber].SkillVariationsList[PrefabNumber];
+                Data.DataTransfer();
             }
             else Prefab.SetActive(false);
         }

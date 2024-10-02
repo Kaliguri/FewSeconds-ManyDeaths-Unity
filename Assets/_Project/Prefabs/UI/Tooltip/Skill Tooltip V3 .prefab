@@ -480,7 +480,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description Description Description Description Description Description
+  m_text: Description Description Description Description Description DDDDD Description
     Description Description Description Description Description Description Description
     Description Description Description Description Description Description Description
     Description Description Description Description Description Description Description
@@ -862,7 +862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wtf
+  m_text: Bug
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
   m_sharedMaterial: {fileID: 8317584145244895877, guid: ca4773f7c97a6d14995a88c2b6a1e785,

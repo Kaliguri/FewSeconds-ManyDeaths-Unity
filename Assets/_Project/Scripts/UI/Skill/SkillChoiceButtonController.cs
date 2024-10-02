@@ -1,20 +1,16 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
-public class SkillChoiceButtonController : MonoBehaviour
+public class SkillChoiceButtonController : UISkillV3
 {
-    [Header("GameObj Reference")]
-    public Image IconObj;
-    [SerializeField] TooltipV3SkillManager tooltipManager;
-
-    [Header("Other")]
+    [Title("SkillChoiceButton")]
     public int SkillNumber;
     public int VariationSkillNumber;
+    public new SkillData skillData;
 
-    private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
-    private int playerID => playerInfoData.PlayerIDThisPlayer;
-
-    public void DataTransferInPrefab(SkillData skillData)
+    public override void DataTransfer()
     {
         IconObj.sprite = skillData.SkillIcon;
         tooltipManager.SkillName.StringReference = skillData.Name;
