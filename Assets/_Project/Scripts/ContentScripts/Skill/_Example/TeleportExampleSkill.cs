@@ -61,8 +61,10 @@ public class TeleportExampleSkill : SkillScript
         GlobalEventSystem.SendPlayerStartMove();
         int heroID = hero.ID;
         GameObject heroObject = combatPlayerDataInStage.PlayersHeroes[heroID];
+        mapClass.RemoveHero(combatPlayerDataInStage.HeroCoordinates[heroID], heroID);
         if (heroObject.GetComponent<NetworkObject>().IsOwner) heroObject.transform.position = targetPont + mapClass.tileZero;
         combatPlayerDataInStage.HeroCoordinates[heroID] = targetPont;
+        mapClass.SetHero(combatPlayerDataInStage.HeroCoordinates[heroID], heroID);
         GlobalEventSystem.SendPlayerEndMove();
     }
 }

@@ -42,25 +42,4 @@ MonoBehaviour:
         EnergyCost: 3
         SkillCooldown: 1
         IsMovable: 0
-        TargetCount: 1
-        skillList:
-        - rid: 4082220119189356582
-        - rid: 4082220119189356583
-    - rid: 4082220119189356582
-      type: {class: TeleportExampleSubSkill1, ns: , asm: Assembly-CSharp}
-      data:
-        EnergyCost: 0
-        SkillCooldown: 0
-        IsMovable: 0
-        TargetCount: 1
-        ExampleSkillPrefab: {fileID: 1186777461074907986, guid: 5e199d2ae94b04e439788d7f328c85bd,
-          type: 3}
-    - rid: 4082220119189356583
-      type: {class: TeleportExampleSubSkill2, ns: , asm: Assembly-CSharp}
-      data:
-        EnergyCost: 0
-        SkillCooldown: 0
-        IsMovable: 0
-        TargetCount: 1
-        ExampleSkillPrefab: {fileID: 1186777461074907986, guid: 5e199d2ae94b04e439788d7f328c85bd,
-          type: 3}
+        TargetCount: 2
