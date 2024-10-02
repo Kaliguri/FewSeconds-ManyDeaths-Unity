@@ -5,16 +5,15 @@ using UnityEngine.Audio;
 
 public class SaveLoader : MonoBehaviour
 {
-    [Title("Settings")]
-
-    [Title("Sounds")]
-
+    [FoldoutGroup("Sounds")]
     [Title("Audio Mixer")]
     public AudioMixer audioMixer;
-
+    
+    [FoldoutGroup("Sounds")]
     [Title("Volume Names")]
     public List<string> volumeNamesList;
 
+    [FoldoutGroup("Sounds")]
     [Title("Sound Settings")]
     public float defaultVolumeValue;
 
