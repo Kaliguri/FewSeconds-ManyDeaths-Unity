@@ -17,7 +17,7 @@ public class UISkillV3 : MonoBehaviour
 
     protected PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     protected PlayerSkillManager playerSkillManager => GameObject.FindObjectOfType<PlayerSkillManager>();
-    
+
     protected int playerID => playerInfoData.PlayerIDThisPlayer;
     protected int variation => playerInfoData.SkillChoiceList[playerID].variationList[UINumber];
 
@@ -35,9 +35,8 @@ public class UISkillV3 : MonoBehaviour
     public virtual void DataTransfer()
     {
         IconObj.sprite = skillData.SkillIcon;
-
-        tooltipManager.SkillName.StringReference = skillData.Name;
-        tooltipManager.Description.StringReference = skillData.Description;
+        
+        tooltipManager.SkillDataTransfer(skillData);
     }
 
     public void SelectSkill()

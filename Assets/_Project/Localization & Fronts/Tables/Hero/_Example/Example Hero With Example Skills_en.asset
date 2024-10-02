@@ -35,19 +35,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 155771547648
-    m_Localized: '-'
+    m_Localized: Does a lot of damage!
     m_Metadata:
       m_Items: []
   - m_Id: 623939760128
-    m_Localized: '-'
+    m_Localized: Heals everyone in a 3x3 radius (or whatever the radius is, I forgot....)
     m_Metadata:
       m_Items: []
   - m_Id: 628264087552
-    m_Localized: '-'
+    m_Localized: Puts shields on everyone in the selected area!
     m_Metadata:
       m_Items: []
   - m_Id: 634136113152
-    m_Localized: '-'
+    m_Localized: It's not doing anything yet, but it has a lot of potential :3
     m_Metadata:
       m_Items: []
   references:

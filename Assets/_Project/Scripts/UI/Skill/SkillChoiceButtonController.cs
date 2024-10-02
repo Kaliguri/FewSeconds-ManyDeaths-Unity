@@ -12,15 +12,14 @@ public class SkillChoiceButtonController : UISkillV3
 
     void Awake()
     {
-        
+
     }
 
     public override void DataTransfer()
     {
         IconObj.sprite = skillData.SkillIcon;
         
-        tooltipManager.SkillName.StringReference = skillData.Name;
-        tooltipManager.Description.StringReference = skillData.Description;
+        tooltipManager.SkillDataTransfer(skillData);
     }
 
     

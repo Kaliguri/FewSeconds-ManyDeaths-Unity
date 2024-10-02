@@ -13,17 +13,25 @@ MonoBehaviour:
   m_Name: Skill Tooltip Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: Skill Tooltip
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: 484836059cb00254f9dfbed3d1905e39
+  m_Entries:
+  - m_Id: 11135168512
+    m_Key: Energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14415114240
+    m_Key: Cooldown
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4835066151362625538
+    rid: 4835066151879835650
   references:
     version: 2
     RefIds:
-    - rid: 4835066151362625538
+    - rid: 4835066151879835650
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1727855079984
+        m_CustomEpoch: 1727855150257

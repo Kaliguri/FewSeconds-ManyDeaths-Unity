@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Localization.Components;
+using UnityEngine.UI;
 
 public class TooltipV3SkillManager : TooltipV3ParentManager
 {
@@ -17,6 +18,13 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     public LocalizeStringEvent Cooldown;
     public LocalizeStringEvent Description;
     public LocalizeStringEvent NarrativeDescription;
+
+    [Title("Icon")]
+    [SerializeField] Image Icon;
+
+    [Title("Local Variables")]
+    public int EnergyCostValue = 0;
+    public int CooldownValue = 0;
 
     [Title("Dynamic Background")]
     [Title("Dynamic Background Reference")]
@@ -62,6 +70,25 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     public override void HideTooltip()
     {
         gameObject.SetActive(false);
+    }
+
+    void RefreshVariables()
+    {
+        EnergyCost.RefreshString();
+        Cooldown.RefreshString();
+    }
+
+    public void SkillDataTransfer(SkillData skillData)
+    {
+        SkillName.StringReference = skillData.Name;
+        Description.StringReference = skillData.Description;
+
+        Icon.sprite = skillData.SkillIcon;
+        
+        EnergyCostValue = skillData.SkillScript.EnergyCost;
+        CooldownValue = skillData.SkillScript.SkillCooldown;
+        
+
     }
 
     /*

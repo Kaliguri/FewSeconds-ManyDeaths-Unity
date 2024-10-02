@@ -90,6 +90,13 @@ MonoBehaviour:
     - Locale-ru
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78e81027a1ba0f64fb4149c95aec25e1
+    m_Address: Skill Tooltip_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f90f531afce0b14c971dbb44cd4a97d
     m_Address: Shieldbearer (RSV 2024 Edition)_ru
     m_ReadOnly: 1

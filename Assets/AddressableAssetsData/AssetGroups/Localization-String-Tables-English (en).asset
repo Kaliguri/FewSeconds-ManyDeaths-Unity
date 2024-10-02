@@ -44,6 +44,13 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e09a118bd794544ba0a4e0dfbff2e75
+    m_Address: Skill Tooltip_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f96097f5bdd71947ad2f8049408bb04
     m_Address: Rifleman (RSV 2024 Edition)_en
     m_ReadOnly: 1

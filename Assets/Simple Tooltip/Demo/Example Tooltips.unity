@@ -253,23 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99634edca86565b4a96a0b7b261787f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  right: {fileID: 0}
   simpleTooltipStyle: {fileID: 11400000, guid: a104288cd74ebc84d80f27ae9b51d26c, type: 2}
-  infoLeft: '@Unknown Button
-
-    `Well actually now you can describe exactly what
-    this button does without having to obstruct your UI design.
-
-
-    All you have
-    to do is attach ~SimpleTooltip `component to any game object, pick a style and
-    type in your desired text! Then you will have a working tooltip with minimal
-    effort.
-
-
-    Not only that, but you can also ~easily `and $comfortably `apply
-    different colors by defining your own tags. Hover trough the cubes bellow for
-    some inspiration!'
-  infoRight: 
 --- !u!114 &159376745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,18 +625,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99634edca86565b4a96a0b7b261787f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  right: {fileID: 0}
   simpleTooltipStyle: {fileID: 11400000, guid: 1a3c7aae23de44343bfa24ea27ff9548, type: 2}
-  infoLeft: "~\u2665 Cute Style \u2665\n`It's not like I like you or anything...
-    Why are you still starring at me? Go look at other styles! Hmp!"
-  infoRight: '@(Level 126)
-
-
-
-
-
-    `Love,
-
-    Unity Chan'
 --- !u!1 &912221034
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,12 +660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99634edca86565b4a96a0b7b261787f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  right: {fileID: 0}
   simpleTooltipStyle: {fileID: 11400000, guid: 1f0cc7a28e7642f4697d87459836c5a9, type: 2}
-  infoLeft: '~Light Style
-
-    `I am a pretty bright guy if you get to know me better.
-    For some reason I am not very popular.'
-  infoRight: '@(Level 126)'
 --- !u!65 &912221036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -807,12 +781,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99634edca86565b4a96a0b7b261787f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  right: {fileID: 0}
   simpleTooltipStyle: {fileID: 11400000, guid: dea555cc7b5bdbb4e8dae068d456f3de, type: 2}
-  infoLeft: '~Metal Style
-
-    `You can edit or create styles that change the panel''s
-    sprite.'
-  infoRight: '@(Level 126)'
 --- !u!65 &986944812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1017,12 +988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99634edca86565b4a96a0b7b261787f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  right: {fileID: 0}
   simpleTooltipStyle: {fileID: 11400000, guid: d4c3f00e1adefad49afff228f3b638c8, type: 2}
-  infoLeft: '~Square Style
-
-    `I am another example of a different sprite. Well
-    actually no sprite. In fact this style is using TextMeshPro''s default font!'
-  infoRight: '@(Level 126)'
 --- !u!1 &1107370845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,12 +1023,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99634edca86565b4a96a0b7b261787f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  right: {fileID: 0}
   simpleTooltipStyle: {fileID: 11400000, guid: b60656fad1664684d8fb0085c2c6ccbb, type: 2}
-  infoLeft: '~Dark Style
-
-    `I''ll only be in your game if it''s $dark `and $scary`.
-    The other tooltips are total losers.'
-  infoRight: '@(Level 126)'
 --- !u!65 &1107370847
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1258,17 +1223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99634edca86565b4a96a0b7b261787f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  right: {fileID: 0}
   simpleTooltipStyle: {fileID: 11400000, guid: a104288cd74ebc84d80f27ae9b51d26c, type: 2}
-  infoLeft: '~RPG Style
-
-    `Cast this spell to shoot a ball of fire in a straight
-    line and deal @100 `+ $54 `magic damage.'
-  infoRight: '@150 Mana
-
-
-
-
-    Cooldown: 3 Seconds'
 --- !u!65 &1153968181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1633,6 +1590,7 @@ GameObject:
   - component: {fileID: 1814214710}
   - component: {fileID: 1814214709}
   - component: {fileID: 1814214708}
+  - component: {fileID: 1814214711}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1714,6 +1672,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814214711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814214707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &1899331190
 GameObject:
   m_ObjectHideFlags: 0

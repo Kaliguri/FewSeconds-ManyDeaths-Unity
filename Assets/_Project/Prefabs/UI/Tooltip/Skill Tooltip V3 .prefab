@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 8534627506909409895}
   - component: {fileID: 6118264545085780401}
   m_Layer: 5
-  m_Name: TextScale
+  m_Name: Tooltip Layout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description Description Description Description Description DDDDD Description
+  m_text: Description Description Description Description Description Description
     Description Description Description Description Description Description Description
     Description Description Description Description Description Description Description
     Description Description Description Description Description Description Description
@@ -643,8 +643,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 607.0002, y: -192.6}
-  m_SizeDelta: {x: 1045.4, y: 192.6}
+  m_AnchoredPosition: {x: 200.37686, y: -192.6}
+  m_SizeDelta: {x: 1192.646, y: 192.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2027089418874247082
 CanvasRenderer:
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cooldown: ~2` '
+  m_text: 'Cooldown: ~0'''
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
   m_sharedMaterial: {fileID: 8317584145244895877, guid: ca4773f7c97a6d14995a88c2b6a1e785,
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -771,13 +771,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:484836059cb00254f9dfbed3d1905e39
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 14415114240
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 1
-    m_LocalVariables: []
+    m_LocalVariables:
+    - name: tooltip
+      variable:
+        rid: 4835066151879835666
   m_FormatArguments: []
   m_UpdateString:
     m_PersistentCalls:
@@ -796,7 +799,12 @@ MonoBehaviour:
         m_CallState: 2
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4835066151879835666
+      type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables,
+        asm: Unity.Localization}
+      data:
+        m_Value: {fileID: 4661607161464548963}
 --- !u!1 &5892396107169478013
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1000,9 @@ MonoBehaviour:
   Cooldown: {fileID: 6663668048727758954}
   Description: {fileID: 2618728752031583510}
   NarrativeDescription: {fileID: 1659238347489629853}
+  Icon: {fileID: 6643670469921600659}
+  EnergyCostValue: 0
+  CooldownValue: 0
   PseudoHeader: {fileID: 5892396107169478013}
   ExtraWidthForBackground: 200
   ExtraHeightForBackground: 200
@@ -1193,8 +1204,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 602, y: -17}
-  m_SizeDelta: {x: 1041.1, y: 192.6}
+  m_AnchoredPosition: {x: 194.67291, y: -17}
+  m_SizeDelta: {x: 1187.741, y: 192.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1861807279260354871
 CanvasRenderer:
@@ -1224,7 +1235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use ~3` energy
+  m_text: Use ~0' energy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
   m_sharedMaterial: {fileID: 8317584145244895877, guid: ca4773f7c97a6d14995a88c2b6a1e785,
@@ -1259,7 +1270,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1321,13 +1332,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:484836059cb00254f9dfbed3d1905e39
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 11135168512
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 1
-    m_LocalVariables: []
+    m_LocalVariables:
+    - name: tooltip
+      variable:
+        rid: 4835066151879835665
   m_FormatArguments: []
   m_UpdateString:
     m_PersistentCalls:
@@ -1346,7 +1360,12 @@ MonoBehaviour:
         m_CallState: 2
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4835066151879835665
+      type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables,
+        asm: Unity.Localization}
+      data:
+        m_Value: {fileID: 4661607161464548963}
 --- !u!1 &8659388565317489722
 GameObject:
   m_ObjectHideFlags: 0
