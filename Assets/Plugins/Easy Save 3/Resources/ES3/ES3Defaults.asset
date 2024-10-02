@@ -30,7 +30,30 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
+    - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - Cinemachine
+    - DamageNumbersPro
+    - Facepunch Transport for Netcode for GameObjects
+    - Lofelt.NiceVibrations
+    - Lofelt.NiceVibrations.Demo
+    - MackySoft.SerializeReferenceExtensions
+    - MoreMountains.Feedbacks
+    - MoreMountains.Feedbacks.Authorizations
+    - MoreMountains.Feedbacks.Cinemachine
+    - MoreMountains.Feedbacks.HDRP
+    - MoreMountains.Feedbacks.MMTools
+    - MoreMountains.Feedbacks.NiceVibrations
+    - MoreMountains.Feedbacks.PostProcessing
+    - MoreMountains.Feedbacks.TextMeshPro
+    - MoreMountains.Feedbacks.URP
+    - MoreMountains.Tools
+    - Sirenix.OdinInspector.Modules.Unity.Addressables
+    - Sirenix.OdinInspector.Modules.UnityLocalization
+    - Sonity.Public.Runtime
+    - Sonity.Runtime
+    - SonityExample
+    - TemplateSonity
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

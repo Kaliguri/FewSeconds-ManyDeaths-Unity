@@ -41,7 +41,7 @@ MonoBehaviour:
       data:
         EnergyCost: 2
         SkillCooldown: 1
-        IsMovable: 0
+        IsMovable: 1
         TargetCount: 1
         Shield: 25
         ExampleSkillPrefab: {fileID: 1186777461074907986, guid: 5596741cfa3805e4b9276c8c0d96c153,

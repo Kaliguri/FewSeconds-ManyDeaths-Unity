@@ -98,7 +98,7 @@ public class PlayerSkillManager : NetworkBehaviour
             Vector2 CharacterCastCoordinate = characterCastCoordinate[currentAction];
             int _skillID = skillNumberList[currentAction];
             int currentSkillIndex = skillIndex;
-            CastActionRpc(playerID, _skillID, CharacterCastCoordinate, actualCastPosition, TargetPoints, currentSkillIndex);
+            CastActionRpc(playerID, _skillID, CharacterCastCoordinate, combatPlayerDataInStage.HeroCoordinates[playerID], TargetPoints, currentSkillIndex);
 
             skillIndex++;
             if (skillIndex == SkillList[currentAction].TargetCount)
@@ -133,7 +133,6 @@ public class PlayerSkillManager : NetworkBehaviour
     {
         inputActions.Disable();
         if (skillSelected) CanselAction();
-        skillSelected = false;
     }
 
     void StartDefineSkills()
@@ -143,18 +142,23 @@ public class PlayerSkillManager : NetworkBehaviour
 
     private void CanselAction()
     {
-        SendChangeSkillCooldownRpc(playerID, skillID, 0);
-        int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy + ChoosenSkill.EnergyCost;
-        ChangeEnergy(newEnergy);
+        if (ChoosenSkill != null)
+        {
+            SendChangeSkillCooldownRpc(playerID, skillID, 0);
+            int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy + ChoosenSkill.EnergyCost;
+            ChangeEnergy(newEnergy);
+            ChoosenSkill = null;
+        }
+
+        skillSelected = false;
 
         if (SkillList.Count > 0)
         {
             SkillList.RemoveAt(SkillList.Count - 1);
             skillNumberList.RemoveAt(skillNumberList.Count - 1);
             TargetTileList.RemoveAt(TargetTileList.Count - 1);
-
         }
-        skillSelected = false;
+
         GlobalEventSystem.SendPlayerActionUnchoosed();
     }
 
@@ -182,19 +186,17 @@ public class PlayerSkillManager : NetworkBehaviour
                     skillNumberList.Add(skillID);
                     characterCastCoordinate.Add(actualCastPosition);
                     TargetTileList.Add(new List<Vector2> { selectedCellCoordinate });
-                    //Debug.Log("AddFirstPoint");
                 }
                 else
                 {
                     TargetTileList[TargetTileList.Count - 1].Add(selectedCellCoordinate);
-                    //Debug.Log("AddNewPoint");
                 }
                 TargetPoints++;
             }
 
             if (TargetPoints == ChoosenSkill.TargetCount)
             { 
-                skillSelected = false; 
+                skillSelected = false;
                 GlobalEventSystem.SendPlayerActionAproved();
                 SendChangeSkillCooldownRpc(playerID, skillID, ChoosenSkill.SkillCooldown);
             }

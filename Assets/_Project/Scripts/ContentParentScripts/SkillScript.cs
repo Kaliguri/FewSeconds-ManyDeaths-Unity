@@ -42,6 +42,7 @@ public class SkillScript
     protected void CastStart(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)
     {
         SetPosition(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        if (IsMovable) ChangeSelectedCellCoordinate();
     }
 
     protected void SetPosition(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)
@@ -49,6 +50,14 @@ public class SkillScript
         ActualHeroPosition = actualHeroPosition;
         HeroPosition = heroPosition;
         SelectedCellCoordinate = selectedCellCoordinate;
+    }
+
+    private void ChangeSelectedCellCoordinate()
+    {
+        for (int i = 0; i < SelectedCellCoordinate.Length; i++)
+        {
+            SelectedCellCoordinate[i] += ActualHeroPosition - HeroPosition;
+        }
     }
 
     protected void CastEnd(bool isContainerSkill = false)

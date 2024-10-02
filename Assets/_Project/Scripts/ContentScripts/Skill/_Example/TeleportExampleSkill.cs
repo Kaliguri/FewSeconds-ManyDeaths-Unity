@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -10,12 +11,24 @@ public class TeleportExampleSkill : SkillScript
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
 
-        List<MapObject> objectsInFirstPointList = GetObjectsFromPoint(selectedCellCoordinate[0]);
-        List<MapObject> objectsInSecondPointList = GetObjectsFromPoint(selectedCellCoordinate[1]);
-        TeleportObjects(objectsInFirstPointList, selectedCellCoordinate[1]);
-        TeleportObjects(objectsInSecondPointList, selectedCellCoordinate[0]);
+        CastTeleport(skillIndex);
 
         CastEnd();
+    }
+
+    private void CastTeleport(int skillIndex)
+    {
+        if (skillIndex == 0)
+        {
+            List<MapObject> objectsInFirstPointList = GetObjectsFromPoint(SelectedCellCoordinate[0]);
+            List<MapObject> objectsInSecondPointList = GetObjectsFromPoint(SelectedCellCoordinate[1]);
+
+            TeleportObjects(objectsInFirstPointList, SelectedCellCoordinate[1]);
+            TeleportObjects(objectsInSecondPointList, SelectedCellCoordinate[0]);
+
+            ChangeMapObjects(objectsInFirstPointList, SelectedCellCoordinate[0], SelectedCellCoordinate[1]);
+            ChangeMapObjects(objectsInSecondPointList, SelectedCellCoordinate[1], SelectedCellCoordinate[0]);
+        }
     }
 
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
@@ -31,9 +44,7 @@ public class TeleportExampleSkill : SkillScript
 
     private List<MapObject> GetObjectsFromPoint(Vector2 point)
     {
-        List<MapObject> mapObjectList = mapClass.GetMapObjectList(point);
-
-        return mapObjectList;
+        return mapClass.GetMapObjectList(point).ToList();
     }
 
     private void TeleportObjects(List<MapObject> objectsInPointList, Vector2 TargetPont)
@@ -61,10 +72,24 @@ public class TeleportExampleSkill : SkillScript
         GlobalEventSystem.SendPlayerStartMove();
         int heroID = hero.ID;
         GameObject heroObject = combatPlayerDataInStage.PlayersHeroes[heroID];
-        mapClass.RemoveHero(combatPlayerDataInStage.HeroCoordinates[heroID], heroID);
         if (heroObject.GetComponent<NetworkObject>().IsOwner) heroObject.transform.position = targetPont + mapClass.tileZero;
         combatPlayerDataInStage.HeroCoordinates[heroID] = targetPont;
-        mapClass.SetHero(combatPlayerDataInStage.HeroCoordinates[heroID], heroID);
         GlobalEventSystem.SendPlayerEndMove();
+    }
+
+    private void ChangeMapObjects(List<MapObject> objectsInPointList, Vector2 fromPoint, Vector2 toPoint)
+    {
+        for (int i = 0; i < objectsInPointList.Count; i++)
+        {
+            if (objectsInPointList[i] is Hero) 
+            { 
+                MapObject hero = objectsInPointList[i];
+                int ID = hero.ID;
+                mapClass.RemoveHero(fromPoint, ID);
+                mapClass.SetHero(toPoint, ID);
+            }
+            else if (objectsInPointList[i] is Boss) { mapClass.RemoveBoss(fromPoint); mapClass.SetBoss(toPoint); }
+            else if (objectsInPointList[i] is TempBloked) { mapClass.RemoveTempBloked(fromPoint); mapClass.SetTempBloked(toPoint); }
+        }
     }
 }

@@ -13,7 +13,6 @@ public class MonoInstance : MonoBehaviour
 
     public void CastEndPart2() 
     {
-        Debug.Log("EndCast");
         GlobalEventSystem.SendPlayerActionEnd();
     }
 }

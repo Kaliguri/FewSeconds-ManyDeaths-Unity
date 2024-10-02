@@ -101,7 +101,7 @@ public class PlayerMovementController : NetworkBehaviour
 
             for (int i = lastCheckPointIndex; i < MovementList.Count; i++)
             {
-                if (i == 0) DefineMovement(combatPlayerDataInStage.HeroCoordinates[playerId], MovementList[i]);
+                if (i == 0) DefineMovement(MovementList[i], MovementList[i]);
                 else DefineMovement(MovementList[i], MovementList[i - 1]);
 
                 int newEnergy = combatPlayerDataInStage._TotalStatsList[playerId].currentCombat.CurrentEnergy + (int)MovementIndex;
@@ -110,7 +110,7 @@ public class PlayerMovementController : NetworkBehaviour
 
             MovementList.RemoveRange(lastCheckPointIndex, MovementList.Count - lastCheckPointIndex);
 
-            MovementListCheckPoints.RemoveAt(MovementListCheckPoints.Count - 1);
+            if (MovementListCheckPoints.Count > 1) MovementListCheckPoints.RemoveAt(MovementListCheckPoints.Count - 1);
 
             if (MovementList.Count > 0) LastPosition = MovementList[MovementList.Count - 1];
             else LastPosition = combatPlayerDataInStage.HeroCoordinates[playerId];
