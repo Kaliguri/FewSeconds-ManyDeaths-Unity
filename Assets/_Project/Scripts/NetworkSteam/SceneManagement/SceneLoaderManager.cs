@@ -4,6 +4,7 @@ using Unity.Netcode;
 using Unity.Multiplayer.Samples.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Sonity;
 
 public class SceneLoaderManager : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class SceneLoaderManager : MonoBehaviour
     [SerializeField] string TrainingScenePath;
     public string TrainingScene;
 
-    private SoundManagerReference music => FindObjectOfType<SoundManagerReference>();
+    private SoundManager music => FindObjectOfType<SoundManager>();
 
     private Scene m_LoadedScene;
 
@@ -55,7 +56,7 @@ public class SceneLoaderManager : MonoBehaviour
 
     public void LoadScene(string sceneName, bool IsNetworkScene)
     {
-        if (music != null) { OffMusic(); }
+        OffMusic();
 
         if (IsNetworkScene)
         {
@@ -73,9 +74,10 @@ public class SceneLoaderManager : MonoBehaviour
         }
     }
 
-    void OffMusic()
+    [Button("Off Music")]
+    public void OffMusic()
     {
-        music.gameObject.SetActive(false);
-        //Debug.Log("Music Off");
+        music.StopEverything(false);
     }
+
 }

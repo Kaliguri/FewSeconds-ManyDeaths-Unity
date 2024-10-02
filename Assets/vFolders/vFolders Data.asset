@@ -68,6 +68,7 @@ MonoBehaviour:
     - ba3007c82deaac84e9b4a37d8bb4ba78
     - be39eedddeedd1c42b0836d8d2bf5fc4
     - eecf168063a94d84a9ffa487e7b34cbd
+    - 528db3cd679559241a328618238fa2f5
     values:
     - colorIndex: 6
       iconNameOrGuid: SceneAsset Icon
@@ -177,3 +178,5 @@ MonoBehaviour:
       iconNameOrGuid: LightingDataAsset Icon
     - colorIndex: 1
       iconNameOrGuid: 
+    - colorIndex: 2
+      iconNameOrGuid: AudioMixerController Icon
