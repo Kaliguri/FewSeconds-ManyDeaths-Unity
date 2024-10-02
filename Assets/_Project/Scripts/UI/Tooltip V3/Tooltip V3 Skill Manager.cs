@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using Cinemachine;
 using Sirenix.OdinInspector;
 using TMPro;
 using Unity.Mathematics;
@@ -9,10 +7,14 @@ using UnityEngine.Localization.Components;
 
 public class TooltipV3SkillManager : TooltipV3ParentManager
 {
+    [PropertySpace(SpaceBefore = 25)]
+
     [Title("Tooltip V3 Skill")]
 
     [Title("Text Localize")]
-    public LocalizeStringEvent Header;
+    public LocalizeStringEvent SkillName;
+    public LocalizeStringEvent EnergyCost;
+    public LocalizeStringEvent Cooldown;
     public LocalizeStringEvent Description;
     public LocalizeStringEvent NarrativeDescription;
 
@@ -23,9 +25,6 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     [Title("Dynamic Background Settings")]
     [SerializeField] float ExtraWidthForBackground;
     [SerializeField] float ExtraHeightForBackground;
-
-    [Title("Tooltip Style")]
-    [SerializeField] TagFontStyle Style;
 
     private List<LocalizeStringEvent> LocalizeStringEventList;
 
@@ -125,9 +124,11 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     {
         LocalizeStringEventList = new List<LocalizeStringEvent>
         {
-            Header,
+            SkillName,
             Description,
-            NarrativeDescription
+            NarrativeDescription,
+            EnergyCost,
+            Cooldown
         };
     }
 

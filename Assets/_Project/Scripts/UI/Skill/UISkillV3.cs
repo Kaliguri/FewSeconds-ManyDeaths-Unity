@@ -39,7 +39,7 @@ public class UISkillV3 : MonoBehaviour
     void DataTransfer()
     {
         IconObj.sprite = skillIcon;
-        tooltipManager.Header.StringReference = skillname;
+        tooltipManager.SkillName.StringReference = skillname;
         tooltipManager.Description.StringReference = description;
     }
 

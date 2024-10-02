@@ -17,7 +17,7 @@ public class SkillChoiceButtonController : MonoBehaviour
     public void DataTransferInPrefab(SkillData skillData)
     {
         IconObj.sprite = skillData.SkillIcon;
-        tooltipManager.Header.StringReference = skillData.Name;
+        tooltipManager.SkillName.StringReference = skillData.Name;
         tooltipManager.Description.StringReference = skillData.Description;
     }
 

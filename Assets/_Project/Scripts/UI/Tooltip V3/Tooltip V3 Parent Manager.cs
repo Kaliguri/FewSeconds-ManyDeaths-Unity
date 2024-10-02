@@ -12,6 +12,11 @@ public class TooltipV3ParentManager : MonoBehaviour
     [SerializeField] float IndentX = 200f;
     [SerializeField] float IndentY = 200f;
 
+    [Title("Tooltip Style")]
+    public TagFontStyle Style;
+
+    
+
     //private RectTransform CanvasRect => transform.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
     public Camera cameraBrain => FindObjectOfType<Camera>().GetComponent<Camera>();
     public virtual void Refresh()

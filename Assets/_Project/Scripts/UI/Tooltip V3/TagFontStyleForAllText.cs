@@ -5,13 +5,15 @@ using UnityEngine;
 public class TagFontStyleForAllText : MonoBehaviour
 {
     [Title("Style")]
-    public TagFontStyle Style;
-    public int StyleNumber;
+    public int StyleNumber = 0;
 
+    private TagFontStyle Style;
     private TextMeshProUGUI textMeshPro => GetComponent<TextMeshProUGUI>();
     // Start is called before the first frame update
     void Start()
     {
+        Style = gameObject.GetComponentInParent<TooltipV3ParentManager>().Style;
+
         DataTransfer();
     }
 
