@@ -10,9 +10,15 @@ public class SkillChoiceButtonController : UISkillV3
     public int VariationSkillNumber;
     public new SkillData skillData;
 
+    void Awake()
+    {
+        
+    }
+
     public override void DataTransfer()
     {
         IconObj.sprite = skillData.SkillIcon;
+        
         tooltipManager.SkillName.StringReference = skillData.Name;
         tooltipManager.Description.StringReference = skillData.Description;
     }

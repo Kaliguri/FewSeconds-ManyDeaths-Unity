@@ -26,7 +26,7 @@ public class ChangePlayersListNetwork : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void ChangeSkillRpc(int SkillNumber, int ID, int variationSkillNumber)
     {
-        Debug.Log("SkillNumber = " + SkillNumber + "; playerId = " + ID + "; variationSkillNumber = " + variationSkillNumber);
+        //Debug.Log("SkillNumber = " + SkillNumber + "; playerId = " + ID + "; variationSkillNumber = " + variationSkillNumber);
         playerInfoData.SkillChoiceList[ID].variationList[SkillNumber] = variationSkillNumber;
         GlobalEventSystem.SendSkillChanged();
     }
