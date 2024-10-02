@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: Heroes in the Dark SC
+  m_Name: fire_SC
   m_EditorClassIdentifier: 
   internals:
     data:
@@ -22,7 +22,7 @@ MonoBehaviour:
       expandSettings: 0
       previewCurves: 1
       audioMixerGroup: {fileID: 0}
-      priority: 1
+      priority: 0.5
       distanceEnabled: 0
       distanceScale: 100
       preventEndClicks: 1
@@ -34,8 +34,8 @@ MonoBehaviour:
       randomStartPositionMax: 1
       startPosition: 0
       reverse: 0
-      neverStealVoice: 1
-      neverStealVoiceEffects: 1
+      neverStealVoice: 0
+      neverStealVoiceEffects: 0
       lockAxisEnable: 0
       lockAxis: 2
       lockAxisPosition: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
       pitchExpand: 0
       pitchSemitone: 0
       pitchRatio: 1
-      pitchRandomEnable: 0
+      pitchRandomEnable: 1
       pitchRandomRangeSemitoneBipolar: 0.25
       pitchIntensityEnable: 0
       pitchIntensityLowSemitone: -12
@@ -648,4 +648,4 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: 90cb5c7d72fe6f74bbb0876f9a6d715a, type: 3}
+    - {fileID: 8300000, guid: db805de5edecc8c468c48d1a08c3c148, type: 3}

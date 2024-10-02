@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: Heroes in the Dark SC
+  m_Name: test_music_custscene_SC
   m_EditorClassIdentifier: 
   internals:
     data:
       foundReferences: []
-      previewAudioMixerGroup: {fileID: 4462537145152448937, guid: 4f6850d2ad95acd4f873da585045b0d8,
-        type: 2}
-      expandPreview: 1
+      previewAudioMixerGroup: {fileID: 0}
+      expandPreview: 0
       expandAudioClips: 1
       expandSettings: 0
       previewCurves: 1
       audioMixerGroup: {fileID: 0}
-      priority: 1
-      distanceEnabled: 0
+      priority: 0.5
+      distanceEnabled: 1
       distanceScale: 100
       preventEndClicks: 1
       loopEnabled: 0
@@ -34,8 +33,8 @@ MonoBehaviour:
       randomStartPositionMax: 1
       startPosition: 0
       reverse: 0
-      neverStealVoice: 1
-      neverStealVoiceEffects: 1
+      neverStealVoice: 0
+      neverStealVoiceEffects: 0
       lockAxisEnable: 0
       lockAxis: 2
       lockAxisPosition: 0
@@ -164,7 +163,7 @@ MonoBehaviour:
       pitchExpand: 0
       pitchSemitone: 0
       pitchRatio: 1
-      pitchRandomEnable: 0
+      pitchRandomEnable: 1
       pitchRandomRangeSemitoneBipolar: 0.25
       pitchIntensityEnable: 0
       pitchIntensityLowSemitone: -12
@@ -201,7 +200,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       spatialBlendExpand: 0
-      spatialBlend: 0
+      spatialBlend: 1
       spatialBlendDistanceRolloff: -4
       spatialBlendDistance3DIncrease: 0.5
       spatialBlendDistanceCurve:
@@ -648,4 +647,4 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: 90cb5c7d72fe6f74bbb0876f9a6d715a, type: 3}
+    - {fileID: 8300000, guid: 61a96b6e1597d2d4eaea003470edc5f1, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4796163816734636}
   - component: {fileID: -2683738262453034793}
   - component: {fileID: 5730725457316870957}
-  - component: {fileID: 2859254724663150995}
+  - component: {fileID: 8324679449768834614}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 4f6850d2ad95acd4f873da585045b0d8, type: 2}
   useDontDestroyOnLoad: 1
---- !u!114 &2859254724663150995
+--- !u!114 &8324679449768834614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,6 +105,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576988032187696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1d590ba6337a24abe40f305c27dc85, type: 3}
+  m_Script: {fileID: 11500000, guid: 74b31a2c3d27e88468bc2a762d3664f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundButtonHover: {fileID: 0}
+  soundButtonClick: {fileID: 0}
+  useDontDestroyOnLoad: 1

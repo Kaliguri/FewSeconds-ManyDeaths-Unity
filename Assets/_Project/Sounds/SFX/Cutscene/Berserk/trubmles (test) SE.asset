@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b80e83c0feb1444db6d74f0748b6ec9, type: 3}
-  m_Name: Berserk Theme SE
+  m_Name: trubmles (test) SE
   m_EditorClassIdentifier: 
   internals:
     data:
@@ -19,7 +19,7 @@ MonoBehaviour:
       expandTimeline: 1
       expandPreview: 0
       expandSettings: 1
-      expandTriggerOnPlay: 1
+      expandTriggerOnPlay: 0
       expandTriggerOnStop: 0
       expandTriggerOnTail: 0
       expandAllSoundTag: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
         bypassVoiceEffectsUse: 0
         bypassListenerEffectsUse: 0
       polyphonyMode: 0
-      audioMixerGroup: {fileID: -8826010449493242667, guid: 4f6850d2ad95acd4f873da585045b0d8,
+      audioMixerGroup: {fileID: 4462537145152448937, guid: 4f6850d2ad95acd4f873da585045b0d8,
         type: 2}
       soundMix: {fileID: 0}
       soundPolyGroup: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
       cooldownTime: 0
       probability: 100
       passParameters: 1
-      expandIntensity: 1
+      expandIntensity: 0
       intensityAdd: 0
       intensityMultiplier: 1
       intensityRolloff: 0
@@ -228,4 +228,4 @@ MonoBehaviour:
         soundEvent:
         - {fileID: 0}
     soundContainers:
-    - {fileID: 11400000, guid: 840e183cebc5a4a429924676b5c9dc95, type: 2}
+    - {fileID: 11400000, guid: 313ebadac190cfd438c47d2fb781a785, type: 2}
