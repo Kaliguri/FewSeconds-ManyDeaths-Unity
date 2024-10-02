@@ -70,7 +70,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
-  m_sharedMaterial: {fileID: 6774997285382995203, guid: ca4773f7c97a6d14995a88c2b6a1e785,
+  m_sharedMaterial: {fileID: 8317584145244895877, guid: ca4773f7c97a6d14995a88c2b6a1e785,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -466,6 +466,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5802996965221260840, guid: a67e9a7bb667d0244a1a3e6a280a42b0,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8317584145244895877, guid: ca4773f7c97a6d14995a88c2b6a1e785,
+        type: 2}
     - target: {fileID: 7253985801313055621, guid: a67e9a7bb667d0244a1a3e6a280a42b0,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -490,6 +496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233205207771389590, guid: a67e9a7bb667d0244a1a3e6a280a42b0,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -630,6 +641,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.20079672
       objectReference: {fileID: 0}
+    - target: {fileID: 8344707525070848663, guid: 79158558113524949a3683564998caca,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8317584145244895877, guid: ca4773f7c97a6d14995a88c2b6a1e785,
+        type: 2}
     - target: {fileID: 8344707525070848663, guid: 79158558113524949a3683564998caca,
         type: 3}
       propertyPath: m_VerticalAlignment
