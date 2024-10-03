@@ -12,6 +12,7 @@ public class BossManager : NetworkBehaviour
 
     [FoldoutGroup("General")]
     [SerializeField] private Vector2 SpawnCoordinates;
+    [HideInInspector]
     public Vector2 CurrentCoordinates;
 
     [FoldoutGroup("General")]
