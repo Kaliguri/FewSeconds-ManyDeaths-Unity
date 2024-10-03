@@ -82,23 +82,23 @@ public static class GlobalEventSystem
     public static UnityEvent BossActionEnd = new();
     public static void SendBossActionEnd() { BossActionEnd.Invoke(); }
 
-    public static UnityEvent PlayerActionEnd = new();
-    public static void SendPlayerActionEnd() { PlayerActionEnd.Invoke(); }
+    public static UnityEvent PlayerSkillEnd = new();
+    public static void SendPlayerSkillEnd() { PlayerSkillEnd.Invoke(); }
 
-    public static UnityEvent PlayerActionChoosed = new();
-    public static void SendPlayerActionChoosed() { PlayerActionChoosed.Invoke(); }
+    public static UnityEvent<int> PlayerSkillChoosed = new();
+    public static void SendPlayerSkillChoosed(int skillNumber) { PlayerSkillChoosed.Invoke(skillNumber); }
 
-    public static UnityEvent PlayerActionUnchoosed = new();
-    public static void SendPlayerActionUnchoosed() {  PlayerActionUnchoosed.Invoke(); }
+    public static UnityEvent<int> PlayerSkillUnchoosed = new();
+    public static void SendPlayerSkillUnchoosed(int skillNumber) {  PlayerSkillUnchoosed.Invoke(skillNumber); }
 
-    public static UnityEvent PlayerActionAproved = new();
-    public static void SendPlayerActionAproved() {  PlayerActionAproved.Invoke(); }
+    public static UnityEvent<int> PlayerSkillAproved = new();
+    public static void SendPlayerSkillAproved(int skillNumber) {  PlayerSkillAproved.Invoke(skillNumber); }
 
     public static UnityEvent SkillChanged = new();
     public static void SendSkillChanged() { SkillChanged.Invoke(); }
 
-    public static UnityEvent PlayerActionUpdate = new();
-    public static void SendPlayerActionUpdate() {  PlayerActionUpdate.Invoke(); }
+    public static UnityEvent<int> PlayerSkillUpdate = new();
+    public static void SendPlayerSkillUpdate(int skillNumber) {  PlayerSkillUpdate.Invoke(skillNumber); }
 
     public static UnityEvent<int, int, int> PlayerChoiceActionUpdate = new();
     public static void SendPlayerChoiceActionUpdate(int uiNumber, int id, int variationSkillNumber) { PlayerChoiceActionUpdate.Invoke(uiNumber, id, variationSkillNumber); }

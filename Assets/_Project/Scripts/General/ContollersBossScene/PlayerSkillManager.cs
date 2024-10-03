@@ -50,7 +50,7 @@ public class PlayerSkillManager : NetworkBehaviour
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(StartDefineSkills);
         GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(ApproveTheSkills);
         GlobalEventSystem.StartCastPlayer.AddListener(StartSkillSystem);
-        GlobalEventSystem.PlayerActionEnd.AddListener(CastAction);
+        GlobalEventSystem.PlayerSkillEnd.AddListener(CastAction);
     }
 
     public override void OnNetworkSpawn()
@@ -60,15 +60,15 @@ public class PlayerSkillManager : NetworkBehaviour
 
     public void GetSkill(SkillScript skillScript, int SkillNumber)
     {
+        if (skillSelected) CanselAction();
         if (skillCooldownManager.GetSkillCooldown(playerID, SkillNumber) == 0 && combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy >= skillScript.EnergyCost)
         {
             ChoosenSkill = skillScript;
             skillID = SkillNumber;
-            if (skillSelected) CanselAction();
             TargetPoints = 0;
             int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy - ChoosenSkill.EnergyCost;
             ChangeEnergy(newEnergy);
-            GlobalEventSystem.SendPlayerActionChoosed();
+            GlobalEventSystem.SendPlayerSkillChoosed(SkillNumber);
             skillSelected = true;
         }
     }
@@ -144,10 +144,10 @@ public class PlayerSkillManager : NetworkBehaviour
     {
         if (ChoosenSkill != null)
         {
-            SendChangeSkillCooldownRpc(playerID, skillID, 0);
             int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy + ChoosenSkill.EnergyCost;
-            ChangeEnergy(newEnergy);
             ChoosenSkill = null;
+            SendChangeSkillCooldownRpc(playerID, skillID, 0);
+            ChangeEnergy(newEnergy);
         }
 
         skillSelected = false;
@@ -159,7 +159,7 @@ public class PlayerSkillManager : NetworkBehaviour
             TargetTileList.RemoveAt(TargetTileList.Count - 1);
         }
 
-        GlobalEventSystem.SendPlayerActionUnchoosed();
+        GlobalEventSystem.SendPlayerSkillUnchoosed(skillID);
     }
 
     private void AddSkillToList()
@@ -197,10 +197,10 @@ public class PlayerSkillManager : NetworkBehaviour
             if (TargetPoints == ChoosenSkill.TargetCount)
             { 
                 skillSelected = false;
-                GlobalEventSystem.SendPlayerActionAproved();
+                GlobalEventSystem.SendPlayerSkillAproved(skillID);
                 SendChangeSkillCooldownRpc(playerID, skillID, ChoosenSkill.SkillCooldown);
             }
-            else GlobalEventSystem.SendPlayerActionUpdate();
+            else GlobalEventSystem.SendPlayerSkillUpdate(skillID);
         }
     }
 

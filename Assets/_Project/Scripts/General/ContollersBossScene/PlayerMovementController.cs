@@ -61,8 +61,8 @@ public class PlayerMovementController : NetworkBehaviour
         GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(ApproveThePath);
         GlobalEventSystem.StartResultStageForPlayer.AddListener(StartMoving);
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(StartDefineMovement);
-        GlobalEventSystem.PlayerActionChoosed.AddListener(PlayerActionChoosed);
-        GlobalEventSystem.PlayerActionUnchoosed.AddListener(PlayerActionUnchoosed);
+        GlobalEventSystem.PlayerSkillChoosed.AddListener(PlayerSkillChoosed);
+        GlobalEventSystem.PlayerSkillUnchoosed.AddListener(PlayerSkillUnchoosed);
     }
 
     private List<PathNode> CreatePathRoute(Vector2 fromTile, Vector2 toTile)
@@ -71,12 +71,12 @@ public class PlayerMovementController : NetworkBehaviour
         return paths;
     }
 
-    private void PlayerActionUnchoosed()
+    private void PlayerSkillUnchoosed(int skillNumber)
     {
         if (playerSkillManager.IsSkillListEmpty) inputActions.Enable();
     }
 
-    private void PlayerActionChoosed()
+    private void PlayerSkillChoosed(int skillNumber)
     {
         inputActions.Disable();
     }

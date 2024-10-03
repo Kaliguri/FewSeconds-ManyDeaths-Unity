@@ -95,6 +95,7 @@ public class GridVisualizer : NetworkBehaviour
     private InputActions inputActions;
     private bool isPlayerCasting = false;
     private bool isPlayerMoving = false;
+    private bool isPlayerTurnStage = false;
     #endregion
 
     void Awake()
@@ -102,19 +103,21 @@ public class GridVisualizer : NetworkBehaviour
         inputActions = new InputActions();
 
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(ShowPlayersTiles);
+        GlobalEventSystem.PlayerTurnStageStarted.AddListener(PlayerTurnStageStarted);
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(PlayersStartMoving);
+        GlobalEventSystem.PlayerTurnStageEnded.AddListener(PlayersEndMoving);
         GlobalEventSystem.AllPlayerSpawned.AddListener(CreatePlayersTiles);
         GlobalEventSystem.PlayerStartMove.AddListener(HidePlayersTiles);
         GlobalEventSystem.PlayerEndMove.AddListener(ShowPlayersTiles);
-        GlobalEventSystem.PlayerActionChoosed.AddListener(PlayerActionChoosed);
-        GlobalEventSystem.PlayerActionUpdate.AddListener(PlayerActionUpdate);
-        GlobalEventSystem.PlayerActionUnchoosed.AddListener(PlayerActionUnchoosed);
-        GlobalEventSystem.PlayerActionUnchoosed.AddListener(PlayersStartMoving);
-        GlobalEventSystem.PlayerActionAproved.AddListener(PlayerActionUnchoosed);
+        GlobalEventSystem.PlayerSkillChoosed.AddListener(PlayerSkillChoosed);
+        GlobalEventSystem.PlayerSkillUpdate.AddListener(PlayerSkillUpdate);
+        GlobalEventSystem.PlayerSkillUnchoosed.AddListener(PlayerSkillUnchoosed);
+        GlobalEventSystem.PlayerSkillUnchoosed.AddListener(PlayerStartMoving);
+        GlobalEventSystem.PlayerSkillAproved.AddListener(PlayerSkillUnchoosed);
         GlobalEventSystem.PathChanged.AddListener(ChangePath);
         GlobalEventSystem.ResultStageStarted.AddListener(SendClearAprovedAffectedAreas);
         GlobalEventSystem.ResultStageStarted.AddListener(SendPathTiles);
-        GlobalEventSystem.ResultStageStarted.AddListener(PlayersEndMoving);
+        GlobalEventSystem.ResultStageStarted.AddListener(PlayerTurnStageEnded);
         GlobalEventSystem.AllPlayersEndMoving.AddListener(ClearPlayersPathTiles);
     }
 
@@ -164,7 +167,7 @@ public class GridVisualizer : NetworkBehaviour
                 else if (GetMapObjectList.Exists(x => x is TempBloked)) tileSelector = Instantiate(terrainTypeTileSelector, TileCenter, Quaternion.identity);
                 else tileSelector = Instantiate(standartTileSelector, TileCenter, Quaternion.identity);
 
-                if (isPlayerMoving) UpdatePath(TileCenter);
+                if (isPlayerMoving && isPlayerTurnStage) UpdatePath(TileCenter);
             }
         }
     }
@@ -210,9 +213,24 @@ public class GridVisualizer : NetworkBehaviour
         isPlayerMoving = false;
     }
 
+    private void PlayerTurnStageEnded()
+    {
+        isPlayerTurnStage = false;
+    }
+
+    private void PlayerTurnStageStarted()
+    {
+        isPlayerTurnStage = true;
+    }
+
     private void PlayersStartMoving()
     {
         if (playerSkillManager.IsSkillListEmpty) isPlayerMoving = true;
+    }
+
+    private void PlayerStartMoving(int skillNumber)
+    {
+        PlayersStartMoving();
     }
 
     #region PlayersPath
@@ -250,21 +268,21 @@ public class GridVisualizer : NetworkBehaviour
     }
     #endregion
 
-    #region PlayerAction
-    private void PlayerActionUpdate()
+    #region PlayerSkill
+    private void PlayerSkillUpdate(int skillNumber)
     {
         UpdateAprovedAffectedAreas();
         UpdateSkillAvaliableArea();
     }
 
-    private void PlayerActionUnchoosed()
+    private void PlayerSkillUnchoosed(int skillNumber)
     {
         UpdateAprovedAffectedAreas();
         isPlayerCasting = false;
         ClearAvaliableArea();
     }
 
-    private void PlayerActionChoosed()
+    private void PlayerSkillChoosed(int skillNumber)
     {
         isPlayerCasting = true;
         isPlayerMoving = false;

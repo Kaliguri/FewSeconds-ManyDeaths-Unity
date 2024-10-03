@@ -68,7 +68,7 @@ public class SkillScript
 
     protected void CastEndPart2() 
     {
-        GlobalEventSystem.SendPlayerActionEnd();
+        GlobalEventSystem.SendPlayerSkillEnd();
     }
 
     public virtual List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
