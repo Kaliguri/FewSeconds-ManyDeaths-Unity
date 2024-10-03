@@ -13,6 +13,7 @@ public class AboutHeroController : MonoBehaviour
     [Space]
     [SerializeField] Transform SpriteParent;
     [SerializeField] GameObject SpriteTempObj;
+    [SerializeField] Material material;
 
     private PlayerInfoData PlayerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private HeroData HeroData => PlayerInfoData.HeroDataList[PlayerInfoData.PlayerIDThisPlayer];
@@ -41,6 +42,9 @@ public class AboutHeroController : MonoBehaviour
 
         NewSprite.transform.position = SpriteTempObj.transform.position;
         NewSprite.transform.localScale = SpriteTempObj.transform.localScale;
+
+        NewSprite.GetComponentInChildren<SpriteRenderer>().sortingLayerName = "UI";
+        NewSprite.GetComponentInChildren<SpriteRenderer>().material = material;
 
         Destroy(SpriteTempObj);
 

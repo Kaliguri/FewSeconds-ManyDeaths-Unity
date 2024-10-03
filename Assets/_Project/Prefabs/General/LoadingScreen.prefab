@@ -219,7 +219,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &3467877483833819364
 MonoBehaviour:
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CanvasGroup: {fileID: 3916144560068433637}
-  m_DelayBeforeFadeOut: 0.05
-  m_FadeOutDuration: 0.1
+  m_DelayBeforeFadeOut: 1
+  m_FadeOutDuration: 0.3
   m_ProgressBar: {fileID: 6172939778238513606}
   m_SceneName: {fileID: 7510007246538001983}
   m_OtherPlayersProgressBars:
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_text: L o a d i n g . . .
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
-  m_sharedMaterial: {fileID: 6774997285382995203, guid: ca4773f7c97a6d14995a88c2b6a1e785,
+  m_sharedMaterial: {fileID: -2556531302523748590, guid: ca4773f7c97a6d14995a88c2b6a1e785,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
