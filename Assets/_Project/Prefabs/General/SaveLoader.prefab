@@ -45,11 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3aab44a4350c7409f33456d644318b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsFileName: Settings.es3
   audioMixer: {fileID: 24100000, guid: 4f6850d2ad95acd4f873da585045b0d8, type: 2}
   volumeNamesList:
   - MasterVolume
   - MusicVolume
   - SFXVolume
+  defaultVolumeValue: 0.5
 --- !u!114 &5275160235351525854
 MonoBehaviour:
   m_ObjectHideFlags: 0

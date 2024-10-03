@@ -12,6 +12,7 @@ public class AudioSettings : MonoBehaviour
 
 
     private SaveLoader saveLoader => FindObjectOfType<SaveLoader>();
+    private string settingsFileName => saveLoader.settingsFileName;
     private AudioMixer audioMixer => saveLoader.audioMixer;
     private List<string> volumeNamesList => saveLoader.volumeNamesList;
     private float defaultVolumeValue => saveLoader.defaultVolumeValue;
@@ -20,22 +21,19 @@ public class AudioSettings : MonoBehaviour
 
     void Start()
     {
-        SetLoadingValues();
+        LoadingSave();
     }
 
-    void SetLoadingValues()
+    void LoadingSave()
     {
         for (int i = 0; i < volumeSlidersList.Count; i++)
-        { SetSliderStartValue(i, volumeNamesList[i]); }
+        { LoadingSliderStartValue(i, volumeNamesList[i]); }
     }
     
-    void SetSliderStartValue(int sliderNumber, string volumeName)
+    void LoadingSliderStartValue(int sliderNumber, string volumeName)
     {
-        if (ES3.KeyExists(volumeName))
-        {
-            float volumeValue = ES3.Load(volumeName + "Slider", defaultValue: defaultVolumeValue);
-            volumeSlidersList[sliderNumber].value = volumeValue;
-        }
+        float volumeValue = ES3.Load(volumeName + "Slider", defaultValue: defaultVolumeValue, filePath: settingsFileName);
+        volumeSlidersList[sliderNumber].value = volumeValue;
 
     }
 
@@ -46,7 +44,7 @@ public class AudioSettings : MonoBehaviour
         
         audioMixer.SetFloat(volumeNamesList[sliderNumber], volume);
 
-        ES3.Save(volumeNamesList[sliderNumber] + "Slider", sliderValue);
-        ES3.Save(volumeNamesList[sliderNumber], volume);
+        ES3.Save(volumeNamesList[sliderNumber] + "Slider", sliderValue, filePath: settingsFileName);
+        ES3.Save(volumeNamesList[sliderNumber], volume, filePath: settingsFileName);
     }
 }

@@ -5,6 +5,10 @@ using UnityEngine.Audio;
 
 public class SaveLoader : MonoBehaviour
 {
+    [Title("Settings")]
+
+    public string settingsFileName = "Settings.es3";
+
     [FoldoutGroup("Sounds")]
     [Title("Audio Mixer")]
     public AudioMixer audioMixer;
@@ -37,10 +41,8 @@ public class SaveLoader : MonoBehaviour
 
     void AudioMixerVolumeLoading(string volumeName)
     {
-        if (ES3.KeyExists(volumeName))
-        {
-            float volumeValue = ES3.Load(volumeName, defaultValue: defaultVolumeValue);
-            audioMixer.SetFloat(volumeName, volumeValue);
-        }
+        float volumeValue = ES3.Load(volumeName, defaultValue: defaultVolumeValue, filePath: settingsFileName);
+        audioMixer.SetFloat(volumeName, volumeValue);
+        
     }
 }
