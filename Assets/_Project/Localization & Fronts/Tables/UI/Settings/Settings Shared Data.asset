@@ -45,6 +45,18 @@ MonoBehaviour:
 '
     m_Metadata:
       m_Items: []
+  - m_Id: 122979274272768
+    m_Key: Header Screen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123115723370496
+    m_Key: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123163370663936
+    m_Key: Window Mode
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

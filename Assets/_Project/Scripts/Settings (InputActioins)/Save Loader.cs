@@ -6,19 +6,31 @@ using UnityEngine.Audio;
 public class SaveLoader : MonoBehaviour
 {
     [Title("Settings")]
-
     public string settingsFileName = "Settings.es3";
 
-    [FoldoutGroup("Sounds")]
+
+    [HideInInspector]
+    public Resolution[] resolutionsList;
+
+    [FoldoutGroup("Screen")]
+    [Title("Save Names")]
+    public List<string> screenSaveNamesList = new List<string>{"Resolution", "WindowMode"};
+
+
+
+    [FoldoutGroup("Sound")]
     [Title("Audio Mixer")]
     public AudioMixer audioMixer;
     
-    [FoldoutGroup("Sounds")]
-    [Title("Volume Names")]
-    public List<string> volumeNamesList;
+    [FoldoutGroup("Sound")]
+    [Title("Save Names")]
+    public List<string> volumeSaveNamesList = new List<string>{"MasterVolume", "MusicVolume", "SFXVolume"};
+    // MasterVolume, MusicVolume, SFXVolume
+    public string sliderSavePrefix = "Slider";
+    // MasterVolumeSlider, MusicVolumeSlider, SFXVolumeSlider
 
-    [FoldoutGroup("Sounds")]
-    [Title("Sound Settings")]
+    [FoldoutGroup("Sound")]
+    [Title("Settings")]
     public float defaultVolumeValue;
 
     void Start()
@@ -28,14 +40,39 @@ public class SaveLoader : MonoBehaviour
 
     void Loading()
     {
-        AllVolumeLoading();
+        ScreenSettingsLoading();
+        VolumeSettingsLoading();
+    }
+
+    void ScreenSettingsLoading()
+    {
+        ResolutionsFill();
+
+        if (ES3.KeyExists(screenSaveNamesList[0])) //Resolution Loading
+        {
+            int resolutionIndex = ES3.Load<int>(screenSaveNamesList[0], filePath: settingsFileName); 
+
+            Resolution resolution = resolutionsList[resolutionIndex];
+            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
+        }
+
+        if (ES3.KeyExists(screenSaveNamesList[1])) //WindowMode Loading
+        {
+            Screen.fullScreen = ES3.Load<bool>(screenSaveNamesList[1], filePath: settingsFileName); 
+        }
+    }
+
+    void ResolutionsFill()
+    {
+        resolutionsList = Screen.resolutions;
     }
     
-    void AllVolumeLoading()
+    void VolumeSettingsLoading()
     {
-        for (int i = 0; i < volumeNamesList.Count; i++)
+        for (int i = 0; i < volumeSaveNamesList.Count; i++)
         {
-            AudioMixerVolumeLoading(volumeNamesList[i]);
+            AudioMixerVolumeLoading(volumeSaveNamesList[i]);
         }
     }
 

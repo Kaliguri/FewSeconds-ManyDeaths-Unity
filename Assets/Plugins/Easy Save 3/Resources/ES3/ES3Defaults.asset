@@ -35,8 +35,6 @@ MonoBehaviour:
     - Cinemachine
     - DamageNumbersPro
     - Facepunch Transport for Netcode for GameObjects
-    - LeTai.TranslucentImage
-    - LeTai.TranslucentImage.Demo
     - Lofelt.NiceVibrations
     - Lofelt.NiceVibrations.Demo
     - MackySoft.SerializeReferenceExtensions
