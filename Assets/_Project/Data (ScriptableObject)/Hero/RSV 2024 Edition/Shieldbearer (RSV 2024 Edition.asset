@@ -31,7 +31,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   HeroTypeData: {fileID: 11400000, guid: ae24ea51ba6ab4c459e81354c0c30f7b, type: 2}
-  GameObjectSpritePrefab: {fileID: 2717194153059966310, guid: 423eeeffbed781d42803d8b0fde6e031,
+  GameObjectSpritePrefab: {fileID: 8927273728795112619, guid: 1491d7fc132be194381dd749020a9aee,
     type: 3}
   HeroIcon: {fileID: 414006220, guid: 2c0124af218c38d49a2439580697d323, type: 3}
   MaxHPModif: 40
