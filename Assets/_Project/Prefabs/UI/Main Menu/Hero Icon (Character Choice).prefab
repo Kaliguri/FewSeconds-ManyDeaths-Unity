@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 6171204005784715102}
   HeroData: {fileID: 0}
+  IsTransfer: 0
 --- !u!1001 &2927939144518720728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,6 +69,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4286655235206013498}
     m_Modifications:
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6994716742783441957}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HeroChoice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HeroChoiceButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1499582986039923846, guid: 51f48bb22a727684286071c5d76ee7c3,
         type: 3}
       propertyPath: m_Pivot.x
