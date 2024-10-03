@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 42.6, y: -23.8}
+  m_AnchoredPosition: {x: 43.3, y: -23.8}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4953948354590835390
@@ -420,6 +420,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero Icon (Character Choice)
       objectReference: {fileID: 0}
+    - target: {fileID: 6197131037253697376, guid: 1d3dc00a676e76b47a9ecd026ec8f9fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -564,6 +569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hero Icon (Character Choice) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197131037253697376, guid: 1d3dc00a676e76b47a9ecd026ec8f9fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -710,6 +720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero Icon (Character Choice) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6197131037253697376, guid: 1d3dc00a676e76b47a9ecd026ec8f9fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -855,6 +870,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero Icon (Character Choice) (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6197131037253697376, guid: 1d3dc00a676e76b47a9ecd026ec8f9fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -999,6 +1019,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hero Icon (Character Choice) (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197131037253697376, guid: 1d3dc00a676e76b47a9ecd026ec8f9fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

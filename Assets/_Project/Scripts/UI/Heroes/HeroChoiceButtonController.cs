@@ -12,13 +12,20 @@ public class HeroChoiceButtonController : MonoBehaviour
     private int playerID => playerInfoData.PlayerIDThisPlayer;
     [SerializeField] Image icon;
     public HeroData HeroData;
+    public bool IsTransfer = false;
 
+    void Start()
+    {
+        if (!IsTransfer)
+        gameObject.SetActive(false);
+    }
 
     public void DataTranfer(HeroData data)
     {
         gameObject.SetActive(true);
         HeroData = data;
         icon.sprite = HeroData.HeroIcon;
+        IsTransfer = true;
     } 
     public void HeroChoice()
     {

@@ -36,7 +36,7 @@ namespace Sonity.Internal {
 
         public void Play(Transform owner, SoundParameterInternals[] soundParameters, SoundParameterInternals soundParameterDistanceScale, SoundTagBase localSoundTag) {
             if (SoundManagerBase.Instance == null) {
-                Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
+                //Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
             } else {
                 SoundManagerBase.Instance.Internals.InternalPlay(soundEvent, SoundEventPlayType.Play, owner, null, null, soundEventModifier, null, soundParameters, soundParameterDistanceScale, localSoundTag);
             }
@@ -44,7 +44,7 @@ namespace Sonity.Internal {
 
         public void PlayAtPosition(Transform owner, Transform position, SoundParameterInternals[] soundParameters, SoundParameterInternals soundParameterDistanceScale, SoundTagBase localSoundTag) {
             if (SoundManagerBase.Instance == null) {
-                Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
+                //Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
             } else {
                 SoundManagerBase.Instance.Internals.InternalPlay(soundEvent, SoundEventPlayType.PlayAtTransform, owner, null, position, soundEventModifier, null, soundParameters, soundParameterDistanceScale, localSoundTag);
             }
@@ -52,7 +52,7 @@ namespace Sonity.Internal {
 
         public void PlayAtPosition(Transform owner, Vector3 position, SoundParameterInternals[] soundParameters, SoundParameterInternals soundParameterDistanceScale, SoundTagBase localSoundTag) {
             if (SoundManagerBase.Instance == null) {
-                Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
+                //Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
             } else {
                 SoundManagerBase.Instance.Internals.InternalPlay(soundEvent, SoundEventPlayType.PlayAtVector, owner, position, null, soundEventModifier, null, soundParameters, soundParameterDistanceScale, localSoundTag);
             }
@@ -60,7 +60,7 @@ namespace Sonity.Internal {
 
         public void Stop(Transform owner, bool allowFadeOut) {
             if (SoundManagerBase.Instance == null) {
-                Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
+                //Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
             } else {
                 SoundManagerBase.Instance.Internals.Stop(soundEvent, owner, allowFadeOut);
             }
@@ -68,7 +68,7 @@ namespace Sonity.Internal {
 
         public void StopAtPosition(Transform position, bool allowFadeOut) {
             if (SoundManagerBase.Instance == null) {
-                Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
+                //Debug.LogWarning($"Sonity.{nameof(NameOf.SoundManager)} is null. Add one to the scene.");
             } else {
                 SoundManagerBase.Instance.Internals.StopAtPosition(soundEvent, position, allowFadeOut);
             }

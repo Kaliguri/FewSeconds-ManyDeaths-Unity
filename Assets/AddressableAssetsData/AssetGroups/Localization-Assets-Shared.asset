@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: a6d3966ebf43df942a116d5506984838
   m_SerializeEntries:
+  - m_GUID: 0fddf4a763c4c7a4bb1a8e8ecc649bc2
+    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Settings/Settings
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ca6463ffdecc95418fe0f37302147e0
     m_Address: Assets/_Project/Localization & Fronts/Tables/Hero/Chess Master/Chess
       Master Shared Data.asset
@@ -79,6 +85,12 @@ MonoBehaviour:
   - m_GUID: 9dec38d25bc2dad498a66b47a34b1856
     m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Stage Name/Stage Name
       Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1a7281ccebd636448de4901cc453f81
+    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Loading/Loading Shared
+      Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

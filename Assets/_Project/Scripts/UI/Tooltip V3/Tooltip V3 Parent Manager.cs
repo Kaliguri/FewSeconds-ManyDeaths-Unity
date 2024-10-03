@@ -6,22 +6,29 @@ public class TooltipV3ParentManager : MonoBehaviour
 {
     [Title("Tooltip V3 Parent")]
     [Title("Gameobject Reference")]
+    [SerializeField] GameObject TooltipContent;
     [SerializeField] protected GameObject Background;
 
     [Title("Edge Detecting Settings")]
-    [SerializeField] float IndentX = 200f;
-    [SerializeField] float IndentY = 200f;
+    //[SerializeField] bool IsCameraSpace = true;
+    [SerializeField] float IndentX = 0.1f;
+    [SerializeField] float IndentY = 0.1f;
 
     [Title("Tooltip Style")]
     public TagFontStyle Style;
 
     
 
-    //private RectTransform CanvasRect => transform.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+    private RectTransform CanvasRect => transform.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
     public Camera cameraBrain => FindObjectOfType<Camera>().GetComponent<Camera>();
     public virtual void Refresh()
     {
         Debug.Log("RefreshTooltip");
+    }
+
+    protected void TooltipContentShow()
+    {
+        TooltipContent.gameObject.SetActive(true);
     }
     public virtual void ShowTooltip()
     {

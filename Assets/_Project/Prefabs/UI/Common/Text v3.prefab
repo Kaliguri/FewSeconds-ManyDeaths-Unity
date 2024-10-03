@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ca4773f7c97a6d14995a88c2b6a1e785, type: 2}
-  m_sharedMaterial: {fileID: -2556531302523748590, guid: ca4773f7c97a6d14995a88c2b6a1e785,
+  m_fontAsset: {fileID: 11400000, guid: 619c80fa7f3d88e459643904ce145c6d, type: 2}
+  m_sharedMaterial: {fileID: -524945048584503527, guid: 619c80fa7f3d88e459643904ce145c6d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -100,12 +100,12 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 32
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 12.08
-  m_wordSpacing: 10.45
+  m_characterSpacing: -1.78
+  m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0

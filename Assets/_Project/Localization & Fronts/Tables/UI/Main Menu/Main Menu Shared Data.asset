@@ -16,27 +16,27 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: e04c2a0e30be7224b81a652903df7a48
   m_Entries:
   - m_Id: 95100940288
-    m_Key: Host lobby
+    m_Key: Host lobby Button
     m_Metadata:
       m_Items: []
   - m_Id: 133915029504
-    m_Key: Join lobby
+    m_Key: Join lobby Button
     m_Metadata:
       m_Items: []
   - m_Id: 178739556352
-    m_Key: Settings
+    m_Key: Settings Button
     m_Metadata:
       m_Items: []
   - m_Id: 191519600640
-    m_Key: Compendium
+    m_Key: Compendium Button
     m_Metadata:
       m_Items: []
   - m_Id: 217352318976
-    m_Key: Exit
+    m_Key: Exit Button
     m_Metadata:
       m_Items: []
   - m_Id: 437217734656
-    m_Key: Training
+    m_Key: Training Button
     m_Metadata:
       m_Items: []
   m_Metadata:

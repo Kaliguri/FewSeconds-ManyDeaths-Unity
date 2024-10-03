@@ -19,7 +19,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     public LocalizeStringEvent Description;
     public LocalizeStringEvent NarrativeDescription;
 
-    [Title("Icon")]
+    [Title("GameObject Reference")]
     [SerializeField] Image Icon;
 
     [Title("Local Variables")]
@@ -41,6 +41,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
     void Awake()
     {
+        TooltipContentShow();
         LocalizeStringEventListInizizalize();
         Refresh();
     }

@@ -77,6 +77,13 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89d283f063d18de4a83b5824e65f850c
+    m_Address: Settings_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 927105784aca22341b3a3f4435431b3e
     m_Address: In Lobby Menu_en
     m_ReadOnly: 1
@@ -104,6 +111,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0595a9641485334d8fa6bfdc08f5433
     m_Address: Paladin_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1fcf6f8bb576a940841deacf8538a49
+    m_Address: Loading_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
