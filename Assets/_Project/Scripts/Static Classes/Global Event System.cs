@@ -36,6 +36,9 @@ public static class GlobalEventSystem
     public static UnityEvent<int> StartCastPlayer = new();
     public static void SendStartCastPlayer(int orderInTurnPreority) { StartCastPlayer.Invoke(orderInTurnPreority); }
 
+    public static UnityEvent BossEndCombo = new();
+    public static void SendBossEndCombo() { BossEndCombo.Invoke(); }
+
     #region PlayerInfoUpdate
 
     public static UnityEvent PlayerDataChanged = new();

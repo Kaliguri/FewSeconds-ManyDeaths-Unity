@@ -21,10 +21,7 @@ MonoBehaviour:
   - 160
   AttacksInActList:
   - ComboAttackList:
-    - {fileID: 0}
-    - {fileID: 0}
-  - ComboAttackList: []
-  - ComboAttackList: []
-  - ComboAttackList: []
-  GameObjectSpritePrefab: {fileID: 0}
+    - {fileID: 11400000, guid: 4e0cbe6376339fd40a6f039bfba4e67c, type: 2}
+  GameObjectSpritePrefab: {fileID: 3969440717209018380, guid: 1c7111e26b7aee345a607aa993b66996,
+    type: 3}
   SceneName: 

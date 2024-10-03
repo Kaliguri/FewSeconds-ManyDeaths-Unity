@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PredictionStage : GameState
 {
+    private BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private int localId;
@@ -25,7 +26,7 @@ public class PredictionStage : GameState
 
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
-            // ���� ������ �������� �� �������� ������
+            bossManager.ChoiceCombo();
             StartCoroutine("GiveTimePass");
         }
     }

@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e7bc15e1a08944d84c1f2458411e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersSkillCooldownLists: []
 --- !u!114 &6400161990739204507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7051752519435981508}
   - component: {fileID: 1877115103774442730}
+  - component: {fileID: 9163288949737520634}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -216,11 +218,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 1269a5906c39ab04fb66e47d44138476, type: 2}
   SpawnCoordinates: {x: 0, y: 0}
+  CurrentCoordinates: {x: 0, y: 0}
   BossGameObject: {fileID: 0}
   CurrentAct: 0
   CurrentHPInCurrentAct: 0
   CurrentAction: 0
   CurrentCombo: {fileID: 0}
+--- !u!114 &9163288949737520634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330119505526371537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903bb3b7d953df44ab751a57affbbbee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2341538169438059593
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +401,7 @@ MonoBehaviour:
   Max_A: 50
   Max_B: 50
   tileZero: {x: 0, y: 0}
+  AllTiles: []
 --- !u!1 &3845002735458891163
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeBeforeFirstPlayerMovement: 1
+  TimeBeforeFirstPlayerCast: 1
   TimeBetweenPlayerMovement: 1
 --- !u!114 &827612055042703160
 MonoBehaviour:

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,20 +7,24 @@ using UnityEngine;
 
 public class BossTurnStage : GameState
 {
+    private BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
+
     public void Initialize(CombatStageManager manager)
     {
         gameStateManager = manager;
+        GlobalEventSystem.BossEndCombo.AddListener(EndTurn);
     }
 
     public override void Enter()
     {
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
-            // пока просто кидаемся на следущую стадию
-            StartCoroutine(nameof(GiveTimePass));
+            
         }
 
         GlobalEventSystem.SendBossTurnStageStarted();
+
+        bossManager.CastCombo();
     }
 
 
@@ -42,9 +47,9 @@ public class BossTurnStage : GameState
         //бей босс, да посильнее
     }
 
-    IEnumerator GiveTimePass()
+    private void EndTurn()
     {
-        yield return new WaitForSeconds(1f);
         gameStateManager.TransitionToNextStage();
     }
+
 }

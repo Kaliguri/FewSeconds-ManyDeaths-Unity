@@ -15,4 +15,9 @@ public class MonoInstance : MonoBehaviour
     {
         GlobalEventSystem.SendPlayerSkillEnd();
     }
+
+    protected void CastActionEndPart2()
+    {
+        GlobalEventSystem.SendBossActionEnd();
+    }
 }

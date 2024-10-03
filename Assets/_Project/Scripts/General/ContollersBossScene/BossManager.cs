@@ -1,15 +1,18 @@
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BossManager : MonoBehaviour
+public class BossManager : NetworkBehaviour
 {
     [FoldoutGroup("General")]
     public BossVariationData Data;
 
     [FoldoutGroup("General")]
-    public Vector2 SpawnCoordinates;
+    [SerializeField] private Vector2 SpawnCoordinates;
+    public Vector2 CurrentCoordinates;
 
     [FoldoutGroup("General")]
     [ReadOnly]
@@ -39,7 +42,10 @@ public class BossManager : MonoBehaviour
     [ReadOnly]
     public BossComboData CurrentCombo;
 
-    
+    private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
+    private BossMultiplayerMethods bossMultiplayerMethods => GameObject.FindObjectOfType<BossMultiplayerMethods>();
+    private Vector2 tileZero => mapClass.tileZero;
+    private List<List<Vector2>> TargetPointsForActions = new();
 
     void Awake()
     {
@@ -51,13 +57,17 @@ public class BossManager : MonoBehaviour
         Inizialize();
     }
 
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+    }
+
     void Inizialize()
     {
         Spawn();
         HPInizialize();
 
         GlobalEventSystem.SendBossManagerInitialized();
-        
     }
 
     void HPInizialize()
@@ -81,33 +91,67 @@ public class BossManager : MonoBehaviour
         GlobalEventSystem.SendBossActChanged();
 
     }
+
     public void Spawn()
     {
-        //Need ZeroPoint
-        //BossGameObject = Instantiate(Data.GameObjectSpritePrefab); 
+        BossGameObject = Instantiate(Data.GameObjectSpritePrefab, SpawnCoordinates + tileZero, Quaternion.identity);
+        mapClass.SetBoss(SpawnCoordinates);
+        CurrentCoordinates = SpawnCoordinates;
+    }
+
+    public void ChoiceCombo()
+    {
+        List<BossComboData> ComboList = Data.AttacksInActList[CurrentAct].ComboAttackList;
+        int currentComboIndex = Random.Range(0, ComboList.Count);
+        ChoiceComboRpc(currentComboIndex);
+        GetTargetPointsForActions();
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void ChoiceComboRpc(int comboIndex)
+    {
+        List<BossComboData> ComboList = Data.AttacksInActList[CurrentAct].ComboAttackList;
+        CurrentCombo = ComboList[comboIndex];
+    }
+
+    private void GetTargetPointsForActions()
+    {
+        for (int i = 0; i < CurrentCombo.BossActionList.Count; i++)
+        {
+            List<Vector2> TargetPoints = CurrentCombo.BossActionList[i].ActionScript.GetCastPoint(CurrentAct);
+            GetTargetPointsForActionsRpc(TargetPoints.ToArray());
+        }
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void GetTargetPointsForActionsRpc(Vector2[] TargetPoints)
+    {
+        TargetPointsForActions.Add(TargetPoints.ToList());
     }
 
     public void CastCombo()
     {
-        List<BossComboData> ComboList = Data.AttacksInActList[CurrentAct].ComboAttackList;
-        CurrentCombo = ComboList[Random.Range(0, ComboList.Count)];
-
         CurrentAction = 0;
 
         CastAction();
-
     }
 
     private void CastAction()
     {
         if (CurrentAction < CurrentCombo.BossActionList.Count)
         {
-        CurrentCombo.BossActionList[CurrentAction].ActionScript.Cast(CurrentAct);
-        CurrentAction ++;
+            CurrentCombo.BossActionList[CurrentAction].ActionScript.Cast(TargetPointsForActions[CurrentAction], CurrentAct);
+            CurrentAction++;
         }
         else
         {
-            Debug.Log("Event Combo End");
+            ClearTargetPointsForActions();
+            GlobalEventSystem.SendBossEndCombo();
         }
+    }
+
+    private void ClearTargetPointsForActions()
+    {
+        TargetPointsForActions.Clear();
     }
 }
