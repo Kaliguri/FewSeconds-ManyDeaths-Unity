@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
-using Sirenix.OdinInspector.Demos;
 using System.Linq;
-using System;
 
 public class BossMultiplayerMethods : NetworkBehaviour
 {

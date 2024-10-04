@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VFavorites.Libs;
 
 [Serializable]
 public class BerserkCircularSlice : BossActionScript

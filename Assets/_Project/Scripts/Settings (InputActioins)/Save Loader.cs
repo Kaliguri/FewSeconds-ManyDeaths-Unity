@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UnityEditor.Localization.Editor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Localization;
