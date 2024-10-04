@@ -14,7 +14,7 @@ public class ScreenSettings : MonoBehaviour
     private string settingsFileName => saveLoader.settingsFileName;
 
     private List<string> screenSaveNamesList => saveLoader.screenSaveNamesList;
-    private Resolution[] resolutionsList => saveLoader.resolutionsList;
+    private List<Resolution> resolutionsList => saveLoader.resolutionsList;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class ScreenSettings : MonoBehaviour
         var currentResolutionIndex = 0;
         var resolutionsNameList = new List<string>();
 
-        for (int i = 0; i < resolutionsList.Length; i++)
+        for (int i = 0; i < resolutionsList.Count; i++)
         {
             var resolution = resolutionsList[i];
             string resolutionName = resolution.width + "x" + resolution.height + " " + resolution.refreshRateRatio + "Hz";

@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Components;
@@ -5,15 +6,11 @@ using UnityEngine.UI;
 
 public class AboutHeroController : MonoBehaviour
 {
-    [Header("Object Reference")]
+    [Title("Object Reference")]
     [SerializeField] private LocalizeStringEvent HeroNameText;
     [SerializeField] private LocalizeStringEvent HeroDescriptionText;
     [SerializeField] private Image HeroIcon;
-
-    [Space]
-    [SerializeField] Transform SpriteParent;
-    [SerializeField] GameObject SpriteTempObj;
-    [SerializeField] Material material;
+    [SerializeField] Image HeroImage;
 
     private PlayerInfoData PlayerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private HeroData HeroData => PlayerInfoData.HeroDataList[PlayerInfoData.PlayerIDThisPlayer];
@@ -33,22 +30,12 @@ public class AboutHeroController : MonoBehaviour
         HeroDescriptionText.StringReference = HeroData.Description;
         HeroIcon.sprite = HeroData.HeroIcon;
 
-        SpriteDataTransfer();
+        HeroImageDataTransfer();
         
     }
-    void SpriteDataTransfer()
+    void HeroImageDataTransfer()
     {
-        var NewSprite = Instantiate(SpritePrefab, SpriteParent);
-
-        NewSprite.transform.position = SpriteTempObj.transform.position;
-        NewSprite.transform.localScale = SpriteTempObj.transform.localScale;
-
-        NewSprite.GetComponentInChildren<SpriteRenderer>().sortingLayerName = "UI";
-        NewSprite.GetComponentInChildren<SpriteRenderer>().material = material;
-
-        Destroy(SpriteTempObj);
-
-        SpriteTempObj = NewSprite;
+        HeroImage.sprite = SpritePrefab.transform.GetComponentInChildren<SpriteRenderer>().sprite;
     }
         
 }

@@ -17,9 +17,8 @@ public class HeroListController : MonoBehaviour
     [SerializeField] Image HeroTypeObj; 
     [SerializeField] LocalizeStringEvent HeroNameObj;
     
-    [Title("Hero Sprite")]
-    [SerializeField] Transform SpriteParent;
-    [SerializeField] GameObject SpriteTempObj;
+    [Title("Hero Image")]
+    [SerializeField] Image HeroImage;
 
     [Title("Hero Skills")]
     [SerializeField] List<GameObject> SkillsList;
@@ -62,7 +61,7 @@ public class HeroListController : MonoBehaviour
     {
         PlayerDataTransfer();
         HeroDataTransfer();
-        SpriteDataTransfer();
+        HeroImageDataTransfer();
         SkillDataTransfer();
     }
 
@@ -79,15 +78,9 @@ public class HeroListController : MonoBehaviour
         HeroNameObj.StringReference = HeroName;
         
     }
-    void SpriteDataTransfer()
+    void HeroImageDataTransfer()
     {
-        var NewSprite = Instantiate(SpritePrefab, SpriteParent);
-
-        NewSprite.transform.position = SpriteTempObj.transform.position;
-        NewSprite.transform.localScale = SpriteTempObj.transform.localScale;
-
-        Destroy(SpriteTempObj);
-        SpriteTempObj = NewSprite;
+        HeroImage.sprite = SpritePrefab.transform.GetComponentInChildren<SpriteRenderer>().sprite;
     }
 
     void SkillDataTransfer()

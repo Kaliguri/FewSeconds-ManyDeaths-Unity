@@ -10,7 +10,7 @@ public class SaveLoader : MonoBehaviour
 
 
     [HideInInspector]
-    public Resolution[] resolutionsList;
+    public List<Resolution> resolutionsList;
 
     [FoldoutGroup("Screen")]
     [Title("Save Names")]
@@ -65,7 +65,17 @@ public class SaveLoader : MonoBehaviour
 
     void ResolutionsFill()
     {
-        resolutionsList = Screen.resolutions;
+        var allResolutions = Screen.resolutions;
+        var currentResfreshRate = Screen.currentResolution.refreshRateRatio;
+
+        resolutionsList = new List<Resolution>();
+        for (int i = 0; i < allResolutions.Length; i++)
+        {
+            if (allResolutions[i].refreshRateRatio.value == currentResfreshRate.value)
+            {
+                resolutionsList.Add(allResolutions[i]);
+            }
+        }
     }
     
     void VolumeSettingsLoading()
