@@ -23,27 +23,30 @@ public class ScreenSettings : MonoBehaviour
     void ResolutionsDropdownFill()
     {
         resolutionDropdown.ClearOptions();
+
         var currentResolutionIndex = 0;
         var resolutionsNameList = new List<string>();
 
         for (int i = 0; i < resolutionsList.Count; i++)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             var resolution = resolutionsList[i];
-            string resolutionName = resolution.width + "x" + resolution.height + " " + resolution.refreshRateRatio + "Hz";
+            string resolutionName = resolution.width + "x" + resolution.height + " " + (int)resolution.refreshRateRatio.value + "Hz";
             resolutionsNameList.Add(resolutionName);
 
             if (resolution.width == Screen.currentResolution.width && resolution.height == Screen.currentResolution.height)
             { currentResolutionIndex = i; }
 
-            resolutionDropdown.AddOptions(resolutionsNameList);
-            resolutionDropdown.RefreshShownValue();
+
         }
+
+        resolutionDropdown.AddOptions(resolutionsNameList);
+        resolutionDropdown.RefreshShownValue();
     }
 
     public void SetResolution(int resolutionIndex)
     {
-        Debug.Log(resolutionsList.Count + " " + resolutionIndex);
+        //Debug.Log(resolutionsList.Count + " " + resolutionIndex);
         Resolution resolution = resolutionsList[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 

@@ -1,20 +1,30 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityEditor.Localization.Editor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class SaveLoader : MonoBehaviour
 {
     [Title("Settings")]
     public string settingsFileName = "Settings.es3";
 
+    [FoldoutGroup("General")]
+    [Title("Save Names")]
+    public List<string> generalSaveNamesList = new List<string>{"Language"};
 
-    [HideInInspector]
-    public List<Resolution> resolutionsList;
+    [FoldoutGroup("Languages")]
+    public List<Locale> languagesList;
+
 
     [FoldoutGroup("Screen")]
     [Title("Save Names")]
     public List<string> screenSaveNamesList = new List<string>{"Resolution", "WindowMode"};
+
+    [HideInInspector]
+    public List<Resolution> resolutionsList;
 
 
 
@@ -40,8 +50,19 @@ public class SaveLoader : MonoBehaviour
 
     void Loading()
     {
+        GeneralSettingsLoading();
         ScreenSettingsLoading();
         VolumeSettingsLoading();
+    }
+
+    void GeneralSettingsLoading()
+    {
+        LanguageListFill();
+    }
+
+    void LanguageListFill()
+    {
+        languagesList = LocalizationSettings.AvailableLocales.Locales;
     }
 
     void ScreenSettingsLoading()
@@ -76,7 +97,7 @@ public class SaveLoader : MonoBehaviour
                 resolutionsList.Add(allResolutions[i]);
             }
         }
-        Debug.Log(resolutionsList.Count);
+        //Debug.Log(resolutionsList.Count);
     }
     
     void VolumeSettingsLoading()
