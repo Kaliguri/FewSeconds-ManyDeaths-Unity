@@ -11,8 +11,8 @@ public class ScreenSettings : MonoBehaviour
     [SerializeField] TMP_Dropdown resolutionDropdown;
     
     private SaveLoader saveLoader => FindObjectOfType<SaveLoader>();
-    private string settingsFileName => saveLoader.settingsFileName;
 
+    private string settingsFileName => saveLoader.settingsFileName;
     private List<string> screenSaveNamesList => saveLoader.screenSaveNamesList;
     private List<Resolution> resolutionsList => saveLoader.resolutionsList;
 
@@ -41,6 +41,7 @@ public class ScreenSettings : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(resolutionsNameList);
+        resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
 

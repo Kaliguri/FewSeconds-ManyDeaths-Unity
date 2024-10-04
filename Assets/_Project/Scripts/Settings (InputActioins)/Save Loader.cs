@@ -57,6 +57,15 @@ public class SaveLoader : MonoBehaviour
     void GeneralSettingsLoading()
     {
         LanguageListFill();
+
+        if (ES3.KeyExists(generalSaveNamesList[0], filePath: settingsFileName)) //Language Loading
+        {
+            int localeIndex = ES3.Load<int>(generalSaveNamesList[0], filePath: settingsFileName);
+
+            Locale locale = languagesList[localeIndex];
+            LocalizationSettings.SelectedLocale = locale;
+            Debug.Log(LocalizationSettings.SelectedLocale.name);
+        }
     }
 
     void LanguageListFill()
@@ -68,7 +77,7 @@ public class SaveLoader : MonoBehaviour
     {
         ResolutionsFill();
 
-        if (ES3.KeyExists(screenSaveNamesList[0])) //Resolution Loading
+        if (ES3.KeyExists(screenSaveNamesList[0], filePath: settingsFileName)) //Resolution Loading
         {
             int resolutionIndex = ES3.Load<int>(screenSaveNamesList[0], filePath: settingsFileName); 
 
@@ -77,7 +86,7 @@ public class SaveLoader : MonoBehaviour
 
         }
 
-        if (ES3.KeyExists(screenSaveNamesList[1])) //WindowMode Loading
+        if (ES3.KeyExists(screenSaveNamesList[1], filePath: settingsFileName)) //WindowMode Loading
         {
             Screen.fullScreen = ES3.Load<bool>(screenSaveNamesList[1], filePath: settingsFileName); 
         }
