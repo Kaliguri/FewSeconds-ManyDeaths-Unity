@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4584b03709390654d9c5eded4e1015f6, type: 3}
-  m_Name: Boss Dash
+  m_Name: Boss Circular Slice
   m_EditorClassIdentifier: 
-  Name: Dash
+  Name: Circular Slice
   Description: 1
   ActionScript:
-    rid: 6932391200727498755
+    rid: 6932391206171181065
   references:
     version: 2
     RefIds:
-    - rid: 6932391200727498755
-      type: {class: BerserkDash, ns: , asm: Assembly-CSharp}
+    - rid: 6932391206171181065
+      type: {class: BerserkCircularSlice, ns: , asm: Assembly-CSharp}
       data:
-        TimeBetweenMovement: 0.4
-        TimeBetweenDifference: 0.9
+        damage: 30

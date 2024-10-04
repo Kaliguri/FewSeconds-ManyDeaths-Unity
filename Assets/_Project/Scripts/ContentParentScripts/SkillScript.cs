@@ -42,7 +42,7 @@ public class SkillScript
     protected void CastStart(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)
     {
         SetPosition(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        if (IsMovable) ChangeSelectedCellCoordinate();
+        if (IsMovable && heroPosition != actualHeroPosition) ChangeSelectedCellCoordinate();
     }
 
     protected void SetPosition(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)

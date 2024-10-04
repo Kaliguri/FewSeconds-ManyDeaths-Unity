@@ -44,15 +44,21 @@ public class BossManager : NetworkBehaviour
     public BossComboData CurrentCombo;
 
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
-    private BossMultiplayerMethods bossMultiplayerMethods => GameObject.FindObjectOfType<BossMultiplayerMethods>();
     private Vector2 tileZero => mapClass.tileZero;
     private List<List<Vector2>> TargetPointsForActions = new();
+    private float TimeBetweenActions = 1f;
 
     void Awake()
     {
-        GlobalEventSystem.BossActionEnd.AddListener(CastAction);
+        GlobalEventSystem.BossActionEnd.AddListener(CastActionAfterTime);
         GlobalEventSystem.BossHPChanged.AddListener(CheckHP);
     }
+
+    private void CastActionAfterTime()
+    {
+        Invoke(nameof(CastAction), TimeBetweenActions);
+    }
+
     void Start()
     {
         Inizialize();

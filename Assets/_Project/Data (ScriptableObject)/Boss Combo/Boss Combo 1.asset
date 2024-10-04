@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossActionList:
   - {fileID: 11400000, guid: 969870a1fb9420447b4e81d00e268c93, type: 2}
+  - {fileID: 11400000, guid: ebaa59d3e3c715240b2c4c651469be74, type: 2}
   HeroIsNear: 0

@@ -27,7 +27,7 @@ public class PredictionStage : GameState
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
             bossManager.ChoiceCombo();
-            StartCoroutine("GiveTimePass");
+            StartCoroutine(nameof(GiveTimePass));
         }
     }
 

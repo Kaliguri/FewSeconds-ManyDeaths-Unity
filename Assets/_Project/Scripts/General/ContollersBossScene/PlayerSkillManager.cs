@@ -112,6 +112,7 @@ public class PlayerSkillManager : NetworkBehaviour
             SkillList.Clear();
             skillNumberList.Clear();
             TargetTileList.Clear();
+            characterCastCoordinate.Clear();
             Invoke("SendPlayerEndResultTurnEvent", timeBetweenPlayerCast);
         }
     }
@@ -156,6 +157,7 @@ public class PlayerSkillManager : NetworkBehaviour
         {
             SkillList.RemoveAt(SkillList.Count - 1);
             skillNumberList.RemoveAt(skillNumberList.Count - 1);
+            characterCastCoordinate.RemoveAt(characterCastCoordinate.Count - 1);
             TargetTileList.RemoveAt(TargetTileList.Count - 1);
         }
 
