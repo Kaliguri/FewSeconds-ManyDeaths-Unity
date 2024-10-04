@@ -18,9 +18,9 @@ public class ScreenSettings : MonoBehaviour
 
     void Start()
     {
-        ResolutionsFill();
+        ResolutionsDropdownFill();
     }
-    void ResolutionsFill()
+    void ResolutionsDropdownFill()
     {
         resolutionDropdown.ClearOptions();
         var currentResolutionIndex = 0;
@@ -28,6 +28,7 @@ public class ScreenSettings : MonoBehaviour
 
         for (int i = 0; i < resolutionsList.Count; i++)
         {
+            Debug.Log(i);
             var resolution = resolutionsList[i];
             string resolutionName = resolution.width + "x" + resolution.height + " " + resolution.refreshRateRatio + "Hz";
             resolutionsNameList.Add(resolutionName);
@@ -42,6 +43,7 @@ public class ScreenSettings : MonoBehaviour
 
     public void SetResolution(int resolutionIndex)
     {
+        Debug.Log(resolutionsList.Count + " " + resolutionIndex);
         Resolution resolution = resolutionsList[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 

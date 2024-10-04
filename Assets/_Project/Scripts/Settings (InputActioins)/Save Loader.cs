@@ -76,6 +76,7 @@ public class SaveLoader : MonoBehaviour
                 resolutionsList.Add(allResolutions[i]);
             }
         }
+        Debug.Log(resolutionsList.Count);
     }
     
     void VolumeSettingsLoading()

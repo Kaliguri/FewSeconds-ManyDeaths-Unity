@@ -166,6 +166,10 @@ public class HeroCombatObject: CombatObject // Hero, his talents, items, tileEff
 public class BossCombatObject : CombatObject // Boss, his tyleEffects, effects
 {
     public new Modifiers Modifiers => new Modifiers();
+    public override Modifiers GetModifiers()
+    {
+        return Modifiers;
+    } 
 }
 
 public class StandartCombatObject : CombatObject // Items, Minions, nobody TileEffects
