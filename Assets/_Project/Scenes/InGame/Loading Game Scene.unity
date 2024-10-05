@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 367892871}
   - component: {fileID: 367892872}
   m_Layer: 0
-  m_Name: Main Menu Loader
+  m_Name: MainMenuLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1263,9 +1263,9 @@ SceneRoots:
   - {fileID: 375769087088661509}
   - {fileID: 876966047}
   - {fileID: 5517833876891066607}
+  - {fileID: 367892871}
   - {fileID: 572813340}
   - {fileID: 980189024}
-  - {fileID: 367892871}
   - {fileID: 24382980}
   - {fileID: 1677788079}
   - {fileID: 638744641}
