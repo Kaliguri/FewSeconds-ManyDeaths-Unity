@@ -17,7 +17,47 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: ccf0cd8aa40226547b22b413dd887098, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 13510633822957568
+    m_Localized: Attackers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510700592082944
+    m_Localized: 'Defenders '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510710968791040
+    m_Localized: Healders
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510715586719744
+    m_Localized: Strategist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510725762101248
+    m_Localized: Universal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510664244244480
+    m_Localized: AttackersAttackers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510702722789376
+    m_Localized: 'Defenders Defenders '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510713573453824
+    m_Localized: HealdersHealders
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510718178799616
+    m_Localized: StrategistStrategist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13510727678898176
+    m_Localized: UniversalUniversal
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -12,7 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdd01e7a9f1e9f4e876ced93f77f026, type: 3}
   m_Name: Universal
   m_EditorClassIdentifier: 
-  Name: Universal
-  Description: Pandora... Box?
+  Name:
+    m_TableReference:
+      m_TableCollectionName: GUID:ccf0cd8aa40226547b22b413dd887098
+    m_TableEntryReference:
+      m_KeyId: 13510725762101248
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: GUID:ccf0cd8aa40226547b22b413dd887098
+    m_TableEntryReference:
+      m_KeyId: 13510727678898176
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Icon: {fileID: -351672636, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
   IconColor: {r: 0.79607844, g: 0.31764707, b: 0.83137256, a: 1}
+  references:
+    version: 2
+    RefIds: []

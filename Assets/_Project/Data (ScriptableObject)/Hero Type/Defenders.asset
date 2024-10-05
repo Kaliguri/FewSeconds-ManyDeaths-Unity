@@ -12,7 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdd01e7a9f1e9f4e876ced93f77f026, type: 3}
   m_Name: Defenders
   m_EditorClassIdentifier: 
-  Name: Defenders
-  Description: Defend!
+  Name:
+    m_TableReference:
+      m_TableCollectionName: GUID:ccf0cd8aa40226547b22b413dd887098
+    m_TableEntryReference:
+      m_KeyId: 13510700592082944
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: GUID:ccf0cd8aa40226547b22b413dd887098
+    m_TableEntryReference:
+      m_KeyId: 13510702722789376
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Icon: {fileID: -1851428079, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
   IconColor: {r: 0.23921569, g: 0.4, b: 0.69803923, a: 1}
+  references:
+    version: 2
+    RefIds: []

@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [CreateAssetMenu(fileName = "HeroTypeData", menuName = "FewSecondsManyDeaths/HeroData/HeroTypeData")]
 public class HeroTypeData : ScriptableObject
 {
     [Header("General")]
-    public string Name;
-    [TextArea] public string Description;
+    public LocalizedString Name;
+    public LocalizedString Description;
 
     [Header("Visual")]
     public Sprite Icon;

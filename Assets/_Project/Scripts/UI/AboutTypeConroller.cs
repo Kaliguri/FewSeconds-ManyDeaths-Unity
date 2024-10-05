@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class AboutTypeConroller : MonoBehaviour
 {
     [Header("Object Reference")]
-    [SerializeField] private TextMeshProUGUI HeroTypeNameText;
-    [SerializeField] private TextMeshProUGUI HeroTypeDescriptionText;
-    [SerializeField] private Image HeroTypeIcon;
+    [SerializeField] LocalizeStringEvent HeroTypeNameText;
+    [SerializeField] LocalizeStringEvent HeroTypeDescriptionText;
+    [SerializeField] Image HeroTypeIcon;
 
     private PlayerInfoData PlayerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private HeroData HeroData => PlayerInfoData.HeroDataList[PlayerInfoData.PlayerIDThisPlayer];
@@ -26,8 +27,8 @@ public class AboutTypeConroller : MonoBehaviour
     }
     void DataTranfer()
     {
-        HeroTypeNameText.text = HeroTypeData.Name;
-        HeroTypeDescriptionText.text = HeroTypeData.Description;
+        HeroTypeNameText.StringReference = HeroTypeData.Name;
+        HeroTypeDescriptionText.StringReference = HeroTypeData.Description;
         HeroTypeIcon.sprite = HeroTypeData.Icon;
         HeroTypeIcon.color = HeroTypeData.IconColor;
     
