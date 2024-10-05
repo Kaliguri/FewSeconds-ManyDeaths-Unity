@@ -118,7 +118,7 @@ public class BossHPBar : MonoBehaviour
         {
             secondary.value = Mathf.Lerp(secondary.value, currentHP, _lerpSpeed);
         }
-        Debug.Log(primary.value+ ": " + secondary.value);
+        //Debug.Log(primary.value+ ": " + secondary.value);
         yield return new WaitForSeconds(1/animationSpeed);
         }
 
@@ -144,7 +144,7 @@ public class BossHPBar : MonoBehaviour
     [Button ("DamageApply!")]
     public void DamageApply()
     {
-        bossManager.CurrentHPInCurrentAct -= Damage;
+        bossManager.bossStats.CurrentHP -= Damage;
 
         GlobalEventSystem.SendBossHPChanged();
         

@@ -2,6 +2,7 @@
 
 using System;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public static class CombatMethods
@@ -28,6 +29,10 @@ public static class CombatMethods
             GlobalEventSystem.SendPlayerShieldChanged();
             GlobalEventSystem.SendPlayerHPChanged();
         }
+        else if (targetType is BossCombatObject)
+        {
+            GlobalEventSystem.SendBossHPChanged();
+        }
     }
     
     public static void ApplayHeal(float healValue, CombatObject creatorType, CombatObject targetType)
@@ -35,13 +40,17 @@ public static class CombatMethods
         float healModif = creatorType.GetModifiers().HealModif * (1 - targetType.GetModifiers().HealEffectiveResist);
         healValue *= healModif;
 
-        targetType.GetData().CurrentHP += healValue;
+        if (targetType.GetData().CurrentHP + healValue >= targetType.GetData().MaxHP) targetType.GetData().CurrentHP = targetType.GetData().MaxHP;
+        else targetType.GetData().CurrentHP += healValue;
 
         if (targetType is HeroCombatObject)
         {   
             GlobalEventSystem.SendPlayerHPChanged();
         }
-        
+        else if (targetType is BossCombatObject)
+        {
+            GlobalEventSystem.SendBossHPChanged();
+        }
     }
 
     public static void ApplayShield(float shieldValue, CombatObject creatorType, CombatObject targetType)
@@ -129,9 +138,7 @@ public class CombatObject //Who cast damage, shield, heal and etc.
     public virtual Modifiers GetModifiers()
     {
         return Modifiers;
-    } 
-     
-
+    }
 }
 
 public class HeroCombatObject: CombatObject // Hero, his talents, items, tileEffects, effects
@@ -165,11 +172,22 @@ public class HeroCombatObject: CombatObject // Hero, his talents, items, tileEff
 
 public class BossCombatObject : CombatObject // Boss, his tyleEffects, effects
 {
+    private BossManager bossManager;
+    public new CombatStats Data => bossManager.bossStats;
     public new Modifiers Modifiers => new Modifiers();
     public override Modifiers GetModifiers()
     {
         return Modifiers;
-    } 
+    }
+    public BossCombatObject(BossManager _bossManager)
+    {
+        bossManager = _bossManager;
+    }
+
+    public override CombatStats GetData()
+    {
+        return Data;
+    }
 }
 
 public class StandartCombatObject : CombatObject // Items, Minions, nobody TileEffects
@@ -194,6 +212,7 @@ public class Modifiers
 [Serializable]
 public class CombatStats
 {
+    public float MaxHP = 0;
     public float CurrentHP = 0;
     public float CurrentShield = 0;
     public int CurrentEnergy = 0;

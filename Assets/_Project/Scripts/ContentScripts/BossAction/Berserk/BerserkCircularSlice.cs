@@ -55,7 +55,7 @@ public class BerserkCircularSlice : BossActionScript
         yield return new WaitForSeconds(timeBetweenCastAndDamage);
         for (int i = 0;i < playerID.Count;i++)
         {
-            BossCombatObject bossCombatObject = new BossCombatObject();
+            BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
             HeroCombatObject heroCombatObject = new HeroCombatObject(playerID[i], combatPlayerDataInStage);
             CombatMethods.ApplayDamage(damage, bossCombatObject, heroCombatObject);
         }

@@ -32,7 +32,7 @@ public class BossManager : NetworkBehaviour
     public float MaxHPInCurrentAct => HPActList[CurrentAct];
     [FoldoutGroup("HP")]
     [ReadOnly]
-    public float CurrentHPInCurrentAct;
+    public float CurrentHPInCurrentAct => bossStats.CurrentHP;
     
 
     [FoldoutGroup("Combo")]
@@ -42,6 +42,9 @@ public class BossManager : NetworkBehaviour
     [FoldoutGroup("Combo")]
     [ReadOnly]
     public BossComboData CurrentCombo;
+
+    [HideInInspector]
+    public CombatStats bossStats;
 
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private Vector2 tileZero => mapClass.tileZero;
@@ -79,8 +82,8 @@ public class BossManager : NetworkBehaviour
 
     void HPInizialize()
     {
-
-        CurrentHPInCurrentAct = MaxHPInCurrentAct;
+        bossStats.MaxHP = MaxHPInCurrentAct;
+        bossStats.CurrentHP = MaxHPInCurrentAct;
     }
 
     void CheckHP()

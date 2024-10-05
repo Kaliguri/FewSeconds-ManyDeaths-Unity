@@ -14,7 +14,8 @@ public class SkillScript
     public bool IsMovable = false;
     public int TargetCount = 1;
 
-    protected MapClass mapClass => GameObject.FindObjectOfType<MapClass>();
+    protected MapClass mapClass => GameObject.FindObjectOfType<MapClass>(); 
+    protected BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
     protected CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
 
 
@@ -115,6 +116,10 @@ public class SkillScript
             if (mapObject is Hero)
             {
                 combatObjectList.Add(new HeroCombatObject(mapObject.ID, combatPlayerDataInStage));
+            }
+            if (mapObject is Boss)
+            {
+                combatObjectList.Add(new BossCombatObject(bossManager));
             }
         }
 

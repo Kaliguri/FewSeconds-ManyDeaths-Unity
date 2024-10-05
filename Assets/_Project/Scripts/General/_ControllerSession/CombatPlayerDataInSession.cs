@@ -109,18 +109,18 @@ public class CombatPlayerDataInSession : MonoBehaviour
         for (int DataNumber = 0; DataNumber < maxPlayer; DataNumber++ )
         {
 
-        _TotalStatsList[DataNumber] = new AllPlayerStats();
+            _TotalStatsList[DataNumber] = new AllPlayerStats();
 
-        _HeroStatsEffectList[DataNumber] = new GeneralPlayerStats();
-        _TalentsStatsEffectList[DataNumber] = new GeneralPlayerStats();
-        _ItemsStatsEffectList[DataNumber] = new GeneralPlayerStats();
-        _CommandArtifactsStatsEffectList[DataNumber] = new GeneralPlayerStats();
-        _StatsEffectList[DataNumber] = new GeneralPlayerStats();
+            _HeroStatsEffectList[DataNumber] = new GeneralPlayerStats();
+            _TalentsStatsEffectList[DataNumber] = new GeneralPlayerStats();
+            _ItemsStatsEffectList[DataNumber] = new GeneralPlayerStats();
+            _CommandArtifactsStatsEffectList[DataNumber] = new GeneralPlayerStats();
+            _StatsEffectList[DataNumber] = new GeneralPlayerStats();
 
-        PlayersTalentsList[DataNumber] = new PlayerTalents();
-        PlayersItemsList[DataNumber] = new PlayerItems();
-        PlayersCommandArtifactsList[DataNumber] = ScriptableObject.CreateInstance<CommandArtifactData>();
-        CurrentEffectList[DataNumber] = ScriptableObject.CreateInstance<EffectData>();
+            PlayersTalentsList[DataNumber] = new PlayerTalents();
+            PlayersItemsList[DataNumber] = new PlayerItems();
+            PlayersCommandArtifactsList[DataNumber] = ScriptableObject.CreateInstance<CommandArtifactData>();
+            CurrentEffectList[DataNumber] = ScriptableObject.CreateInstance<EffectData>();
 
         }
     }
@@ -175,6 +175,7 @@ public class CombatPlayerDataInSession : MonoBehaviour
 
             resultList[DataNumber].general.AbilityPower += addedList[DataNumber].AbilityPower;
 
+            _TotalStatsList[DataNumber].currentCombat.MaxHP = resultList[DataNumber].general.MaxHP;
             _TotalStatsList[DataNumber].currentCombat.CurrentHP = resultList[DataNumber].general.StartHP;
         }
 
