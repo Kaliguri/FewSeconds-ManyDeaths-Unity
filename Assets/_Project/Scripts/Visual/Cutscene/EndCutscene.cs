@@ -17,7 +17,8 @@ public class EndCutscene : MonoBehaviour
 
     [Title("Other")]
     
-    private SceneLoaderManager sceneManager => FindObjectOfType<SceneLoaderManager>();
+    private SceneLoaderManager sceneLoaderManager => FindObjectOfType<SceneLoaderManager>();
+    private MainMenuSceneContainer sceneManager => FindObjectOfType<MainMenuSceneContainer>();
     private InputActions inputActions;
 
     void Awake()
@@ -39,7 +40,7 @@ public class EndCutscene : MonoBehaviour
     {
         if (GoNextScene)
         {
-            sceneManager.LoadScene(NextScene, true);
+            sceneLoaderManager.LoadScene(NextScene, true);
         }
     }
 }

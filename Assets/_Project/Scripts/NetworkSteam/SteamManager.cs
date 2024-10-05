@@ -18,10 +18,11 @@ public class SteamManager : MonoBehaviour
     [Header("Controller")]
     [SerializeField] private GameObject ControllersSession;
 
-    private string FirstSessionScene => FindObjectOfType<SceneLoaderManager>().FirstSessionScene;
+    private string FirstSessionScene => FindObjectOfType<MainMenuSceneContainer>().FirstSessionScene;
     private GameObject Controller;
 
-    private SceneLoaderManager sceneManager => FindObjectOfType<SceneLoaderManager>();
+    private MainMenuSceneContainer sceneManager => FindObjectOfType<MainMenuSceneContainer>();
+    private SceneLoaderManager sceneLoaderManager => FindObjectOfType<SceneLoaderManager>();
 
     private void OnEnable()
     {
@@ -125,7 +126,7 @@ public class SteamManager : MonoBehaviour
     {
         if (NetworkManager.Singleton.IsHost)
         {
-            sceneManager.LoadScene(FirstSessionScene, true);
+            sceneLoaderManager.LoadScene(FirstSessionScene, true);
         }
     }
 
