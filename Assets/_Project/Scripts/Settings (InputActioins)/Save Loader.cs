@@ -8,13 +8,14 @@ using UnityEngine.Localization.Settings;
 public class SaveLoader : MonoBehaviour
 {
     [Title("Settings")]
+    [PropertySpace(SpaceAfter = 20)]
     public string settingsFileName = "Settings.es3";
 
     [FoldoutGroup("General")]
     [Title("Save Names")]
     public List<string> generalSaveNamesList = new List<string>{"Language"};
 
-    [FoldoutGroup("Languages")]
+    [FoldoutGroup("General")]
     public List<Locale> languagesList;
 
 
@@ -34,6 +35,8 @@ public class SaveLoader : MonoBehaviour
     [FoldoutGroup("Sound")]
     [Title("Save Names")]
     public List<string> volumeSaveNamesList = new List<string>{"MasterVolume", "MusicVolume", "SFXVolume"};
+
+    [FoldoutGroup("Sound")]
     // MasterVolume, MusicVolume, SFXVolume
     public string sliderSavePrefix = "Slider";
     // MasterVolumeSlider, MusicVolumeSlider, SFXVolumeSlider

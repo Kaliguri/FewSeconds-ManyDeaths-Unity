@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3920837091173008639
+--- !u!1 &3955242481823634614
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,59 +8,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3991561471885074322}
-  - component: {fileID: 6102134651558721972}
-  - component: {fileID: 5275160235351525854}
+  - component: {fileID: 1774702209349755792}
+  - component: {fileID: 6746161152334523859}
+  - component: {fileID: 5388746630199772464}
   m_Layer: 0
-  m_Name: SaveLoader
+  m_Name: SceneLoaderManager(Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3991561471885074322
+--- !u!4 &1774702209349755792
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3920837091173008639}
+  m_GameObject: {fileID: 3955242481823634614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.617807, y: 4.3219, z: 1471.5741}
+  m_LocalPosition: {x: 673.0309, y: 675.78674, z: -8.670255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6102134651558721972
+--- !u!114 &6746161152334523859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3920837091173008639}
+  m_GameObject: {fileID: 3955242481823634614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad3aab44a4350c7409f33456d644318b, type: 3}
+  m_Script: {fileID: 11500000, guid: 76dbb30507a6bf349b38c6c4f26e6734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsFileName: Settings.es3
-  audioMixer: {fileID: 24100000, guid: 4f6850d2ad95acd4f873da585045b0d8, type: 2}
-  volumeNamesList:
-  - MasterVolume
-  - MusicVolume
-  - SFXVolume
-  defaultVolumeValue: 0.5
---- !u!114 &5275160235351525854
+  LoadingScenePath: Loading Game Scene.unity
+  LoadingScene: Loading Game Scene
+  MainMenuScenePath: Main Menu.unity
+  MainMenuScene: Main Menu
+  FirstSessionScenePath: Boss Encounter/Berserk/Berserk - 1 (Cutscene).unity
+  FirstSessionScene: Berserk - 1 (Cutscene)
+  TrainingScenePath: Test Scene.unity
+  TrainingScene: Test Scene
+--- !u!114 &5388746630199772464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3920837091173008639}
+  m_GameObject: {fileID: 3955242481823634614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 210cbeb6b079b6244aeb970679007083, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b3d0487e64364742ac3debcbf073199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
