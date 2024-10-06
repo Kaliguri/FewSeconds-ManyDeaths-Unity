@@ -10,12 +10,12 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
     [Title("Tooltip V3 Skill")]
 
-    [Title("Text Localize")]
-    public LocalizeStringEvent SkillName;
-    public LocalizeStringEvent EnergyCost;
-    public LocalizeStringEvent Cooldown;
-    public LocalizeStringEvent Description;
-    public LocalizeStringEvent NarrativeDescription;
+    [Title("LocalizeStringEvent Reference")]
+    [SerializeField] LocalizeStringEvent SkillName;
+    [SerializeField] LocalizeStringEvent EnergyCost;
+    [SerializeField] LocalizeStringEvent Cooldown;
+    [SerializeField] LocalizeStringEvent Description;
+    [SerializeField] LocalizeStringEvent NarrativeDescription;
 
     [Title("GameObject Reference")]
     [SerializeField] Image Icon;

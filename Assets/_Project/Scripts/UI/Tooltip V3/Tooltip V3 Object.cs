@@ -13,8 +13,12 @@ public class TooltipV3Object : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //Debug.Log("OnPointerEnter: " + eventData.pointerEnter.name);
         if (eventData.pointerEnter == PointerObject)
-        { tooltip.ShowTooltip(); }
+        {
+            tooltip.ShowTooltip(); 
+            //Debug.Log("ShowTooltip!"); 
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

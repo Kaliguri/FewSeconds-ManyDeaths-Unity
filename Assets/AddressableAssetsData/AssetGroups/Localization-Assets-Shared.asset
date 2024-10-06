@@ -76,6 +76,12 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 684d135ac1de00a41b94ce64d4fc9f55
+    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Tooltip/Basic Tooltips/Basic
+      Tooltips Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84c3fd870064ab64b8be32739d5ceefb
     m_Address: Assets/_Project/Localization & Fronts/Tables/UI/In Lobby Menu/In Lobby
       Menu Shared Data.asset

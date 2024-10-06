@@ -42,6 +42,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cf4361f39246e24eaa0deecd2970a25
+    m_Address: Basic Tooltips Content_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e38bd779cd49014a9cc05ca1a12c617
     m_Address: Heads Or Tails Quest_ru
     m_ReadOnly: 1

@@ -44,6 +44,13 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e4d0d7564b59584299c27a40c90d1ef
+    m_Address: Basic Tooltips Content_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e09a118bd794544ba0a4e0dfbff2e75
     m_Address: Skill Tooltip_en
     m_ReadOnly: 1

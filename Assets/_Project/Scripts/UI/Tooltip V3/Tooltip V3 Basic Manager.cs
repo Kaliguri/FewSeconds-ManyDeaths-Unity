@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 
 public class TooltipV3BasicManager : TooltipV3ParentManager
@@ -8,9 +10,15 @@ public class TooltipV3BasicManager : TooltipV3ParentManager
 
     [Title("Tooltip V3 Basic")]
 
-    [Title("Text Localize")]
-    public LocalizeStringEvent Header;
-    public LocalizeStringEvent Description;
+
+    [Title("LocalizedString")]
+    public LocalizedString HeaderText;
+    public LocalizedString DescriptionText;
+    
+
+    [Title("LocalizeStringEvent Reference")]
+    [SerializeField] LocalizeStringEvent Header;
+    [SerializeField] LocalizeStringEvent Description;
 
     public void OnDestroy() { HideTooltip();}
     public void OnDisable() { HideTooltip();}
@@ -18,6 +26,7 @@ public class TooltipV3BasicManager : TooltipV3ParentManager
     new void Awake()
     {
         TooltipContentShow();
+        DataTransfer();
         LocalizeStringEventListInizizalize();
         Refresh();
     }
@@ -26,7 +35,14 @@ public class TooltipV3BasicManager : TooltipV3ParentManager
     {
         LocalizeStringEventList = new List<LocalizeStringEvent>
         {
-
+            Header,
+            Description
         };
+    }
+
+    void DataTransfer()
+    {
+        Header.StringReference = HeaderText;
+        Description.StringReference = DescriptionText;
     }
 }
