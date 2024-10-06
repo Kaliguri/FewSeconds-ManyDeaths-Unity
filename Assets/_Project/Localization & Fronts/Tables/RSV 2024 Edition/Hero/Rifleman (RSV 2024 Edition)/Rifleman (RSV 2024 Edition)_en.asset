@@ -19,11 +19,25 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 21029531648
-    m_Localized: Rifleman
+    m_Localized: ' Weapon of Ligh'
     m_Metadata:
       m_Items: []
   - m_Id: 23697108992
-    m_Localized: RiflemanRifleman
+    m_Localized: "Since childhood, Darkness has been drawn to Erdan. The creatures
+      of the night felt him, and he felt Them. He was afraid of Them. And this fear
+      became the source of nightmares.\n\nBut one day he found a divine weapon..
+      Each shot carried a light. But with each shot, he saw more frightening nightmares.
+      \n\nWhen he was alone, his hands began to tremble violently. He hated being
+      alone. This prompted him to create a Guild.\n\nHe has learned the Aspect of
+      Light. And the horror of Darkness. His shots are accurate, and especially dangerous
+      if there is an ally nearby. His speeches can be inspiring. His title is a Weapon
+      of Light."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1987636289155072
+    m_Localized: The Weapon of Light is not a title, it is a brand. With him, I carry
+      the weight of every shot, every victory, and every horror that darkness brings
+      to me...
     m_Metadata:
       m_Items: []
   references:

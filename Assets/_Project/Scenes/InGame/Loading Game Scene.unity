@@ -837,6 +837,11 @@ PrefabInstance:
       propertyPath: m_Circle.m_Radius
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1166310485636975040, guid: cff3895d59896cf4f96b52d0a713953b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3914824872117109161, guid: cff3895d59896cf4f96b52d0a713953b,
         type: 3}
       propertyPath: m_Name

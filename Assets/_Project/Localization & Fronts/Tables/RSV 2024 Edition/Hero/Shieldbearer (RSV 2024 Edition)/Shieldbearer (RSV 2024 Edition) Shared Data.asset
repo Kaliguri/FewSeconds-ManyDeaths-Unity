@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: Skill 2 - 2
     m_Metadata:
       m_Items: []
+  - m_Id: 1987545524416512
+    m_Key: Quote
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -30,6 +30,15 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quoute:
+    m_TableReference:
+      m_TableCollectionName: GUID:303b1c8311a6a5646abc9e36cd5174ba
+    m_TableEntryReference:
+      m_KeyId: 1987636289155072
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   HeroTypeData: {fileID: 11400000, guid: 8961fcd069523384591fbc97f9a88b19, type: 2}
   GameObjectSpritePrefab: {fileID: 6372532583127048749, guid: d396e662df40dfe4c89b78c24d25909f,
     type: 3}
