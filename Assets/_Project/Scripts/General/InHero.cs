@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class InHero : NetworkBehaviour
     private GameObject heroSpritePrefab => playerInfoData.HeroDataList[ownerPlayerID.Value].GameObjectSpritePrefab;
 
     [SerializeField] private GameObject currentPrefab;
+
+    private void Awake()
+    {
+        GlobalEventSystem.PlayerDied.AddListener(AmIDied);
+    }
 
     void Start()
     {
@@ -43,5 +49,13 @@ public class InHero : NetworkBehaviour
     public void SetOridginSprite()
     {
         Transformation(heroSpritePrefab);
+    }
+
+    private void AmIDied(int playerID)
+    {
+        if (playerID == ownerPlayerID.Value)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 }

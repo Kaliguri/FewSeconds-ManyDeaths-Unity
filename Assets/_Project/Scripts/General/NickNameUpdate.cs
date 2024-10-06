@@ -18,6 +18,7 @@ public class NickNameUpdate : MonoBehaviour
     void Awake()
     {
         GlobalEventSystem.AllPlayerSpawned.AddListener(UpdatePlayerNickname);
+        GlobalEventSystem.PlayerDied.AddListener(AmIDied);
     }
 
     void Start()
@@ -41,5 +42,13 @@ public class NickNameUpdate : MonoBehaviour
             playerName.text = playerInfoData.NicknameList[CutsceneHeroID];
         }
 
+    }
+
+    private void AmIDied(int playerID)
+    {
+        if (playerID == GetComponent<InHero>().ownerPlayerID.Value && !IsCutscene)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

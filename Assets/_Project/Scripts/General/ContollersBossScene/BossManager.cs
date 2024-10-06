@@ -97,10 +97,16 @@ public class BossManager : NetworkBehaviour
 
     void ChangeAct()
     {
-        CurrentAct += 1;
-        HPInizialize();
-        GlobalEventSystem.SendBossActChanged();
-
+        if (CurrentAct + 1 < HPActList.Count)
+        {
+            CurrentAct += 1;
+            HPInizialize();
+            GlobalEventSystem.SendBossActChanged();
+        }
+        else
+        {
+            GlobalEventSystem.SendBossDied();
+        }
     }
 
     public void Spawn()
