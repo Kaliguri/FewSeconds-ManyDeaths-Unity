@@ -1,43 +1,139 @@
-using Cinemachine;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 
 public class TooltipV3ParentManager : MonoBehaviour
 {
     [Title("Tooltip V3 Parent")]
+    
+    [Title("Tooltip Style")]
+    public TagFontStyle Style;
+
     [Title("Gameobject Reference")]
     [SerializeField] GameObject TooltipContent;
     [SerializeField] protected GameObject Background;
+
 
     [Title("Edge Detecting Settings")]
     //[SerializeField] bool IsCameraSpace = true;
     [SerializeField] float IndentX = 0.1f;
     [SerializeField] float IndentY = 0.1f;
 
-    [Title("Tooltip Style")]
-    public TagFontStyle Style;
+    [Title("Dynamic Background")]
+    [Title("Dynamic Background Reference")]
+    [SerializeField] protected GameObject PseudoHeader;
 
-    
+    [Title("Dynamic Background Settings")]
+    [SerializeField] protected float ExtraWidthForBackground = 200;
+    [SerializeField] protected float ExtraHeightForBackground = 200;
 
-    private RectTransform CanvasRect => transform.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-    public Camera cameraBrain => FindObjectOfType<Camera>().GetComponent<Camera>();
-    public virtual void Refresh()
+    protected List<LocalizeStringEvent> LocalizeStringEventList;
+    //private RectTransform CanvasRect => transform.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+    private Camera cameraBrain => FindObjectOfType<Camera>().GetComponent<Camera>();
+
+    #region  ShowHideMethods
+    public virtual void ShowTooltip()
     {
-        Debug.Log("RefreshTooltip");
+        gameObject.SetActive(true);
+        Refresh();
     }
+
+    public virtual void HideTooltip()
+    {
+        gameObject.SetActive(false);
+    }
+
+    #endregion
+    #region AwakeMethods
+    protected void Awake()
+    {
+        TooltipContentShow();
+        LocalizeStringEventListInizizalize();
+        Refresh();
+    }
+
+    protected void Update()
+    {
+        Refresh();
+    }
+
 
     protected void TooltipContentShow()
     {
         TooltipContent.gameObject.SetActive(true);
     }
-    public virtual void ShowTooltip()
+
+    protected void LocalizeStringEventListInizizalize()
     {
-        Debug.Log("ShowTooltip");
+        LocalizeStringEventList = new List<LocalizeStringEvent>
+        {
+            
+        };
     }
 
-    public virtual void HideTooltip()
+    #endregion
+    #region RefreshMethods
+
+    protected void Refresh()
     {
-        Debug.Log("HideTooltip");
+        LocalizeRefresh();
+        UpdateTagFontStyte();
+        ResizeBackground();
+        EdgeDetection();
+
+    }
+     protected void LocalizeRefresh()
+    {
+        foreach (LocalizeStringEvent localizeString in LocalizeStringEventList)
+        { localizeString.RefreshString(); }
+    }
+
+    #region TagFontUpdate
+    protected void UpdateTagFontStyte()
+    {
+        foreach (LocalizeStringEvent localizeString in LocalizeStringEventList)
+        { localizeString.GetComponent<TextMeshProUGUI>().text = SetTagFontStyle(localizeString.GetComponent<TextMeshProUGUI>().text, Style); }
+    }
+
+    protected string SetTagFontStyle(string text, TagFontStyle style)
+    {
+        
+        // Convert all tags to TMPro markup
+        var styles = style.fontStyles;
+        for(int i = 0; i < styles.Length; i++)
+        {
+            string addTags = "</b></i></u></s>";
+            addTags += "<color=#" + ColorToHex(styles[i].color) + ">";
+            if (styles[i].bold) addTags += "<b>";
+            if (styles[i].italic) addTags += "<i>";
+            if (styles[i].underline) addTags += "<u>";
+            if (styles[i].strikethrough) addTags += "<s>";
+            text = text.Replace(styles[i].tag, addTags);
+        }
+        
+        return text;
+    }
+
+    protected string ColorToHex(Color color)
+    {
+        int r = (int)(color.r * 255);
+        int g = (int)(color.g * 255);
+        int b = (int)(color.b * 255);
+        return r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
+    }
+
+    #endregion
+
+    protected void ResizeBackground()
+    {
+        var EndRectItem = PseudoHeader.GetComponent<RectTransform>();
+        var width = EndRectItem.sizeDelta.x + ExtraWidthForBackground;
+        var height = math.abs(EndRectItem.localPosition.y) + EndRectItem.sizeDelta.y + ExtraHeightForBackground;
+
+        Background.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
     }
 
     protected void EdgeDetection()
@@ -84,5 +180,8 @@ public class TooltipV3ParentManager : MonoBehaviour
             tooltipTransform.position += new Vector3(0, screenMaxY - IndentY - maxY, 0);
         }
     }
+
+    #endregion
+
 
 }

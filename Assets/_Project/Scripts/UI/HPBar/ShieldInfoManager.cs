@@ -10,7 +10,7 @@ public class ShieldInfoManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI shieldText;
 
     [Title("Settings")]
-    [SerializeField] float renderChangeValue = 0.5f;
+    [SerializeField] float renderChangeValue = 1f;
 
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private int UINumber;
@@ -40,7 +40,7 @@ public class ShieldInfoManager : MonoBehaviour
 
     void ShowShieldInfo()
     {
-        shieldText.text = shieldValue.ToString();
+        shieldText.text = "+" + shieldValue.ToString();
         RenderChange(true);
     }
     void HideShieldInfo()

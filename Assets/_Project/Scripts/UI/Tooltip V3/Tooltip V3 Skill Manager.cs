@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using TMPro;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
@@ -26,58 +24,33 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     public int EnergyCostValue = 0;
     public int CooldownValue = 0;
 
-    [Title("Dynamic Background")]
-    [Title("Dynamic Background Reference")]
-    [SerializeField] GameObject PseudoHeader;
-
-    [Title("Dynamic Background Settings")]
-    [SerializeField] float ExtraWidthForBackground;
-    [SerializeField] float ExtraHeightForBackground;
-
-    private List<LocalizeStringEvent> LocalizeStringEventList;
+    #region TooltipV3 ParentMethods
 
     public void OnDestroy() { HideTooltip();}
     public void OnDisable() { HideTooltip();}
 
-    void Awake()
+    new void Awake()
     {
         TooltipContentShow();
         LocalizeStringEventListInizizalize();
         Refresh();
     }
 
-    void Update()
+    new void LocalizeStringEventListInizizalize()
     {
-        Refresh();
+        LocalizeStringEventList = new List<LocalizeStringEvent>
+        {
+            SkillName,
+            Description,
+            NarrativeDescription,
+            EnergyCost,
+            Cooldown
+        };
     }
 
-    public override void Refresh()
-    {
-        LocalizeRefresh();
-        //UpdateTextSize();
-        UpdateTagFontStyte();
-        ResizeBackground();
-        EdgeDetection();
+    #endregion
+    #region NewMethods
 
-        //Debug.Log("Refresh!");
-    }
-
-    public override void ShowTooltip()
-    {
-        gameObject.SetActive(true);
-        Refresh();
-    }
-
-    public override void HideTooltip()
-    {
-        gameObject.SetActive(false);
-    }
-
-    void RefreshVariables()
-    {
-        EnergyCost.RefreshString();
-        Cooldown.RefreshString();
-    }
 
     public void SkillDataTransfer(SkillData skillData)
     {
@@ -88,9 +61,12 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
         
         EnergyCostValue = skillData.SkillScript.EnergyCost;
         CooldownValue = skillData.SkillScript.SkillCooldown;
-        
-
     }
+
+    #endregion
+
+}
+
 
     /*
     void UpdateTextSize()
@@ -105,65 +81,3 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
         }
     }
     */
-
-    void ResizeBackground()
-    {
-        var EndRectItem = PseudoHeader.GetComponent<RectTransform>();
-        var width = EndRectItem.sizeDelta.x + ExtraWidthForBackground;
-        var height = math.abs(EndRectItem.localPosition.y) + EndRectItem.sizeDelta.y + ExtraHeightForBackground;
-
-        Background.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
-    }
-
-    void UpdateTagFontStyte()
-    {
-        foreach (LocalizeStringEvent localizeString in LocalizeStringEventList)
-        { localizeString.GetComponent<TextMeshProUGUI>().text = SetTagFontStyle(localizeString.GetComponent<TextMeshProUGUI>().text, Style); }
-    }
-
-    public string SetTagFontStyle(string text, TagFontStyle style)
-    {
-        
-        // Convert all tags to TMPro markup
-        var styles = style.fontStyles;
-        for(int i = 0; i < styles.Length; i++)
-        {
-            string addTags = "</b></i></u></s>";
-            addTags += "<color=#" + ColorToHex(styles[i].color) + ">";
-            if (styles[i].bold) addTags += "<b>";
-            if (styles[i].italic) addTags += "<i>";
-            if (styles[i].underline) addTags += "<u>";
-            if (styles[i].strikethrough) addTags += "<s>";
-            text = text.Replace(styles[i].tag, addTags);
-        }
-        
-        return text;
-    }
-
-    public string ColorToHex(Color color)
-    {
-        int r = (int)(color.r * 255);
-        int g = (int)(color.g * 255);
-        int b = (int)(color.b * 255);
-        return r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
-    }
-
-    void LocalizeStringEventListInizizalize()
-    {
-        LocalizeStringEventList = new List<LocalizeStringEvent>
-        {
-            SkillName,
-            Description,
-            NarrativeDescription,
-            EnergyCost,
-            Cooldown
-        };
-    }
-
-    void LocalizeRefresh()
-    {
-        foreach (LocalizeStringEvent localizeString in LocalizeStringEventList)
-        { localizeString.RefreshString(); }
-    }
-
-}

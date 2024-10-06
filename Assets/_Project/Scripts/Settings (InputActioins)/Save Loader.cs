@@ -67,7 +67,7 @@ public class SaveLoader : MonoBehaviour
 
             Locale locale = languagesList[localeIndex];
             LocalizationSettings.SelectedLocale = locale;
-            Debug.Log(LocalizationSettings.SelectedLocale.name);
+            //Debug.Log(LocalizationSettings.SelectedLocale.name);
         }
     }
 
