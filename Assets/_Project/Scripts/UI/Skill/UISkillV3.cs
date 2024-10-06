@@ -21,21 +21,22 @@ public class UISkillV3 : MonoBehaviour
     protected int playerID => playerInfoData.PlayerIDThisPlayer;
     protected int variation => playerInfoData.SkillChoiceList[playerID].variationList[UINumber];
 
-    protected HeroData heroData => playerInfoData.HeroDataList[playerID];
-    protected SkillData skillData => heroData.SkillList[UINumber].SkillVariationsList[variation];
+    protected HeroData heroData;
+    protected SkillData skillData;
 
     void Awake()
     {
         GlobalEventSystem.SkillChanged.AddListener(DataTransfer);
+        GlobalEventSystem.PlayerInfoDataInitialized.AddListener(DataTransfer);
+        GlobalEventSystem.StartCombat.AddListener(DataTransfer);
     }
-    void Start()
-    {
-        DataTransfer();
-    }
+
     public virtual void DataTransfer()
     {
+        heroData = playerInfoData.HeroDataList[playerID];
+        skillData = heroData.SkillList[UINumber].SkillVariationsList[variation];
+
         IconObj.sprite = skillData.SkillIcon;
-        
         tooltipManager.SkillDataTransfer(skillData);
     }
 
