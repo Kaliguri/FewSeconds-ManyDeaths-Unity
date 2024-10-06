@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -29,6 +31,8 @@ public class PredictionStage : GameState
             bossManager.ChoiceCombo();
             StartCoroutine(nameof(GiveTimePass));
         }
+
+        ShieldsRemove();
     }
 
     public override void Exit()
@@ -74,5 +78,13 @@ public class PredictionStage : GameState
     {
         yield return new WaitForSeconds(1f);
         gameStateManager.TransitionToNextStage();
+    }
+
+    private void ShieldsRemove()
+    {
+        bossManager.bossStats.CurrentShield = 0;
+        List<AllPlayerStats> playerStats = combatPlayerDataInStage._TotalStatsList.ToList();
+        for (int i = 0; i < playerStats.Count; i++) playerStats[i].currentCombat.CurrentShield = 0;
+        GlobalEventSystem.SendPlayerShieldChanged();
     }
 }

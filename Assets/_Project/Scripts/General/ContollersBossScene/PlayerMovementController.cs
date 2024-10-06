@@ -24,6 +24,8 @@ public class PlayerMovementController : NetworkBehaviour
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private Tilemap gameplayTilemap => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().gameplayTilemap;
     private Vector2 tileZero => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>().tileZero;
+    private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
+    private bool isAlive => combatPlayerDataInStage.aliveStatus[playerInfoData.PlayerIDThisPlayer];
     private InputActions inputActions;
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private PlayerSkillManager playerSkillManager => FindObjectOfType<PlayerSkillManager>();
@@ -88,9 +90,12 @@ public class PlayerMovementController : NetworkBehaviour
 
     void StartDefineMovement()
     {
-        inputActions.Enable();
-        LastPosition = combatPlayerDataInStage.HeroCoordinates[playerId];
-        MovementListCheckPoints.Add(LastPosition);
+        if (isAlive)
+        {
+            inputActions.Enable();
+            LastPosition = combatPlayerDataInStage.HeroCoordinates[playerId];
+            MovementListCheckPoints.Add(LastPosition);
+        }
     }
 
     public void RemoveLastPointsInList()
@@ -213,14 +218,15 @@ public class PlayerMovementController : NetworkBehaviour
         {
             for (int i = 0; i < MovementList.Count; i++)
             {
-                SendPlayerStartMoveRpc();
-                combatPlayerDataInStage.PlayersHeroes[playerId].transform.position = MovementList[i] + tileZero;
-                ChangePlayerCoordinatesRpc(MovementList[i], playerId);
-                SendPlayerEndMoveRpc();
-                ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[playerId], MovementList[MovementList.Count - 1], playerId);
-                if (i < MovementList.Count - 1) yield return new WaitForSeconds(timeBetweenMovement);
-                //if we want to not wait when we step on player tile we use line belowe
-                //if (!mapClass.GetMapObjectList(MovementList[i]).Exists(x => x is Hero)) yield return new WaitForSeconds(timeBetweenMovement);
+                if (combatPlayerDataInStage.aliveStatus[playerId])
+                {
+                    SendPlayerStartMoveRpc();
+                    combatPlayerDataInStage.PlayersHeroes[playerId].transform.position = MovementList[i] + tileZero;
+                    ChangePlayerCoordinatesRpc(MovementList[i], playerId);
+                    SendPlayerEndMoveRpc();
+                    ChangeMapStatesRpc(combatPlayerDataInStage.HeroCoordinates[playerId], MovementList[MovementList.Count - 1], playerId);
+                    if (i < MovementList.Count - 1) yield return new WaitForSeconds(timeBetweenMovement);
+                }
             }
             
             MovementList.Clear();

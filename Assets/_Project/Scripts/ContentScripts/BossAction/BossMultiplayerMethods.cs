@@ -12,7 +12,7 @@ public class BossMultiplayerMethods : NetworkBehaviour
 
     public List<Vector2> GetRandomPointNearRandomPlayer()
     {
-        Vector2 heroCoordinate = GetHeroCoordinate();
+        Vector2 heroCoordinate = GetRandomAliveHeroCoordinate();
 
         List<Vector2> cellsAroundPlayer = GridAreaMethods.SquareAOE(heroCoordinate, heroCoordinate, 1, true);
         List<Vector2> cellsAroundPlayers = ClearListFromOccupiedTiles(cellsAroundPlayer);
@@ -36,8 +36,11 @@ public class BossMultiplayerMethods : NetworkBehaviour
         return ClearTilesList;
     }
 
-    private Vector2 GetHeroCoordinate()
+    private Vector2 GetRandomAliveHeroCoordinate()
     {
-        return combatPlayerDataInStage.HeroCoordinates.ToList()[UnityEngine.Random.Range(0, combatPlayerDataInStage.HeroCoordinates.ToList().Count)];
+        List<Vector2> HeroCoordinates = new();
+        for (int j = 0; j < combatPlayerDataInStage.HeroCoordinates.Length; j++) if (combatPlayerDataInStage.aliveStatus[j]) HeroCoordinates.Add(combatPlayerDataInStage.HeroCoordinates[j]);
+        if (HeroCoordinates.Count > 0) return HeroCoordinates[UnityEngine.Random.Range(0, HeroCoordinates.Count)];
+        else return combatPlayerDataInStage.HeroCoordinates[UnityEngine.Random.Range(0, combatPlayerDataInStage.HeroCoordinates.Length)];
     }
 }

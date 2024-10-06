@@ -58,7 +58,7 @@ public class PlayerTurnStage : GameState
     public override void Exit()
     {
         GlobalEventSystem.SendPlayerTurnStageEnded();
-        //Debug.Log("Exiting Player Turn Stage");
+        StopCoroutine(timer);
 
         EnablePlayerTurnUI(false);
     }

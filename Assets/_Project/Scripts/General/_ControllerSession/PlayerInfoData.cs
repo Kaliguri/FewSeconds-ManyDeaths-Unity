@@ -31,7 +31,7 @@ public class PlayerInfoData : MonoBehaviour
     };
 
     [TabGroup("Turn Order")]
-    public List<int> TurnPriority;
+    public List<int> TurnPriority;    
 
     private void Awake()
     {

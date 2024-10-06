@@ -46,6 +46,7 @@ public class BossManager : NetworkBehaviour
     [HideInInspector]
     public CombatStats bossStats;
 
+    private CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private Vector2 tileZero => mapClass.tileZero;
     private List<List<Vector2>> TargetPointsForActions = new();

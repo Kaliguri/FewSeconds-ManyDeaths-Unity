@@ -150,6 +150,15 @@ public static class GlobalEventSystem
     public static UnityEvent PlayerHPChanged = new();
     public static void SendPlayerHPChanged() { PlayerHPChanged.Invoke(); }
 
+    public static UnityEvent AllPlayersDied = new();
+    public static void SendAllPlayersDied() {  AllPlayersDied.Invoke(); }
+
+    public static UnityEvent BossDied = new();
+    public static void SendBossDied() { BossDied.Invoke(); }
+
+    public static UnityEvent<int> PlayerDied = new();
+    public static void SendPlayerDied(int playerID) {  PlayerDied.Invoke(playerID); }
+
     public static UnityEvent PlayerShieldChanged = new();
     public static void SendPlayerShieldChanged() { PlayerShieldChanged.Invoke(); }
 
