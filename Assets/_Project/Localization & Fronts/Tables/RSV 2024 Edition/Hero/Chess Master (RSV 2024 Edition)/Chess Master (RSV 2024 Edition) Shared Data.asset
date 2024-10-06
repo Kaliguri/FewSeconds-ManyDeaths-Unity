@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: Biography
     m_Metadata:
       m_Items: []
+  - m_Id: 1908679824977920
+    m_Key: Qoute
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

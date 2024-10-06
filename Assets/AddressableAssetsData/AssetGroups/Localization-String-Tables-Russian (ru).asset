@@ -22,12 +22,14 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08d325d109d39674691f3228ac5b9122
     m_Address: Rifleman (RSV 2024 Edition)_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2311f6efa280a6849af1e0fe198784c0
     m_Address: Chess Master_ru
@@ -41,6 +43,7 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cf4361f39246e24eaa0deecd2970a25
     m_Address: Basic Tooltips Content_ru
@@ -116,6 +119,7 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e3ed3c9c30accf48be36d7bcc0c0fab
     m_Address: Settings_ru

@@ -10,7 +10,10 @@ public class AboutHeroController : MonoBehaviour
     [SerializeField] private LocalizeStringEvent HeroNameText;
     [SerializeField] private LocalizeStringEvent HeroDescriptionText;
     [SerializeField] private Image HeroIcon;
+
+    [Title("Extra")]
     [SerializeField] Image HeroImage;
+    [SerializeField] private LocalizeStringEvent HeroQuote;
 
     private PlayerInfoData PlayerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private HeroData HeroData => PlayerInfoData.HeroDataList[PlayerInfoData.PlayerIDThisPlayer];
@@ -28,7 +31,9 @@ public class AboutHeroController : MonoBehaviour
     {
         HeroNameText.StringReference = HeroData.Name;
         HeroDescriptionText.StringReference = HeroData.Description;
+
         HeroIcon.sprite = HeroData.HeroIcon;
+        HeroQuote.StringReference = HeroData.Quoute;
 
         HeroImageDataTransfer();
         

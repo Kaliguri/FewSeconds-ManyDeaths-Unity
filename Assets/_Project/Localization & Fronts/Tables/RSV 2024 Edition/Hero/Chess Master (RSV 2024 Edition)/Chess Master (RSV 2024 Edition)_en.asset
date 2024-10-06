@@ -23,7 +23,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 23697108992
-    m_Localized: Chess MasterChess Master
+    m_Localized: 'The grandmaster is a young man who came from afar. At his age,
+      he was already able to learn the concept of Tactics, and interpret it with
+      his ability to play chess, having the opportunity to control the surrounding
+      space.
+
+
+      His skills allow him to effectively support his team by moving
+      them during dangerous situations. Or he can change the location of opponents
+      so that they miss or lose the advantage of their position.
+
+
+      However,
+      the skills themselves do not have any effect on the character. They can''t
+      hurt, they can''t heal, or they can''t protect. Because of this, this character
+      may be difficult to understand.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1908679824977920
+    m_Localized: Chess is the language spoken by the soul. And each part is a song
+      that resonates in the hearts of those who play!
     m_Metadata:
       m_Items: []
   references:

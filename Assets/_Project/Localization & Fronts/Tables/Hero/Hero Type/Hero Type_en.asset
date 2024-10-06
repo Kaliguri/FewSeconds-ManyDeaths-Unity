@@ -51,7 +51,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13510718178799616
-    m_Localized: StrategistStrategist
+    m_Localized: Strategists are masters of tactics and manipulation on the battlefield.
+      With their unique ability to move allies and enemies, they create advantageous
+      positions for their team and put enemies in a difficult position.
     m_Metadata:
       m_Items: []
   - m_Id: 13510727678898176

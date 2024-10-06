@@ -9,6 +9,7 @@ public class HeroData : ScriptableObject
     [Header("General")]
     public LocalizedString Name;
     public LocalizedString Description;
+    public LocalizedString Quoute;
     public HeroTypeData HeroTypeData;
 
     [Header("Visual")]
