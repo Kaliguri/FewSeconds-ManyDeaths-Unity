@@ -75,7 +75,7 @@ public class PlayerMovementController : NetworkBehaviour
 
     private void PlayerSkillUnchoosed(int skillNumber)
     {
-        if (playerSkillManager.IsSkillListEmpty) inputActions.Enable();
+        if (playerSkillManager.IsSkillListEmpty && isAlive) inputActions.Enable();
     }
 
     private void PlayerSkillChoosed(int skillNumber)
