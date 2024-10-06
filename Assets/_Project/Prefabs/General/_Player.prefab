@@ -144,8 +144,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3732277569514529227}
-  - component: {fileID: 1075935725136297563}
   - component: {fileID: 1415092046430088569}
+  - component: {fileID: 1075935725136297563}
   - component: {fileID: -2270917492168677748}
   - component: {fileID: -4245845034227776753}
   - component: {fileID: 7603235389531878541}
@@ -174,22 +174,6 @@ Transform:
   - {fileID: 3872604704153092000}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1075935725136297563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052837961757102308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd322753d085714da47b019bbfea195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIDHost: 0
-  ownerPlayerID:
-    m_InternalValue: 0
-  currentPrefab: {fileID: 1026413734755640803}
 --- !u!114 &1415092046430088569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +195,22 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &1075935725136297563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052837961757102308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd322753d085714da47b019bbfea195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIDHost: 0
+  ownerPlayerID:
+    m_InternalValue: 0
+  currentPrefab: {fileID: 1026413734755640803}
 --- !u!114 &-2270917492168677748
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public static class CombatMethods
             damageValue -= targetType.GetData().CurrentShield;
             targetType.GetData().CurrentShield = 0;
             targetType.GetData().CurrentHP -= damageValue;
+            if (targetType.GetData().CurrentHP < 0) targetType.GetData().CurrentHP = 0;
         }
         else
         {
@@ -164,10 +165,7 @@ public class HeroCombatObject: CombatObject // Hero, his talents, items, tileEff
     {
         ObjectID = objectID;
         playersData = combatPlayerDataInStage;
-        Debug.Log(playersData._TotalStatsList[ObjectID].general.Modifiers.DamageModif);
     }
-
-    
 }
 
 public class BossCombatObject : CombatObject // Boss, his tyleEffects, effects

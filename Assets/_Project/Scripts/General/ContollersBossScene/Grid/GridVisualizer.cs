@@ -82,6 +82,7 @@ public class GridVisualizer : NetworkBehaviour
     Vector2[] heroPositions => combatPlayerDataInStage.HeroCoordinates;
     private List<Vector2> pathCoordinates => playerMovementController.MovementList;
     private Vector2 selectedCellCoordinate => playerMovementController.LastPosition;
+    private bool isAlive => combatPlayerDataInStage.aliveStatus[playerInfoData.PlayerIDThisPlayer];
     #endregion
 
     #region PrivateParameters
@@ -106,7 +107,9 @@ public class GridVisualizer : NetworkBehaviour
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(PlayerTurnStageStarted);
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(PlayersStartMoving);
         GlobalEventSystem.PlayerTurnStageEnded.AddListener(PlayersEndMoving);
+        GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(PlayersEndMoving);
         GlobalEventSystem.AllPlayerSpawned.AddListener(CreatePlayersTiles);
+        GlobalEventSystem.PlayerDied.AddListener(HideDeadPlayerTile);
         GlobalEventSystem.PlayerStartMove.AddListener(HidePlayersTiles);
         GlobalEventSystem.PlayerEndMove.AddListener(ShowPlayersTiles);
         GlobalEventSystem.PlayerSkillChoosed.AddListener(PlayerSkillChoosed);
@@ -159,7 +162,7 @@ public class GridVisualizer : NetworkBehaviour
             Vector2 TileCenter = gameplayTilemap.GetCellCenterWorld(tile);
             List<MapObject> GetMapObjectList = mapClass.GetMapObjectList(TileCenter - tileZero);
 
-            if (isPlayerCasting) UpdateSkillAffectedArea(TileCenter);
+            if (isPlayerCasting && isAlive) UpdateSkillAffectedArea(TileCenter);
             else
             {
                 if (GetMapObjectList.Exists(x => x is Hero)) tileSelector = Instantiate(allyTypeTileSelector, TileCenter, Quaternion.identity);
@@ -167,7 +170,7 @@ public class GridVisualizer : NetworkBehaviour
                 else if (GetMapObjectList.Exists(x => x is TempBloked)) tileSelector = Instantiate(terrainTypeTileSelector, TileCenter, Quaternion.identity);
                 else tileSelector = Instantiate(standartTileSelector, TileCenter, Quaternion.identity);
 
-                if (isPlayerMoving && isPlayerTurnStage) UpdatePath(TileCenter);
+                if (isPlayerMoving && isPlayerTurnStage && isAlive) UpdatePath(TileCenter);
             }
         }
     }
@@ -320,8 +323,13 @@ public class GridVisualizer : NetworkBehaviour
         for (int i = 0; i < playersTilesGameObjectList.Count; i++)
         {
             playersTilesGameObjectList[i].transform.position = heroPositions[i] + tileZero;
-            playersTilesGameObjectList[i].GetComponent<SpriteRenderer>().enabled = true;
+            if (combatPlayerDataInStage.aliveStatus[i]) playersTilesGameObjectList[i].GetComponent<SpriteRenderer>().enabled = true;
         }
+    }
+
+    private void HideDeadPlayerTile(int playerID)
+    {
+        playersTilesGameObjectList[playerID].GetComponent<SpriteRenderer>().enabled = false;
     }
     #endregion
 

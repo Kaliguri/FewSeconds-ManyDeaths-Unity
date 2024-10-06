@@ -1,3 +1,4 @@
+using MoreMountains.Tools;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,8 +17,6 @@ public class BerserkCircularSlice : BossActionScript
 
         Debug.Log("Cast Berserk Circular Slice!");
         CastCircularSlice();
-
-        CastEnd();
     }
 
     public override List<Vector2> GetCastPoint(int act)
@@ -27,37 +26,37 @@ public class BerserkCircularSlice : BossActionScript
 
     private void CastCircularSlice()
     {
-        List<int> playersID = new List<int>();
         List<Vector2> CircularList = GridAreaMethods.CircleAOE(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates, 2, true);
-        for (int i = 0; i < CircularList.Count; i++)
-        {
-            Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(CircularList[i] + mapClass.tileZero);
-            if (mapClass.gameplayTilemap.HasTile(tile))
-            {
-                GameObject AffectedTile = MonoInstance.Instantiate(affectedTile, CircularList[i] + mapClass.tileZero, Quaternion.identity);
-                MonoInstance.Destroy(AffectedTile, timeBetweenCastAndDamage);
-                List<MapObject> mapObjects = mapClass.GetMapObjectList(CircularList[i]);
-                foreach (MapObject mapObject in mapObjects)
-                {
-                    if (mapObject is Hero)
-                    {
-                        int playerID = mapObject.ID;
-                        playersID.Add(playerID);
-                    }
-                }
-            }
-        }
-        MonoInstance.instance.StartCoroutine(DamagePlayers(playersID));
+
+        CastAreaForSkill(CircularList);
+        
+        MonoInstance.instance.StartCoroutine(DamagePlayers(GetAffectedCombatObjectList(CircularList)));
     }
 
-    IEnumerator DamagePlayers(List<int> playerID)
+    private void CastAreaForSkill(List<Vector2> circularList)
+    {
+        for (int i = 0; i < circularList.Count; i++)
+        {
+            Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(circularList[i] + mapClass.tileZero);
+            if (mapClass.gameplayTilemap.HasTile(tile))
+            {
+                GameObject AffectedTile = MonoInstance.Instantiate(affectedTile, circularList[i] + mapClass.tileZero, Quaternion.identity);
+                MonoInstance.Destroy(AffectedTile, timeBetweenCastAndDamage);
+            }
+        }
+    }
+
+    IEnumerator DamagePlayers(List<CombatObject> affectedCombatObjectList)
     {
         yield return new WaitForSeconds(timeBetweenCastAndDamage);
-        for (int i = 0;i < playerID.Count;i++)
+        
+        BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
+
+        foreach (CombatObject combatObject in affectedCombatObjectList)
         {
-            BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
-            HeroCombatObject heroCombatObject = new HeroCombatObject(playerID[i], combatPlayerDataInStage);
-            CombatMethods.ApplayDamage(damage, bossCombatObject, heroCombatObject);
+            CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
         }
+
+        CastEnd();
     }
 }

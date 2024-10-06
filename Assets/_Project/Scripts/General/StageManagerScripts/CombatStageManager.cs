@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Localization.Settings;
 using System;
+using UnityEngine.Tilemaps;
 
 public class CombatStageManager : NetworkBehaviour
 {
@@ -15,22 +16,40 @@ public class CombatStageManager : NetworkBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI confirmationText;
     [SerializeField] private Button confirmationButton;
-    
+    [SerializeField] private GameObject WinMenu;
+    [SerializeField] private GameObject LoseMenu;
+
     private GameState currentStage;
     private int currentStageIndex;
     private NetworkVariable<int> currentStageIndexNet = new();
 
     private List<GameState> _stages;
+    private bool isCombatRunning = true;
 
     private void Awake()
     {
         GlobalEventSystem.StartCombat.AddListener(StartBattle);
+        GlobalEventSystem.AllPlayersDied.AddListener(LoseBattle);
+        GlobalEventSystem.BossDied.AddListener(WinBattle);
     }
 
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
         Initialize();
+    }
+
+    private void Update()
+    {
+        if (currentStageIndexNet.Value != currentStageIndex && !NetworkManager.Singleton.IsServer)
+        {
+            NextStage(currentStageIndexNet.Value);
+        }
+
+        if (currentStage != null)
+        {
+            currentStage.UpdateStage();
+        }
     }
 
     private void Initialize()
@@ -63,6 +82,22 @@ public class CombatStageManager : NetworkBehaviour
         }
     }
 
+    private void LoseBattle()
+    {
+        currentStage.Exit();
+        isCombatRunning = false;
+        LoseMenu.SetActive(true);
+        Debug.Log("Combat Ended. You Lose.");
+    }
+
+    private void WinBattle()
+    {
+        currentStage.Exit();
+        isCombatRunning = false;
+        WinMenu.SetActive(true);
+        Debug.Log("Combat Ended. You Win.");
+    }
+
     private void NextStage(int stageIndex)
     {
         if (currentStage != null)
@@ -70,9 +105,12 @@ public class CombatStageManager : NetworkBehaviour
             currentStage.Exit();
         }
 
-        currentStage = _stages[stageIndex];
-        currentStageIndex = stageIndex;
-        currentStage.Enter();
+        if (isCombatRunning)
+        {
+            currentStage = _stages[stageIndex];
+            currentStageIndex = stageIndex;
+            currentStage.Enter();
+        }
     }
 
     public void TransitionToNextStage()
@@ -82,19 +120,6 @@ public class CombatStageManager : NetworkBehaviour
             int nextStageIndex = (currentStageIndexNet.Value + 1) % _stages.Count;
             currentStageIndexNet.Value = nextStageIndex;
             NextStage(nextStageIndex);
-        }
-    }
-
-    private void Update()
-    {
-        if (currentStageIndexNet.Value != currentStageIndex && !NetworkManager.Singleton.IsServer)
-        {
-            NextStage(currentStageIndexNet.Value);
-        }
-
-        if (currentStage != null)
-        {
-            currentStage.UpdateStage();
         }
     }
 }

@@ -14,7 +14,6 @@ public class CombatPlayerDataInStage : MonoBehaviour
     public AllPlayerStats[] _TotalStatsList;
 
 
-
     [TabGroup("Hero Stats")]
     [Title("Hero Stats Effect On Stats")]
     public GeneralPlayerStats[] _HeroStatsEffectList;
@@ -66,6 +65,9 @@ public class CombatPlayerDataInStage : MonoBehaviour
     [Title("Heroes GameObj Ref")]
     public GameObject[] PlayersHeroes;
 
+    [Title("Alive Status")]
+    public bool[] aliveStatus;
+
 
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private CombatPlayerDataInSession sessionCombatData => GameObject.FindObjectOfType<CombatPlayerDataInSession>();
@@ -81,6 +83,11 @@ public class CombatPlayerDataInStage : MonoBehaviour
     public GameObject[] SortedHeroesByDistance() // The distance is calculated from the Boss
     {
         return null;
+    }
+
+    private void Awake()
+    {
+        GlobalEventSystem.PlayerHPChanged.AddListener(CheckIfAlive);
     }
 
     private void Start()
@@ -100,6 +107,7 @@ public class CombatPlayerDataInStage : MonoBehaviour
     {
         PlayersHeroes = new GameObject[playerCount];
         HeroCoordinates = new Vector2[playerCount];
+        aliveStatus = new bool[playerCount];
     }
 
     void DataTransferByCombatPlayerDataInSession()
@@ -129,8 +137,28 @@ public class CombatPlayerDataInStage : MonoBehaviour
     {
         PlayersHeroes[PlayerId] = Hero;
     }
+
+    public void UpdateAliveStatus(bool status, int PlayerId)
+    {
+        aliveStatus[PlayerId] = status;
+    }
+
+    private void CheckIfAlive()
+    {
+        for (int i = 0; i < _TotalStatsList.Length; i++)
+        {
+            if (_TotalStatsList[i].currentCombat.CurrentHP == 0)
+            {
+                aliveStatus[i] = false;
+                GlobalEventSystem.SendPlayerDied(i);
+            }
+        }
+        if (IsEveryOneDead()) GlobalEventSystem.SendAllPlayersDied();
+    }
+
+    private bool IsEveryOneDead()
+    {
+        foreach (bool status in aliveStatus) if (status) return false;
+        return true;
+    }
 }
-
-
-
-

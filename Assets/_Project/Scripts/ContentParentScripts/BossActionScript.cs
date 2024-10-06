@@ -36,4 +36,33 @@ public class BossActionScript
         return null;
     }
 
+    protected HeroCombatObject GetHeroCombatObject(int playerID)
+    {
+        return new HeroCombatObject(playerID, combatPlayerDataInStage);
+    }
+
+    protected List<CombatObject> GetAffectedCombatObjectList(List<Vector2> area)
+    {
+        List<MapObject> MapObjectList = GetAffectedMapObjectList(area);
+        List<CombatObject> combatObjectList = new List<CombatObject>();
+
+        foreach (MapObject mapObject in MapObjectList)
+        {
+            if (mapObject is Hero)
+            {
+                combatObjectList.Add(new HeroCombatObject(mapObject.ID, combatPlayerDataInStage));
+            }
+            if (mapObject is Boss)
+            {
+                combatObjectList.Add(new BossCombatObject(bossManager));
+            }
+        }
+
+        return combatObjectList;
+    }
+
+    protected List<MapObject> GetAffectedMapObjectList(List<Vector2> area)
+    {
+        return mapClass.MapObjectCheck(area);
+    }
 }

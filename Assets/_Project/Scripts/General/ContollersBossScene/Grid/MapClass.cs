@@ -14,6 +14,7 @@ public class MapClass : NetworkBehaviour
     [HideInInspector]
     public Vector2 tileZero;
     public Tilemap gameplayTilemap => FindObjectOfType<GameplayTilemapTag>().gameObject.GetComponent<Tilemap>();
+    private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     public List<Vector2> AllTiles = new();
     public Pathfinding gridPathfinding;
 
@@ -21,6 +22,11 @@ public class MapClass : NetworkBehaviour
     private GameObject DownLeftPoint => FindObjectOfType<DownLeftPointTag>().gameObject;
     private Vector3Int DownLeftTile;
     //[SerializeField] TileBase terrainTile;
+
+    private void Awake()
+    {
+        GlobalEventSystem.PlayerDied.AddListener(PlayerDied);
+    }
 
     void Start()
     {
@@ -67,6 +73,28 @@ public class MapClass : NetworkBehaviour
         return TileMap[(int)tile.x, (int)tile.y].MapObjectList;
     }
 
+    public List<MapObject> MapObjectCheck(List<Vector2> areaList)
+    {
+        List<MapObject> mapObjectList = new List<MapObject>();
+
+        foreach (Vector2 tile in areaList)
+        {
+            Vector3Int tileOnMap = gameplayTilemap.WorldToCell(tile + tileZero);
+            if (gameplayTilemap.HasTile(tileOnMap)) mapObjectList.AddRange(GetMapObjectList(tile));
+        }
+
+        return mapObjectList;
+    }
+
+    private void PlayerDied(int playerID)
+    {
+        Vector2 heroCoordinate = combatPlayerDataInStage.HeroCoordinates[playerID];
+        RemoveHero(heroCoordinate, playerID);
+        SetCorpse(heroCoordinate, playerID);
+    }
+
+    #region SetRemove
+
     public void SetHero(Vector2 tile, int playerID)
     {
         TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new Hero(playerID));
@@ -82,9 +110,19 @@ public class MapClass : NetworkBehaviour
         TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new TempBloked());
     }
 
+    public void SetCorpse(Vector2 tile, int playerID)
+    {
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new Corpse(playerID));
+    }
+
     public void RemoveHero(Vector2 tile, int playerID)
     {
         TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Hero && x.ID == playerID);
+    }
+
+    public void RemoveCorpse(Vector2 tile, int playerID)
+    {
+        TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Corpse && x.ID == playerID);
     }
 
     public void RemoveBoss(Vector2 tile)
@@ -97,18 +135,8 @@ public class MapClass : NetworkBehaviour
         TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is TempBloked);
     }
 
-    public List<MapObject> MapObjectCheck(List<Vector2> areaList)
-    {
-        List<MapObject> mapObjectList = new List<MapObject>();
+    #endregion
 
-        foreach (Vector2 tile in areaList)
-        {
-            Vector3Int tileOnMap = gameplayTilemap.WorldToCell(tile + tileZero);
-            if (gameplayTilemap.HasTile(tileOnMap)) mapObjectList.AddRange(GetMapObjectList(tile));
-        }
-
-        return mapObjectList;
-    } 
 }
 
 [Serializable]
@@ -125,10 +153,20 @@ public class MapObject
 {
     public int ID;
 }
+
 [Serializable]
 public class Hero : MapObject
 {
     public Hero(int playerID)
+    {
+        ID = playerID;
+    }
+}
+
+[Serializable]
+public class Corpse : MapObject
+{
+    public Corpse(int playerID)
     {
         ID = playerID;
     }

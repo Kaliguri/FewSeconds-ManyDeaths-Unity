@@ -32,6 +32,8 @@ public class OnSpawn : NetworkBehaviour
     {
         combatPlayerDataInStage.UpdatePlayersHeroes(gameObject, ownerPlayerID);
 
+        combatPlayerDataInStage.UpdateAliveStatus(true, ownerPlayerID);
+
         Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(transform.position);
         Vector2 tileCenterPos = mapClass.gameplayTilemap.GetCellCenterWorld(tile);
         Vector2 targetPoint = tileCenterPos - mapClass.tileZero;
