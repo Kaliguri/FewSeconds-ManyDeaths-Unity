@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -104,6 +105,11 @@ public class SkillScript
     protected List<MapObject> GetAffectedMapObjectList(int skillIndex = 0)
     {
         return mapClass.MapObjectCheck(GetArea(skillIndex)); 
+    }
+
+    protected List<MapObject> GetObjectsFromPoint(Vector2 point)
+    {
+        return mapClass.GetMapObjectList(point).ToList();
     }
 
     protected List<CombatObject> GetAffectedCombatObjectList(int skillIndex = 0)

@@ -22,7 +22,7 @@ MonoBehaviour:
     - rid: 6932391206171181065
       type: {class: BerserkCircularSlice, ns: , asm: Assembly-CSharp}
       data:
-        damage: 150
+        damage: 1
         affectedTile: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}
         timeBetweenCastAndDamage: 1

@@ -161,4 +161,11 @@ public class CombatPlayerDataInStage : MonoBehaviour
         foreach (bool status in aliveStatus) if (status) return false;
         return true;
     }
+
+    public int CountOfAlivePlayers()
+    {
+        int count = 0;
+        foreach (bool status in aliveStatus) if (status) count++;
+        return count;
+    }
 }
