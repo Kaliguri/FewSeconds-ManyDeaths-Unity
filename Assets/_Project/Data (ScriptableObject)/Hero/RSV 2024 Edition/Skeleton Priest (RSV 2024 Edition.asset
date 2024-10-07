@@ -46,16 +46,13 @@ MonoBehaviour:
   MaxHPModif: 0
   SkillList:
   - SkillVariationsList:
-    - {fileID: 11400000, guid: 0035098a6c678e043954af1afc7275e7, type: 2}
+    - {fileID: 11400000, guid: a4f6b829fef093e4c9a395041d3d33a1, type: 2}
   - SkillVariationsList:
-    - {fileID: 11400000, guid: b54bd62f31ba1924d88cc295f837e3ff, type: 2}
+    - {fileID: 11400000, guid: 21349e1e2e048a64b91bcfeb6b3062e2, type: 2}
   - SkillVariationsList:
-    - {fileID: 11400000, guid: c7a6bd80bf04b04449cd55ba89e631f5, type: 2}
+    - {fileID: 11400000, guid: 32d24289fe0e39448836959cdc400a90, type: 2}
   - SkillVariationsList:
-    - {fileID: 11400000, guid: 0ee7d74a6a310c146ae8005142d2c658, type: 2}
-    - {fileID: 11400000, guid: 0035098a6c678e043954af1afc7275e7, type: 2}
-    - {fileID: 11400000, guid: b54bd62f31ba1924d88cc295f837e3ff, type: 2}
-    - {fileID: 11400000, guid: c7a6bd80bf04b04449cd55ba89e631f5, type: 2}
+    - {fileID: 11400000, guid: b752cc3273c684242ae67aa13f492a54, type: 2}
   TalentList: []
   references:
     version: 2

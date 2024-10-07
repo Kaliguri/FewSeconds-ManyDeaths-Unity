@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2283d1228b0c054f91e07d3217b84cb, type: 3}
+  m_Name: Skill 0 - 1 Rifleman (RSV 2024 Edition)
+  m_EditorClassIdentifier: 
+  Name:
+    m_TableReference:
+      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+    m_TableEntryReference:
+      m_KeyId: 200776429568
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+    m_TableEntryReference:
+      m_KeyId: 155771547648
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SkillIcon: {fileID: 21300000, guid: aa3dbc1759cce5542969e3623502783e, type: 3}
+  SkillScript:
+    rid: 4835066225857658911
+  references:
+    version: 2
+    RefIds:
+    - rid: 4835066225857658911
+      type: {class: DamageExampleSkill, ns: , asm: Assembly-CSharp}
+      data:
+        EnergyCost: 0
+        SkillCooldown: 0
+        IsMovable: 0
+        TargetCount: 1
+        Damage: 20
+        ExampleSkillPrefab: {fileID: 0}
