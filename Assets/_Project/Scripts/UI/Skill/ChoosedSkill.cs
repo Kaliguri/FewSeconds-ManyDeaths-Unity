@@ -15,6 +15,11 @@ public class ChoosedSkill : MonoBehaviour
         GlobalEventSystem.PlayerSkillAproved.AddListener(PlayerSkillUnchoosed);
     }
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void PlayerSkillChoosed(int skillID)
     {
         if (skillId == skillID)

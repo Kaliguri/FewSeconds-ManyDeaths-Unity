@@ -1,11 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
 [Serializable]
-public class TeleportExampleSkill : SkillScript
+public class Сastling : SkillScript
 {
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
@@ -76,8 +76,8 @@ public class TeleportExampleSkill : SkillScript
     {
         for (int i = 0; i < objectsInPointList.Count; i++)
         {
-            if (objectsInPointList[i] is Hero) 
-            { 
+            if (objectsInPointList[i] is Hero)
+            {
                 MapObject hero = objectsInPointList[i];
                 int ID = hero.ID;
                 mapClass.RemoveHero(fromPoint, ID);

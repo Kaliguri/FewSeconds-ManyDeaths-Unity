@@ -17,6 +17,8 @@ public class PlayerTurnStage : GameState
     private Button confirmationButton;
     private Coroutine timer;
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
+    private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
+
     private GUIDataBase dataBaseGUI => GameObject.FindObjectOfType<GUIDataBase>();
     private int playerCount => playerInfoData.PlayerCount;
 
@@ -37,7 +39,7 @@ public class PlayerTurnStage : GameState
     {
         if (confirmationText != null)
         {
-            confirmationText.text = $"{newValue}/{playerCount} players confirmed";
+            confirmationText.text = $"{newValue}/{combatPlayerDataInStage.CountOfAlivePlayers()} players confirmed";
         }
     }
 
@@ -66,7 +68,7 @@ public class PlayerTurnStage : GameState
     {
         if (NetworkManager.Singleton.IsServer)
         {
-            if (playersConfirmed.Value >= playerCount)
+            if (playersConfirmed.Value >= combatPlayerDataInStage.CountOfAlivePlayers())
             {
                 EndTurn();
                 gameStateManager.StopCoroutine(timer);
@@ -74,7 +76,7 @@ public class PlayerTurnStage : GameState
         }
     }
 
-    private IEnumerator Timer() //Use TimerManager!
+    private IEnumerator Timer()
     {
         UpdateTimerUIRpc();
         while (remainingTime.Value > 0)
@@ -133,8 +135,11 @@ public class PlayerTurnStage : GameState
 
     private void EnablePlayerTurnUI(bool enable)
     {
-        dataBaseGUI.EndTurnButtonActiveChange(enable);
+        if (combatPlayerDataInStage.aliveStatus[playerInfoData.PlayerIDThisPlayer])
+        {
+            dataBaseGUI.EndTurnButtonActiveChange(enable);
+            dataBaseGUI.SkillButtonListActiveChange(enable);
+        }
         dataBaseGUI.TimerActiveChange(enable);
-        dataBaseGUI.SkillButtonListActiveChange(enable);
     }
 }
