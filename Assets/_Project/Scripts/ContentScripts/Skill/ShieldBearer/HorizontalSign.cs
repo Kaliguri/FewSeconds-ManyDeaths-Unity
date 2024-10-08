@@ -23,7 +23,7 @@ public class HorizontalSign : SkillScript
     }
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
-        Vector2 leftTile = new Vector2(0, characterCellCoordinate.y);
+        Vector2 leftTile = new Vector2(-1, characterCellCoordinate.y);
         Vector2 rightTile = new Vector2(mapClass.Max_A, characterCellCoordinate.y);
         List<Vector2> areaList = GridAreaMethods.CoordinateLine(leftTile, rightTile, 1, mapClass.Max_A);
         return areaList;

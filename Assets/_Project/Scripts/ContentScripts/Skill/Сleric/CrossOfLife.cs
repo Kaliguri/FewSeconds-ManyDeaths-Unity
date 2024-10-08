@@ -22,7 +22,8 @@ public class CrossOfLife : SkillScript
     }
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
-        List<Vector2> areaList = GridAreaMethods.AllCardinalLines(characterCellCoordinate, selectedCellCoordinate, 1, 1);
+        List<Vector2> areaList = GridAreaMethods.AllCardinalLines(selectedCellCoordinate, selectedCellCoordinate, 1, 1);
+        areaList.Add(selectedCellCoordinate);
         return areaList;
     }
 

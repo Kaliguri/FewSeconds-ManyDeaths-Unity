@@ -156,6 +156,7 @@ MonoBehaviour:
   PlayersCommandArtifactsList: []
   HeroCoordinates: []
   PlayersHeroes: []
+  aliveStatus: 
 --- !u!114 &5790428248374869854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,9 +222,13 @@ MonoBehaviour:
   CurrentCoordinates: {x: 0, y: 0}
   BossGameObject: {fileID: 0}
   CurrentAct: 0
-  CurrentHPInCurrentAct: 0
   CurrentAction: 0
   CurrentCombo: {fileID: 0}
+  bossStats:
+    MaxHP: 0
+    CurrentHP: 0
+    CurrentShield: 0
+    CurrentEnergy: 0
 --- !u!114 &9163288949737520634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +459,8 @@ MonoBehaviour:
   timerText: {fileID: 0}
   confirmationText: {fileID: 0}
   confirmationButton: {fileID: 0}
+  WinMenu: {fileID: 0}
+  LoseMenu: {fileID: 0}
 --- !u!114 &1430126018791946820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +523,7 @@ GameObject:
   - component: {fileID: 5043534020704879265}
   - component: {fileID: 5345183280946286926}
   - component: {fileID: 414495376311514204}
+  - component: {fileID: 698263089826296920}
   m_Layer: 0
   m_Name: _Controllers Boss Scene
   m_TagString: Controllers
@@ -583,3 +591,15 @@ MonoBehaviour:
   - {fileID: 1458512929394835323}
   monoBehaviours:
   - {fileID: 4572515052974823652}
+--- !u!114 &698263089826296920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7711682317342342888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f89ff6a577ab342a8b0a5e6b01871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

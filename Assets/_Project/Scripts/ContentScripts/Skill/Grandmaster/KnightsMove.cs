@@ -9,7 +9,6 @@ public class KnightsMove : SkillScript
 {
     [Header("RoyalMove")]
     [SerializeField] GameObject RoyalMovePrefab;
-    [SerializeField] float shieldParameter = 40f;
     private PlayerSkillManager playerSkillManager => GameObject.FindObjectOfType<PlayerSkillManager>();
     private Vector2 selectedheroPosition;
 
@@ -41,7 +40,7 @@ public class KnightsMove : SkillScript
             areaList.AddRange(GridAreaMethods.AllHorseCells(selectedPlayer));
         }
 
-        return mapClass.AllTiles;
+        return areaList;
     }
 
     private void CastRoyalMove()

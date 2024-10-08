@@ -22,5 +22,6 @@ MonoBehaviour:
     - rid: 6932391200727498755
       type: {class: BerserkDash, ns: , asm: Assembly-CSharp}
       data:
-        TimeBetweenMovement: 0.4
-        TimeBetweenDifference: 0.9
+        TimeBetweenDash: 0.5
+        DashTime: 1
+        damage: 10

@@ -13,7 +13,7 @@ public class BerserkCircularSlice : BossActionScript
 
     public override void Cast(List<Vector2> targetPoints, int act)
     {
-        CastStart(targetPoints);
+        CastStart(targetPoints, act);
 
         Debug.Log("Cast Berserk Circular Slice!");
         CastCircularSlice();
@@ -26,7 +26,10 @@ public class BerserkCircularSlice : BossActionScript
 
     private void CastCircularSlice()
     {
-        List<Vector2> CircularList = GridAreaMethods.CircleAOE(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates, 2, true);
+        int radius = 2;
+        if (act > 1) radius = 3;
+
+        List<Vector2> CircularList = GridAreaMethods.SquareAOE(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates, radius, true);
 
         CastAreaForSkill(CircularList);
         

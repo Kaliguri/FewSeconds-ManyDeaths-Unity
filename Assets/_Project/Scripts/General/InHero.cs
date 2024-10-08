@@ -55,7 +55,7 @@ public class InHero : NetworkBehaviour
     {
         if (playerID == ownerPlayerID.Value)
         {
-            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponentInChildren<SpriteRenderer>().enabled = false;
         }
     }
 }

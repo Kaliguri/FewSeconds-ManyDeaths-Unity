@@ -59,7 +59,10 @@ public class Сastling : SkillScript
 
     private void TeleportBoss(MapObject boss, Vector2 targetPont)
     {
-        Debug.Log("TeleportBoss");
+        mapClass.RemoveBoss(bossManager.CurrentCoordinates);
+        bossManager.BossGameObject.transform.position = targetPont + mapClass.tileZero;
+        bossManager.CurrentCoordinates = targetPont;
+        mapClass.SetBoss(targetPont);
     }
 
     private void TeleportHero(MapObject hero, Vector2 targetPont)

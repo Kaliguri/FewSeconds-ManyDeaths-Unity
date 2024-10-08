@@ -32,16 +32,17 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: 21300000, guid: aa3dbc1759cce5542969e3623502783e, type: 3}
   SkillScript:
-    rid: 4835066225857658911
+    rid: 6932391315839909915
   references:
     version: 2
     RefIds:
-    - rid: 4835066225857658911
-      type: {class: DamageExampleSkill, ns: , asm: Assembly-CSharp}
+    - rid: 6932391315839909915
+      type: {class: Sacrifice, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
-        SkillCooldown: 0
+        SkillCooldown: 99
         IsMovable: 0
         TargetCount: 1
-        Damage: 20
-        ExampleSkillPrefab: {fileID: 0}
+        SacrificePrefab: {fileID: 1186777461074907986, guid: f3ea3a7c00c685a48b77e571ed3ee4f0,
+          type: 3}
+        healParameter: 999

@@ -10,7 +10,6 @@ public class RoyalMove : SkillScript
 {
     [Header("RoyalMove")]
     [SerializeField] GameObject RoyalMovePrefab;
-    [SerializeField] float shieldParameter = 40f;
     private PlayerSkillManager playerSkillManager => GameObject.FindObjectOfType<PlayerSkillManager>();
     private Vector2 selectedheroPosition;
 
@@ -42,7 +41,7 @@ public class RoyalMove : SkillScript
             areaList.AddRange(GridAreaMethods.SquareAOE(characterCellCoordinate, selectedPlayer));
         }
         
-        return mapClass.AllTiles;
+        return areaList;
     }
 
     private void CastRoyalMove()

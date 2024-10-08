@@ -22,5 +22,6 @@ public class NetworkInstance : NetworkBehaviour
     public void ChangePlayerEnergyRpc(int newEnergy, int id)
     {
         combatPlayerDataInStage._TotalStatsList[id].currentCombat.CurrentEnergy = newEnergy;
+        GlobalEventSystem.SendEnergyChange();
     }
 }

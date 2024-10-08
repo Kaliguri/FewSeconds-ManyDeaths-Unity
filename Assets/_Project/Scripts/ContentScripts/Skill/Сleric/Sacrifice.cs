@@ -23,7 +23,7 @@ public class Sacrifice : SkillScript
     }
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
-        List<Vector2> areaList = mapClass.AllTiles;
+        List<Vector2> areaList = new() { selectedCellCoordinate };
         return areaList;
     }
 

@@ -32,16 +32,15 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: 21300000, guid: aa3dbc1759cce5542969e3623502783e, type: 3}
   SkillScript:
-    rid: 4835066225857658913
+    rid: 6932391315839909908
   references:
     version: 2
     RefIds:
-    - rid: 4835066225857658913
-      type: {class: DamageExampleSkill, ns: , asm: Assembly-CSharp}
+    - rid: 6932391315839909908
+      type: {class: KnightsMove, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 0
-        SkillCooldown: 0
+        EnergyCost: 2
+        SkillCooldown: 1
         IsMovable: 0
-        TargetCount: 1
-        Damage: 20
-        ExampleSkillPrefab: {fileID: 0}
+        TargetCount: 2
+        RoyalMovePrefab: {fileID: 0}

@@ -11,19 +11,21 @@ public class BossActionScript
     protected BossMultiplayerMethods bossMultiplayerMethods => GameObject.FindObjectOfType<BossMultiplayerMethods>();
     protected CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
     protected List<Vector2> TargetPoints = new();
+    protected int act;
 
     public virtual void Cast(List<Vector2> targetPoints, int act)
     {
-        CastStart(targetPoints);
+        CastStart(targetPoints, act);
 
         Debug.Log("Cast BossAction!");
 
         CastEnd();
     }
 
-    protected void CastStart(List<Vector2> targetPoints)
+    protected void CastStart(List<Vector2> targetPoints, int _act)
     {
         TargetPoints = targetPoints;
+        act = _act;
     }
 
     protected void CastEnd()
@@ -64,5 +66,12 @@ public class BossActionScript
     protected List<MapObject> GetAffectedMapObjectList(List<Vector2> area)
     {
         return mapClass.MapObjectCheck(area);
+    }
+
+    protected void DamageEveryOneInTiles(List<Vector2> tiles, float damage)
+    {
+        List<CombatObject> affectedCombatObjectList = GetAffectedCombatObjectList(tiles);
+        BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
+        foreach (CombatObject combatObject in affectedCombatObjectList) CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
     }
 }

@@ -11,11 +11,30 @@ public class ChangePlayersListNetwork : NetworkBehaviour
     List<HeroData> heroDataList => dBManager.GetHeroDataList();
     int playerID => FindObjectOfType<PlayerInfoData>().PlayerIDThisPlayer;
 
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+    }
+
     private void Awake()
     {
         GlobalEventSystem.PlayerColorChange.AddListener(ChangeColor);
         GlobalEventSystem.PlayerHeroChange.AddListener(ChangeHero);
         GlobalEventSystem.PlayerChoiceActionUpdate.AddListener(ChangeSkill);
+    }
+
+    [Rpc(SendTo.Server)]
+    private void SendDataFromHostToNewClientRpc()
+    {
+        for (int ID = 0; ID < playerInfoData.PlayerCount; ID++)
+        {
+            ChangeColorRpc(playerInfoData.ColorList[ID], ID);
+            ChangeHeroRpc(ID, GetHeroDataID(playerInfoData.HeroDataList[ID]));
+            for (int SkillNumber = 0; SkillNumber < playerInfoData.SkillChoiceList[ID].variationList.Count; SkillNumber++)
+            {
+                ChangeSkillRpc(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
+            }
+        }
     }
 
     private void ChangeSkill(int SkillNumber, int ID, int variationSkillNumber)
@@ -58,11 +77,6 @@ public class ChangePlayersListNetwork : NetworkBehaviour
         { 
             playerInfoData.SkillChoiceList[playerID].variationList[SkillNumber] = 0; 
         }
-    }
-
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
     }
 
     private void ChangeColor()

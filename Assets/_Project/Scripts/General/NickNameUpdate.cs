@@ -46,9 +46,9 @@ public class NickNameUpdate : MonoBehaviour
 
     private void AmIDied(int playerID)
     {
-        if (playerID == GetComponent<InHero>().ownerPlayerID.Value && !IsCutscene)
+        if (playerID == GetComponentInParent<InHero>().ownerPlayerID.Value)
         {
-            gameObject.SetActive(false);
+            playerName.text = "";
         }
     }
 }

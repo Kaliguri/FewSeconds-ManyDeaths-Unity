@@ -42,7 +42,6 @@ public class DamageExampleSkill : SkillScript
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
             CombatMethods.ApplayDamage(Damage, GetHeroCombatObject(playerID), combatObject);
-            
         }
     }
 }
