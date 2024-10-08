@@ -23,7 +23,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 23697108992
-    m_Localized: Skeleton PriestSkeleton Priest
+    m_Localized: "He doesn't have a name. He doesn't have a title. Everyone refers
+      to him by his attire and appearance. Just a \"Skeleton Priest.\" \n\nSomeone
+      can safely say that he saw how, before his career as a mercenary, he worked
+      as an ordinary cook, feeding all the stray cats in the city. Indeed, this story
+      seems excessively strange and far-fetched. Although, usually, these are the
+      most truthful stories.\n\nWith a good understanding of the Concept of Life,
+      he is able to heal his allies even from mortal wounds. But it seems as if his
+      main strength is connected with a completely different concept..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1987308080672768
+    m_Localized: CATS. CATS ARE GOOD.
     m_Metadata:
       m_Items: []
   references:

@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 21029531648
-    m_Localized: Shieldbearer
+    m_Localized: Aegis of Varador
     m_Metadata:
       m_Items: []
   - m_Id: 355403640832
@@ -31,7 +31,24 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 23697108992
-    m_Localized: ShieldbearerShieldbearer
+    m_Localized: 'The armor bears the name of its creator, the blacksmith Varado''ry.
+      Varadora''s Aegis is his final, best work. The last blow of the hammer proved
+      fatal for him. He spent all his potential, all the power of his body and soul
+      to create this artifact.
+
+
+      The work turned out to be so good that the
+      armor gained life. They knew what they were created for. They were created
+      to protect.
+
+
+      Using the rune magic written on it, as well as his understanding
+      of the aspect of Protection, the Aegis of Varadora is able to spread a protective
+      aura to his allies to protect them from even the most powerful blow.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1987545524416512
+    m_Localized: As Varador gave his soul for me, so I will give mine for you!
     m_Metadata:
       m_Items: []
   references:
