@@ -50,7 +50,7 @@ MonoBehaviour:
   - SkillVariationsList:
     - {fileID: 11400000, guid: 21349e1e2e048a64b91bcfeb6b3062e2, type: 2}
   - SkillVariationsList:
-    - {fileID: 11400000, guid: 32d24289fe0e39448836959cdc400a90, type: 2}
+    - {fileID: 11400000, guid: b2ba4ff9fb310054c93cfad1430416fa, type: 2}
   - SkillVariationsList:
     - {fileID: 11400000, guid: b752cc3273c684242ae67aa13f492a54, type: 2}
   TalentList: []

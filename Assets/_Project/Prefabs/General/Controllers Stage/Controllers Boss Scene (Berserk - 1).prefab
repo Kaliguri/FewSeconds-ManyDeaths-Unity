@@ -20,6 +20,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6596835545786723952, guid: 7c9bedf49a3572e4eb69a0073ceb591b,
         type: 3}
+    - target: {fileID: 1877115103774442730, guid: dce823b2a20e7c54bb805fa8abae1ea8,
+        type: 3}
+      propertyPath: Data
+      value: 
+      objectReference: {fileID: 11400000, guid: e801975805b8b0d45a1cbcadf50b03a3,
+        type: 2}
+    - target: {fileID: 1877115103774442730, guid: dce823b2a20e7c54bb805fa8abae1ea8,
+        type: 3}
+      propertyPath: SpawnCoordinates.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877115103774442730, guid: dce823b2a20e7c54bb805fa8abae1ea8,
+        type: 3}
+      propertyPath: SpawnCoordinates.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5043534020704879265, guid: dce823b2a20e7c54bb805fa8abae1ea8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73,7 +89,7 @@ PrefabInstance:
     - target: {fileID: 5345183280946286926, guid: dce823b2a20e7c54bb805fa8abae1ea8,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 4190577091
+      value: 1548227880
       objectReference: {fileID: 0}
     - target: {fileID: 7711682317342342888, guid: dce823b2a20e7c54bb805fa8abae1ea8,
         type: 3}

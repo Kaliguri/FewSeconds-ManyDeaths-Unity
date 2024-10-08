@@ -39,15 +39,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13510664244244480
-    m_Localized: AttackersAttackers
+    m_Localized: Attackers are masters of dealing damage and destruction on the battlefield.
+      With their unique attack mechanics, they are able to significantly increase
+      the damage inflicted and effectively deal with opponents. Attackers play a
+      key role in the team's strategy, as only they can effectively kill opponents.
     m_Metadata:
       m_Items: []
   - m_Id: 13510702722789376
-    m_Localized: 'Defenders Defenders '
+    m_Localized: Defenders are masters of defense. With their unique ability to cast
+      shields and reduce damage, they become a bulwark of security for their allies.
+      Defenders can block enemy attacks by absorbing damage with shields or apply
+      unique effects, also aimed at protecting allies.
     m_Metadata:
       m_Items: []
   - m_Id: 13510713573453824
-    m_Localized: HealdersHealders
+    m_Localized: Healers are skilled masters of recovery and support on the battlefield.
+      They have the unique ability to heal the wounds of allies and rid them of negative
+      effects.
     m_Metadata:
       m_Items: []
   - m_Id: 13510718178799616

@@ -72,7 +72,52 @@ PrefabInstance:
     - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
         type: 3}
       propertyPath: m_Transition
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.7735849
       objectReference: {fileID: 0}
     - target: {fileID: 1384982858281579944, guid: 51f48bb22a727684286071c5d76ee7c3,
         type: 3}

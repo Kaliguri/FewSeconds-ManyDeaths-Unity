@@ -10,6 +10,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
     [Title("Tooltip V3 Skill")]
 
+
     [Title("LocalizeStringEvent Reference")]
     [SerializeField] LocalizeStringEvent SkillName;
     [SerializeField] LocalizeStringEvent EnergyCost;
@@ -17,15 +18,17 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     [SerializeField] LocalizeStringEvent Description;
     [SerializeField] LocalizeStringEvent NarrativeDescription;
 
+
     [Title("GameObject Reference")]
     [SerializeField] Image Icon;
+
 
     [Title("Local Variables")]
     public int EnergyCostValue = 0;
     public int CooldownValue = 0;
 
-    #region TooltipV3 ParentMethods
 
+    #region TooltipV3 ParentMethods
     public void OnDestroy() { HideTooltip();}
     public void OnDisable() { HideTooltip();}
 

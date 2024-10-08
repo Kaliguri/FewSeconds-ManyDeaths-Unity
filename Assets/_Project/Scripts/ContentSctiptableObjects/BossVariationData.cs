@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [CreateAssetMenu(fileName = "BossVariationData", menuName = "FewSecondsManyDeaths/BossData/BossVariationData")]
 public class BossVariationData : ScriptableObject
 {
     [Header("General")]
-    public string TraitName;
-    [TextArea] public string Description;
+    public LocalizedString TraitName;
+    public LocalizedString Description;
 
     [Header("Combat")]
     public List<float> HPActList;
