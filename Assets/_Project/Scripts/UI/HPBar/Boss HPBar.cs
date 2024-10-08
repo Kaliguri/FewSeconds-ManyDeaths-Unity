@@ -26,7 +26,7 @@ public class BossHPBar : MonoBehaviour
     
 
 
-    private BossHPBarReference CurrentHPBarReference;
+    private BossHPBarReference CurrentHPBarReference => HPBarList[currentAct].GetComponent<BossHPBarReference>();
     private Slider secondarySliderCurrentHPBar => CurrentHPBarReference.SecondarySlider;
     private Slider primarySliderCurrentHPBar => CurrentHPBarReference.PrimarySlider;
 
@@ -44,31 +44,24 @@ public class BossHPBar : MonoBehaviour
 
     void Inizialize()
     {
-        CurrentHPBarReference = HPBarList[currentAct].GetComponent<BossHPBarReference>();
+        //CurrentHPBarReference = HPBarList[currentAct].GetComponent<BossHPBarReference>();
         SetColor();
-        StartHPBarUPdate();
+        StartHPBarUpdate();
     }
 
     void ChangeAct()
     {
-        Invoke("ChangeAct2", 1f);
-    }
+        StopAllCoroutines();
+        secondarySliderCurrentHPBar.value = 0;
 
-    void ChangeAct2()
-    {
-        SetCurrentAct();
-        CurrentHPBarReference = HPBarList[currentAct].GetComponent<BossHPBarReference>();
+        currentAct ++;
+        //CurrentHPBarReference = HPBarList[currentAct].GetComponent<BossHPBarReference>();
         //SwapOffset();
         SetColor();
-        StartHPBarUPdate();
+        StartHPBarUpdate();
     }
 
-    void SetCurrentAct()
-    {
-        currentAct ++;
-    }
-
-    void StartHPBarUPdate()
+    void StartHPBarUpdate()
     {
         maxHP = bossManager.MaxHPInCurrentAct;
         currentHP = bossManager.CurrentHPInCurrentAct;
