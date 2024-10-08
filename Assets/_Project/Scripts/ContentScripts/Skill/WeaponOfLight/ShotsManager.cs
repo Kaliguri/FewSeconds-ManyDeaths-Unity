@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class ShotsManager : MonoBehaviour
 {
-    List<int> shotsCountList = new List<int> { 3, 3, 3, 3 };
+    [SerializeField] private List<int> maxShotsCountList = new List<int> { 6, 6, 6, 6 };
+    private List<int> shotsCountList = new();
+
+    private void Awake()
+    {
+        for (int i = 0; i < maxShotsCountList.Count; i++)
+        {
+            shotsCountList.Add(maxShotsCountList[i]);
+        }
+    }
 
     public int GetShotsCount(int playerID)
     {

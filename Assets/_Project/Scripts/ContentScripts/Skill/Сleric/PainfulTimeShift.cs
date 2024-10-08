@@ -10,7 +10,7 @@ public class PainfulTimeShift : SkillScript
     [Header("PainfulTimeShift")]
     [SerializeField] GameObject PainfulTimeShiftPrefab;
     [SerializeField] float damageParameter = 10f;
-    [SerializeField] float restoreEnergyParametr = 1f;
+    [SerializeField] int restoreEnergyParametr = 1;
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
@@ -45,7 +45,7 @@ public class PainfulTimeShift : SkillScript
             if (combatObject is HeroCombatObject)
             {
                 CombatMethods.ApplayDamage(damageParameter, GetHeroCombatObject(playerID), combatObject);
-                NetworkInstance.instance.ChangePlayerEnergyRpc(combatPlayerDataInStage._TotalStatsList[combatObject.ObjectID].currentCombat.CurrentEnergy + 1, combatObject.ObjectID);
+                NetworkInstance.instance.ChangePlayerEnergyRpc(combatPlayerDataInStage._TotalStatsList[combatObject.ObjectID].currentCombat.CurrentEnergy + restoreEnergyParametr, combatObject.ObjectID);
             }
         }
     }

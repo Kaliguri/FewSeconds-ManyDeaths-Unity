@@ -32,17 +32,18 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: 21300000, guid: aa3dbc1759cce5542969e3623502783e, type: 3}
   SkillScript:
-    rid: 6932391315839909914
+    rid: 6932391315839909935
   references:
     version: 2
     RefIds:
-    - rid: 6932391315839909914
-      type: {class: CrossOfLife, ns: , asm: Assembly-CSharp}
+    - rid: 6932391315839909935
+      type: {class: PainfulTimeShift, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 6
-        SkillCooldown: 2
+        EnergyCost: 2
+        SkillCooldown: 0
         IsMovable: 0
         TargetCount: 1
-        CrossOfLifePrefab: {fileID: 1186777461074907986, guid: f3ea3a7c00c685a48b77e571ed3ee4f0,
+        PainfulTimeShiftPrefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}
-        healParameter: 80
+        damageParameter: 10
+        restoreEnergyParametr: 1
