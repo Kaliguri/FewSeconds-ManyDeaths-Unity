@@ -20,7 +20,7 @@ public class BossHPBar : MonoBehaviour
     [SerializeField] float errorDue = 0.2f;
 
     [Title("Visual Settings")]
-    [SerializeField] float OffsetCurrentHPBar = 24f;
+    [SerializeField] float OffsetCurrentHPBar = 20f;
     //[ShowInInspector]
     //private float OffsetCurrentHPBar => HPBarList[0].transform.position.x - HPBarList[1].transform.position.x;
     
@@ -34,31 +34,33 @@ public class BossHPBar : MonoBehaviour
     private int currentAct = 0;
     private float maxHP;
     private float currentHP;
+    private Coroutine secondaryCoroutine;
 
     void Awake()
     {
         GlobalEventSystem.BossHPChanged.AddListener(HPBarUpdate);
-        GlobalEventSystem.BossManagerInitialized.AddListener(Inizialize);
+        GlobalEventSystem.BossManagerInitialized.AddListener(NewActInizialize);
         GlobalEventSystem.BossActChanged.AddListener(ChangeAct);
     }
 
-    void Inizialize()
+    void NewActInizialize()
     {
         //CurrentHPBarReference = HPBarList[currentAct].GetComponent<BossHPBarReference>();
+        //SwapOffset(currentAct, OffsetCurrentHPBar);
         SetColor();
         StartHPBarUpdate();
     }
 
     void ChangeAct()
     {
-        StopAllCoroutines();
+        if (secondaryCoroutine != null) StopCoroutine(secondaryCoroutine);
+        primarySliderCurrentHPBar.value = 0;
         secondarySliderCurrentHPBar.value = 0;
 
         currentAct ++;
-        //CurrentHPBarReference = HPBarList[currentAct].GetComponent<BossHPBarReference>();
-        //SwapOffset();
-        SetColor();
-        StartHPBarUpdate();
+        NewActInizialize();
+        VisualBarCorrect();
+        //SwapUpper();
     }
 
     void StartHPBarUpdate()
@@ -82,7 +84,8 @@ public class BossHPBar : MonoBehaviour
 
         secondarySliderCurrentHPBar.maxValue = maxHP;
 
-        StartCoroutine(SecondarySlideAnimation(primarySliderCurrentHPBar, secondarySliderCurrentHPBar));
+        if (secondaryCoroutine != null) StopCoroutine(secondaryCoroutine);
+        secondaryCoroutine = StartCoroutine(SecondarySlideAnimation(primarySliderCurrentHPBar, secondarySliderCurrentHPBar));
     }
 
     void SetColor()
@@ -101,16 +104,8 @@ public class BossHPBar : MonoBehaviour
     {
         while (primary.value <= secondary.value - errorDue)
         {     
-        
-        if (primary.value != currentHP)
-        {
-            primary.value = currentHP;
-        }
 
-        if (primary.value != secondary.value)
-        {
-            secondary.value = Mathf.Lerp(secondary.value, currentHP, _lerpSpeed);
-        }
+        secondary.value = Mathf.Lerp(secondary.value, currentHP, _lerpSpeed);
         //Debug.Log(primary.value+ ": " + secondary.value);
         yield return new WaitForSeconds(1/animationSpeed);
         }
@@ -118,16 +113,32 @@ public class BossHPBar : MonoBehaviour
         Debug.Log("SO");
     }
 
-    void SwapOffset()
+    void SwapOffset(int barNumber, float offset)
     {
-        Vector2 pos = HPBarList[currentAct-1].transform.localPosition;
-        Debug.Log(pos.x + OffsetCurrentHPBar);
-        pos = new Vector2(pos.x + OffsetCurrentHPBar, pos.y);
-        HPBarList[currentAct-1].transform.localPosition = pos;
+        Vector2 pos = HPBarList[barNumber].transform.localPosition;
+        pos = new Vector2(pos.x - offset, pos.y);
+        HPBarList[barNumber].transform.localPosition = pos;
+    }
 
-        pos = HPBarList[currentAct].transform.localPosition;
-        pos = new Vector2(pos.x - OffsetCurrentHPBar, pos.y);
-        HPBarList[currentAct].transform.localPosition = pos;
+    void SwapUpper()
+    {
+        for (int barNumber = HPBarList.Count-1; barNumber >= 0; barNumber--)
+        {
+            if (barNumber < currentAct)
+            {
+                HPBarList[barNumber].SetActive(false);
+            }
+            else
+            {
+                HPBarList[barNumber].transform.position = HPBarList[barNumber-1].transform.position;
+            }
+        }
+    }
+
+    void VisualBarCorrect()
+    {
+        HPBarList[currentAct].GetComponent<Canvas>().sortingOrder = HPBarList[currentAct-1].GetComponent<Canvas>().sortingOrder + 1;
+        //SwapOffset(currentAct-1, -OffsetCurrentHPBar);
     }
 
     
