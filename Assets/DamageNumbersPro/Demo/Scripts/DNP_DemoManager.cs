@@ -13,7 +13,7 @@ namespace DamageNumbersPro.Demo
         Text currentPrefabText;
         Text currentIndexText;
 
-        DamageNumber[] prefabs;
+        public DamageNumber[] prefabs;
         int currentIndex;
         DNP_PrefabSettings currentSettings;
 

@@ -6,10 +6,11 @@ public class MonoInstance : MonoBehaviour
 {
     public static MonoInstance instance;
 
-    private void Start()
+    void Awake()
     {
-        instance = this;
+        if (instance == null) {instance = this;}
     }
+
 
     public void CastEndPart2() 
     {

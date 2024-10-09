@@ -23,8 +23,10 @@ public class MapClass : NetworkBehaviour
     private Vector3Int DownLeftTile;
     //[SerializeField] TileBase terrainTile;
 
+    public static MapClass instance = null;
     private void Awake()
     {
+        if (instance == null) {instance = this;}
         GlobalEventSystem.PlayerDied.AddListener(PlayerDied);
     }
 

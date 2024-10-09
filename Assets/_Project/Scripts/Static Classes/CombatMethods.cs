@@ -2,27 +2,30 @@
 
 using System;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-
 public static class CombatMethods
 {
 
-    public static void ApplayDamage(float damageValue, CombatObject creatorType, CombatObject targetType)
+    public static void ApplayDamage(float value, CombatObject creatorType, CombatObject targetType)
     {
-        float damageModif = creatorType.GetModifiers().DamageModif * (1 - targetType.GetModifiers().DamageResist);
-        damageValue *= damageModif;
+        float modif = creatorType.GetModifiers().DamageModif * (1 - targetType.GetModifiers().DamageResist);
+        value *= modif;
 
-        if (damageValue > targetType.GetData().CurrentShield)
+        if (value > targetType.GetData().CurrentShield)
         {
-            damageValue -= targetType.GetData().CurrentShield;
+            Debug.Log(targetType.GetPosition());
+            if (targetType.GetData().CurrentShield > 0) DamageNumberManager.instance.Spawn(1, targetType.GetPosition(), value);
+            value -= targetType.GetData().CurrentShield;
             targetType.GetData().CurrentShield = 0;
-            targetType.GetData().CurrentHP -= damageValue;
+
+            DamageNumberManager.instance.Spawn(0, targetType.GetPosition(), value);
+            targetType.GetData().CurrentHP -= value;
             if (targetType.GetData().CurrentHP < 0) targetType.GetData().CurrentHP = 0;
         }
         else
         {
-            targetType.GetData().CurrentShield -= damageValue;
+            DamageNumberManager.instance.Spawn(1, targetType.GetPosition(), value);
+            targetType.GetData().CurrentShield -= value;
         }
 
         if (targetType is HeroCombatObject)
@@ -36,13 +39,14 @@ public static class CombatMethods
         }
     }
     
-    public static void ApplayHeal(float healValue, CombatObject creatorType, CombatObject targetType)
+    public static void ApplayHeal(float value, CombatObject creatorType, CombatObject targetType)
     {        
-        float healModif = creatorType.GetModifiers().HealModif * (1 - targetType.GetModifiers().HealEffectiveResist);
-        healValue *= healModif;
+        float modif = creatorType.GetModifiers().HealModif * (1 - targetType.GetModifiers().HealEffectiveResist);
+        value *= modif;
 
-        if (targetType.GetData().CurrentHP + healValue >= targetType.GetData().MaxHP) targetType.GetData().CurrentHP = targetType.GetData().MaxHP;
-        else targetType.GetData().CurrentHP += healValue;
+        DamageNumberManager.instance.Spawn(2, targetType.GetPosition(), value);
+        if (targetType.GetData().CurrentHP + value >= targetType.GetData().MaxHP) targetType.GetData().CurrentHP = targetType.GetData().MaxHP;
+        else targetType.GetData().CurrentHP += value;
 
         if (targetType is HeroCombatObject)
         {   
@@ -54,12 +58,13 @@ public static class CombatMethods
         }
     }
 
-    public static void ApplayShield(float shieldValue, CombatObject creatorType, CombatObject targetType)
+    public static void ApplayShield(float value, CombatObject creatorType, CombatObject targetType)
     {
-        float shieldModif = creatorType.GetModifiers().ShieldModif * (1 - targetType.GetModifiers().ShieldEffectiveResist);
-        shieldValue *= shieldModif;
+        float modif = creatorType.GetModifiers().ShieldModif * (1 - targetType.GetModifiers().ShieldEffectiveResist);
+        value *= modif;
 
-        targetType.GetData().CurrentShield += shieldValue;
+        DamageNumberManager.instance.Spawn(3, targetType.GetPosition(), value);
+        targetType.GetData().CurrentShield += value;
 
         if (targetType is HeroCombatObject)
         {   
@@ -132,6 +137,9 @@ public class CombatObject //Who cast damage, shield, heal and etc.
     public Modifiers Modifiers;
     public CombatStats Data;
 
+    public GameObject gameObject;
+    public Vector3 position;
+
     public virtual CombatStats GetData()
     {
         return Data;
@@ -139,6 +147,11 @@ public class CombatObject //Who cast damage, shield, heal and etc.
     public virtual Modifiers GetModifiers()
     {
         return Modifiers;
+    }
+
+    public virtual Vector3 GetPosition()
+    {
+        return position;
     }
 }
 
@@ -152,6 +165,9 @@ public class HeroCombatObject: CombatObject // Hero, his talents, items, tileEff
     public new Modifiers Modifiers => stats.general.Modifiers;
     public new CombatStats Data => stats.currentCombat;
 
+    public new GameObject gameObject => playersData.PlayersHeroes[ObjectID];
+    public new Vector3 position => gameObject.transform.position;
+
     public override CombatStats GetData()
     {
         return Data;
@@ -160,6 +176,10 @@ public class HeroCombatObject: CombatObject // Hero, his talents, items, tileEff
     {
         return Modifiers;
     } 
+    public override Vector3 GetPosition()
+    {
+        return position;
+    }
 
     public HeroCombatObject(int objectID, CombatPlayerDataInStage combatPlayerDataInStage)
     {
@@ -173,6 +193,11 @@ public class BossCombatObject : CombatObject // Boss, his tyleEffects, effects
     private BossManager bossManager;
     public new CombatStats Data => bossManager.bossStats;
     public new Modifiers Modifiers => new Modifiers();
+
+    public new GameObject gameObject => bossManager.BossGameObject;
+    public new Vector3 position => gameObject.transform.position;
+
+
     public override Modifiers GetModifiers()
     {
         return Modifiers;
@@ -185,6 +210,10 @@ public class BossCombatObject : CombatObject // Boss, his tyleEffects, effects
     public override CombatStats GetData()
     {
         return Data;
+    }
+    public override Vector3 GetPosition()
+    {
+        return position;
     }
 }
 

@@ -85,8 +85,11 @@ public class CombatPlayerDataInStage : MonoBehaviour
         return null;
     }
 
+    public static CombatPlayerDataInStage instance = null;
     private void Awake()
     {
+        if (instance == null) {instance = this;}
+        
         GlobalEventSystem.PlayerHPChanged.AddListener(CheckIfAlive);
     }
 
