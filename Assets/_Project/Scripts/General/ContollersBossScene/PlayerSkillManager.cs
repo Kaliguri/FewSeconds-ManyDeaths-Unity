@@ -131,7 +131,7 @@ public class PlayerSkillManager : NetworkBehaviour
     private void CastActionRpc(int casterPlayerId, int skillNumber, Vector2 CasterPosition, Vector2 ActualCasterPosition, Vector2[] TargetPoints, int skillIndex)
     {
         int variation = playerInfoData.SkillChoiceList[casterPlayerId].variationList[skillNumber];
-        SkillScript skillScript = heroData.SkillList[skillNumber].SkillVariationsList[variation].SkillScript;
+        SkillScript skillScript = playerInfoData.HeroDataList[casterPlayerId].SkillList[skillNumber].SkillVariationsList[variation].SkillScript;
         skillScript.Cast(CasterPosition, ActualCasterPosition, TargetPoints, casterPlayerId, skillIndex);
     }
 
