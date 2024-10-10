@@ -1,3 +1,4 @@
+using Sonity;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -68,10 +69,15 @@ public class BossActionScript
         return mapClass.MapObjectCheck(area);
     }
 
-    protected void DamageEveryOneInTiles(List<Vector2> tiles, float damage)
+    protected void DamageEveryOneInTiles(List<Vector2> tiles, float damage, SoundEvent hitSound)
     {
         List<CombatObject> affectedCombatObjectList = GetAffectedCombatObjectList(tiles);
         BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
-        foreach (CombatObject combatObject in affectedCombatObjectList) CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
+
+        foreach (CombatObject combatObject in affectedCombatObjectList) 
+        {
+            CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject); 
+            hitSound.Play(bossManager.transform); 
+        }
     }
 }

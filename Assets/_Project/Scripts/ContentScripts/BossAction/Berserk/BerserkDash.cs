@@ -1,4 +1,6 @@
 using MoreMountains.Tools;
+using Sirenix.OdinInspector;
+using Sonity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,13 +10,23 @@ using UnityEngine;
 [Serializable]
 public class BerserkDash : BossActionScript
 {
+    [Title("Stats")]
+    [SerializeField] private float damage = 10f;
+
+
+    [Title("Visual")]
     [SerializeField] private float TimeBetweenDash = 0.7f;
     [SerializeField] private float DashTime = 0.9f;
-    [SerializeField] private float damage = 10f;
+    
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+    [SerializeField] SoundEvent hitSFX;
 
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
+        castSFX.Play(bossManager.transform);
 
         Debug.Log("Cast Berserk Dash!");
         CastBerserkDash();
@@ -80,7 +92,7 @@ public class BerserkDash : BossActionScript
 
             bossManager.BossGameObject.transform.position = endPos;
 
-            if (act > 0) DamageEveryOneInTiles(new List<Vector2> { endPos - mapClass.tileZero }, damage);
+            if (act > 0) DamageEveryOneInTiles(new List<Vector2> { endPos - mapClass.tileZero }, damage, hitSFX);
 
             currentDashTime = Mathf.Min(currentDashTime * 1.1f, DashTime);
         }

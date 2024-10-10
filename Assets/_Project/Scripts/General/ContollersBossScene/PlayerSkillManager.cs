@@ -131,7 +131,7 @@ public class PlayerSkillManager : NetworkBehaviour
     private void CastActionRpc(int casterPlayerId, int skillNumber, Vector2 CasterPosition, Vector2 ActualCasterPosition, Vector2[] TargetPoints, int skillIndex)
     {
         int variation = playerInfoData.SkillChoiceList[casterPlayerId].variationList[skillNumber];
-        SkillScript skillScript = heroData.SkillList[skillNumber].SkillVariationsList[variation].SkillScript;
+        SkillScript skillScript = playerInfoData.HeroDataList[casterPlayerId].SkillList[skillNumber].SkillVariationsList[variation].SkillScript;
         skillScript.Cast(CasterPosition, ActualCasterPosition, TargetPoints, casterPlayerId, skillIndex);
     }
 
@@ -148,12 +148,13 @@ public class PlayerSkillManager : NetworkBehaviour
 
     private void CanselAction()
     {
-        if (skillSelected && ChoosenSkill != null)
+        if (skillSelected && ChoosenSkill != null && TargetPoints == 0)
         {
             int newEnergy = combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy + ChoosenSkill.EnergyCost;
             SendChangeSkillCooldownRpc(playerID, skillID, 0);
             ChangeEnergy(newEnergy);
             skillSelected = false;
+            GlobalEventSystem.SendPlayerSkillUnchoosed(skillID);
         }  
         else if (SkillList.Count > 0)
         {
@@ -164,9 +165,8 @@ public class PlayerSkillManager : NetworkBehaviour
             skillNumberList.RemoveAt(skillNumberList.Count - 1);
             characterCastCoordinate.RemoveAt(characterCastCoordinate.Count - 1);
             TargetTileList.RemoveAt(TargetTileList.Count - 1);
+            GlobalEventSystem.SendPlayerSkillUnchoosed(skillID);
         }
-
-        GlobalEventSystem.SendPlayerSkillUnchoosed(skillID);
     }
 
     private void AddSkillToList()

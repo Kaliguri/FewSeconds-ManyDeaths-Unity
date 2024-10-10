@@ -1,14 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 
 [Serializable]
 public class Invincibility : SkillScript
 {
     [Header("Invincibility")]
+
+    [Title("Stats")]
     [SerializeField] GameObject InvincibilityPrefab;
+
+
+    [Title("Prefabs")]
     [SerializeField] float shieldParameter = 999f;
+
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+    
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {

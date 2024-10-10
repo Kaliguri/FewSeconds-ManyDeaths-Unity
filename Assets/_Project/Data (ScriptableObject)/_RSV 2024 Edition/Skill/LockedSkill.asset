@@ -36,6 +36,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4835066225857658929
       type: {class: Teamwork, ns: , asm: Assembly-CSharp}
       data:

@@ -2,24 +2,41 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
 [Serializable]
 public class SacrificialBlood : BossActionScript
 {
+    [Title("Stats")]
     [SerializeField] private int damage = 20;
-    [SerializeField] private GameObject bloodParticlePrefab;
-    [SerializeField] private float circleBloodRadius = 2f;
+
+
+    [Title("Visual")]
+    [SerializeField] private int circleBloodRadius = 2;
     [SerializeField] private float circlingTime = 2f;
     [SerializeField] private float betweenSendTime = 0.5f;
     [SerializeField] private float startCirclingTime = 1f;
     [SerializeField] private float particleMoveTime = 1f;
     [SerializeField] private Vector2 centerModification = new Vector2( 0f, 0.5f);
 
+
+    [Title("Prefabs")]
+    [SerializeField] private GameObject bloodParticlePrefab;
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+    [SerializeField] SoundEvent sendSFX;
+    [SerializeField] SoundEvent healSFX;
+    [SerializeField] SoundEvent hitSFX;
+    
+
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
+        castSFX.Play(bossManager.transform);
 
         Debug.Log("Cast Berserk Sacrificial Blood!");
 
@@ -61,6 +78,7 @@ public class SacrificialBlood : BossActionScript
 
         BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
         CombatMethods.ApplayDamage(damage, bossCombatObject, bossCombatObject);
+        hitSFX.Play(bossManager.transform);
 
         MonoInstance.instance.StartCoroutine(SpawnAndCircleBloodParticles(bloodParticleCount));
     }
@@ -120,6 +138,7 @@ public class SacrificialBlood : BossActionScript
 
             if (elapsedTime > betweenSendTime * (bloodParticles.Count - remainingCount))
             {
+                sendSFX.Play(bossManager.transform);
                 if (remainingCount == 0)
                 {
                     yield return MonoInstance.instance.StartCoroutine(SendParticleToHeroPoint(bloodParticles[remainingCount]));
@@ -180,7 +199,12 @@ public class SacrificialBlood : BossActionScript
                     else heal = damage;
 
                     CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
-                    CombatMethods.ApplayHeal(heal, bossCombatObject, bossCombatObject);
+                    hitSFX.Play(bossManager.transform);
+                    if (heal > 0) 
+                    {
+                        healSFX.Play(bossManager.BossGameObject.transform);
+                        CombatMethods.ApplayHeal(heal, bossCombatObject, bossCombatObject); 
+                    }
                 }
             }
         }

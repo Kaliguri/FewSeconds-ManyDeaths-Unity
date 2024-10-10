@@ -32,13 +32,17 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: -724931929, guid: e80c21d2e92d6cc499728e26666f3a92, type: 3}
   SkillScript:
-    rid: 6274678218844536845
+    rid: 4835066335961284610
   references:
     version: 2
     RefIds:
-    - rid: 6274678218844536845
-      type: {class: Shot, ns: , asm: Assembly-CSharp}
+    - rid: 4835066335961284610
+      type: {class: CrossOfLife, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
         SkillCooldown: 0
-        Damage: 0
+        IsMovable: 0
+        TargetCount: 1
+        healValue: 80
+        CrossOfLifePrefab: {fileID: 0}
+        castSFX: {fileID: 0}

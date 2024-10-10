@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Boss Combo 1
   m_EditorClassIdentifier: 
   BossActionList:
-  - {fileID: 11400000, guid: ebaa59d3e3c715240b2c4c651469be74, type: 2}
+  - {fileID: 11400000, guid: 6332ea37e3f45024d955e7ecdac129ac, type: 2}
+  - {fileID: 11400000, guid: 02f0086e62d913340aee51fa04c8418e, type: 2}
   HeroIsNear: 0

@@ -5,6 +5,7 @@ using Unity.Netcode;
 using Netcode.Transports.Facepunch;
 using UnityEngine.SceneManagement;
 using System;
+using Unity.VisualScripting;
 
 public class SteamManager : MonoBehaviour
 {   
@@ -29,6 +30,7 @@ public class SteamManager : MonoBehaviour
         SteamMatchmaking.OnLobbyCreated += LobbyCreated;
         SteamMatchmaking.OnLobbyEntered += LobbyEntered;
         SteamFriends.OnGameLobbyJoinRequested += GameLobbyJoinRequested;
+        SteamMatchmaking.OnLobbyMemberLeave += OnLobbyMemberLeave;
     }
 
     private void OnDisable()
@@ -36,6 +38,7 @@ public class SteamManager : MonoBehaviour
         SteamMatchmaking.OnLobbyCreated -= LobbyCreated;
         SteamMatchmaking.OnLobbyEntered -= LobbyEntered;
         SteamFriends.OnGameLobbyJoinRequested -= GameLobbyJoinRequested;
+        SteamMatchmaking.OnLobbyMemberLeave -= OnLobbyMemberLeave;
     }
 
     private async void GameLobbyJoinRequested(Lobby lobby, SteamId steamId)
@@ -55,6 +58,17 @@ public class SteamManager : MonoBehaviour
             NetworkManager.Singleton.StartClient();
         }
         GlobalEventSystem.SendPlayerLobbyUpdate(lobby.Owner.Id);
+    }
+
+    private void OnLobbyMemberLeave(Lobby lobby, Friend friend)
+    {
+        if (friend.Id == lobby.Owner.Id)
+        {
+            if (!NetworkManager.Singleton.IsHost)
+            {
+                LeaveLobby();
+            }
+        }
     }
 
     private void LobbyCreated(Result result, Lobby lobby)

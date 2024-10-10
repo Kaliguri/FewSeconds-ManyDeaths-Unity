@@ -1,4 +1,6 @@
 using MoreMountains.Tools;
+using Sirenix.OdinInspector;
+using Sonity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,13 +9,27 @@ using UnityEngine;
 [Serializable]
 public class BerserkCircularSlice : BossActionScript
 {
+    [Title("Stats")]
     [SerializeField] private int damage = 30;
-    [SerializeField] private GameObject affectedTile;
+
+    
+    [Title("Visual")]
     [SerializeField] private float timeBetweenCastAndDamage = 1f;
+
+
+    [Title("Prefabs")]
+    [SerializeField] private GameObject affectedTile;
+
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+    [SerializeField] SoundEvent hitSFX;
+    
 
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
+        castSFX.Play(bossManager.transform);
 
         Debug.Log("Cast Berserk Circular Slice!");
         CastCircularSlice();
@@ -58,6 +74,7 @@ public class BerserkCircularSlice : BossActionScript
         foreach (CombatObject combatObject in affectedCombatObjectList)
         {
             CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
+            hitSFX.Play(bossManager.transform);
         }
 
         CastEnd();

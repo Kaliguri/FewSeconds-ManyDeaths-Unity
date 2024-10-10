@@ -1,14 +1,24 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 
 [Serializable]
 public class ProtectiveAura: SkillScript
 {
-    [Header("ProtectiveAura")]
+    [Header("Protective Aura")]
+
+    [Title("Stats")]
+    [SerializeField] float shieldValue = 20f;
+
+
+    [Title("Prefabs")]
     [SerializeField] GameObject AuraSkillPrefab;
-    [SerializeField] float shieldParameter = 20f;
+    
+    
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
@@ -41,8 +51,8 @@ public class ProtectiveAura: SkillScript
     {
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
-            if (combatObject is HeroCombatObject && combatObject.ObjectID == playerID) CombatMethods.ApplayShield(shieldParameter * 2, GetHeroCombatObject(playerID), combatObject);
-            else CombatMethods.ApplayShield(shieldParameter, GetHeroCombatObject(playerID), combatObject);
+            if (combatObject is HeroCombatObject && combatObject.ObjectID == playerID) CombatMethods.ApplayShield(shieldValue * 2, GetHeroCombatObject(playerID), combatObject);
+            else CombatMethods.ApplayShield(shieldValue, GetHeroCombatObject(playerID), combatObject);
         }
     }
 }

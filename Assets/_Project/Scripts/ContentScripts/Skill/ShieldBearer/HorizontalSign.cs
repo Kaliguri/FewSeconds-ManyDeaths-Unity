@@ -1,4 +1,6 @@
+using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Demos;
+using Sonity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,9 +9,18 @@ using UnityEngine;
 [Serializable]
 public class HorizontalSign : SkillScript
 {
-    [Header("HorizontalSign")]
+    [Title("Horizontal Sign")]
+
+    [Title("Stats")]
+    [SerializeField] float shieldValue = 40f;
+
+
+    [Title("Prefabs")]
     [SerializeField] GameObject HorizontalSignPrefab;
-    [SerializeField] float shieldParameter = 40f;
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+    
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
@@ -44,7 +55,7 @@ public class HorizontalSign : SkillScript
     {
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
-            CombatMethods.ApplayShield(shieldParameter, GetHeroCombatObject(playerID), combatObject);
+            CombatMethods.ApplayShield(shieldValue, GetHeroCombatObject(playerID), combatObject);
         }
     }
 }

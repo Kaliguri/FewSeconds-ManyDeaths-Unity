@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Guide Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Guide
+  m_TableCollectionNameGuidString: f3bd6d6817ff17a4c892336e85c69746
+  m_Entries:
+  - m_Id: 103137226752
+    m_Key: 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 212675670016
+    m_Key: 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 257537945600
+    m_Key: 2 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 259983224832
+    m_Key: 2 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 298495324160
+    m_Key: 3 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300210794496
+    m_Key: 3 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50628734976
+    m_Key: Pages Header
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4835066335961284614
+  references:
+    version: 2
+    RefIds:
+    - rid: 4835066335961284614
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1728557939889
