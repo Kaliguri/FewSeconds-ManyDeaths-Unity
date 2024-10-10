@@ -1,15 +1,24 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
+using Sonity;
 using Unity.Netcode;
 using UnityEngine;
 
 [Serializable]
-public class RoyalMove : SkillScript
+public class KnightsMove : SkillScript
 {
-    [Header("RoyalMove")]
+    [Title("RoyalMove")]
+
+    [Title("Prefabs")]
     [SerializeField] GameObject RoyalMovePrefab;
+    
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+
+
     private PlayerSkillManager playerSkillManager => GameObject.FindObjectOfType<PlayerSkillManager>();
     private Vector2 selectedheroPosition;
 
@@ -38,9 +47,9 @@ public class RoyalMove : SkillScript
         else
         {
             Vector2 selectedPlayer = playerSkillManager.TargetTileList[playerSkillManager.TargetTileList.Count - 1][0];
-            areaList.AddRange(GridAreaMethods.SquareAOE(characterCellCoordinate, selectedPlayer));
+            areaList.AddRange(GridAreaMethods.AllHorseCells(selectedPlayer));
         }
-        
+
         return areaList;
     }
 
@@ -50,7 +59,7 @@ public class RoyalMove : SkillScript
         List<MapObject> objectsInSecondPointList = GetObjectsFromPoint(SelectedCellCoordinate[1]).ToList();
 
         MapObject heroMapObject = new();
-        foreach (MapObject mapObject in objectsInFirstPointList) if (mapObject is Hero) heroMapObject = mapObject; 
+        foreach (MapObject mapObject in objectsInFirstPointList) if (mapObject is Hero) heroMapObject = mapObject;
 
         if (objectsInSecondPointList.Count == 0 && objectsInFirstPointList.Count > 0)
         {
@@ -63,7 +72,5 @@ public class RoyalMove : SkillScript
             mapClass.RemoveHero(SelectedCellCoordinate[0], heroID);
             mapClass.SetHero(SelectedCellCoordinate[1], heroID);
         }
-
-        if (objectsInFirstPointList.Count > 0) NetworkInstance.instance.ChangePlayerEnergyRpc(combatPlayerDataInStage._TotalStatsList[heroMapObject.ID].currentCombat.CurrentEnergy + 1, heroMapObject.ID);
     }
 }

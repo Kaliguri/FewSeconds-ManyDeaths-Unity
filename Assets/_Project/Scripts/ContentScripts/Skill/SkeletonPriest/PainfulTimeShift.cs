@@ -1,34 +1,39 @@
-using System;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Demos;
 using Sonity;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class ProtectiveAura: SkillScript
+public class PainfulTimeShift : SkillScript
 {
-    [Header("Protective Aura")]
+    [Title("Painful Time Shift")]
 
     [Title("Stats")]
-    [SerializeField] float shieldValue = 20f;
-
+    [SerializeField] float damageValue = 10f;
+    [SerializeField] int restoreEnergyValue = 1;
+    
 
     [Title("Prefabs")]
-    [SerializeField] GameObject AuraSkillPrefab;
-    
-    
+    [SerializeField] GameObject PainfulTimeShiftPrefab;
+
+
     [Title("SFX")]
     [SerializeField] SoundEvent castSFX;
-    
+    [SerializeField] SoundEvent hitSFX;
+
+
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
 
         SpawnSkillSpawnSpritesPrefab();
-        ApplayShield(playerID);
-                
+        CastPainfulTimeShift(playerID);
+
         CastEnd();
-        
+
     }
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
@@ -41,18 +46,20 @@ public class ProtectiveAura: SkillScript
         return mapClass.AllTiles;
     }
 
-
     void SpawnSkillSpawnSpritesPrefab()
     {
-        SpawnSkillObjects(GetArea(), AuraSkillPrefab);
+        SpawnSkillObjects(GetArea(), PainfulTimeShiftPrefab);
     }
-    
-    void ApplayShield(int playerID)
+
+    void CastPainfulTimeShift(int playerID)
     {
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
-            if (combatObject is HeroCombatObject && combatObject.ObjectID == playerID) CombatMethods.ApplayShield(shieldValue * 2, GetHeroCombatObject(playerID), combatObject);
-            else CombatMethods.ApplayShield(shieldValue, GetHeroCombatObject(playerID), combatObject);
+            if (combatObject is HeroCombatObject)
+            {
+                CombatMethods.ApplayDamage(damageValue, GetHeroCombatObject(playerID), combatObject);
+                NetworkInstance.instance.ChangePlayerEnergyRpc(combatPlayerDataInStage._TotalStatsList[combatObject.ObjectID].currentCombat.CurrentEnergy + restoreEnergyValue, combatObject.ObjectID);
+            }
         }
     }
 }

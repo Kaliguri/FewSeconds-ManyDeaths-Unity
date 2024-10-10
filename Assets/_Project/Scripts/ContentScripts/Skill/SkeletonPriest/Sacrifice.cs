@@ -2,14 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 
 [Serializable]
 public class Sacrifice : SkillScript
 {
-    [Header("Sacrifice")]
-    [SerializeField] GameObject SacrificePrefab;
+    [Title("Sacrifice")]
+
+    [Title("Stats")]
     [SerializeField] float healParameter = 999f;
+
+    
+    [Title("Prefabs")]
+    [SerializeField] GameObject SacrificePrefab;
+    
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {

@@ -1,16 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 
 [Serializable]
 public class QuickShot : SkillScript
 {
-    [Header("QuickShot")]
+    [Title("Quick Shot")]
+
+    [Title("Stats")]
     [SerializeField] float Damage = 20f;
-    [SerializeField] GameObject QuickShotPrefab;
+
+
+
+    [Title("Visual")]
     [SerializeField] Vector2 spawnModification;
     [SerializeField] float shotSpeed = 5f;
+
+
+    [Title("Prefabs")]
+    [SerializeField] GameObject QuickShotPrefab;
+    
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+    [SerializeField] SoundEvent hitSFX;
+    
+    
     private ShotsManager shotsManager => GameObject.FindObjectOfType<ShotsManager>();
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)

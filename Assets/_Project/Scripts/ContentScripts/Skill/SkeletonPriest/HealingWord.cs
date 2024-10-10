@@ -1,14 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 
 [Serializable]
 public class HealingWord : SkillScript
 {
-    [Header("HealingWord")]
+    [Title("Healing Word")]
+
+    [Title("Stats")]
+    [SerializeField] float healValue = 15f;
+
+
+    [Title("Prefabs")]
     [SerializeField] GameObject HealingWordPrefab;
-    [SerializeField] float healParameter = 15f;
+
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
@@ -41,7 +52,7 @@ public class HealingWord : SkillScript
     {
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
-            CombatMethods.ApplayHeal(healParameter, GetHeroCombatObject(playerID), combatObject);
+            CombatMethods.ApplayHeal(healValue, GetHeroCombatObject(playerID), combatObject);
         }
     }
 }

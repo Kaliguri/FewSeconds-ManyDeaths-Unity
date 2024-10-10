@@ -1,14 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 
 [Serializable]
 public class SwordEnergyDiagonally : BossActionScript
 {
-    [SerializeField] private int damage = 25;
-    [SerializeField] private GameObject slicePrefab;
-    [SerializeField] private float sliceSpeed = 1f;
+    [Title("Stats")]
+    [SerializeField] int damage = 25;
+    
+
+    [Title("Visual")]
+    [SerializeField] float sliceSpeed = 1f;
+
+
+    [Title("Prefabs")]
+    [SerializeField] GameObject slicePrefab;
+
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+    [SerializeField] SoundEvent hitSFX;
+    
     private int sliceCount = 0;
     private enum DiagonalDirection { UpRight, UpLeft, DownRight, DownLeft }
 

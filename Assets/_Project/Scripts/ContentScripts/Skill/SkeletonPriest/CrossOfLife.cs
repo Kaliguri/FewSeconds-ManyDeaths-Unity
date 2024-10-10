@@ -1,30 +1,41 @@
-using Sirenix.OdinInspector.Demos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 
 [Serializable]
-public class PainfulTimeShift : SkillScript
+public class CrossOfLife : SkillScript
 {
-    [Header("PainfulTimeShift")]
-    [SerializeField] GameObject PainfulTimeShiftPrefab;
-    [SerializeField] float damageParameter = 10f;
-    [SerializeField] int restoreEnergyParametr = 1;
+    [Title("Cross Of Life")]
 
+    [Title("Stats")]
+    [SerializeField] float healValue = 80f;
+
+
+    [Title("Prefabs")]
+    [SerializeField] GameObject CrossOfLifePrefab;
+    
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+
+    
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
 
         SpawnSkillSpawnSpritesPrefab();
-        CastPainfulTimeShift(playerID);
+        ApplayHeal(playerID);
 
         CastEnd();
 
     }
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
-        List<Vector2> areaList = new() { selectedCellCoordinate };
+        List<Vector2> areaList = GridAreaMethods.AllCardinalLines(selectedCellCoordinate, selectedCellCoordinate, 1, 1);
+        areaList.Add(selectedCellCoordinate);
         return areaList;
     }
 
@@ -33,20 +44,17 @@ public class PainfulTimeShift : SkillScript
         return mapClass.AllTiles;
     }
 
+
     void SpawnSkillSpawnSpritesPrefab()
     {
-        SpawnSkillObjects(GetArea(), PainfulTimeShiftPrefab);
+        SpawnSkillObjects(GetArea(), CrossOfLifePrefab);
     }
 
-    void CastPainfulTimeShift(int playerID)
+    void ApplayHeal(int playerID)
     {
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
-            if (combatObject is HeroCombatObject)
-            {
-                CombatMethods.ApplayDamage(damageParameter, GetHeroCombatObject(playerID), combatObject);
-                NetworkInstance.instance.ChangePlayerEnergyRpc(combatPlayerDataInStage._TotalStatsList[combatObject.ObjectID].currentCombat.CurrentEnergy + restoreEnergyParametr, combatObject.ObjectID);
-            }
+            CombatMethods.ApplayHeal(healValue, GetHeroCombatObject(playerID), combatObject);
         }
     }
 }

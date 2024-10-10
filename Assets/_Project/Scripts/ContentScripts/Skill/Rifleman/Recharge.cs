@@ -1,11 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sonity;
 using UnityEngine;
 
 [Serializable]
 public class Recharge : SkillScript
 {
+    [Title("Quick Shot")]
+
+    [Title("Stats")]
+    [SerializeField] float bulletReload;
+    [SerializeField] float extraButtetForAllyNear;
+
+    [Title("Prefabs")]
+    [SerializeField] GameObject reloadPrefab;
+
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+
+
     private ShotsManager shotsManager => GameObject.FindObjectOfType<ShotsManager>();
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)

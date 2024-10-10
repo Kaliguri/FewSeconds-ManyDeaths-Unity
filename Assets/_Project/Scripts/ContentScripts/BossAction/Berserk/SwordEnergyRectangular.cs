@@ -1,15 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sonity;
 using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
 public class SwordEnergyRectangular : BossActionScript
 {
-    [SerializeField] private int damage = 25;
-    [SerializeField] private GameObject slicePrefab;
-    [SerializeField] private float sliceSpeed = 1f;
+    [Title("Stats")]
+    [SerializeField] int damage = 25;
+
+
+    [Title("Visual")]
+    [SerializeField] float sliceSpeed = 1f;
+
+
+    [Title("Prefabs")]
+    [SerializeField] GameObject slicePrefab;
+    
+
+    [Title("SFX")]
+    [SerializeField] SoundEvent castSFX;
+    [SerializeField] SoundEvent hitSFX;
+
+
     private int sliceCount = 0;
     private enum Direction { Up, Down, Left, Right }
 
@@ -81,22 +97,22 @@ public class SwordEnergyRectangular : BossActionScript
         switch (direction)
         {
             case Direction.Up:
-                // Двигаемся вверх до крайней границы
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 boundaryTile = new Vector2(fromTile.x, 0);
                 break;
 
             case Direction.Down:
-                // Двигаемся вниз до крайней границы
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 boundaryTile = new Vector2(fromTile.x, mapClass.Max_B);
                 break;
 
             case Direction.Left:
-                // Двигаемся влево до крайней границы
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 boundaryTile = new Vector2(0, fromTile.y);
                 break;
 
             case Direction.Right:
-                // Двигаемся вправо до крайней границы
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 boundaryTile = new Vector2(mapClass.Max_A, fromTile.y);
                 break;
         }
