@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: Skills
     m_Metadata:
       m_Items: []
+  - m_Id: 15443091938160640
+    m_Key: Lock _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15443223014354944
+    m_Key: Lock Description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

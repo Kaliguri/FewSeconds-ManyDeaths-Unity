@@ -23,11 +23,17 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 355403640832
-    m_Localized: 
+    m_Localized: 'Gives all creatures in a horizontal line with it 40 shield units.
+
+      Movable.
+      The skill''s area of effect moves with the character.'
     m_Metadata:
       m_Items: []
   - m_Id: 367609065472
-    m_Localized: 
+    m_Localized: 'Gives all creatures in a vertical line with it 40 shield units.
+
+      Movable.
+      The skill''s area of effect moves with the character.'
     m_Metadata:
       m_Items: []
   - m_Id: 23697108992
@@ -49,6 +55,33 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1987545524416512
     m_Localized: As Varador gave his soul for me, so I will give mine for you!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303377494016
+    m_Localized: 'Applies a 20 unit shield to a character in the selected square.
+
+      If
+      the ability is applied to yourself, the shield strength is doubled.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3386261447716864
+    m_Localized: Gives the creature in the chosen square 999 units of shield.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389728732033024
+    m_Localized: Protective aura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389761502130176
+    m_Localized: Vertical sign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389788702191616
+    m_Localized: Horizontal sign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389816455901184
+    m_Localized: Invisibility
     m_Metadata:
       m_Items: []
   references:

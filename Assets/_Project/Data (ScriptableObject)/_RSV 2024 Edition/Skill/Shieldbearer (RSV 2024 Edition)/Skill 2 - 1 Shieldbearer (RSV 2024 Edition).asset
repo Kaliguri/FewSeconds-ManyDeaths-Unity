@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:38d81710b9133724880fa2124e6eed64
     m_TableEntryReference:
-      m_KeyId: 200776429568
+      m_KeyId: 3389761502130176
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:38d81710b9133724880fa2124e6eed64
     m_TableEntryReference:
-      m_KeyId: 155771547648
+      m_KeyId: 367609065472
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -43,6 +43,7 @@ MonoBehaviour:
         SkillCooldown: 1
         IsMovable: 0
         TargetCount: 1
+        shieldValue: 40
         VerticalSignPrefab: {fileID: 1186777461074907986, guid: 5596741cfa3805e4b9276c8c0d96c153,
           type: 3}
-        shieldParameter: 40
+        castSFX: {fileID: 0}

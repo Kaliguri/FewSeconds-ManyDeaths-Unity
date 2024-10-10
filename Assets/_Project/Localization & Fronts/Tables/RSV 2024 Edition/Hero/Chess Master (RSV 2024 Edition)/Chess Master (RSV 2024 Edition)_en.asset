@@ -45,6 +45,38 @@ MonoBehaviour:
       that resonates in the hearts of those who play!
     m_Metadata:
       m_Items: []
+  - m_Id: 303377494016
+    m_Localized: 'Moves a creature in the selected square as if moving a king in
+      chess, and replenishes 1 unit of energy to the character.
+
+      
+
+      You
+      can click on a square where the character is already standing to not move it,
+      but only to replenish 1 energy.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367609065472
+    m_Localized: 'Swaps creatures in selected squares into places. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3385397538533376
+    m_Localized: "Moves a creature in the selected square with a \u2018G\u2019 as
+      if moving a knight in chess."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3388140969865216
+    m_Localized: Royal move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3388166664171520
+    m_Localized: Castling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3388190034833408
+    m_Localized: Move of the horse
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

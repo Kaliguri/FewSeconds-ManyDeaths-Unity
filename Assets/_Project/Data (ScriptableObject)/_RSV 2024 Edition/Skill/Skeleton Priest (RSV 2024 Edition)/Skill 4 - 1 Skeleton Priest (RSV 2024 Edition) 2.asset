@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:444065e69da6ffb49930ab123184a827
     m_TableEntryReference:
-      m_KeyId: 200776429568
+      m_KeyId: 3389942486347776
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:444065e69da6ffb49930ab123184a827
     m_TableEntryReference:
-      m_KeyId: 155771547648
+      m_KeyId: 3387327232946176
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -43,6 +43,7 @@ MonoBehaviour:
         SkillCooldown: 99
         IsMovable: 0
         TargetCount: 1
+        healParameter: 999
         SacrificePrefab: {fileID: 1186777461074907986, guid: f3ea3a7c00c685a48b77e571ed3ee4f0,
           type: 3}
-        healParameter: 999
+        castSFX: {fileID: 0}

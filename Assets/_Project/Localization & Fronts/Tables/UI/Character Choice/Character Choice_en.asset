@@ -26,6 +26,15 @@ MonoBehaviour:
     m_Localized: 'Skills:'
     m_Metadata:
       m_Items: []
+  - m_Id: 15443091938160640
+    m_Localized: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15443223014354944
+    m_Localized: Not available in the current stage of the project. Expect it in
+      the future!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

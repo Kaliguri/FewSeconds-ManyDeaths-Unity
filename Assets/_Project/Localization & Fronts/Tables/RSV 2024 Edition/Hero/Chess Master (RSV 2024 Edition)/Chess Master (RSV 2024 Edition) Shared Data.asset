@@ -15,14 +15,6 @@ MonoBehaviour:
   m_TableCollectionName: Chess Master (RSV 2024 Edition)
   m_TableCollectionNameGuidString: caaf4f6a0b6030e4f81a87811b371496
   m_Entries:
-  - m_Id: 367609065472
-    m_Key: Skill 2 - 1
-    m_Metadata:
-      m_Items: []
-  - m_Id: 303377494016
-    m_Key: Skill 1 - 1
-    m_Metadata:
-      m_Items: []
   - m_Id: 21029531648
     m_Key: _Name
     m_Metadata:
@@ -33,6 +25,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1908679824977920
     m_Key: Qoute
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303377494016
+    m_Key: Skill 1 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367609065472
+    m_Key: Skill 2 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3385397538533376
+    m_Key: Skill 3 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3388140969865216
+    m_Key: Skill 1 - 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3388166664171520
+    m_Key: Skill 2 - 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3388190034833408
+    m_Key: Skill 3 - 1 _Name
     m_Metadata:
       m_Items: []
   m_Metadata:

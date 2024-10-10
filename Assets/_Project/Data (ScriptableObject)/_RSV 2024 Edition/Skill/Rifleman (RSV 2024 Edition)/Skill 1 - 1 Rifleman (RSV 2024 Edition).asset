@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:303b1c8311a6a5646abc9e36cd5174ba
     m_TableEntryReference:
-      m_KeyId: 200776429568
+      m_KeyId: 3390247433220096
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:303b1c8311a6a5646abc9e36cd5174ba
     m_TableEntryReference:
-      m_KeyId: 155771547648
+      m_KeyId: 303377494016
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -44,7 +44,9 @@ MonoBehaviour:
         IsMovable: 0
         TargetCount: 1
         Damage: 20
-        QuickShotPrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
-          type: 3}
         spawnModification: {x: 0.65, y: 0.45}
         shotSpeed: 5
+        QuickShotPrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
+          type: 3}
+        castSFX: {fileID: 0}
+        hitSFX: {fileID: 0}

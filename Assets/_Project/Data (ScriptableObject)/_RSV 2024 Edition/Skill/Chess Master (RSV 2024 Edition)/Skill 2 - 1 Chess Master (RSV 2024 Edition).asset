@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:caaf4f6a0b6030e4f81a87811b371496
     m_TableEntryReference:
-      m_KeyId: 200776429568
+      m_KeyId: 3388166664171520
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:caaf4f6a0b6030e4f81a87811b371496
     m_TableEntryReference:
-      m_KeyId: 155771547648
+      m_KeyId: 367609065472
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -43,3 +43,6 @@ MonoBehaviour:
         SkillCooldown: 1
         IsMovable: 0
         TargetCount: 2
+        CastlingAPrefab: {fileID: 0}
+        CastlingBPrefab: {fileID: 0}
+        castSFX: {fileID: 0}

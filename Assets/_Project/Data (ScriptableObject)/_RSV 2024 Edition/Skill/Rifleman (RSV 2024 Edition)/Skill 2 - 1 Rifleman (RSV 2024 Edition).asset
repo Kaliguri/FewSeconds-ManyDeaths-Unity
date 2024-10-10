@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:303b1c8311a6a5646abc9e36cd5174ba
     m_TableEntryReference:
-      m_KeyId: 200776429568
+      m_KeyId: 3390285932736512
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:303b1c8311a6a5646abc9e36cd5174ba
     m_TableEntryReference:
-      m_KeyId: 155771547648
+      m_KeyId: 367609065472
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -43,3 +43,7 @@ MonoBehaviour:
         SkillCooldown: 0
         IsMovable: 0
         TargetCount: 1
+        bulletReload: 0
+        extraButtetForAllyNear: 0
+        reloadPrefab: {fileID: 0}
+        castSFX: {fileID: 0}

@@ -15,28 +15,48 @@ MonoBehaviour:
   m_TableCollectionName: Rifleman (RSV 2024 Edition)
   m_TableCollectionNameGuidString: 303b1c8311a6a5646abc9e36cd5174ba
   m_Entries:
-  - m_Id: 23697108992
-    m_Key: Biography
-    m_Metadata:
-      m_Items: []
   - m_Id: 21029531648
     m_Key: _Name
     m_Metadata:
       m_Items: []
-  - m_Id: 303377494016
-    m_Key: Skill 1 - 1
-    m_Metadata:
-      m_Items: []
-  - m_Id: 355403640832
-    m_Key: Skill 1 - 2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 367609065472
-    m_Key: Skill 2 - 1
+  - m_Id: 23697108992
+    m_Key: Biography
     m_Metadata:
       m_Items: []
   - m_Id: 1987636289155072
     m_Key: Quote
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3387959859818496
+    m_Key: Skill 0 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303377494016
+    m_Key: Skill 1 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367609065472
+    m_Key: Skill 2 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355403640832
+    m_Key: Skill 4 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390223416635392
+    m_Key: Skill 0 - 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390247433220096
+    m_Key: Skill 1 - 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390285932736512
+    m_Key: Skill 2 - 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390317851389952
+    m_Key: Skill 4 - 1 _Name
     m_Metadata:
       m_Items: []
   m_Metadata:

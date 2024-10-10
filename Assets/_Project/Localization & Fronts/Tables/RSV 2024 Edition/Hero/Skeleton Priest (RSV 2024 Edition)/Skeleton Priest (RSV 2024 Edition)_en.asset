@@ -37,6 +37,39 @@ MonoBehaviour:
     m_Localized: CATS. CATS ARE GOOD.
     m_Metadata:
       m_Items: []
+  - m_Id: 303377494016
+    m_Localized: Heals a creature in the selected square, restoring 15 health.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367609065472
+    m_Localized: Deals 10 damage to a creature, but restores 1 unit of energy to
+      it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355403640832
+    m_Localized: Heals creatures in a cross-shaped area, restoring 80 health.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3387327232946176
+    m_Localized: Priest takes 999 damage, but heals all allies with 999 health.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389863352414208
+    m_Localized: Healing word
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389892406358016
+    m_Localized: Painful time shift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389918687866880
+    m_Localized: The cross of life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389942486347776
+    m_Localized: Self-sacrifice
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

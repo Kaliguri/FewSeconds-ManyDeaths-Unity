@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:38d81710b9133724880fa2124e6eed64
     m_TableEntryReference:
-      m_KeyId: 200776429568
+      m_KeyId: 3389816455901184
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:23cf76a08c6148c489582d86455ecd5d
+      m_TableCollectionName: GUID:38d81710b9133724880fa2124e6eed64
     m_TableEntryReference:
-      m_KeyId: 155771547648
+      m_KeyId: 3386261447716864
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -46,3 +46,4 @@ MonoBehaviour:
         InvincibilityPrefab: {fileID: 1186777461074907986, guid: 5596741cfa3805e4b9276c8c0d96c153,
           type: 3}
         shieldParameter: 999
+        castSFX: {fileID: 0}

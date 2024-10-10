@@ -40,6 +40,50 @@ MonoBehaviour:
       to me...
     m_Metadata:
       m_Items: []
+  - m_Id: 3387959859818496
+    m_Localized: 'A character has 6 rounds of ammo. Some skills spend these ammo.
+
+      If
+      you try to use an ability without having the right amount of ammo - energy
+      will be spent, but nothing will happen'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303377494016
+    m_Localized: 'Fires a shot into the selected square, dealing 20 damage. Spends
+      1 round.
+
+      Damage is increased by 1.5 times if you have an ally nearby.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367609065472
+    m_Localized: "Reloads the clip, restoring 1 round. \r\nThe skill can restore
+      2 rounds if you have an ally nearby."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355403640832
+    m_Localized: 'Increases the maximum amount of energy of all heroes in a 3x3 zone
+      (self-centred zone) by 1 unit.
+
+      Movable. The skill area moves with the
+      character.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390223416635392
+    m_Localized: Barrel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390247433220096
+    m_Localized: Quick shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390285932736512
+    m_Localized: Reloading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390317851389952
+    m_Localized: Inspirational speech
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

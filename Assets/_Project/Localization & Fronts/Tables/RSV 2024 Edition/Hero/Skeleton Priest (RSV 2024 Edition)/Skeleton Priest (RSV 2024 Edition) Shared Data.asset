@@ -15,18 +15,6 @@ MonoBehaviour:
   m_TableCollectionName: Skeleton Priest (RSV 2024 Edition)
   m_TableCollectionNameGuidString: 444065e69da6ffb49930ab123184a827
   m_Entries:
-  - m_Id: 367609065472
-    m_Key: Skill 2 - 1
-    m_Metadata:
-      m_Items: []
-  - m_Id: 355403640832
-    m_Key: Skill 1 - 2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 303377494016
-    m_Key: Skill 1 - 1
-    m_Metadata:
-      m_Items: []
   - m_Id: 21029531648
     m_Key: _Name
     m_Metadata:
@@ -37,6 +25,38 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1987308080672768
     m_Key: Quote
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303377494016
+    m_Key: Skill 1 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367609065472
+    m_Key: Skill 2 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355403640832
+    m_Key: Skill 3 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3387327232946176
+    m_Key: Skill 4 - 1 Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389863352414208
+    m_Key: Skill 1 - 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389892406358016
+    m_Key: Skill 2 - 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389918687866880
+    m_Key: Skill 3 - 1 _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3389942486347776
+    m_Key: Skill 4 - 1 _Name
     m_Metadata:
       m_Items: []
   m_Metadata:
