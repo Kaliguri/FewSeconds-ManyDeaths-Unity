@@ -8,17 +8,17 @@ using UnityEngine;
 [Serializable]
 public class Recharge : SkillScript
 {
-    [Title("Quick Shot")]
+    [Header("Quick Shot")]
 
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] float bulletReload;
     [SerializeField] float extraButtetForAllyNear;
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject reloadPrefab;
 
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
 
 
@@ -27,6 +27,7 @@ public class Recharge : SkillScript
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         CastRecharge(playerID);
 

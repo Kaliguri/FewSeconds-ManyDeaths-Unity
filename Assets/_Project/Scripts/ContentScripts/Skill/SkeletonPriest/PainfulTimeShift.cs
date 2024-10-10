@@ -9,18 +9,18 @@ using UnityEngine;
 [Serializable]
 public class PainfulTimeShift : SkillScript
 {
-    [Title("Painful Time Shift")]
+    [Header("Painful Time Shift")]
 
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] float damageValue = 10f;
     [SerializeField] int restoreEnergyValue = 1;
     
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject PainfulTimeShiftPrefab;
 
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
 
@@ -28,6 +28,7 @@ public class PainfulTimeShift : SkillScript
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         SpawnSkillSpawnSpritesPrefab();
         CastPainfulTimeShift(playerID);

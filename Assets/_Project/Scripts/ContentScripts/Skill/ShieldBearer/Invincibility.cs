@@ -10,21 +10,22 @@ public class Invincibility : SkillScript
 {
     [Header("Invincibility")]
 
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] GameObject InvincibilityPrefab;
 
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] float shieldParameter = 999f;
 
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayShield(playerID);

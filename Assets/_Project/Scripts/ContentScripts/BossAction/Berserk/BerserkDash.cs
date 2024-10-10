@@ -10,16 +10,16 @@ using UnityEngine;
 [Serializable]
 public class BerserkDash : BossActionScript
 {
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] private float damage = 10f;
 
 
-    [Title("Visual")]
+    [Header("Visual")]
     [SerializeField] private float TimeBetweenDash = 0.7f;
     [SerializeField] private float DashTime = 0.9f;
     
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
 

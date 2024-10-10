@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,10 @@ public class SkillScript
     [Header("Other")]
     public bool IsMovable = false;
     public int TargetCount = 1;
+
+    [Title("Prefabs")]
+    [SerializeField] GameObject TilePrefab;
+    [SerializeField] protected GameObject VFXPrefab;
 
     protected MapClass mapClass => GameObject.FindObjectOfType<MapClass>(); 
     protected BossManager bossManager => GameObject.FindObjectOfType<BossManager>();

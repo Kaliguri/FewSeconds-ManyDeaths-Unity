@@ -9,20 +9,21 @@ using UnityEngine;
 [Serializable]
 public class Сastling : SkillScript
 {
-    [Title("Сastling")]
+    [Header("Сastling")]
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject CastlingAPrefab;
     [SerializeField] GameObject CastlingBPrefab;
 
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
 
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         CastTeleport(skillIndex);
 

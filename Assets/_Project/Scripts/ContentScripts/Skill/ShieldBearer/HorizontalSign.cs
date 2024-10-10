@@ -9,22 +9,23 @@ using UnityEngine;
 [Serializable]
 public class HorizontalSign : SkillScript
 {
-    [Title("Horizontal Sign")]
+    [Header("Horizontal Sign")]
 
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] float shieldValue = 40f;
 
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject HorizontalSignPrefab;
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayShield(playerID);

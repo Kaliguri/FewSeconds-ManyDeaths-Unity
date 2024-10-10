@@ -12,11 +12,11 @@ public class RoyalMove : SkillScript
 {
     [Header("RoyalMove")]
     
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject RoyalMovePrefab;
 
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
 
 
@@ -26,6 +26,8 @@ public class RoyalMove : SkillScript
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        SpawnSkillObjects(selectedCellCoordinate.ToList(), VFXPrefab);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         CastRoyalMove();
 

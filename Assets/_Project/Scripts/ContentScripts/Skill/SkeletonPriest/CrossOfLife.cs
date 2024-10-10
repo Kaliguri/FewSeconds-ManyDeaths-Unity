@@ -8,23 +8,24 @@ using UnityEngine;
 [Serializable]
 public class CrossOfLife : SkillScript
 {
-    [Title("Cross Of Life")]
+    [Header("Cross Of Life")]
 
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] float healValue = 80f;
 
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject CrossOfLifePrefab;
     
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
 
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayHeal(playerID);

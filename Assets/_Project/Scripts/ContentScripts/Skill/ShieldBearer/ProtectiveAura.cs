@@ -9,20 +9,21 @@ public class ProtectiveAura: SkillScript
 {
     [Header("Protective Aura")]
 
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] float shieldValue = 20f;
 
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject AuraSkillPrefab;
     
     
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayShield(playerID);

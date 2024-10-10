@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using System;
 using Unity.VisualScripting;
 using System.Collections.Generic;
+using TMPro;
 
 public class SteamManager : MonoBehaviour
 {   
@@ -19,6 +20,9 @@ public class SteamManager : MonoBehaviour
 
     [Header("Controller")]
     [SerializeField] private GameObject ControllersSession;
+
+    [Header("WarningText")]
+    [SerializeField] GameObject warningText;
 
     private string FirstSessionScene => FindObjectOfType<MainMenuSceneContainer>().FirstSessionScene;
     private GameObject Controller;
@@ -144,7 +148,10 @@ public class SteamManager : MonoBehaviour
             List<HeroTypeData> heroesList = new();
             for (int i = 0; i < PlayerInfoData.instance.PlayerCount; i++) heroesList.Add(PlayerInfoData.instance.HeroDataList[i].HeroTypeData);
             if (!HasDuplicates(heroesList)) sceneLoaderManager.LoadScene(FirstSessionScene, true);
-            else Debug.Log("Dublicate Heroes Around");
+            else
+            {
+                warningText.SetActive(true);
+            }
         }
     }
 

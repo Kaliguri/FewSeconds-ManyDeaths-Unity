@@ -9,19 +9,19 @@ using UnityEngine;
 [Serializable]
 public class BerserkCircularSlice : BossActionScript
 {
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] private int damage = 30;
 
     
-    [Title("Visual")]
+    [Header("Visual")]
     [SerializeField] private float timeBetweenCastAndDamage = 1f;
 
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] private GameObject affectedTile;
 
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
     

@@ -9,22 +9,23 @@ using UnityEngine;
 [Serializable]
 public class Sacrifice : SkillScript
 {
-    [Title("Sacrifice")]
+    [Header("Sacrifice")]
 
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] float healParameter = 999f;
 
     
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject SacrificePrefab;
     
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayHeal(playerID);

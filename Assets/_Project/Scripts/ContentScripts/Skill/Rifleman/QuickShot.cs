@@ -8,23 +8,23 @@ using UnityEngine;
 [Serializable]
 public class QuickShot : SkillScript
 {
-    [Title("Quick Shot")]
+    [Header("Quick Shot")]
 
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] float Damage = 20f;
 
 
 
-    [Title("Visual")]
+    [Header("Visual")]
     [SerializeField] Vector2 spawnModification;
     [SerializeField] float shotSpeed = 5f;
 
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject QuickShotPrefab;
     
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
     
@@ -34,6 +34,7 @@ public class QuickShot : SkillScript
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
+        castSFX.Play(combatPlayerDataInStage.transform);
 
         CastQuickShot(playerID);
     }
@@ -101,6 +102,7 @@ public class QuickShot : SkillScript
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
             CombatMethods.ApplayDamage(damage, GetHeroCombatObject(playerID), combatObject);
+            hitSFX.Play(combatPlayerDataInStage.transform);
         }
     }
 }

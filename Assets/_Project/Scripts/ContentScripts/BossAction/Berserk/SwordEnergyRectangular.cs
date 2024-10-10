@@ -9,19 +9,19 @@ using UnityEngine;
 [Serializable]
 public class SwordEnergyRectangular : BossActionScript
 {
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] int damage = 25;
 
 
-    [Title("Visual")]
+    [Header("Visual")]
     [SerializeField] float sliceSpeed = 1f;
 
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] GameObject slicePrefab;
     
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
 

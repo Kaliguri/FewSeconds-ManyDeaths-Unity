@@ -10,11 +10,11 @@ using static UnityEngine.ParticleSystem;
 [Serializable]
 public class SacrificialBlood : BossActionScript
 {
-    [Title("Stats")]
+    [Header("Stats")]
     [SerializeField] private int damage = 20;
 
 
-    [Title("Visual")]
+    [Header("Visual")]
     [SerializeField] private int circleBloodRadius = 2;
     [SerializeField] private float circlingTime = 2f;
     [SerializeField] private float betweenSendTime = 0.5f;
@@ -23,10 +23,10 @@ public class SacrificialBlood : BossActionScript
     [SerializeField] private Vector2 centerModification = new Vector2( 0f, 0.5f);
 
 
-    [Title("Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] private GameObject bloodParticlePrefab;
 
-    [Title("SFX")]
+    [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent sendSFX;
     [SerializeField] SoundEvent healSFX;
