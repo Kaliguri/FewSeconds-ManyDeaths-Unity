@@ -32,16 +32,14 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: -694773164, guid: e80c21d2e92d6cc499728e26666f3a92, type: 3}
   SkillScript:
-    rid: 4835066225857658929
+    rid: 6932391363097657357
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4835066225857658929
-      type: {class: Teamwork, ns: , asm: Assembly-CSharp}
+    - rid: 6932391363097657357
+      type: {class: SkillScript, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 0
-        SkillCooldown: 0
+        EnergyCost: 999
+        SkillCooldown: 999
         IsMovable: 0
         TargetCount: 1
