@@ -54,6 +54,10 @@ public class CombatPlayerDataInStage : MonoBehaviour
     [Title("Artifacts")]
     public CommandArtifactData[] PlayersCommandArtifactsList;
 
+    [TabGroup("Turn Order")]
+    [Title("Turn Order")]
+    public List<int> TurnPriority;
+
 
 
     [PropertySpace(SpaceBefore = 30)]
@@ -68,11 +72,8 @@ public class CombatPlayerDataInStage : MonoBehaviour
     [Title("Alive Status")]
     public bool[] aliveStatus;
 
-
-    private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private CombatPlayerDataInSession sessionCombatData => GameObject.FindObjectOfType<CombatPlayerDataInSession>();
-    private int playerCount => playerInfoData.PlayerCount;
-    private List<HeroData> heroDataList => playerInfoData.HeroDataList;
+    private int playerCount => PlayerInfoData.instance.PlayerCount;
 
     #endregion
 
@@ -86,6 +87,7 @@ public class CombatPlayerDataInStage : MonoBehaviour
     }
 
     public static CombatPlayerDataInStage instance = null;
+
     private void Awake()
     {
         if (instance == null) {instance = this;}

@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 6400161990739204507}
   - component: {fileID: 4572515052974823652}
   - component: {fileID: 5790428248374869854}
+  - component: {fileID: 463426781246948876}
   m_Layer: 0
   m_Name: Player & Hero
   m_TagString: Untagged
@@ -154,6 +155,7 @@ MonoBehaviour:
   PlayersItemsList: []
   _CommandArtifactsStatsEffectList: []
   PlayersCommandArtifactsList: []
+  TurnPriority: 00000000010000000200000003000000
   HeroCoordinates: []
   PlayersHeroes: []
   aliveStatus: 
@@ -172,6 +174,23 @@ MonoBehaviour:
   timeBetweenMovement: 0.6
   LastPosition: {x: 0, y: 0}
   MovementList: []
+--- !u!114 &463426781246948876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277762163696606702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6632ec71af5b5745a84970906b1ce8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playersIconsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1330119505526371537
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class PlayerSkillManager : NetworkBehaviour
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private SkillCooldownManager skillCooldownManager => GameObject.FindObjectOfType<SkillCooldownManager>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
-    private List<int> turnPriority => FindObjectOfType<PlayerInfoData>().TurnPriority;
+    private List<int> turnPriority => CombatPlayerDataInStage.instance.TurnPriority;
     private PlayerMovementController playerMovementController => FindObjectOfType<PlayerMovementController>();
     MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private bool isAlive => combatPlayerDataInStage.aliveStatus[playerInfoData.PlayerIDThisPlayer];

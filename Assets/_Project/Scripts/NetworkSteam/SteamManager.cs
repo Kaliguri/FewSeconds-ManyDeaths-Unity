@@ -6,6 +6,7 @@ using Netcode.Transports.Facepunch;
 using UnityEngine.SceneManagement;
 using System;
 using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class SteamManager : MonoBehaviour
 {   
@@ -140,8 +141,24 @@ public class SteamManager : MonoBehaviour
     {
         if (NetworkManager.Singleton.IsHost)
         {
-            sceneLoaderManager.LoadScene(FirstSessionScene, true);
+            List<HeroTypeData> heroesList = new();
+            for (int i = 0; i < PlayerInfoData.instance.PlayerCount; i++) heroesList.Add(PlayerInfoData.instance.HeroDataList[i].HeroTypeData);
+            if (!HasDuplicates(heroesList)) sceneLoaderManager.LoadScene(FirstSessionScene, true);
+            else Debug.Log("Dublicate Heroes Around");
         }
     }
 
+    private bool HasDuplicates<T>(this IList<T> list)
+    {
+        HashSet<T> uniqueElements = new HashSet<T>();
+
+        foreach (T item in list)
+        {
+            if (!uniqueElements.Add(item))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

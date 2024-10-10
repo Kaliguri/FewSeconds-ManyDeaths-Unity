@@ -30,14 +30,14 @@ public class PlayerInfoData : MonoBehaviour
         new SkillChoiceContainer()
     };
 
-    [TabGroup("Turn Order")]
-    public List<int> TurnPriority;    
+    public static PlayerInfoData instance = null;
 
     private void Awake()
     {
         NetworkManager.Singleton.OnClientConnectedCallback += UpdatePlayerNickList;
         NetworkManager.Singleton.OnClientDisconnectCallback += UpdatePlayerNickList;
         GlobalEventSystem.PlayerLobbyUpdate.AddListener(UpdatePlayerNickList);
+        if (instance == null) instance = this; 
     }
 
     private void Start()

@@ -19,8 +19,8 @@ public class BossHPBar : MonoBehaviour
     [SerializeField] float animationSpeed = 40f;
     [SerializeField] float errorDue = 0.2f;
 
-    [Title("Visual Settings")]
-    [SerializeField] float OffsetCurrentHPBar = 20f;
+    //[Title("Visual Settings")]
+    //[SerializeField] float OffsetCurrentHPBar = 20f;
     //[ShowInInspector]
     //private float OffsetCurrentHPBar => HPBarList[0].transform.position.x - HPBarList[1].transform.position.x;
     
