@@ -27,11 +27,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 212675670016
-    m_Localized: 
+    m_Localized: '#1'
     m_Metadata:
       m_Items: []
   - m_Id: 259983224832
-    m_Localized: 
+    m_Localized: '#2'
     m_Metadata:
       m_Items: []
   - m_Id: 257537945600
@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 300210794496
-    m_Localized: 
+    m_Localized: '#3'
     m_Metadata:
       m_Items: []
   - m_Id: 298495324160

@@ -22,6 +22,30 @@ MonoBehaviour:
     m_Localized: Pages
     m_Metadata:
       m_Items: []
+  - m_Id: 103137226752
+    m_Localized: Basic information
+    m_Metadata:
+      m_Items: []
+  - m_Id: 298495324160
+    m_Localized: Theo - Blade of Fury
+    m_Metadata:
+      m_Items: []
+  - m_Id: 257537945600
+    m_Localized: Energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 212675670016
+    m_Localized: '#1'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 259983224832
+    m_Localized: '#2'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300210794496
+    m_Localized: '#3'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

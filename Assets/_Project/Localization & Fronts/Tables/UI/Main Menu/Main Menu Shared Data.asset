@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: Training Button
     m_Metadata:
       m_Items: []
+  - m_Id: 15389976807419904
+    m_Key: How To Play Button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 4082220074733666333
