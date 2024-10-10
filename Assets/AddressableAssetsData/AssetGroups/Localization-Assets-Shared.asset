@@ -135,6 +135,12 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3bd6d6817ff17a4c892336e85c69746
+    m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Guide/Guide Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7b636a4f2cbfe3438bc80e25673b50c
     m_Address: Assets/_Project/Localization & Fronts/Tables/UI/Character Choice/Character
       Choice Shared Data.asset

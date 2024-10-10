@@ -114,6 +114,13 @@ MonoBehaviour:
     - Locale-ru
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c1be5f5fc560a7449ee564a00d39de5
+    m_Address: Guide_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f90f531afce0b14c971dbb44cd4a97d
     m_Address: Shieldbearer (RSV 2024 Edition)_ru
     m_ReadOnly: 1

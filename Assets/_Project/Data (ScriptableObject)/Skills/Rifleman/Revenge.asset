@@ -32,31 +32,17 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: 1362130948, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
   SkillScript:
-    rid: 8463286597880905729
+    rid: 4835066335961284612
   references:
     version: 2
     RefIds:
-    - rid: 8463286597880905729
-      type: {class: ExampleSkill, ns: , asm: Assembly-CSharp}
+    - rid: 4835066335961284612
+      type: {class: CrossOfLife, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 0
         SkillCooldown: 0
-        HasConditionsForSelectedCell: 0
+        IsMovable: 0
         TargetCount: 1
-        skillList:
-        - rid: 8463286597880905734
-        - rid: 8463286597880905735
-    - rid: 8463286597880905734
-      type: {class: ExampleSkill1, ns: , asm: Assembly-CSharp}
-      data:
-        EnergyCost: 0
-        SkillCooldown: 0
-        HasConditionsForSelectedCell: 0
-        TargetCount: 1
-    - rid: 8463286597880905735
-      type: {class: ExampleSkill2, ns: , asm: Assembly-CSharp}
-      data:
-        EnergyCost: 0
-        SkillCooldown: 0
-        HasConditionsForSelectedCell: 0
-        TargetCount: 1
+        healValue: 80
+        CrossOfLifePrefab: {fileID: 0}
+        castSFX: {fileID: 0}
