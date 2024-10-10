@@ -29,6 +29,7 @@ public class BerserkCircularSlice : BossActionScript
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
+        castSFX.Play(bossManager.transform);
 
         Debug.Log("Cast Berserk Circular Slice!");
         CastCircularSlice();
@@ -73,6 +74,7 @@ public class BerserkCircularSlice : BossActionScript
         foreach (CombatObject combatObject in affectedCombatObjectList)
         {
             CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
+            hitSFX.Play(bossManager.transform);
         }
 
         CastEnd();

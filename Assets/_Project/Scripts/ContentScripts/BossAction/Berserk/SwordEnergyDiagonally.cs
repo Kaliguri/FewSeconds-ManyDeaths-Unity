@@ -30,6 +30,7 @@ public class SwordEnergyDiagonally : BossActionScript
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
+        castSFX.Play(bossManager.transform);
 
         Debug.Log("Cast Berserk Sword Energy Diagonally!");
         CastSwordEnergyRectangulare();
@@ -37,21 +38,32 @@ public class SwordEnergyDiagonally : BossActionScript
 
     public override List<Vector2> GetCastPoint(int act)
     {
-        return new List<Vector2>() { new Vector2(0, 0) };
+        List<DiagonalDirection> directions = GenerateDirections();
+        List<Vector2> castPoints = new() { bossManager.CurrentCoordinates };
+        for (int i = 0; i < directions.Count; i++)
+        {
+            castPoints.Add(GetDiagonalBoundaryTile(bossManager.CurrentCoordinates, directions[i]));
+        }
+        return castPoints;
     }
 
     private void CastSwordEnergyRectangulare()
     {
-        List<DiagonalDirection> directions = GenerateDirections();
-        sliceCount = directions.Count;
+        sliceCount = TargetPoints.Count - 1;
+        Vector2 castBossPosition = TargetPoints[0];
+        if (castBossPosition != bossManager.CurrentCoordinates) CorrectTargetPoints(); 
 
-        for (int i = 0; i < directions.Count; i++)
+        for (int i = 1; i < TargetPoints.Count; i++)
         {
-            Vector2 fromTile = bossManager.CurrentCoordinates;
-            Vector2 toTile = GetDiagonalBoundaryTile(fromTile, directions[i]);
-            List<Vector2> targetLine = GridAreaMethods.DiagonalLine(fromTile, toTile);
+            List<Vector2> targetLine = GridAreaMethods.DiagonalLine(bossManager.CurrentCoordinates, TargetPoints[i]);
             MonoInstance.instance.StartCoroutine(SliceMovement(targetLine));
         }
+    }
+
+    private void CorrectTargetPoints()
+    {
+        Vector2 correctingVector = bossManager.CurrentCoordinates - TargetPoints[0];
+        for (int i = 1; i < TargetPoints.Count; i++) TargetPoints[i] += correctingVector;
     }
 
     private IEnumerator SliceMovement(List<Vector2> targetLine)
@@ -75,12 +87,10 @@ public class SwordEnergyDiagonally : BossActionScript
 
             slice.transform.position = targetPosition;
 
-            DamageEveryOneInTiles(new List<Vector2> { targetPosition - mapClass.tileZero }, damage);
+            DamageEveryOneInTiles(new List<Vector2> { targetPosition - mapClass.tileZero }, damage, hitSFX);
         }
 
         MonoInstance.Destroy(slice);
-
-        Debug.Log("DestroySlice");
 
         sliceCount--;
 

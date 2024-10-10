@@ -22,6 +22,8 @@ MonoBehaviour:
     - rid: 6932391200727498755
       type: {class: BerserkDash, ns: , asm: Assembly-CSharp}
       data:
+        damage: 10
         TimeBetweenDash: 0.5
         DashTime: 1
-        damage: 10
+        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}

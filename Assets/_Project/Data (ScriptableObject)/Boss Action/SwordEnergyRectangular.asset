@@ -23,6 +23,8 @@ MonoBehaviour:
       type: {class: SwordEnergyRectangular, ns: , asm: Assembly-CSharp}
       data:
         damage: 20
+        sliceSpeed: 5
         slicePrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
           type: 3}
-        sliceSpeed: 5
+        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
