@@ -20,7 +20,6 @@ public class PlayerTurnStage : GameState
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
 
     private GUIDataBase dataBaseGUI => GameObject.FindObjectOfType<GUIDataBase>();
-    private int playerCount => playerInfoData.PlayerCount;
 
     public void Initialize(CombatStageManager manager, float maxTurnTime, TextMeshProUGUI timerText, TextMeshProUGUI confirmationText, Button confirmationButton)
     {
@@ -31,8 +30,6 @@ public class PlayerTurnStage : GameState
         this.confirmationButton = confirmationButton;
         this.confirmationButton.onClick.AddListener(ConfirmEndTurn);
         playersConfirmed.OnValueChanged += UpdateConfirmationUI;
-
-        UpdateConfirmationUI(0, playersConfirmed.Value);
     }
 
     private void UpdateConfirmationUI(int previousValue, int newValue)
@@ -54,6 +51,7 @@ public class PlayerTurnStage : GameState
         }
 
         EnablePlayerTurnUI(true);
+        UpdateConfirmationUI(0, playersConfirmed.Value);
         GlobalEventSystem.SendPlayerTurnStageStarted();
     }
 

@@ -59,7 +59,6 @@ public class TurnOrderManager : NetworkBehaviour
         for (int i = 0; i < newTurnOrder.Length; i++) 
         { 
             playersIconsList[i].GetComponentInChildren<Image>().sprite = PlayerInfoData.instance.HeroDataList[newTurnOrder[i]].HeroIcon;
-            Debug.Log("Player " + newTurnOrder[i] + " is gonna cast " + (i + 1));
         }
     }
 }

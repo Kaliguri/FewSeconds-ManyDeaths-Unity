@@ -1271,7 +1271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5328828880450165480
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1445,7 +1445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7834850443620911148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2896,6 +2896,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skill with Description 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7634514397036173341, guid: 5fe5e9151520c1d4487072c73ce858de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8043877194896151477, guid: 5fe5e9151520c1d4487072c73ce858de,
         type: 3}
       propertyPath: m_Sprite
@@ -3360,6 +3365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skill with Description 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7634514397036173341, guid: 5fe5e9151520c1d4487072c73ce858de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8043877194896151477, guid: 5fe5e9151520c1d4487072c73ce858de,
         type: 3}
       propertyPath: m_Sprite
@@ -3688,6 +3698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skill with Description 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634514397036173341, guid: 5fe5e9151520c1d4487072c73ce858de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8043877194896151477, guid: 5fe5e9151520c1d4487072c73ce858de,
         type: 3}
@@ -4317,6 +4332,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skill with Description 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7634514397036173341, guid: 5fe5e9151520c1d4487072c73ce858de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8043877194896151477, guid: 5fe5e9151520c1d4487072c73ce858de,
         type: 3}
       propertyPath: m_Sprite
@@ -4382,6 +4402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059140400399936653, guid: e77022957459a3d47887ac3e6076b061,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3891563258883928130, guid: e77022957459a3d47887ac3e6076b061,
         type: 3}
@@ -4534,6 +4559,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 103a13b6dd271244da78a3f58ada289d,
         type: 3}
+    - target: {fileID: 7401394101454523890, guid: e77022957459a3d47887ac3e6076b061,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7465431710816094407, guid: e77022957459a3d47887ac3e6076b061,
         type: 3}
       propertyPath: m_sharedMaterial
