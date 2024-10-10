@@ -28,12 +28,15 @@ public class SacrificialBlood : BossActionScript
 
     [Title("SFX")]
     [SerializeField] SoundEvent castSFX;
+    [SerializeField] SoundEvent sendSFX;
+    [SerializeField] SoundEvent healSFX;
     [SerializeField] SoundEvent hitSFX;
     
 
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
+        castSFX.Play(bossManager.transform);
 
         Debug.Log("Cast Berserk Sacrificial Blood!");
 
@@ -75,6 +78,7 @@ public class SacrificialBlood : BossActionScript
 
         BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
         CombatMethods.ApplayDamage(damage, bossCombatObject, bossCombatObject);
+        hitSFX.Play(bossManager.transform);
 
         MonoInstance.instance.StartCoroutine(SpawnAndCircleBloodParticles(bloodParticleCount));
     }
@@ -134,6 +138,7 @@ public class SacrificialBlood : BossActionScript
 
             if (elapsedTime > betweenSendTime * (bloodParticles.Count - remainingCount))
             {
+                sendSFX.Play(bossManager.transform);
                 if (remainingCount == 0)
                 {
                     yield return MonoInstance.instance.StartCoroutine(SendParticleToHeroPoint(bloodParticles[remainingCount]));
@@ -194,7 +199,12 @@ public class SacrificialBlood : BossActionScript
                     else heal = damage;
 
                     CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
-                    CombatMethods.ApplayHeal(heal, bossCombatObject, bossCombatObject);
+                    hitSFX.Play(bossManager.transform);
+                    if (heal > 0) 
+                    {
+                        healSFX.Play(bossManager.BossGameObject.transform);
+                        CombatMethods.ApplayHeal(heal, bossCombatObject, bossCombatObject); 
+                    }
                 }
             }
         }

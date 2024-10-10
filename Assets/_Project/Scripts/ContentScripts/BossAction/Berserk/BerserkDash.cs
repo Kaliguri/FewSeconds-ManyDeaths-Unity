@@ -26,6 +26,7 @@ public class BerserkDash : BossActionScript
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
+        castSFX.Play(bossManager.transform);
 
         Debug.Log("Cast Berserk Dash!");
         CastBerserkDash();
@@ -91,7 +92,7 @@ public class BerserkDash : BossActionScript
 
             bossManager.BossGameObject.transform.position = endPos;
 
-            if (act > 0) DamageEveryOneInTiles(new List<Vector2> { endPos - mapClass.tileZero }, damage);
+            if (act > 0) DamageEveryOneInTiles(new List<Vector2> { endPos - mapClass.tileZero }, damage, hitSFX);
 
             currentDashTime = Mathf.Min(currentDashTime * 1.1f, DashTime);
         }

@@ -23,11 +23,15 @@ MonoBehaviour:
       type: {class: SacrificialBlood, ns: , asm: Assembly-CSharp}
       data:
         damage: 20
-        bloodParticlePrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
-          type: 3}
         circleBloodRadius: 1
         circlingTime: 3
         betweenSendTime: 0.5
         startCirclingTime: 1
         particleMoveTime: 1
         centerModification: {x: -0.1, y: 0.3}
+        bloodParticlePrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
+          type: 3}
+        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        sendSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        healSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
