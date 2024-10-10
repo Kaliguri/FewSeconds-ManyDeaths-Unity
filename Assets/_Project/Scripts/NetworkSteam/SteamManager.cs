@@ -148,11 +148,11 @@ public class SteamManager : MonoBehaviour
         }
     }
 
-    private bool HasDuplicates<T>(this IList<T> list)
+    private bool HasDuplicates(List<HeroTypeData> list)
     {
-        HashSet<T> uniqueElements = new HashSet<T>();
+        HashSet<HeroTypeData> uniqueElements = new HashSet<HeroTypeData>();
 
-        foreach (T item in list)
+        foreach (HeroTypeData item in list)
         {
             if (!uniqueElements.Add(item))
             {
