@@ -17,15 +17,11 @@ public class Sacrifice : SkillScript
     
     [Header("Prefabs")]
     [SerializeField] GameObject SacrificePrefab;
-    
-
-    [Header("SFX")]
-    [SerializeField] SoundEvent castSFX;
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastFX();
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayHeal(playerID);
@@ -33,6 +29,12 @@ public class Sacrifice : SkillScript
         CastEnd();
 
     }
+    protected override void CastFX()
+    {
+        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        castSFX.Play(combatPlayerDataInStage.transform);
+    }
+
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
         List<Vector2> areaList = new() { selectedCellCoordinate };
@@ -60,8 +62,15 @@ public class Sacrifice : SkillScript
 
         foreach (CombatObject combatObject in combatObjectList)
         {
-            if (combatObject.ObjectID == playerID) CombatMethods.ApplayDamage(healParameter, GetHeroCombatObject(playerID), combatObject);
-            else CombatMethods.ApplayHeal(healParameter, GetHeroCombatObject(playerID), combatObject);
+            if (combatObject.ObjectID == playerID) 
+            { 
+                CombatMethods.ApplayDamage(healParameter, GetHeroCombatObject(playerID), combatObject);
+            }
+            else 
+            { 
+                SpawnSkillObjects(new List<Vector2> { combatObject.GetPosition() }, AreaVFXPrefab);
+                CombatMethods.ApplayHeal(healParameter, GetHeroCombatObject(playerID), combatObject); 
+            }
         }
     }
 }

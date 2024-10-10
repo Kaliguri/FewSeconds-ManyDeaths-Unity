@@ -4,6 +4,7 @@ using Sonity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -18,14 +19,10 @@ public class HorizontalSign : SkillScript
     [Header("Prefabs")]
     [SerializeField] GameObject HorizontalSignPrefab;
 
-    [Header("SFX")]
-    [SerializeField] SoundEvent castSFX;
-    
-
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastFX();
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayShield(playerID);
@@ -33,6 +30,13 @@ public class HorizontalSign : SkillScript
         CastEnd();
 
     }
+    protected override void CastFX()
+    {
+        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        SpawnSkillObjects(GetArea(), AreaVFXPrefab);
+        castSFX.Play(combatPlayerDataInStage.transform);
+    }
+
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
         Vector2 leftTile = new Vector2(-1, characterCellCoordinate.y);

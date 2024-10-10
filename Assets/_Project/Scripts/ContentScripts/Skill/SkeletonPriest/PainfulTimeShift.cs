@@ -4,6 +4,7 @@ using Sonity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -21,14 +22,13 @@ public class PainfulTimeShift : SkillScript
 
 
     [Header("SFX")]
-    [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
 
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastFX();
 
         SpawnSkillSpawnSpritesPrefab();
         CastPainfulTimeShift(playerID);

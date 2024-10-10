@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using Sonity;
 using UnityEngine;
@@ -17,13 +18,10 @@ public class ProtectiveAura: SkillScript
     [SerializeField] GameObject AuraSkillPrefab;
     
     
-    [Header("SFX")]
-    [SerializeField] SoundEvent castSFX;
-    
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastFX();
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayShield(playerID);

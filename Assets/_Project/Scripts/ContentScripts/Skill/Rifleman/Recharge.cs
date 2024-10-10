@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using Sonity;
 using UnityEngine;
@@ -18,20 +19,22 @@ public class Recharge : SkillScript
     [SerializeField] GameObject reloadPrefab;
 
 
-    [Header("SFX")]
-    [SerializeField] SoundEvent castSFX;
-
 
     private ShotsManager shotsManager => GameObject.FindObjectOfType<ShotsManager>();
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastFX();
 
         CastRecharge(playerID);
 
         CastEnd();
+    }
+    protected override void CastFX()
+    {
+        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        castSFX.Play(combatPlayerDataInStage.transform);
     }
 
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)

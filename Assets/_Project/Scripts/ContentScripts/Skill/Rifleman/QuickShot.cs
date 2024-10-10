@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using Sonity;
 using UnityEngine;
@@ -25,7 +26,6 @@ public class QuickShot : SkillScript
     
 
     [Header("SFX")]
-    [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
     
     
@@ -34,11 +34,17 @@ public class QuickShot : SkillScript
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastFX();
 
         CastQuickShot(playerID);
     }
 
+    protected override void CastFX()
+    {
+        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        castSFX.Play(combatPlayerDataInStage.transform);
+    }
+    
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
 
@@ -104,5 +110,7 @@ public class QuickShot : SkillScript
             CombatMethods.ApplayDamage(damage, GetHeroCombatObject(playerID), combatObject);
             hitSFX.Play(combatPlayerDataInStage.transform);
         }
+
+        SpawnSkillObjects(SelectedCellCoordinate.ToList(), AreaVFXPrefab);
     }
 }

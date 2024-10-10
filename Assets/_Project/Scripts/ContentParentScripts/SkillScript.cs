@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using Sonity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,11 @@ public class SkillScript
 
     [Title("Prefabs")]
     [SerializeField] GameObject TilePrefab;
-    [SerializeField] protected GameObject VFXPrefab;
+    [SerializeField] protected GameObject CastVFXPrefab;
+    [SerializeField] protected GameObject AreaVFXPrefab;
+
+    [Header("SFX")]
+    [SerializeField] protected SoundEvent castSFX;
 
     protected MapClass mapClass => GameObject.FindObjectOfType<MapClass>(); 
     protected BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
@@ -44,6 +49,13 @@ public class SkillScript
         Debug.Log("Cast");
 
         CastEnd();
+    }
+
+    protected virtual void CastFX()
+    {
+        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        SpawnSkillObjects(SelectedCellCoordinate.ToList(), AreaVFXPrefab);
+        castSFX.Play(combatPlayerDataInStage.transform);
     }
 
     protected void CastStart(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)

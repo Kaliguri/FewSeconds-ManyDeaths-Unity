@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using Sonity;
 using UnityEngine;
@@ -18,14 +19,11 @@ public class CrossOfLife : SkillScript
     [SerializeField] GameObject CrossOfLifePrefab;
     
 
-    [Header("SFX")]
-    [SerializeField] SoundEvent castSFX;
-
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastFX();
 
         SpawnSkillSpawnSpritesPrefab();
         ApplayHeal(playerID);
@@ -33,6 +31,15 @@ public class CrossOfLife : SkillScript
         CastEnd();
 
     }
+
+    protected override void CastFX()
+    {
+        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        SpawnSkillObjects(GetArea(), AreaVFXPrefab);
+        castSFX.Play(combatPlayerDataInStage.transform);
+    }
+
+
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
         List<Vector2> areaList = GridAreaMethods.AllCardinalLines(selectedCellCoordinate, selectedCellCoordinate, 1, 1);
