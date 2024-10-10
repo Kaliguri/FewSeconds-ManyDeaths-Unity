@@ -23,27 +23,88 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 103137226752
-    m_Localized: Basic information
+    m_Localized: About the game
     m_Metadata:
       m_Items: []
   - m_Id: 298495324160
-    m_Localized: Theo - Blade of Fury
+    m_Localized: Control (movement)
     m_Metadata:
       m_Items: []
   - m_Id: 257537945600
-    m_Localized: Energy
+    m_Localized: Combat system
     m_Metadata:
       m_Items: []
   - m_Id: 212675670016
-    m_Localized: '#1'
+    m_Localized: "\u2018Few Seconds - Many Deaths!\u2019 is centred on the battle
+      with powerful opponents - Bosses.\r\nThe battle itself takes place according
+      to the rules of tactical turn-based battles. \r\nHowever, there are a few \u2018Buts\u2019
+      that change the gameplay upside down:\r\n\r\n1. Allies!\r\nThe game is built
+      around interactions with other players. All gameplay is currently balanced
+      around the fact that a team of 4 players of different roles have to face the
+      Boss together.\r\n2. limited time!\r\nThere is very, very little time to make
+      decisions. These conditions make it necessary to communicate quickly and find
+      solutions."
     m_Metadata:
       m_Items: []
   - m_Id: 259983224832
-    m_Localized: '#2'
+    m_Localized: "In \u2018Few Seconds - Many Deaths!\u2019 you will face a variety
+      of powerful opponents. \r\nThe battle itself has a couple of non-standard rules
+      for tactical combat. \r\n\r\n1. First run - then hit!\r\nYour move is divided
+      into two stages. \u2018Moving\u2019 and \u2019Using abilities.\u2019 As soon
+      as you use any ability, you lose the ability to move your hero.\r\nHowever,
+      you can cancel the use of an ability to return to the \u2018Moving\u2019 stage.\r\nWhen
+      player moves are played, each player's \u2018Move\u2019 stage is played first,
+      then the \u2018Use Abilities\u2019 stage.\r\n\r\n2. Change initiative every
+      turn!\r\nAll players move first, then the Boss.\r\nHowever, the order of the
+      players' moves changes each round of moves.\r\nThe actual order of moves is
+      displayed at the bottom left.\r\n\r\n3. Heal enemies, destroy allies!\r\nAbility
+      effects have no limit on the purpose of use. If you make a mistake, you may
+      well damage allies or aid your opponent! "
     m_Metadata:
       m_Items: []
   - m_Id: 300210794496
-    m_Localized: '#3'
+    m_Localized: "You may only take actions during the Players' Turn phase.\r\n\r\nMovement.\r\nTo
+      move around the playing field, you need to press the LBM on the cell you want
+      to move to. \r\nYou can cancel the movement by pressing RBM."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39662000615424
+    m_Localized: Control (use of abilities)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42539800670208
+    m_Localized: Theo - Blade of Fury
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39663934189568
+    m_Localized: 'You may only take actions during the Players'' Turn phase.
+
+
+
+      Abilities.
+
+      To
+      select an ability, you must click on its icon or on the key written underneath
+      the ability icon. These are usually the Q, W, E and R keys.
+
+      To use an
+      ability, you must press the LBM on any square available to use that spell.
+      The squares available for application are slightly highlighted.
+
+      You
+      can cancel the ability by pressing RBM.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42545731416064
+    m_Localized: "Your opponent, Theo - Blade of Fury, has 3 HP strips. Each streak
+      is a different phase of combat.\r\n\r\nHis actions:\r\nJerk.  Moves a square
+      next to the nearest hero.\r\nCircle Attack. Berserk takes a step into the nearest
+      player and attacks around him in a 5x5 zone (centre as himself) and deals 30
+      damage, \r\nSword Energy (even). Releases a burst of sword energy from itself
+      in the form of a projectile that deals 25 damage.\r\nSacrificial Blood (from
+      stage 2). The boss deals 20 damage to himself, then launches 3 blood clots
+      at the furthest enemy. Each clot deals 20 damage and heals 100% of the damage
+      dealt.\r\n\r\nHis actions get stronger with each passing phase of combat!"
     m_Metadata:
       m_Items: []
   references:
