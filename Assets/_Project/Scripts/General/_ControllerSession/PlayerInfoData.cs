@@ -34,9 +34,9 @@ public class PlayerInfoData : MonoBehaviour
 
     private void Awake()
     {
-        NetworkManager.Singleton.OnClientConnectedCallback += UpdatePlayerNickList;
-        NetworkManager.Singleton.OnClientDisconnectCallback += UpdatePlayerNickList;
-        GlobalEventSystem.PlayerLobbyUpdate.AddListener(UpdatePlayerNickList);
+        NetworkManager.Singleton.OnClientConnectedCallback += ConnectPlayer;
+        NetworkManager.Singleton.OnClientDisconnectCallback += DisconnectPlayer;
+        GlobalEventSystem.PlayerLobbyUpdate.AddListener(UpdatePlayerData);
         if (instance == null) instance = this; 
     }
 
@@ -50,9 +50,23 @@ public class PlayerInfoData : MonoBehaviour
         GlobalEventSystem.SendPlayerInfoDatanInitialized();
     }
 
-    public void UpdatePlayerNickList(ulong id)
+    private void ConnectPlayer(ulong obj)
     {
-        Debug.Log("ClientConnectedOrDisconected");
+        UpdatePlayerNickList();
+    }
+
+    private void DisconnectPlayer(ulong obj)
+    {
+        Invoke(nameof(UpdatePlayerNickList), 0.5f);
+    }
+
+    private void UpdatePlayerData(ulong arg0)
+    {
+        UpdatePlayerNickList();
+    }
+
+    public void UpdatePlayerNickList()
+    {
         if (LobbySaver.instance.currentLobby != null)
         {
             Lobby lobby = (Lobby)LobbySaver.instance.currentLobby;

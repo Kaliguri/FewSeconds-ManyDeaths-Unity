@@ -107,7 +107,6 @@ public class SteamManager : MonoBehaviour
 
     public void LeaveLobby()
     {
-        Debug.Log("LeaveLobby");
         LobbySaver.instance.currentLobby?.Leave();
         LobbySaver.instance.currentLobby = null;
         Destroy(Controller);
