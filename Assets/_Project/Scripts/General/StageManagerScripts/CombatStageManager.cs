@@ -19,15 +19,17 @@ public class CombatStageManager : NetworkBehaviour
     [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject LoseMenu;
 
-    private GameState currentStage;
+    public GameState currentStage;
     private int currentStageIndex;
     private NetworkVariable<int> currentStageIndexNet = new();
 
     private List<GameState> _stages;
     private bool isCombatRunning = true;
+    public static CombatStageManager instance = null;
 
     private void Awake()
     {
+        if (instance == null) instance = this;
         GlobalEventSystem.StartCombat.AddListener(StartBattle);
         GlobalEventSystem.AllPlayersDied.AddListener(LoseBattle);
         GlobalEventSystem.BossDied.AddListener(WinBattle);

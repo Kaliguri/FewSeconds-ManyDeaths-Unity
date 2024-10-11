@@ -37,10 +37,12 @@ public class PlayerSkillManager : NetworkBehaviour
     private HeroData heroData => playerInfoData.HeroDataList[playerID];
     private Vector2 actualCastPosition => playerMovementController.LastPosition;
     private int _orderInTurnPriority;
+    public static PlayerSkillManager instance = null;
 
 
     private void Awake()
     {
+        if (instance == null) instance = this;
         inputActions = new InputActions();
         inputActions.Combat.SelectTile.performed += _ => AddSkillToList();
         inputActions.Combat.CancelAction.performed += _ => CanselAction();
@@ -62,7 +64,7 @@ public class PlayerSkillManager : NetworkBehaviour
 
     public void GetSkill(SkillScript skillScript, int SkillNumber)
     {
-        if (isAlive)
+        if (isAlive && CombatStageManager.instance.currentStage is PlayerTurnStage)
         {
             if (skillSelected) CanselAction();
             if (skillCooldownManager.GetSkillCooldown(playerID, SkillNumber) == 0 && combatPlayerDataInStage._TotalStatsList[playerID].currentCombat.CurrentEnergy >= skillScript.EnergyCost)
