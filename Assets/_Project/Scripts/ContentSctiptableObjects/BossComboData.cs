@@ -9,7 +9,6 @@ public class BossComboData : ScriptableObject
     public List<BossActionData> BossActionList;
     
     [Header("Requirements")]
-
-    public bool HeroIsNear;
+    public bool HeroShouldBeNear;
 
 }

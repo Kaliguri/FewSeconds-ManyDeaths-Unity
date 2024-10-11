@@ -39,7 +39,12 @@ MonoBehaviour:
     - rid: 4082220119189356581
       type: {class: TeleportExampleSkill, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 3
-        SkillCooldown: 1
+        EnergyCost: 0
+        SkillCooldown: 0
         IsMovable: 0
         TargetCount: 2
+        SkillPrefabDuration: 1
+        TilePrefab: {fileID: 0}
+        CastVFXPrefab: {fileID: 0}
+        AreaVFXPrefab: {fileID: 0}
+        castSFX: {fileID: 0}

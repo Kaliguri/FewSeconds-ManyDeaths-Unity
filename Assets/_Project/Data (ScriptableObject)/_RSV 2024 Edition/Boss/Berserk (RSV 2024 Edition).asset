@@ -12,8 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd67c797c98c4640975767049c60150, type: 3}
   m_Name: Berserk (RSV 2024 Edition)
   m_EditorClassIdentifier: 
-  TraitName: "\u041A\u043B\u0438\u043D\u043E\u043A \u042F\u0440\u043E\u0441\u0442\u0438"
-  Description: 
+  TraitName:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   HPActList:
   - 220
   - 200
@@ -21,12 +37,28 @@ MonoBehaviour:
   AttacksInActList:
   - ComboAttackList:
     - {fileID: 11400000, guid: 4e0cbe6376339fd40a6f039bfba4e67c, type: 2}
+    - {fileID: 11400000, guid: 5d1a7860be4cc9d408aa627a4ba6e064, type: 2}
+    - {fileID: 11400000, guid: 98360ba498f95e74bb7a628fe4de0fbc, type: 2}
+    - {fileID: 11400000, guid: f5f4111d3bf9da74d8f7dc1f85a5d544, type: 2}
+    - {fileID: 11400000, guid: ea44b1ed4a2c90245a4a7f5f422c2048, type: 2}
   - ComboAttackList:
-    - {fileID: 11400000, guid: 4e0cbe6376339fd40a6f039bfba4e67c, type: 2}
+    - {fileID: 11400000, guid: ea44b1ed4a2c90245a4a7f5f422c2048, type: 2}
+    - {fileID: 11400000, guid: 2985fda8ea552064aa2c29c4900daf2e, type: 2}
+    - {fileID: 11400000, guid: 6a4b6703de89f4945aea257e28563807, type: 2}
+    - {fileID: 11400000, guid: 2f1f2560b90591d45a658029bdd341e0, type: 2}
+    - {fileID: 11400000, guid: a28fdf9d0868b3d41adcba1df62c4272, type: 2}
+    - {fileID: 11400000, guid: 311aae76f22b43b44bdad77978d39ec8, type: 2}
   - ComboAttackList:
-    - {fileID: 11400000, guid: 4e0cbe6376339fd40a6f039bfba4e67c, type: 2}
-  - ComboAttackList:
-    - {fileID: 11400000, guid: 4e0cbe6376339fd40a6f039bfba4e67c, type: 2}
+    - {fileID: 11400000, guid: 8cfd7f019c56b33488bfc551a1667947, type: 2}
+    - {fileID: 11400000, guid: 82fe126bc8440f343a527ac52c1db622, type: 2}
+    - {fileID: 11400000, guid: 5f74fa07170f9594e86a257a6ed40283, type: 2}
+    - {fileID: 11400000, guid: 2790ccb45d4c51c49b13477346a8cf8d, type: 2}
+    - {fileID: 11400000, guid: 5b3fc78336ff7ff419d73af7f38893e2, type: 2}
+    - {fileID: 11400000, guid: 7bd1767c078c75d448e79842575b73bc, type: 2}
+    - {fileID: 11400000, guid: 81858f36531b54346af575802aae0ce9, type: 2}
   GameObjectSpritePrefab: {fileID: 3969440717209018380, guid: 1c7111e26b7aee345a607aa993b66996,
     type: 3}
   SceneName: 
+  references:
+    version: 2
+    RefIds: []

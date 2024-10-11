@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c5b3ca6409ce564693b2211da01414b, type: 3}
-  m_Name: Berserk - 1 - 4
+  m_Name: Berserk - 2 - 1
   m_EditorClassIdentifier: 
   BossActionList:
-  - {fileID: 11400000, guid: 64b0bf089c71422488e186e30a2a04ca, type: 2}
-  - {fileID: 11400000, guid: 64b0bf089c71422488e186e30a2a04ca, type: 2}
-  - {fileID: 11400000, guid: 64b0bf089c71422488e186e30a2a04ca, type: 2}
+  - {fileID: 11400000, guid: 9646ea060460f7142b29601bc02196f2, type: 2}
+  - {fileID: 11400000, guid: 969870a1fb9420447b4e81d00e268c93, type: 2}
+  - {fileID: 11400000, guid: ebaa59d3e3c715240b2c4c651469be74, type: 2}
   HeroShouldBeNear: 0
