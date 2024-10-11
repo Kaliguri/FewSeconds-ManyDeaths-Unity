@@ -21,19 +21,18 @@ public class ChangePlayersListNetwork : NetworkBehaviour
         GlobalEventSystem.PlayerColorChange.AddListener(ChangeColor);
         GlobalEventSystem.PlayerHeroChange.AddListener(ChangeHero);
         GlobalEventSystem.PlayerChoiceActionUpdate.AddListener(ChangeSkill);
-        GlobalEventSystem.PlayerInfoDataInitialized.AddListener(UpdateClientData);
+        NetworkManager.Singleton.OnClientConnectedCallback += UpdateClientData;
     }
 
-    private void UpdateClientData()
+    private void UpdateClientData(ulong id)
     {
         Debug.Log("UpdateClientData");
-        SendDataFromHostToNewClientRpc();
+        if (NetworkManager.Singleton.IsHost) SendDataFromHostToNewClient();
     }
 
-    [Rpc(SendTo.Server)]
-    private void SendDataFromHostToNewClientRpc()
+    private void SendDataFromHostToNewClient()
     {
-        Debug.Log("SendDataFromHostToNewClientRpc");
+        Debug.Log("SendDataFromHostToNewClient");
         for (int ID = 0; ID < playerInfoData.PlayerCount; ID++)
         {
             ChangeColorRpc(playerInfoData.ColorList[ID], ID);
