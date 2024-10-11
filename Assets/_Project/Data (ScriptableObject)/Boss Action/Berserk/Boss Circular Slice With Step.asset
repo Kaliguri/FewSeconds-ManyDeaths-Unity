@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4584b03709390654d9c5eded4e1015f6, type: 3}
+  m_Name: Boss Circular Slice With Step
+  m_EditorClassIdentifier: 
+  Name: Circular Slice
+  Description: 1
+  ActionScript:
+    rid: 4835066345727197237
+  references:
+    version: 2
+    RefIds:
+    - rid: 4835066345727197237
+      type: {class: BerserkCircularSliceWithStep, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 30
+        radius: 2
+        radiusUpgrade: 1
+        timeBetweenCastAndDamage: 1
+        affectedTile: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
+          type: 3}
+        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}

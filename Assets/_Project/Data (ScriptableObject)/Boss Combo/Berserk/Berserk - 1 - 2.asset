@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c5b3ca6409ce564693b2211da01414b, type: 3}
-  m_Name: Boss Combo 1
+  m_Name: Berserk - 1 - 2
   m_EditorClassIdentifier: 
   BossActionList:
+  - {fileID: 11400000, guid: 02f0086e62d913340aee51fa04c8418e, type: 2}
+  - {fileID: 11400000, guid: 6332ea37e3f45024d955e7ecdac129ac, type: 2}
+  - {fileID: 11400000, guid: 969870a1fb9420447b4e81d00e268c93, type: 2}
   - {fileID: 11400000, guid: 6332ea37e3f45024d955e7ecdac129ac, type: 2}
   - {fileID: 11400000, guid: 02f0086e62d913340aee51fa04c8418e, type: 2}
+  - {fileID: 11400000, guid: 64b0bf089c71422488e186e30a2a04ca, type: 2}
   HeroIsNear: 0
