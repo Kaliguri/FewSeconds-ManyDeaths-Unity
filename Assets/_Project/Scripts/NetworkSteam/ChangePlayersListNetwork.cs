@@ -26,7 +26,8 @@ public class ChangePlayersListNetwork : NetworkBehaviour
 
     private void UpdateClientData(ulong hostID)
     {
-        SendDataFromHostToNewClientRpc();
+        Debug.Log("UpdateClientData");
+        Invoke(nameof(SendDataFromHostToNewClientRpc), 1f);
     }
 
     [Rpc(SendTo.Server)]
