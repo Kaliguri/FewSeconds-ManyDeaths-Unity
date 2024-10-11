@@ -39,7 +39,7 @@ public class SwordEnergyDiagonally : BossActionScript
     public override List<Vector2> GetCastPoint(int act)
     {
         List<DiagonalDirection> directions = GenerateDirections();
-        List<Vector2> castPoints = new() { bossManager.CurrentCoordinates };
+        List<Vector2> castPoints = new();
         for (int i = 0; i < directions.Count; i++)
         {
             castPoints.Add(GetDiagonalBoundaryTile(bossManager.CurrentCoordinates, directions[i]));
@@ -49,21 +49,13 @@ public class SwordEnergyDiagonally : BossActionScript
 
     private void CastSwordEnergyRectangulare()
     {
-        sliceCount = TargetPoints.Count - 1;
-        Vector2 castBossPosition = TargetPoints[0];
-        if (castBossPosition != bossManager.CurrentCoordinates) CorrectTargetPoints(); 
+        sliceCount = TargetPoints.Count;
 
-        for (int i = 1; i < TargetPoints.Count; i++)
+        for (int i = 0; i < TargetPoints.Count; i++)
         {
-            List<Vector2> targetLine = GridAreaMethods.DiagonalLine(bossManager.CurrentCoordinates, TargetPoints[i]);
+            List<Vector2> targetLine = GridAreaMethods.DiagonalLine(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates + TargetPoints[i]);
             MonoInstance.instance.StartCoroutine(SliceMovement(targetLine));
         }
-    }
-
-    private void CorrectTargetPoints()
-    {
-        Vector2 correctingVector = bossManager.CurrentCoordinates - TargetPoints[0];
-        for (int i = 1; i < TargetPoints.Count; i++) TargetPoints[i] += correctingVector;
     }
 
     private IEnumerator SliceMovement(List<Vector2> targetLine)
@@ -103,19 +95,19 @@ public class SwordEnergyDiagonally : BossActionScript
         switch (direction)
         {
             case DiagonalDirection.UpRight:
-                return fromTile + new Vector2(1, 1);
+                return new Vector2(1, 1);
 
             case DiagonalDirection.UpLeft:
-                return fromTile + new Vector2(-1, 1);
+                return new Vector2(-1, 1);
 
             case DiagonalDirection.DownRight:
-                return fromTile + new Vector2(1, -1);
+                return new Vector2(1, -1);
 
             case DiagonalDirection.DownLeft:
-                return fromTile + new Vector2(-1, -1);
+                return new Vector2(-1, -1);
 
             default:
-                return fromTile;
+                return new Vector2(0, 0);
         }
     }
 

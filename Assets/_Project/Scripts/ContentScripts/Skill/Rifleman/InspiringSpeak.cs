@@ -29,9 +29,9 @@ public class InspiringSpeak : SkillScript
 
     protected override void CastFX()
     {
-        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
-        SpawnSkillObjects(GetArea(), AreaVFXPrefab);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastVFX(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        CastVFX(GetArea(), AreaVFXPrefab);
+        if (castSFX != null) castSFX.Play(combatPlayerDataInStage.transform);
     }
 
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)

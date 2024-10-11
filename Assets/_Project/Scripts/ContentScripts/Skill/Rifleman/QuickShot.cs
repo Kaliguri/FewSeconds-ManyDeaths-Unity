@@ -41,8 +41,8 @@ public class QuickShot : SkillScript
 
     protected override void CastFX()
     {
-        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastVFX(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        if (castSFX != null) castSFX.Play(combatPlayerDataInStage.transform);
     }
     
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
@@ -108,7 +108,7 @@ public class QuickShot : SkillScript
         foreach (CombatObject combatObject in GetAffectedCombatObjectList())
         {
             CombatMethods.ApplayDamage(damage, GetHeroCombatObject(playerID), combatObject);
-            hitSFX.Play(combatPlayerDataInStage.transform);
+            if (hitSFX != null) hitSFX.Play(combatPlayerDataInStage.transform);
         }
 
         SpawnSkillObjects(SelectedCellCoordinate.ToList(), AreaVFXPrefab);

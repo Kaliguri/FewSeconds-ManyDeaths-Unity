@@ -34,9 +34,9 @@ public class CrossOfLife : SkillScript
 
     protected override void CastFX()
     {
-        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
-        SpawnSkillObjects(GetArea(), AreaVFXPrefab);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastVFX(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        CastVFX(GetArea(), AreaVFXPrefab);
+        if (castSFX != null) castSFX.Play(combatPlayerDataInStage.transform);
     }
 
 

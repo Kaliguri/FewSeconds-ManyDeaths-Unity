@@ -69,6 +69,21 @@ public class BossActionScript
         return mapClass.MapObjectCheck(area);
     }
 
+    protected List<Vector2> ClearListFromOccupiedTiles(List<Vector2> TilesList)
+    {
+        List<Vector2> ClearTilesList = new();
+        for (int j = 0; j < TilesList.Count; j++)
+        {
+            Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(TilesList[j] + mapClass.tileZero);
+            if (mapClass.gameplayTilemap.HasTile(tile))
+            {
+                List<MapObject> mapObjects = mapClass.GetMapObjectList(TilesList[j]);
+                if (!mapObjects.Exists(x => x is Hero or Boss or TempBloked or NoPlayableTile)) ClearTilesList.Add(TilesList[j]);
+            }
+        }
+        return ClearTilesList;
+    }
+
     protected void DamageEveryOneInTiles(List<Vector2> tiles, float damage, SoundEvent hitSound)
     {
         List<CombatObject> affectedCombatObjectList = GetAffectedCombatObjectList(tiles);

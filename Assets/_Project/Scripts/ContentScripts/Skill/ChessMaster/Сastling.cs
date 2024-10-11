@@ -13,8 +13,7 @@ public class Сastling : SkillScript
     [Header("Сastling")]
 
     [Header("Prefabs")]
-    [SerializeField] GameObject CastlingAPrefab;
-    [SerializeField] GameObject CastlingBPrefab;
+    [SerializeField] GameObject CastlingPrefab;
 
     
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)

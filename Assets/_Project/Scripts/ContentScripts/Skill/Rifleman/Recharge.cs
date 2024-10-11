@@ -33,8 +33,8 @@ public class Recharge : SkillScript
     }
     protected override void CastFX()
     {
-        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastVFX(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        if (castSFX != null) castSFX.Play(combatPlayerDataInStage.transform);
     }
 
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)

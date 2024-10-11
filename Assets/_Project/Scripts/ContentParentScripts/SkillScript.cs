@@ -17,7 +17,10 @@ public class SkillScript
     public bool IsMovable = false;
     public int TargetCount = 1;
 
-    [Title("Prefabs")]
+    [Header("Stats")]
+    [SerializeField] protected float SkillPrefabDuration = 1f;
+
+    [Header("Prefabs")]
     [SerializeField] GameObject TilePrefab;
     [SerializeField] protected GameObject CastVFXPrefab;
     [SerializeField] protected GameObject AreaVFXPrefab;
@@ -33,7 +36,6 @@ public class SkillScript
     protected Vector2 HeroPosition;
     protected Vector2 ActualHeroPosition;
     protected Vector2[] SelectedCellCoordinate;
-    protected float SkillPrefabDuration = 1f;
     protected float SkillDuration = 1f;
 
     public virtual SkillScript Select()
@@ -53,15 +55,28 @@ public class SkillScript
 
     protected virtual void CastFX()
     {
-        SpawnSkillObjects(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
-        SpawnSkillObjects(SelectedCellCoordinate.ToList(), AreaVFXPrefab);
-        castSFX.Play(combatPlayerDataInStage.transform);
+        CastVFX(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        CastVFX(SelectedCellCoordinate.ToList(), AreaVFXPrefab);
+        if (castSFX != null) castSFX.Play(combatPlayerDataInStage.transform);
     }
 
     protected void CastStart(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)
     {
         SetPosition(heroPosition, actualHeroPosition, selectedCellCoordinate);
         if (IsMovable && heroPosition != actualHeroPosition) ChangeSelectedCellCoordinate();
+    }
+
+    protected void CastVFX(List<Vector2> area, GameObject Skillobject)
+    {
+        if (Skillobject == null) return;
+        for (int i = 0; i < area.Count; i++)
+        {
+            Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(area[i] + mapClass.tileZero);
+            if (mapClass.gameplayTilemap.HasTile(tile))
+            {
+                GameObject affectedObject = MonoInstance.Instantiate(Skillobject, area[i] + mapClass.tileZero, Quaternion.identity);
+            }
+        }
     }
 
     protected void SetPosition(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate)
@@ -108,15 +123,16 @@ public class SkillScript
 
     protected void SpawnSkillObjects(List<Vector2> area, GameObject Skillobject)
     {
+        if (Skillobject == null) return;
         for (int i = 0; i < area.Count; i++)
+        {
+            Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(area[i] + mapClass.tileZero);
+            if (mapClass.gameplayTilemap.HasTile(tile))
             {
-                Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(area[i] + mapClass.tileZero);
-                if (mapClass.gameplayTilemap.HasTile(tile))
-                {
-                    GameObject affectedObject = MonoInstance.Instantiate(Skillobject, area[i] + mapClass.tileZero, Quaternion.identity);
-                    MonoInstance.Destroy(affectedObject, SkillPrefabDuration);
-                }
+                GameObject affectedObject = MonoInstance.Instantiate(Skillobject, area[i] + mapClass.tileZero, Quaternion.identity);
+                MonoInstance.Destroy(affectedObject, SkillPrefabDuration);
             }
+        }
     }
 
     protected List<MapObject> GetAffectedMapObjectList(int skillIndex = 0)

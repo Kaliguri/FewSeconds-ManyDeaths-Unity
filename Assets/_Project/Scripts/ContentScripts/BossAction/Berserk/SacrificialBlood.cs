@@ -12,7 +12,8 @@ public class SacrificialBlood : BossActionScript
 {
     [Header("Stats")]
     [SerializeField] private int damage = 20;
-
+    [SerializeField] private int bloodParticleCount = 3;
+    [SerializeField] private int bloodParticleCountUpgrade = 1;
 
     [Header("Visual")]
     [SerializeField] private int circleBloodRadius = 2;
@@ -74,13 +75,13 @@ public class SacrificialBlood : BossActionScript
 
     private void CastSacrificialBlood()
     {
-        int bloodParticleCount = act > 1 ? 4 : 3;
+        int _bloodParticleCount = act > 1 ? bloodParticleCount + bloodParticleCountUpgrade : bloodParticleCount;
 
         BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
         CombatMethods.ApplayDamage(damage, bossCombatObject, bossCombatObject);
         hitSFX.Play(bossManager.transform);
 
-        MonoInstance.instance.StartCoroutine(SpawnAndCircleBloodParticles(bloodParticleCount));
+        MonoInstance.instance.StartCoroutine(SpawnAndCircleBloodParticles(_bloodParticleCount));
     }
 
     private IEnumerator SpawnAndCircleBloodParticles(int count)

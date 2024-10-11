@@ -41,31 +41,26 @@ public class SwordEnergyRectangular : BossActionScript
     public override List<Vector2> GetCastPoint(int act)
     {
         List<Direction> directions = GenerateDirections();
-        List<Vector2> castPoints = new() { bossManager.CurrentCoordinates };
+        List<Vector2> castPoints = new();
         for (int i = 0; i < directions.Count; i++)
         {
             castPoints.Add(GetBoundaryTile(bossManager.CurrentCoordinates, directions[i]));
+            Debug.Log(directions[i]);
+            Debug.Log(GetBoundaryTile(bossManager.CurrentCoordinates, directions[i]));
         }
         return castPoints;
     }
 
     private void CastSwordEnergyRectangulare()
     {
-        sliceCount = TargetPoints.Count - 1;
-        Vector2 castBossPosition = TargetPoints[0];
-        if (castBossPosition != bossManager.CurrentCoordinates) CorrectTargetPoints(); 
+        sliceCount = TargetPoints.Count;
 
-        for (int i = 1; i < TargetPoints.Count; i++)
+        for (int i = 0; i < TargetPoints.Count; i++)
         {
-            List<Vector2> targetLine = GridAreaMethods.CoordinateLine(bossManager.CurrentCoordinates, TargetPoints[i]);
+            Debug.Log(TargetPoints[i]);
+            List<Vector2> targetLine = GridAreaMethods.CoordinateLine(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates + TargetPoints[i]);
             MonoInstance.instance.StartCoroutine(SliceMovement(targetLine));
         }
-    }
-
-    private void CorrectTargetPoints()
-    {
-        Vector2 correctingVector = bossManager.CurrentCoordinates - TargetPoints[0];
-        for (int i = 1; i < TargetPoints.Count; i++) TargetPoints[i] += correctingVector;
     }
 
     private IEnumerator SliceMovement(List<Vector2> targetLine)
@@ -108,22 +103,22 @@ public class SwordEnergyRectangular : BossActionScript
         {
             case Direction.Up:
                 // ��������� ����� �� ������� �������
-                boundaryTile = new Vector2(fromTile.x, 0);
+                boundaryTile = new Vector2(0, 1);
                 break;
 
             case Direction.Down:
                 // ��������� ���� �� ������� �������
-                boundaryTile = new Vector2(fromTile.x, mapClass.Max_B);
+                boundaryTile = new Vector2(0, -1);
                 break;
 
             case Direction.Left:
                 // ��������� ����� �� ������� �������
-                boundaryTile = new Vector2(0, fromTile.y);
+                boundaryTile = new Vector2(-1, 0);
                 break;
 
             case Direction.Right:
                 // ��������� ������ �� ������� �������
-                boundaryTile = new Vector2(mapClass.Max_A, fromTile.y);
+                boundaryTile = new Vector2(1, 0);
                 break;
         }
 
