@@ -21,6 +21,12 @@ public class ChangePlayersListNetwork : NetworkBehaviour
         GlobalEventSystem.PlayerColorChange.AddListener(ChangeColor);
         GlobalEventSystem.PlayerHeroChange.AddListener(ChangeHero);
         GlobalEventSystem.PlayerChoiceActionUpdate.AddListener(ChangeSkill);
+        GlobalEventSystem.PlayerLobbyUpdate.AddListener(UpdateClientData);
+    }
+
+    private void UpdateClientData(ulong hostID)
+    {
+        SendDataFromHostToNewClientRpc();
     }
 
     [Rpc(SendTo.Server)]
@@ -30,7 +36,7 @@ public class ChangePlayersListNetwork : NetworkBehaviour
         {
             ChangeColorRpc(playerInfoData.ColorList[ID], ID);
             ChangeHeroRpc(ID, GetHeroDataID(playerInfoData.HeroDataList[ID]));
-            for (int SkillNumber = 0; SkillNumber < playerInfoData.SkillChoiceList[ID].variationList.Count; SkillNumber++)
+            for (int SkillNumber = 0; SkillNumber < playerInfoData.HeroDataList[ID].SkillList.Count; SkillNumber++)
             {
                 ChangeSkillRpc(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
             }
