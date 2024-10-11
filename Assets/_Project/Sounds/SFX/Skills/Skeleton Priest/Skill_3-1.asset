@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: slide (landing) SC
+  m_Name: Skill_3-1
   m_EditorClassIdentifier: 
   internals:
     data:
@@ -18,7 +18,7 @@ MonoBehaviour:
       previewAudioMixerGroup: {fileID: 0}
       expandPreview: 0
       expandAudioClips: 1
-      expandSettings: 1
+      expandSettings: 0
       previewCurves: 1
       audioMixerGroup: {fileID: 0}
       priority: 0.5
@@ -647,4 +647,4 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: e2025f561e5114645b774c2da9233ab1, type: 3}
+    - {fileID: 8300000, guid: 6efb651703532fd4ca236bbb2d77bd6f, type: 3}

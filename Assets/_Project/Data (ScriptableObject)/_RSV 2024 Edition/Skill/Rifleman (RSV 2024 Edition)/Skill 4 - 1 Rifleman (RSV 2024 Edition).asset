@@ -50,6 +50,6 @@ MonoBehaviour:
           type: 3}
         AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
           type: 3}
-        castSFX: {fileID: 11400000, guid: 1018aa10cf83d3f48b41617cc5955472, type: 2}
+        castSFX: {fileID: 11400000, guid: bcfeef7c5dd1f4e488736e50c38a4cfe, type: 2}
         InspiringSpeakPrefab: {fileID: 6596835545786723952, guid: 91072d6d5ba94864bb361bf5c8ec7e22,
           type: 3}

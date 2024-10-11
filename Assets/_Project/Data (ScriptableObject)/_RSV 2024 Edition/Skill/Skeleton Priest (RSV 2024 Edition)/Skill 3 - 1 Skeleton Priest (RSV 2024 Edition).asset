@@ -50,7 +50,7 @@ MonoBehaviour:
           type: 3}
         AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
           type: 3}
-        castSFX: {fileID: 11400000, guid: 1018aa10cf83d3f48b41617cc5955472, type: 2}
+        castSFX: {fileID: 11400000, guid: eea6aac00183ad44ca136572c6350a94, type: 2}
         healValue: 80
         CrossOfLifePrefab: {fileID: 1186777461074907986, guid: f3ea3a7c00c685a48b77e571ed3ee4f0,
           type: 3}
