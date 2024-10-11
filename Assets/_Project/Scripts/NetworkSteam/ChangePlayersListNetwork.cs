@@ -26,19 +26,21 @@ public class ChangePlayersListNetwork : NetworkBehaviour
 
     private void UpdateClientData()
     {
+        Debug.Log("UpdateClientData");
         SendDataFromHostToNewClientRpc();
     }
 
     [Rpc(SendTo.Server)]
     private void SendDataFromHostToNewClientRpc()
     {
+        Debug.Log("SendDataFromHostToNewClientRpc");
         for (int ID = 0; ID < playerInfoData.PlayerCount; ID++)
         {
             ChangeColorRpc(playerInfoData.ColorList[ID], ID);
             ChangeHeroRpc(ID, GetHeroDataID(playerInfoData.HeroDataList[ID]));
             for (int SkillNumber = 0; SkillNumber < playerInfoData.HeroDataList[ID].SkillList.Count; SkillNumber++)
             {
-                ChangeSkillRpc(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
+                ChangeSkill(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
             }
         }
     }
