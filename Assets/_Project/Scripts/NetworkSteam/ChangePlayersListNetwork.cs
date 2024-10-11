@@ -21,13 +21,12 @@ public class ChangePlayersListNetwork : NetworkBehaviour
         GlobalEventSystem.PlayerColorChange.AddListener(ChangeColor);
         GlobalEventSystem.PlayerHeroChange.AddListener(ChangeHero);
         GlobalEventSystem.PlayerChoiceActionUpdate.AddListener(ChangeSkill);
-        GlobalEventSystem.PlayerLobbyUpdate.AddListener(UpdateClientData);
+        GlobalEventSystem.PlayerInfoDataInitialized.AddListener(UpdateClientData);
     }
 
-    private void UpdateClientData(ulong hostID)
+    private void UpdateClientData()
     {
-        Debug.Log("UpdateClientData");
-        Invoke(nameof(SendDataFromHostToNewClientRpc), 1f);
+        SendDataFromHostToNewClientRpc();
     }
 
     [Rpc(SendTo.Server)]
