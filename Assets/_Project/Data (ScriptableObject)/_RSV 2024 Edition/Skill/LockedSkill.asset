@@ -30,7 +30,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SkillIcon: {fileID: -694773164, guid: e80c21d2e92d6cc499728e26666f3a92, type: 3}
+  SkillIcon: {fileID: 21300000, guid: f942ccfe1a7050e478ea0bcf42b57d2c, type: 3}
   SkillScript:
     rid: 6932391363097657357
   references:
@@ -43,3 +43,8 @@ MonoBehaviour:
         SkillCooldown: 999
         IsMovable: 0
         TargetCount: 1
+        SkillPrefabDuration: 1
+        TilePrefab: {fileID: 0}
+        CastVFXPrefab: {fileID: 0}
+        AreaVFXPrefab: {fileID: 0}
+        castSFX: {fileID: 0}
