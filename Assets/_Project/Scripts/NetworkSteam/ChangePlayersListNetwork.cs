@@ -26,17 +26,15 @@ public class ChangePlayersListNetwork : NetworkBehaviour
 
     private void UpdateClientData(ulong id)
     {
-        Debug.Log("UpdateClientData");
         if (NetworkManager.Singleton.IsHost) SendDataFromHostToNewClient();
     }
 
     private void SendDataFromHostToNewClient()
     {
-        Debug.Log("SendDataFromHostToNewClient");
         for (int ID = 0; ID < playerInfoData.PlayerCount; ID++)
         {
-            ChangeColorRpc(playerInfoData.ColorList[ID], ID);
             ChangeHeroRpc(ID, GetHeroDataID(playerInfoData.HeroDataList[ID]));
+            ChangeColorRpc(playerInfoData.ColorList[ID], ID);
             for (int SkillNumber = 0; SkillNumber < playerInfoData.HeroDataList[ID].SkillList.Count; SkillNumber++)
             {
                 ChangeSkill(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
