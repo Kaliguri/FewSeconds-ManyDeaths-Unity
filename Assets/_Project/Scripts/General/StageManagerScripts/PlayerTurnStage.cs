@@ -136,7 +136,7 @@ public class PlayerTurnStage : GameState
         if (combatPlayerDataInStage.aliveStatus[playerInfoData.PlayerIDThisPlayer])
         {
             dataBaseGUI.EndTurnButtonActiveChange(enable);
-            dataBaseGUI.SkillButtonListActiveChange(enable);
+            //dataBaseGUI.SkillButtonListActiveChange(enable);
         }
         dataBaseGUI.TimerActiveChange(enable);
     }
