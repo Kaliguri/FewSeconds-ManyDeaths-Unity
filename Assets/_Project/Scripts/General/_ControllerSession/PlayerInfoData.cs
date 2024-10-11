@@ -52,6 +52,7 @@ public class PlayerInfoData : MonoBehaviour
 
     public void UpdatePlayerNickList(ulong id)
     {
+        Debug.Log("ClientConnectedOrDisconected");
         if (LobbySaver.instance.currentLobby != null)
         {
             Lobby lobby = (Lobby)LobbySaver.instance.currentLobby;
