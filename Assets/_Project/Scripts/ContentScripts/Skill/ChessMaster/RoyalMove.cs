@@ -21,7 +21,7 @@ public class RoyalMove : SkillScript
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
     {
         CastStart(heroPosition, actualHeroPosition, selectedCellCoordinate);
-        CastFX();
+        if (skillIndex == 0) CastFX();
 
         CastRoyalMove();
 
