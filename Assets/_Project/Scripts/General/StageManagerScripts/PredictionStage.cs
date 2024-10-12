@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PredictionStage : GameState
 {
-    [SerializeField] float timeBeforeBossCombo = 1f;
+    [SerializeField] float timeBeforeBossCombo = 2f;
 
     private BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
