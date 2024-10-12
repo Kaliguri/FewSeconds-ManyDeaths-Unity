@@ -168,6 +168,7 @@ public class BossManager : NetworkBehaviour
 
     private void CastAction()
     {
+        Debug.Log(CurrentCombo);
         if (CurrentAction < CurrentCombo.BossActionList.Count)
         {
             CurrentCombo.BossActionList[CurrentAction].ActionScript.Cast(TargetPointsForActions[CurrentAction], CurrentAct);
