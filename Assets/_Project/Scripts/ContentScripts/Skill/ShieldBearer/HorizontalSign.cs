@@ -1,10 +1,5 @@
-using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Demos;
-using Sonity;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 [Serializable]
