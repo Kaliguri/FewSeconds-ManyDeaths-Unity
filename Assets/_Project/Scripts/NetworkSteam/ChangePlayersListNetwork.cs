@@ -27,6 +27,7 @@ public class ChangePlayersListNetwork : NetworkBehaviour
     private void UpdateClientData(ulong id)
     {
         if (NetworkManager.Singleton.IsHost) SendDataFromHostToNewClient();
+        Debug.Log("UpdateClientData");
     }
 
     private void SendDataFromHostToNewClient()
