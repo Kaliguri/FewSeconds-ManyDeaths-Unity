@@ -46,11 +46,12 @@ MonoBehaviour:
         SkillPrefabDuration: 1
         TilePrefab: {fileID: 1186777461074907986, guid: f3ea3a7c00c685a48b77e571ed3ee4f0,
           type: 3}
-        CastVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        CastVFXPrefab: {fileID: 5989636595683461178, guid: f01f4d2d0bfa744478b141db6002d841,
           type: 3}
-        AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        AreaVFXPrefab: {fileID: 5204698366102945171, guid: 956128ad3614b2b49878cc7c750ba360,
           type: 3}
         castSFX: {fileID: 11400000, guid: 8e1f7e34b31db14429ff1fd88cecc5f2, type: 2}
+        LocalizeVariablesList: 
         healParameter: 999
         SacrificePrefab: {fileID: 1186777461074907986, guid: f3ea3a7c00c685a48b77e571ed3ee4f0,
           type: 3}

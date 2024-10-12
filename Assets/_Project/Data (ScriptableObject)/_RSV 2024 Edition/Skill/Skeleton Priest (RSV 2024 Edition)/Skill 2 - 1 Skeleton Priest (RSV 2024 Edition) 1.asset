@@ -46,11 +46,12 @@ MonoBehaviour:
         SkillPrefabDuration: 1
         TilePrefab: {fileID: 1186777461074907986, guid: f3ea3a7c00c685a48b77e571ed3ee4f0,
           type: 3}
-        CastVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        CastVFXPrefab: {fileID: 4788747492780993705, guid: 30b3ef3bb17f3fd4bb38fb789f380041,
           type: 3}
-        AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        AreaVFXPrefab: {fileID: 6477550508338186371, guid: cce38b95d89f7674c99987a8efd26fc6,
           type: 3}
         castSFX: {fileID: 11400000, guid: 09860f03b6f006f4bbb13117dd480769, type: 2}
+        LocalizeVariablesList: 
         damageValue: 10
         restoreEnergyValue: 1
         PainfulTimeShiftPrefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,

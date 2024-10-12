@@ -44,13 +44,14 @@ MonoBehaviour:
         IsMovable: 0
         TargetCount: 1
         SkillPrefabDuration: 1
-        TilePrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        TilePrefab: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
           type: 3}
-        CastVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        CastVFXPrefab: {fileID: 3759433038197441671, guid: e7abb300d33704d4c834e5cf5801a10f,
           type: 3}
-        AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        AreaVFXPrefab: {fileID: 5365318493805945822, guid: 5c64e7495a160e748917f72f28486b3c,
           type: 3}
         castSFX: {fileID: 11400000, guid: bdd1b2baa8445c84ca3c476dcb2b5965, type: 2}
+        LocalizeVariablesList: 
         InvincibilityPrefab: {fileID: 1186777461074907986, guid: 5596741cfa3805e4b9276c8c0d96c153,
           type: 3}
         shieldParameter: 999

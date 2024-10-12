@@ -32,25 +32,25 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: 21300000, guid: 7e3e30152a09a4a4e84f73f862560a9f, type: 3}
   SkillScript:
-    rid: 6932391315839909911
+    rid: 4835066371322413095
   references:
     version: 2
     RefIds:
-    - rid: 6932391315839909911
+    - rid: 4835066371322413095
       type: {class: HorizontalSign, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 3
-        SkillCooldown: 1
+        EnergyCost: 2
+        SkillCooldown: 0
         IsMovable: 0
         TargetCount: 1
         SkillPrefabDuration: 1
         TilePrefab: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
           type: 3}
-        CastVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        CastVFXPrefab: {fileID: 3759433038197441671, guid: e7abb300d33704d4c834e5cf5801a10f,
           type: 3}
-        AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        AreaVFXPrefab: {fileID: 6002506488943320539, guid: 7cc7cb8f83851a14da1133e54c98160b,
           type: 3}
-        castSFX: {fileID: 11400000, guid: 1ae2f3abfaaeb7b4b80523f8cd3dffac, type: 2}
+        castSFX: {fileID: 11400000, guid: 995dcfd600e859f4aabb1c51dfd61e08, type: 2}
+        LocalizeVariablesList: 
         shieldValue: 40
-        HorizontalSignPrefab: {fileID: 1186777461074907986, guid: 5596741cfa3805e4b9276c8c0d96c153,
-          type: 3}
+        HorizontalSignPrefab: {fileID: 0}
