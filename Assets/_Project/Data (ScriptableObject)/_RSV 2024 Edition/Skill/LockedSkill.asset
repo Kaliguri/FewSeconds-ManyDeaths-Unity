@@ -39,8 +39,8 @@ MonoBehaviour:
     - rid: 6932391363097657357
       type: {class: SkillScript, ns: , asm: Assembly-CSharp}
       data:
-        EnergyCost: 999
-        SkillCooldown: 999
+        EnergyCost: 99
+        SkillCooldown: 99
         IsMovable: 0
         TargetCount: 1
         SkillPrefabDuration: 1

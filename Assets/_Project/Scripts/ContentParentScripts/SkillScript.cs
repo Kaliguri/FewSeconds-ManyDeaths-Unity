@@ -28,6 +28,13 @@ public class SkillScript
     [Header("SFX")]
     [SerializeField] protected SoundEvent castSFX;
 
+    [Header("Localize")]
+    [HideInInspector] public List<int> LocalizeVariablesList = new();
+    public virtual List<int> GetLocalizeVariablesList()
+    {
+        return LocalizeVariablesList;
+    }
+
     protected MapClass mapClass => GameObject.FindObjectOfType<MapClass>(); 
     protected BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
     protected CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();

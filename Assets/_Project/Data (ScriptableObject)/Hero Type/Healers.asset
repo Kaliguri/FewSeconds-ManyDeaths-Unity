@@ -30,7 +30,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Icon: {fileID: 1169671575, guid: c2705efa941a6fe498c7e9040f0b3a00, type: 3}
+  Icon: {fileID: -1740304118, guid: 2949f5a4b24da3a47a85d9ed3a698449, type: 3}
   IconColor: {r: 0.3529412, g: 0.6039216, b: 0.24313726, a: 1}
   references:
     version: 2

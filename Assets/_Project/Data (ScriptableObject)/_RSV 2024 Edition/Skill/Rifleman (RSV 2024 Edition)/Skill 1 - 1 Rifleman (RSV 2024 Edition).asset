@@ -51,9 +51,11 @@ MonoBehaviour:
         AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
           type: 3}
         castSFX: {fileID: 11400000, guid: 63b7086822d32f54b8ef64ddc6566cd7, type: 2}
+        LocalizeVariablesList: 00000000000000000000000000000000
         Damage: 20
         spawnModification: {x: 0.65, y: 0.45}
         shotSpeed: 5
         QuickShotPrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
           type: 3}
         hitSFX: {fileID: 11400000, guid: 1e2fb8af6dd81614e9c4f04ae6bcb790, type: 2}
+        LocalizeVariablesList: 0600000006000000

@@ -21,19 +21,31 @@ MonoBehaviour:
     strikethrough: 0
   - tag: ~
     color: {r: 0.990566, g: 0.5692542, b: 0.31305623, a: 1}
-    bold: 1
-    italic: 0
-    underline: 0
-    strikethrough: 0
-  - tag: '@'
-    color: {r: 1, g: 1, b: 1, a: 1}
-    bold: 1
+    bold: 0
     italic: 0
     underline: 0
     strikethrough: 0
   - tag: $
-    color: {r: 0.58143467, g: 0.86116797, b: 0.8867924, a: 1}
+    color: {r: 0.21867211, g: 0.4454538, b: 0.735849, a: 1}
     bold: 0
-    italic: 1
+    italic: 0
+    underline: 0
+    strikethrough: 0
+  - tag: '&'
+    color: {r: 0.23985973, g: 0.8113208, b: 0.21048418, a: 0}
+    bold: 0
+    italic: 0
+    underline: 0
+    strikethrough: 0
+  - tag: '*'
+    color: {r: 0.754717, g: 0.2242791, b: 0.2242791, a: 0}
+    bold: 0
+    italic: 0
+    underline: 0
+    strikethrough: 0
+  - tag: '@'
+    color: {r: 0.19999997, g: 0.7921569, b: 0.7619469, a: 0}
+    bold: 0
+    italic: 0
     underline: 0
     strikethrough: 0
