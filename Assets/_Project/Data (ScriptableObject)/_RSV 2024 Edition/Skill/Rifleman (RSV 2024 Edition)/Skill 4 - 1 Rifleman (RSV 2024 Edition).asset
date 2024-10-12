@@ -46,10 +46,11 @@ MonoBehaviour:
         SkillPrefabDuration: 1
         TilePrefab: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
           type: 3}
-        CastVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        CastVFXPrefab: {fileID: 4666561956022016416, guid: a302aaa9c79a1e34389d1176b275271c,
           type: 3}
-        AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        AreaVFXPrefab: {fileID: 4666561956022016416, guid: a302aaa9c79a1e34389d1176b275271c,
           type: 3}
         castSFX: {fileID: 11400000, guid: bcfeef7c5dd1f4e488736e50c38a4cfe, type: 2}
+        LocalizeVariablesList: 
         InspiringSpeakPrefab: {fileID: 6596835545786723952, guid: 91072d6d5ba94864bb361bf5c8ec7e22,
           type: 3}
