@@ -36,7 +36,7 @@ public class PredictionStage : GameState
 
         ShieldsRemove();
 
-        Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo * 1.1f);
+        Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo * 2f);
     }
 
     private void ChoiceNewBossCombo()
