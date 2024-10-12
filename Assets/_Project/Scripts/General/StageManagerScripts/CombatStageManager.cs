@@ -79,13 +79,8 @@ public class CombatStageManager : NetworkBehaviour
     {
         if (NetworkManager.Singleton.IsServer)
         {
-            Invoke(nameof(HostStartBattle), TimeBeforeBattleStarts);
+            NextStage(0);
         }
-    }
-
-    private void HostStartBattle()
-    {
-        NextStage(0);
     }
 
     private void LoseBattle()
