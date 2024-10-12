@@ -14,7 +14,7 @@ public class PredictionStage : GameState
     public void Initialize(CombatStageManager manager)
     {
         gameStateManager = manager;
-        //GlobalEventSystem.PlayerSpawned.AddListener(RestoreEnergy);
+        GlobalEventSystem.BossEndCombo.AddListener(EndTurn);
 
         localId = playerInfoData.PlayerIDThisPlayer;
     }
@@ -29,29 +29,28 @@ public class PredictionStage : GameState
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
             bossManager.ChoiceCombo();
-            StartCoroutine(nameof(GiveTimePass));
         }
 
         ShieldsRemove();
+
+        bossManager.CastCombo();
     }
 
     public override void Exit()
     {
         GlobalEventSystem.SendPredictionStageEnded();
-        //Debug.Log("Exiting Prediction Stage");
     }
 
     public override void UpdateStage()
     {
         if (NetworkManager.Singleton.IsServer)
         {
-            // ������, ����������� ������ �� �������
+
         }
         else
         {
-            // ������, ����������� �� ��������
+
         }
-        //���� ���������� �������� ������? � ����������� ��� ���� ���� �� �������� ���
     }
 
     private void RestoreEnergy()
@@ -74,10 +73,9 @@ public class PredictionStage : GameState
         combatPlayerDataInStage._TotalStatsList[id].currentCombat.CurrentEnergy = newEnergy;
     }
 
-    IEnumerator GiveTimePass()
+    private void EndTurn()
     {
-        yield return new WaitForSeconds(1f);
-        gameStateManager.TransitionToNextStage();
+        if (CombatStageManager.instance.currentStage is PredictionStage) gameStateManager.TransitionToNextStage();
     }
 
     private void ShieldsRemove()

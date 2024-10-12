@@ -52,7 +52,7 @@ public class PlayerSkillManager : NetworkBehaviour
         inputActions.Combat.SkillR.performed += _ => SelectSkillByButton(3);
 
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(StartDefineSkills);
-        GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(ApproveTheSkills);
+        GlobalEventSystem.PlayerTurnEnding.AddListener(ApproveTheSkills);
         GlobalEventSystem.StartCastPlayer.AddListener(StartSkillSystem);
         GlobalEventSystem.PlayerSkillEnd.AddListener(CastAction);
     }

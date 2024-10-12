@@ -60,7 +60,7 @@ public class PlayerMovementController : NetworkBehaviour
         inputActions.Combat.SelectTile.performed += _ => AddNewPointsToList();
         inputActions.Combat.CancelAction.performed += _ => RemoveLastPointsInList();
 
-        GlobalEventSystem.PlayerTurnEndConfirmed.AddListener(ApproveThePath);
+        GlobalEventSystem.PlayerTurnEnding.AddListener(ApproveThePath);
         GlobalEventSystem.StartResultStageForPlayer.AddListener(StartMoving);
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(StartDefineMovement);
         GlobalEventSystem.PlayerSkillChoosed.AddListener(PlayerSkillChoosed);

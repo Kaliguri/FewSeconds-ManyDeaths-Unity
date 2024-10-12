@@ -18,11 +18,6 @@ public class BerserkCircularSlice : BossActionScript
     [Header("Visual")]
     [SerializeField] private float timeBetweenCastAndDamage = 1f;
 
-
-    [Header("Prefabs")]
-    [SerializeField] private GameObject affectedTile;
-
-
     [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
@@ -54,7 +49,7 @@ public class BerserkCircularSlice : BossActionScript
         MonoInstance.instance.StartCoroutine(DamagePlayers(GetAffectedCombatObjectList(CircularList)));
     }
 
-    private void CastAreaForSkill(List<Vector2> circularList)
+    protected override void CastAreaForSkill(List<Vector2> circularList)
     {
         for (int i = 0; i < circularList.Count; i++)
         {
@@ -71,11 +66,11 @@ public class BerserkCircularSlice : BossActionScript
     {
         yield return new WaitForSeconds(timeBetweenCastAndDamage);
         
-        BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
+        BossCombatObject bossCombatObject = new(bossManager);
 
         foreach (CombatObject combatObject in affectedCombatObjectList)
         {
-            CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
+            if (CombatStageManager.instance.currentStage is BossTurnStage) CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
             hitSFX.Play(bossManager.transform);
         }
 

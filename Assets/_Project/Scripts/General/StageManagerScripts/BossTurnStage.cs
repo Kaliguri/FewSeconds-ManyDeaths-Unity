@@ -49,7 +49,7 @@ public class BossTurnStage : GameState
 
     private void EndTurn()
     {
-        gameStateManager.TransitionToNextStage();
+        if (CombatStageManager.instance.currentStage is BossTurnStage) gameStateManager.TransitionToNextStage();
     }
 
 }

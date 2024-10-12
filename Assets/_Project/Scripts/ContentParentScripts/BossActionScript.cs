@@ -7,12 +7,17 @@ using UnityEngine;
 [Serializable]
 public class BossActionScript
 {
+    [Header("Prefabs")]
+    [SerializeField] protected GameObject affectedTile;
+
     protected MapClass mapClass => GameObject.FindObjectOfType<MapClass>();
     protected BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
     protected BossMultiplayerMethods bossMultiplayerMethods => GameObject.FindObjectOfType<BossMultiplayerMethods>();
     protected CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
     protected List<Vector2> TargetPoints = new();
     protected int act;
+    protected List<GameObject> affectedTiles;
+    protected GameState castStage;
 
     public virtual void Cast(List<Vector2> targetPoints, int act)
     {
@@ -27,10 +32,12 @@ public class BossActionScript
     {
         TargetPoints = targetPoints;
         act = _act;
+        castStage = CombatStageManager.instance.currentStage;
     }
 
     protected void CastEnd()
     {
+        Debug.Log("CastActionEnd");
         GlobalEventSystem.SendBossActionEnd();
     }
 
@@ -67,6 +74,40 @@ public class BossActionScript
     protected List<MapObject> GetAffectedMapObjectList(List<Vector2> area)
     {
         return mapClass.MapObjectCheck(area);
+    }
+
+    protected virtual void CastAreaForSkill(List<Vector2> circularList)
+    {
+        for (int i = 0; i < circularList.Count; i++)
+        {
+            Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(circularList[i] + mapClass.tileZero);
+            if (mapClass.gameplayTilemap.HasTile(tile))
+            {
+                GameObject AffectedTile = MonoInstance.Instantiate(affectedTile, circularList[i] + mapClass.tileZero, Quaternion.identity);
+                if (CombatStageManager.instance.currentStage is PlayerTurnStage)
+                {
+                    Color bossColor = AffectedTile.GetComponent<SpriteRenderer>().color;
+                    AffectedTile.GetComponent<SpriteRenderer>().color = new Color(bossColor.r, bossColor.g, bossColor.b, bossColor.a * bossManager.alfhaForGhost);
+                }
+                affectedTiles.Add(AffectedTile);
+            }
+        }
+    }
+
+    protected void DestroyAffectedTilesPrefabs()
+    {
+        for (int i = affectedTiles.Count - 1; i >= 0; i--)
+        {
+            if (i < affectedTiles.Count)
+            {
+                GameObject tile = affectedTiles[i];
+                if (tile != null)
+                {
+                    MonoInstance.Destroy(tile);
+                }
+            }
+        }
+        affectedTiles.Clear();
     }
 
     protected List<Vector2> ClearListFromOccupiedTiles(List<Vector2> TilesList)

@@ -38,7 +38,7 @@ public class KnightsMove : SkillScript
         List<Vector2> areaList = new();
         if (skillIndex == 0)
         {
-            areaList.AddRange(combatPlayerDataInStage.HeroCoordinates);
+            areaList.AddRange(mapClass.AllTiles);
         }
         else
         {

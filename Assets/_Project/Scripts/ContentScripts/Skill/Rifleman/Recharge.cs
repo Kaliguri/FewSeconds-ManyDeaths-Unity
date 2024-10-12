@@ -18,14 +18,6 @@ public class Recharge : SkillScript
     [Header("Prefabs")]
     [SerializeField] GameObject reloadPrefab;
 
-    [Header("Localize")]
-    public new List<int> LocalizeVariablesList = new();
-    public override List<int> GetLocalizeVariablesList()
-    {
-        return LocalizeVariablesList;
-    }
-
-
 
     private ShotsManager shotsManager => GameObject.FindObjectOfType<ShotsManager>();
 
@@ -47,7 +39,7 @@ public class Recharge : SkillScript
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
 
-        List<Vector2> areaList = new List<Vector2> { selectedCellCoordinate };
+        List<Vector2> areaList = new List<Vector2> { characterCellCoordinate };
         return areaList;
     }
 
@@ -60,8 +52,6 @@ public class Recharge : SkillScript
     {
         if (IsPlayersNear()) shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + bulletReload);
         else shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + extraButtetForAllyNear);
-
-        LocalizeVariablesList[0] = shotsManager.GetShotsCount(playerID);
     }
 
     private bool IsPlayersNear()

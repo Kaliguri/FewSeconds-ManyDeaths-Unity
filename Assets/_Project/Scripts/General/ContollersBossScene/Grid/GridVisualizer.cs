@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 
-public class GridVisualizer : NetworkBehaviour
+public class alizer : NetworkBehaviour
 {
     #region Tile Sprites
 

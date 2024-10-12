@@ -23,6 +23,7 @@ public class BerserkDash : BossActionScript
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
 
+
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
@@ -34,42 +35,49 @@ public class BerserkDash : BossActionScript
 
     public override List<Vector2> GetCastPoint(int act)
     {
-        return bossMultiplayerMethods.GetRandomPointNearRandomPlayer();
+        List<Vector2> targetPoints = new();
+        if (act > 1)
+        {
+            targetPoints.Add(mapClass.AllTiles[UnityEngine.Random.Range(0, mapClass.AllTiles.Count)]);
+            targetPoints.Add(mapClass.AllTiles[UnityEngine.Random.Range(0, mapClass.AllTiles.Count)]);
+        }
+        targetPoints.Add(bossMultiplayerMethods.GetRandomPointNearRandomPlayer());
+        return targetPoints;
     }
 
     private void CastBerserkDash()
     {
-        mapClass.RemoveBoss(bossManager.CurrentCoordinates);
+        if (CombatStageManager.instance.currentStage is BossTurnStage) mapClass.RemoveBoss(bossManager.CurrentCoordinates);
         MonoInstance.instance.StartCoroutine(Dash());
     }
 
     IEnumerator Dash()
     {
         Vector2 fromTile = bossManager.CurrentCoordinates;
+        List<List<Vector2>> pathList = new();
 
-        if (act > 1)
+        for (int i = 0; i < TargetPoints.Count; i++)
         {
-            Vector2 randomTile1 = mapClass.AllTiles[UnityEngine.Random.Range(0, mapClass.AllTiles.Count)];
-            List<PathNode> pathToRandomNodes = mapClass.gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)randomTile1.x, (int)randomTile1.y);
-            yield return MonoInstance.instance.StartCoroutine(MoveAlongPath(pathToRandomNodes));
-            Vector2 randomTile2 = mapClass.AllTiles[UnityEngine.Random.Range(0, mapClass.AllTiles.Count)];
-            pathToRandomNodes = mapClass.gridPathfinding.FindPath((int)randomTile1.x, (int)randomTile1.y, (int)randomTile2.x, (int)randomTile2.y);
-            yield return MonoInstance.instance.StartCoroutine(MoveAlongPath(pathToRandomNodes));
-            fromTile = randomTile2;
+            if (i > 0) fromTile = TargetPoints[i - 1];
+            List<PathNode> pathToRandomNodes = mapClass.gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)TargetPoints[i].x, (int)TargetPoints[i].y);
+            pathList.Add(PathNodeToVector2(pathToRandomNodes));
+            if (act > 0) CastAreaForSkill(PathNodeToVector2(pathToRandomNodes));
         }
 
+        for (int i = 0; i < pathList.Count; i++) 
+        { 
+            yield return MonoInstance.instance.StartCoroutine(MoveAlongPath(pathList[i]));
+        }
 
-        Vector2 toTile = TargetPoints[0];
-        List<PathNode> pathNodes = mapClass.gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)toTile.x, (int)toTile.y);
-        yield return MonoInstance.instance.StartCoroutine(MoveAlongPath(pathNodes));
+        if (CombatStageManager.instance.currentStage is BossTurnStage) mapClass.SetBoss(TargetPoints[TargetPoints.Count - 1]);
+        bossManager.CurrentCoordinates = TargetPoints[TargetPoints.Count - 1];
 
-        bossManager.CurrentCoordinates = toTile;
-        mapClass.SetBoss(toTile);
+        DestroyAffectedTilesPrefabs();
 
         CastEnd();
     }
 
-    IEnumerator MoveAlongPath(List<PathNode> pathNodes)
+    IEnumerator MoveAlongPath(List<Vector2> pathNodes)
     {
         float currentDashTime = DashTime * 0.075f;
 
@@ -85,18 +93,31 @@ public class BerserkDash : BossActionScript
                 timeElapsed += Time.deltaTime;
                 float t = timeElapsed / currentDashTime;
 
-                bossManager.BossGameObject.transform.position = Vector2.Lerp(startPos, endPos, t);
+                if (CombatStageManager.instance.currentStage is PlayerTurnStage) bossManager.GhostBossGameObject.transform.position = Vector2.Lerp(startPos, endPos, t);
+                else if(CombatStageManager.instance.currentStage is not PlayerTurnStage) bossManager.BossGameObject.transform.position = Vector2.Lerp(startPos, endPos, t);
 
                 yield return null;
             }
 
-            bossManager.BossGameObject.transform.position = endPos;
+            if (CombatStageManager.instance.currentStage is PlayerTurnStage) bossManager.GhostBossGameObject.transform.position = endPos;
+            else bossManager.BossGameObject.transform.position = endPos;
 
-            if (act > 0) DamageEveryOneInTiles(new List<Vector2> { endPos - mapClass.tileZero }, damage, hitSFX);
+            if (act > 0 && CombatStageManager.instance.currentStage is BossTurnStage) DamageEveryOneInTiles(new List<Vector2> { endPos - mapClass.tileZero }, damage, hitSFX);
 
             currentDashTime = Mathf.Min(currentDashTime * 1.1f, DashTime);
         }
 
         yield return new WaitForSeconds(TimeBetweenDash);
-    }    
+    }
+
+
+    private List<Vector2> PathNodeToVector2(List<PathNode> pathToRandomNodes)
+    {
+        List<Vector2> result = new List<Vector2>();
+        for (int i = 0; i < pathToRandomNodes.Count; i++)
+        {
+            result.Add(new Vector2(pathToRandomNodes[i].x, pathToRandomNodes[i].y));
+        }
+        return result;
+    }
 }

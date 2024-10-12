@@ -12,6 +12,9 @@ public static class GlobalEventSystem
     public static UnityEvent PlayerTurnEndConfirmed = new();
     public static void SendPlayerTurnEndConfirmed() { PlayerTurnEndConfirmed.Invoke(); }
 
+    public static UnityEvent PlayerTurnEnding = new();
+    public static void SendPlayerTurnEnding() { PlayerTurnEnding.Invoke(); }
+
     public static UnityEvent PlayerInfoDataInitialized = new();
     public static void SendPlayerInfoDatanInitialized() { PlayerInfoDataInitialized.Invoke(); }
 

@@ -53,7 +53,8 @@ public class SwordEnergyDiagonally : BossActionScript
 
         for (int i = 0; i < TargetPoints.Count; i++)
         {
-            List<Vector2> targetLine = GridAreaMethods.DiagonalLine(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates + TargetPoints[i]);
+            List<Vector2> targetLine = GridAreaMethods.DiagonalLine(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates + TargetPoints[i]); 
+            CastAreaForSkill(targetLine);
             MonoInstance.instance.StartCoroutine(SliceMovement(targetLine));
         }
     }
@@ -79,14 +80,18 @@ public class SwordEnergyDiagonally : BossActionScript
 
             slice.transform.position = targetPosition;
 
-            DamageEveryOneInTiles(new List<Vector2> { targetPosition - mapClass.tileZero }, damage, hitSFX);
+            if (CombatStageManager.instance.currentStage is BossTurnStage) DamageEveryOneInTiles(new List<Vector2> { targetPosition - mapClass.tileZero }, damage, hitSFX);
         }
 
         MonoInstance.Destroy(slice);
 
         sliceCount--;
 
-        if (sliceCount <= 0) CastEnd();
+        if (sliceCount <= 0)
+        {
+            DestroyAffectedTilesPrefabs();
+            CastEnd();
+        }
     }
 
 

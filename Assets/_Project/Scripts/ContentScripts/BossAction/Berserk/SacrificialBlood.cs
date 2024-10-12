@@ -78,8 +78,9 @@ public class SacrificialBlood : BossActionScript
         int _bloodParticleCount = act > 1 ? bloodParticleCount + bloodParticleCountUpgrade : bloodParticleCount;
 
         BossCombatObject bossCombatObject = new BossCombatObject(bossManager);
-        CombatMethods.ApplayDamage(damage, bossCombatObject, bossCombatObject);
+        if (CombatStageManager.instance.currentStage is BossTurnStage) CombatMethods.ApplayDamage(damage, bossCombatObject, bossCombatObject);
         hitSFX.Play(bossManager.transform);
+        CastAreaForSkill(new List<Vector2> { GetFarthestHero() });
 
         MonoInstance.instance.StartCoroutine(SpawnAndCircleBloodParticles(_bloodParticleCount));
     }
@@ -143,7 +144,7 @@ public class SacrificialBlood : BossActionScript
                 if (remainingCount == 0)
                 {
                     yield return MonoInstance.instance.StartCoroutine(SendParticleToHeroPoint(bloodParticles[remainingCount]));
-
+                    DestroyAffectedTilesPrefabs();
                     CastEnd();
                     break;
                 }
@@ -199,12 +200,12 @@ public class SacrificialBlood : BossActionScript
                     else if (combatObject.GetData().CurrentShield > 0) heal = damage - combatObject.GetData().CurrentShield;
                     else heal = damage;
 
-                    CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
+                    if (CombatStageManager.instance.currentStage is BossTurnStage) CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
                     hitSFX.Play(bossManager.transform);
                     if (heal > 0) 
                     {
                         healSFX.Play(bossManager.BossGameObject.transform);
-                        CombatMethods.ApplayHeal(heal, bossCombatObject, bossCombatObject); 
+                        if (CombatStageManager.instance.currentStage is BossTurnStage) CombatMethods.ApplayHeal(heal, bossCombatObject, bossCombatObject); 
                     }
                 }
             }

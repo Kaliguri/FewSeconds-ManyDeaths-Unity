@@ -15,11 +15,6 @@ public class BerserkCircularSliceWithStep : BossActionScript
     [Header("Visual")]
     [SerializeField] private float timeBetweenCastAndDamage = 1f;
 
-
-    [Header("Prefabs")]
-    [SerializeField] private GameObject affectedTile;
-
-
     [Header("SFX")]
     [SerializeField] SoundEvent castSFX;
     [SerializeField] SoundEvent hitSFX;
@@ -30,7 +25,7 @@ public class BerserkCircularSliceWithStep : BossActionScript
         CastStart(targetPoints, act);
         castSFX.Play(bossManager.transform);
 
-        Debug.Log("Cast Berserk Circular Slice!");
+        Debug.Log("Cast Berserk Circular Slice With Step!");
         CastCircularSlice();
     }
 
@@ -59,10 +54,13 @@ public class BerserkCircularSliceWithStep : BossActionScript
         Vector2 targetPoint = TargetPoints[0] + bossManager.CurrentCoordinates;
         if (IsFreeTile(targetPoint))
         {
-            mapClass.RemoveBoss(bossManager.CurrentCoordinates);
-            bossManager.BossGameObject.transform.position = targetPoint + mapClass.tileZero;
+            if (CombatStageManager.instance.currentStage is BossTurnStage) mapClass.RemoveBoss(bossManager.CurrentCoordinates);
+
+            if (CombatStageManager.instance.currentStage is PlayerTurnStage) bossManager.GhostBossGameObject.transform.position = targetPoint + mapClass.tileZero;
+            else bossManager.BossGameObject.transform.position = targetPoint + mapClass.tileZero;
+
             bossManager.CurrentCoordinates = targetPoint;
-            mapClass.SetBoss(targetPoint);
+            if (CombatStageManager.instance.currentStage is BossTurnStage) mapClass.SetBoss(targetPoint);
         }
     }
 
@@ -77,7 +75,7 @@ public class BerserkCircularSliceWithStep : BossActionScript
         return false;
     }
 
-    private void CastAreaForSkill(List<Vector2> circularList)
+    protected override void CastAreaForSkill(List<Vector2> circularList)
     {
         for (int i = 0; i < circularList.Count; i++)
         {
@@ -85,6 +83,11 @@ public class BerserkCircularSliceWithStep : BossActionScript
             if (mapClass.gameplayTilemap.HasTile(tile))
             {
                 GameObject AffectedTile = MonoInstance.Instantiate(affectedTile, circularList[i] + mapClass.tileZero, Quaternion.identity);
+                if (CombatStageManager.instance.currentStage is PlayerTurnStage)
+                {
+                    Color bossColor = AffectedTile.GetComponentInChildren<SpriteRenderer>().color;
+                    AffectedTile.GetComponentInChildren<SpriteRenderer>().color = new Color(bossColor.r, bossColor.g, bossColor.b, bossColor.a * bossManager.alfhaForGhost);
+                }
                 MonoInstance.Destroy(AffectedTile, timeBetweenCastAndDamage);
             }
         }
@@ -98,7 +101,7 @@ public class BerserkCircularSliceWithStep : BossActionScript
 
         foreach (CombatObject combatObject in affectedCombatObjectList)
         {
-            CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
+            if (CombatStageManager.instance.currentStage is BossTurnStage) CombatMethods.ApplayDamage(damage, bossCombatObject, combatObject);
             hitSFX.Play(bossManager.transform);
         }
 

@@ -45,8 +45,6 @@ public class SwordEnergyRectangular : BossActionScript
         for (int i = 0; i < directions.Count; i++)
         {
             castPoints.Add(GetBoundaryTile(bossManager.CurrentCoordinates, directions[i]));
-            Debug.Log(directions[i]);
-            Debug.Log(GetBoundaryTile(bossManager.CurrentCoordinates, directions[i]));
         }
         return castPoints;
     }
@@ -59,6 +57,7 @@ public class SwordEnergyRectangular : BossActionScript
         {
             Debug.Log(TargetPoints[i]);
             List<Vector2> targetLine = GridAreaMethods.CoordinateLine(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates + TargetPoints[i]);
+            CastAreaForSkill(targetLine);
             MonoInstance.instance.StartCoroutine(SliceMovement(targetLine));
         }
     }
@@ -84,14 +83,18 @@ public class SwordEnergyRectangular : BossActionScript
 
             slice.transform.position = targetPosition;
 
-            DamageEveryOneInTiles(new List<Vector2> { targetPosition - mapClass.tileZero }, damage, hitSFX);
+            if (CombatStageManager.instance.currentStage is BossTurnStage) DamageEveryOneInTiles(new List<Vector2> { targetPosition - mapClass.tileZero }, damage, hitSFX);
         }
 
         MonoInstance.Destroy(slice);
 
         sliceCount--;
 
-        if (sliceCount <= 0) CastEnd();
+        if (sliceCount <= 0) 
+        {
+            DestroyAffectedTilesPrefabs();
+            CastEnd();
+        }
     }
 
 

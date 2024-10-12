@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class PlayerTurnStage : GameState
 {
+    [SerializeField] float timeBetweeenNewBossCombo;
+
     private float maxTurnTime;
     private TextMeshProUGUI timerText;
     private NetworkVariable<float> remainingTime = new NetworkVariable<float>(0f);
@@ -16,6 +18,7 @@ public class PlayerTurnStage : GameState
     private TextMeshProUGUI confirmationText;
     private Button confirmationButton;
     private Coroutine timer;
+
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
 
@@ -30,14 +33,8 @@ public class PlayerTurnStage : GameState
         this.confirmationButton = confirmationButton;
         this.confirmationButton.onClick.AddListener(ConfirmEndTurn);
         playersConfirmed.OnValueChanged += UpdateConfirmationUI;
-    }
-
-    private void UpdateConfirmationUI(int previousValue, int newValue)
-    {
-        if (confirmationText != null)
-        {
-            confirmationText.text = $"{newValue}/{combatPlayerDataInStage.CountOfAlivePlayers()} players confirmed";
-        }
+        GlobalEventSystem.BossEndCombo.AddListener(EndTurn);
+        GlobalEventSystem.BossEndCombo.AddListener(StartNewBossComboAfterTime);
     }
 
     public override void Enter()
@@ -58,8 +55,6 @@ public class PlayerTurnStage : GameState
     public override void Exit()
     {
         GlobalEventSystem.SendPlayerTurnStageEnded();
-
-        EnablePlayerTurnUI(false);
     }
 
     public override void UpdateStage()
@@ -68,9 +63,27 @@ public class PlayerTurnStage : GameState
         {
             if (playersConfirmed.Value >= combatPlayerDataInStage.CountOfAlivePlayers())
             {
-                EndTurn();
+                StartEndingTurn();
                 gameStateManager.StopCoroutine(timer);
             }
+        }
+    }
+
+    private void StartNewBossComboAfterTime()
+    {
+        if (CombatStageManager.instance.currentStage is PlayerTurnStage && BossManager.instance.CurrentAction != 3259720) Invoke(nameof(StartNewBossCombo), timeBetweeenNewBossCombo);
+    }
+
+    private void StartNewBossCombo()
+    {
+        BossManager.instance.CastCombo();
+    }
+
+    private void UpdateConfirmationUI(int previousValue, int newValue)
+    {
+        if (confirmationText != null)
+        {
+            confirmationText.text = $"{newValue}/{combatPlayerDataInStage.CountOfAlivePlayers()} players confirmed";
         }
     }
 
@@ -87,7 +100,7 @@ public class PlayerTurnStage : GameState
 
             if (remainingTime.Value <= 0)
             {
-                EndTurn();
+                StartEndingTurn();
                 yield break;
             }
         }
@@ -126,9 +139,19 @@ public class PlayerTurnStage : GameState
 
     private void EndTurn()
     {
-        if (NetworkManager.Singleton.IsServer) gameStateManager.TransitionToNextStage();
+        if (CombatStageManager.instance.currentStage is PlayerTurnStage && BossManager.instance.CurrentAction == 3259720)
+        {
+            gameStateManager.TransitionToNextStage();
 
-        GlobalEventSystem.SendPlayerTurnEndConfirmed();
+            EnablePlayerTurnUI(false);
+
+            GlobalEventSystem.SendPlayerTurnEndConfirmed();
+        }
+    }
+
+    private void StartEndingTurn()
+    {
+        GlobalEventSystem.SendPlayerTurnEnding();
     }
 
     private void EnablePlayerTurnUI(bool enable)

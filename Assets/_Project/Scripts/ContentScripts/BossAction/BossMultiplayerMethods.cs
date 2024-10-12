@@ -10,14 +10,14 @@ public class BossMultiplayerMethods : NetworkBehaviour
     private BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
     private CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
 
-    public List<Vector2> GetRandomPointNearRandomPlayer()
+    public Vector2 GetRandomPointNearRandomPlayer()
     {
         Vector2 heroCoordinate = GetRandomAliveHeroCoordinate();
 
         List<Vector2> cellsAroundPlayer = GridAreaMethods.SquareAOE(heroCoordinate, heroCoordinate, 1, true);
         List<Vector2> cellsAroundPlayers = ClearListFromOccupiedTiles(cellsAroundPlayer);
-        
-        List<Vector2> TargetPoint = new() { cellsAroundPlayers[UnityEngine.Random.Range(0, cellsAroundPlayers.Count)] };
+
+        Vector2 TargetPoint = cellsAroundPlayers[UnityEngine.Random.Range(0, cellsAroundPlayers.Count)];
         return TargetPoint;
     }
 
