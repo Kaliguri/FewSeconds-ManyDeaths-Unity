@@ -27,8 +27,7 @@ public class BerserkDash : BossActionScript
     public override void Cast(List<Vector2> targetPoints, int act)
     {
         CastStart(targetPoints, act);
-        castSFX.Play(bossManager.transform);
-
+        
         //Debug.Log("Cast Berserk Dash!");
         CastBerserkDash();
     }
@@ -65,7 +64,8 @@ public class BerserkDash : BossActionScript
         }
 
         for (int i = 0; i < pathList.Count; i++) 
-        { 
+        {
+            castSFX.Play(bossManager.transform);
             yield return MonoInstance.instance.StartCoroutine(MoveAlongPath(pathList[i]));
         }
 
