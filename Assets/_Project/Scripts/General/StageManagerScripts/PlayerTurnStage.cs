@@ -151,8 +151,6 @@ public class PlayerTurnStage : GameState
     {
         gameStateManager.TransitionToNextStage();
 
-        EnablePlayerTurnUI(false);
-
         GlobalEventSystem.SendPlayerTurnEndConfirmed();
     }
 
@@ -160,6 +158,7 @@ public class PlayerTurnStage : GameState
     {
         Debug.Log("StartEndingTurn");
         endingTurn = true;
+        EnablePlayerTurnUI(false);
         GlobalEventSystem.SendPlayerTurnEnding();
         inputActions.Disable();
     }
