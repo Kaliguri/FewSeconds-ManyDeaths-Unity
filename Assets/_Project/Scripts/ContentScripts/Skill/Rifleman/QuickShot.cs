@@ -116,6 +116,6 @@ public class QuickShot : SkillScript
             if (hitSFX != null) hitSFX.Play(combatPlayerDataInStage.transform);
         }
 
-        SpawnSkillObjects(SelectedCellCoordinate.ToList(), HitVFXPrefab);
+        CastVFX(SelectedCellCoordinate.ToList(), HitVFXPrefab);
     }
 }
