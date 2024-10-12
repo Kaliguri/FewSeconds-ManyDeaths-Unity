@@ -150,15 +150,17 @@ public class BossManager : NetworkBehaviour
         for (int i = 0; i < CurrentCombo.BossActionList.Count; i++)
         {
             List<Vector2> TargetPoints = CurrentCombo.BossActionList[i].ActionScript.GetCastPoint(CurrentAct);
-            GetTargetPointsForActionsRpc(TargetPoints.ToArray());
+            bool isEnd = i == CurrentCombo.BossActionList.Count - 1;
+            GetTargetPointsForActionsRpc(TargetPoints.ToArray(), isEnd);
         }
         Debug.Log("GetTargetPointsForActions");
     }
 
     [Rpc(SendTo.ClientsAndHost)]
-    private void GetTargetPointsForActionsRpc(Vector2[] TargetPoints)
+    private void GetTargetPointsForActionsRpc(Vector2[] TargetPoints, bool isEnd)
     {
         TargetPointsForActions.Add(TargetPoints.ToList());
+        if (isEnd) GlobalEventSystem.SendTargetPointsForActionsChoosed();
     }
 
     public void CastCombo()

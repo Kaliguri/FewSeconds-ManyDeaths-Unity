@@ -17,6 +17,7 @@ public class PredictionStage : GameState
     {
         gameStateManager = manager;
         GlobalEventSystem.BossEndCombo.AddListener(EndTurn);
+        GlobalEventSystem.TargetPointsForActionsChoosed.AddListener(StartNewBossCombo);
 
         localId = playerInfoData.PlayerIDThisPlayer;
     }
@@ -36,7 +37,6 @@ public class PredictionStage : GameState
 
         ShieldsRemove();
 
-        Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo);
     }
 
     private void StartNewBossCombo()
