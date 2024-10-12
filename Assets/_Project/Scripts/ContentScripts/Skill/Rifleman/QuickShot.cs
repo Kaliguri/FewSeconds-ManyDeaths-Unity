@@ -70,6 +70,7 @@ public class QuickShot : SkillScript
             SpawnSkillObjects(SelectedCellCoordinate.ToList(), AreaVFXPrefab);
             MonoInstance.instance.StartCoroutine(ShotMovement(playerID));
         }
+        else CastEnd();
     }
 
     private IEnumerator ShotMovement(int playerID)
