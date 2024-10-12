@@ -180,6 +180,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ClassIcons_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c69b728e012eef4a922ee7fe1314183
+      internalID: 414628858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -195,6 +216,7 @@ TextureImporter:
       ClassIcons_1: -1006983904
       ClassIcons_2: -1740304118
       ClassIcons_3: 381156678
+      ClassIcons_4: 414628858
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
