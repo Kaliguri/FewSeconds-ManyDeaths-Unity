@@ -19,8 +19,8 @@ public class CombatStageManager : NetworkBehaviour
     [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject LoseMenu;
 
-    public GameState currentStage;
-    private int currentStageIndex;
+    public GameState currentStage = null;
+    private int currentStageIndex = -1;
     private NetworkVariable<int> currentStageIndexNet = new();
 
     private List<GameState> _stages;
@@ -73,7 +73,7 @@ public class CombatStageManager : NetworkBehaviour
 
         _stages = new List<GameState> { predictionStage, playerTurnStage, resultStage, bossTurnStage };
 
-        Invoke(nameof(StartBattle), 2f);
+        Invoke(nameof(StartBattle), 5f);
     }
 
     private void StartBattle()
