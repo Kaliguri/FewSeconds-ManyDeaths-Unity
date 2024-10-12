@@ -629,7 +629,6 @@ GameObject:
   - component: {fileID: 5245131165264731555}
   - component: {fileID: 3256101804930338401}
   - component: {fileID: 1200392333604025220}
-  - component: {fileID: 8725289863529889571}
   - component: {fileID: 3120261760475774644}
   m_Layer: 5
   m_Name: Header
@@ -755,54 +754,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8725289863529889571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4565100600979383439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab1e6d7705f8e1458bb010859ecfca0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageLocalizeName:
-  - m_TableReference:
-      m_TableCollectionName: GUID:9dec38d25bc2dad498a66b47a34b1856
-    m_TableEntryReference:
-      m_KeyId: 5676791133188096
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  - m_TableReference:
-      m_TableCollectionName: GUID:9dec38d25bc2dad498a66b47a34b1856
-    m_TableEntryReference:
-      m_KeyId: 301796241408
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  - m_TableReference:
-      m_TableCollectionName: GUID:9dec38d25bc2dad498a66b47a34b1856
-    m_TableEntryReference:
-      m_KeyId: 303885004800
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  - m_TableReference:
-      m_TableCollectionName: GUID:9dec38d25bc2dad498a66b47a34b1856
-    m_TableEntryReference:
-      m_KeyId: 306359644160
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &3120261760475774644
 MonoBehaviour:
   m_ObjectHideFlags: 0
