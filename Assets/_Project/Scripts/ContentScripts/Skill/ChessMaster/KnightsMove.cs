@@ -13,7 +13,11 @@ public class KnightsMove : SkillScript
 
     [Header("Prefabs")]
     [SerializeField] GameObject RoyalMovePrefab;
-    
+
+    [Header("VFXPrefabs")]
+    [SerializeField] GameObject startVFXPrefab;
+    [SerializeField] GameObject endVFXPrefab;
+
     private PlayerSkillManager playerSkillManager => GameObject.FindObjectOfType<PlayerSkillManager>();
     private Vector2 selectedheroPosition;
 
@@ -29,6 +33,15 @@ public class KnightsMove : SkillScript
         CastEnd();
 
     }
+
+    protected override void CastFX()
+    {
+        CastVFX(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
+        CastVFX(new List<Vector2> { SelectedCellCoordinate[0] }, startVFXPrefab);
+        CastVFX(new List<Vector2> { SelectedCellCoordinate[1] }, endVFXPrefab);
+        if (castSFX != null) castSFX.Play(combatPlayerDataInStage.transform);
+    }
+
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)
     {
         List<Vector2> areaList = new() { selectedCellCoordinate };
