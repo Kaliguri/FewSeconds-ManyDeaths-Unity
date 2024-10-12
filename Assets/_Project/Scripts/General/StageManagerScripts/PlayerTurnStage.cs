@@ -45,7 +45,7 @@ public class PlayerTurnStage : GameState
 
     public override void Enter()
     {
-        endingTurn = true;
+        endingTurn = false;
         //Debug.Log("Enter Player Turn Stage");
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
