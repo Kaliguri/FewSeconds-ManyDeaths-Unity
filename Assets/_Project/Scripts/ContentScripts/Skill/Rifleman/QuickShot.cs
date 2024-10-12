@@ -13,7 +13,7 @@ public class QuickShot : SkillScript
 
     [Header("Stats")]
     [SerializeField] float Damage = 20f;
-
+    [SerializeField] float timeBeforeShot = 1f;
 
 
     [Header("Visual")]
@@ -74,6 +74,7 @@ public class QuickShot : SkillScript
 
     private IEnumerator ShotMovement(int playerID)
     {
+        yield return new WaitForSeconds(timeBeforeShot);
         GameObject shot = MonoInstance.Instantiate(QuickShotPrefab, ActualHeroPosition + mapClass.tileZero + spawnModification, Quaternion.identity);
 
         while (Vector2.Distance(shot.transform.position, SelectedCellCoordinate[0] + mapClass.tileZero) > 0.01f)
