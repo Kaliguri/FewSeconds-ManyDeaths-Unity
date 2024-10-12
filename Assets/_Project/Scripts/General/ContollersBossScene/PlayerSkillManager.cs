@@ -88,6 +88,7 @@ public class PlayerSkillManager : NetworkBehaviour
 
     private void StartSkillSystem(int orderInTurnPriority)
     {
+        Debug.Log("StartSkillSystem for player " + turnPriority[orderInTurnPriority]);
         if (turnPriority[orderInTurnPriority] == playerID)
         {
             _orderInTurnPriority = orderInTurnPriority;
