@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2750538884900897114}
   - component: {fileID: 8956311517781500500}
-  - component: {fileID: 323079054325825339}
+  - component: {fileID: 3692858293932412084}
   - component: {fileID: 915365117328071868}
   m_Layer: 5
   m_Name: Skill (Lobby - HeroList)
@@ -177,7 +177,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &323079054325825339
+--- !u!114 &3692858293932412084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,12 +186,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5375818507178000359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b83934522d7e31b44b7dabe965e2eaaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b8a6b99bea58b04990129adee7a0fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IconObj: {fileID: 5553772476718325789}
   tooltipManager: {fileID: 8638839532007488984}
   UINumber: 0
+  HeroListID: 0
 --- !u!114 &915365117328071868
 MonoBehaviour:
   m_ObjectHideFlags: 0
