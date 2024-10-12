@@ -38,6 +38,16 @@ MonoBehaviour:
     m_Localized: Each round, the order of the players' moves changes randomly
     m_Metadata:
       m_Items: []
+  - m_Id: 2225274732490752
+    m_Localized: End Turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2225277400068096
+    m_Localized: "By pressing the key you can end your turn early.\r\nAs soon as
+      all players click on \u201CEnd Turn\u201D or when the timer expires, all actions
+      selected by the players will take place."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

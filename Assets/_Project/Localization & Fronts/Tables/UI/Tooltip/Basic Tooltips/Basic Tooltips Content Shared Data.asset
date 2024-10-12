@@ -31,6 +31,14 @@ MonoBehaviour:
     m_Key: TurnOrder Description
     m_Metadata:
       m_Items: []
+  - m_Id: 2225274732490752
+    m_Key: EndTurn _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2225277400068096
+    m_Key: EndTurn Description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
