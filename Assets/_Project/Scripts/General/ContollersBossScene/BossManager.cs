@@ -152,6 +152,7 @@ public class BossManager : NetworkBehaviour
             List<Vector2> TargetPoints = CurrentCombo.BossActionList[i].ActionScript.GetCastPoint(CurrentAct);
             GetTargetPointsForActionsRpc(TargetPoints.ToArray());
         }
+        Debug.Log("GetTargetPointsForActions");
     }
 
     [Rpc(SendTo.ClientsAndHost)]
