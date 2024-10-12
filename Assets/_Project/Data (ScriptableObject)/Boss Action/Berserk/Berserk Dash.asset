@@ -27,5 +27,5 @@ MonoBehaviour:
         damage: 10
         TimeBetweenDash: 0.5
         DashTime: 1
-        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
-        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        castSFX: {fileID: 11400000, guid: b1a64a80fede3c349a7dabf28ef2a7cc, type: 2}
+        hitSFX: {fileID: 11400000, guid: bdbf2f75be3b0254d968d10660c5f6cf, type: 2}

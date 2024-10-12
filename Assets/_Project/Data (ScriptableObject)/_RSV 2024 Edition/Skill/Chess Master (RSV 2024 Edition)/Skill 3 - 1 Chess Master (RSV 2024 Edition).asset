@@ -48,6 +48,6 @@ MonoBehaviour:
           type: 3}
         CastVFXPrefab: {fileID: 0}
         AreaVFXPrefab: {fileID: 0}
-        castSFX: {fileID: 0}
+        castSFX: {fileID: 11400000, guid: 42258a1311a1397419ec0c42a63a029c, type: 2}
         RoyalMovePrefab: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
           type: 3}

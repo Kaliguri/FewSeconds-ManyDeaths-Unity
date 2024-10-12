@@ -50,7 +50,7 @@ MonoBehaviour:
           type: 3}
         AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
           type: 3}
-        castSFX: {fileID: 11400000, guid: 1018aa10cf83d3f48b41617cc5955472, type: 2}
+        castSFX: {fileID: 11400000, guid: 1ae2f3abfaaeb7b4b80523f8cd3dffac, type: 2}
         shieldValue: 40
         HorizontalSignPrefab: {fileID: 1186777461074907986, guid: 5596741cfa3805e4b9276c8c0d96c153,
           type: 3}

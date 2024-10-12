@@ -28,5 +28,5 @@ MonoBehaviour:
         timeBetweenCastAndDamage: 1
         affectedTile: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}
-        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
-        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        castSFX: {fileID: 11400000, guid: 0accef107e0de5f48a3d70e7354a2097, type: 2}
+        hitSFX: {fileID: 11400000, guid: eb800f4c925a52a4fa95f0c57195449d, type: 2}

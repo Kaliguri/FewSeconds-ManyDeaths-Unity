@@ -35,7 +35,7 @@ MonoBehaviour:
         centerModification: {x: -0.1, y: 0.3}
         bloodParticlePrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
           type: 3}
-        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
-        sendSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
-        healSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
-        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        castSFX: {fileID: 11400000, guid: 4a3889baa4f68bd48998dd5ebacb0c63, type: 2}
+        sendSFX: {fileID: 11400000, guid: 31fab23cfbf6d1742b02dc0bb054a262, type: 2}
+        healSFX: {fileID: 11400000, guid: 5c257dc7dbcecec4ea27306505415600, type: 2}
+        hitSFX: {fileID: 11400000, guid: 1c781a858defc8e40affe04fa5e813c2, type: 2}
