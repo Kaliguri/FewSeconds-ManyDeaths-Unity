@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShotsManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class ShotsManager : MonoBehaviour
     private List<int> currentBulletCountList = new();
 
     [SerializeField] List<GameObject> bulletInfoList;
+    [SerializeField] List<TextMeshProUGUI> bulletValueList;
     [SerializeField] HeroData riflemanHeroData;
 
     private void Awake()
@@ -22,7 +24,11 @@ public class ShotsManager : MonoBehaviour
         for (int i = 0; i < playerData.PlayerCount; i++)
         {
             currentBulletCountList.Add(maxBulletCount);
-            if (playerData.HeroDataList[i] == riflemanHeroData)  bulletInfoList[i].SetActive(true);
+            if (playerData.HeroDataList[i] == riflemanHeroData)  
+            {
+                bulletInfoList[i].SetActive(true);
+                bulletValueList[i].text = currentBulletCountList[i] + "/" + maxBulletCount;
+            }
         }
     }
 
@@ -36,5 +42,7 @@ public class ShotsManager : MonoBehaviour
         if (newCount <= 3) currentBulletCountList[playerID] = newCount;
         else if (newCount >= 0) currentBulletCountList[playerID] = 3;
         else currentBulletCountList[playerID] = 0;
+
+        bulletValueList[playerID].text = currentBulletCountList[playerID] + "/" + maxBulletCount;
     }
 }
