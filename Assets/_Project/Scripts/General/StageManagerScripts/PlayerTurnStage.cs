@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerTurnStage : GameState
@@ -18,6 +19,7 @@ public class PlayerTurnStage : GameState
     private TextMeshProUGUI confirmationText;
     private Button confirmationButton;
     private Coroutine timer;
+    private InputActions inputActions;
 
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
@@ -26,6 +28,8 @@ public class PlayerTurnStage : GameState
 
     public void Initialize(CombatStageManager manager, float maxTurnTime, TextMeshProUGUI timerText, TextMeshProUGUI confirmationText, Button confirmationButton)
     {
+        inputActions = new InputActions();
+        inputActions.Combat.EndPlayerTurn.performed += _ => ConfirmEndTurn();
         gameStateManager = manager;
         this.maxTurnTime = maxTurnTime;
         this.timerText = timerText;
@@ -35,6 +39,8 @@ public class PlayerTurnStage : GameState
         playersConfirmed.OnValueChanged += UpdateConfirmationUI;
         GlobalEventSystem.BossEndCombo.AddListener(EndTurn);
         GlobalEventSystem.BossEndCombo.AddListener(StartNewBossComboAfterTime);
+        dataBaseGUI.EndTurnButtonActiveChange(false);
+        dataBaseGUI.TimerActiveChange(false);
     }
 
     public override void Enter()
@@ -46,6 +52,7 @@ public class PlayerTurnStage : GameState
             playersConfirmed.Value = 0;
             timer = gameStateManager.StartCoroutine(Timer());
         }
+        inputActions.Enable();
 
         EnablePlayerTurnUI(true);
         UpdateConfirmationUI(0, playersConfirmed.Value);
@@ -108,6 +115,7 @@ public class PlayerTurnStage : GameState
 
     public void ConfirmEndTurn()
     {
+        inputActions.Disable();
         ConfirmEndTurnRpc();
 
         dataBaseGUI.EndTurnButtonActiveChange(false);
@@ -152,6 +160,7 @@ public class PlayerTurnStage : GameState
     private void StartEndingTurn()
     {
         GlobalEventSystem.SendPlayerTurnEnding();
+        inputActions.Disable();
     }
 
     private void EnablePlayerTurnUI(bool enable)
