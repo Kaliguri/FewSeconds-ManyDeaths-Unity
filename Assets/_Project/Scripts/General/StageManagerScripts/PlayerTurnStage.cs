@@ -20,6 +20,7 @@ public class PlayerTurnStage : GameState
     private Button confirmationButton;
     private Coroutine timer;
     private InputActions inputActions;
+    private bool endingTurn = false;
 
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
@@ -37,7 +38,6 @@ public class PlayerTurnStage : GameState
         this.confirmationButton = confirmationButton;
         this.confirmationButton.onClick.AddListener(ConfirmEndTurn);
         playersConfirmed.OnValueChanged += UpdateConfirmationUI;
-        GlobalEventSystem.BossEndCombo.AddListener(EndTurn);
         GlobalEventSystem.BossEndCombo.AddListener(StartNewBossComboAfterTime);
         dataBaseGUI.EndTurnButtonActiveChange(false);
         dataBaseGUI.TimerActiveChange(false);
@@ -45,6 +45,7 @@ public class PlayerTurnStage : GameState
 
     public override void Enter()
     {
+        endingTurn = true;
         //Debug.Log("Enter Player Turn Stage");
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
@@ -78,7 +79,8 @@ public class PlayerTurnStage : GameState
 
     private void StartNewBossComboAfterTime()
     {
-        if (CombatStageManager.instance.currentStage is PlayerTurnStage && BossManager.instance.CurrentAction != 3259720) Invoke(nameof(StartNewBossCombo), timeBetweeenNewBossCombo);
+        if (CombatStageManager.instance.currentStage is PlayerTurnStage && !endingTurn) Invoke(nameof(StartNewBossCombo), timeBetweeenNewBossCombo);
+        else if (CombatStageManager.instance.currentStage is PlayerTurnStage) EndTurn();
     }
 
     private void StartNewBossCombo()
@@ -147,20 +149,17 @@ public class PlayerTurnStage : GameState
 
     private void EndTurn()
     {
-        if (CombatStageManager.instance.currentStage is PlayerTurnStage) Debug.Log("EndTurn");
-        if (CombatStageManager.instance.currentStage is PlayerTurnStage && BossManager.instance.CurrentAction == 3259720)
-        {
-            gameStateManager.TransitionToNextStage();
+        gameStateManager.TransitionToNextStage();
 
-            EnablePlayerTurnUI(false);
+        EnablePlayerTurnUI(false);
 
-            GlobalEventSystem.SendPlayerTurnEndConfirmed();
-        }
+        GlobalEventSystem.SendPlayerTurnEndConfirmed();
     }
 
     private void StartEndingTurn()
     {
         Debug.Log("StartEndingTurn");
+        endingTurn = true;
         GlobalEventSystem.SendPlayerTurnEnding();
         inputActions.Disable();
     }

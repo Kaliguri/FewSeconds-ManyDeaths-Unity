@@ -62,7 +62,7 @@ public class BossManager : NetworkBehaviour
     {
         GlobalEventSystem.BossActionEnd.AddListener(CastActionAfterTime);
         GlobalEventSystem.BossHPChanged.AddListener(CheckHP);
-        GlobalEventSystem.PlayerTurnEnding.AddListener(StopCombo);
+        GlobalEventSystem.PlayerTurnStageEnded.AddListener(StopCombo);
         GlobalEventSystem.PlayerTurnStageStarted.AddListener(EnableGhostBoss);
         if (instance == null) instance = this;
     }
@@ -187,14 +187,13 @@ public class BossManager : NetworkBehaviour
 
     private void StopCombo()
     {
-        CurrentAction = 3259720;
         GhostBossGameObject.SetActive(false);
     }
 
     private void EnableGhostBoss()
     {
-        GhostBossGameObject.SetActive(true);
         GhostBossGameObject.transform.position = BossGameObject.transform.position;
+        GhostBossGameObject.SetActive(true);
     }
 
     private void ClearTargetPointsForActions()
