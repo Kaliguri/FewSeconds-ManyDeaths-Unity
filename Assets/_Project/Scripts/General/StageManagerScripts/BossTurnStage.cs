@@ -7,12 +7,13 @@ using UnityEngine;
 
 public class BossTurnStage : GameState
 {
+    [SerializeField] float TimeBetweenRounds = 1f;
     private BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
 
     public void Initialize(CombatStageManager manager)
     {
         gameStateManager = manager;
-        GlobalEventSystem.BossEndCombo.AddListener(EndTurn);
+        GlobalEventSystem.BossEndCombo.AddListener(EndingTurn);
     }
 
     public override void Enter()
@@ -47,9 +48,14 @@ public class BossTurnStage : GameState
         //бей босс, да посильнее
     }
 
+    private void EndingTurn()
+    {
+        if (CombatStageManager.instance.currentStage is BossTurnStage) Invoke(nameof(EndTurn), TimeBetweenRounds);
+    }
+
     private void EndTurn()
     {
-        if (CombatStageManager.instance.currentStage is BossTurnStage) gameStateManager.TransitionToNextStage();
+        gameStateManager.TransitionToNextStage();
     }
 
 }
