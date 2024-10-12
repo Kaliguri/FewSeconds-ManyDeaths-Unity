@@ -22,6 +22,8 @@ MonoBehaviour:
     - rid: 6932391315839909892
       type: {class: SwordEnergyDiagonally, ns: , asm: Assembly-CSharp}
       data:
+        affectedTile: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
+          type: 3}
         damage: 20
         sliceSpeed: 5
         slicePrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,

@@ -22,6 +22,8 @@ MonoBehaviour:
     - rid: 6932391200727498755
       type: {class: BerserkDash, ns: , asm: Assembly-CSharp}
       data:
+        affectedTile: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
+          type: 3}
         damage: 10
         TimeBetweenDash: 0.5
         DashTime: 1

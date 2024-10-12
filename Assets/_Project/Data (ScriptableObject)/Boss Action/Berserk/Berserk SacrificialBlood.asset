@@ -22,7 +22,11 @@ MonoBehaviour:
     - rid: 6932391315839909891
       type: {class: SacrificialBlood, ns: , asm: Assembly-CSharp}
       data:
+        affectedTile: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
+          type: 3}
         damage: 20
+        bloodParticleCount: 3
+        bloodParticleCountUpgrade: 1
         circleBloodRadius: 1
         circlingTime: 3
         betweenSendTime: 0.5
