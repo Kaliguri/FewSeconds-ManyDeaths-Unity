@@ -131,6 +131,7 @@ public class BossManager : NetworkBehaviour
 
     public void ChoiceCombo()
     {
+        Debug.Log("ChoiceCombo");
         List<BossComboData> ComboList = Data.AttacksInActList[CurrentAct].ComboAttackList;
         int currentComboIndex = Random.Range(0, ComboList.Count);
         ChoiceComboRpc(currentComboIndex);
@@ -140,8 +141,8 @@ public class BossManager : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void ChoiceComboRpc(int comboIndex)
     {
-        List<BossComboData> ComboList = Data.AttacksInActList[CurrentAct].ComboAttackList;
-        CurrentCombo = ComboList[comboIndex];
+        Debug.Log("ChoiceComboRpc");
+        CurrentCombo = Data.AttacksInActList[CurrentAct].ComboAttackList[comboIndex];
     }
 
     private void GetTargetPointsForActions()
@@ -161,6 +162,7 @@ public class BossManager : NetworkBehaviour
 
     public void CastCombo()
     {
+        Debug.Log(CurrentCombo);
         CurrentAction = 0;
         SpawnCoordinates = CurrentCoordinates;
         CastAction();
@@ -168,7 +170,6 @@ public class BossManager : NetworkBehaviour
 
     private void CastAction()
     {
-        Debug.Log(CurrentCombo);
         if (CurrentAction < CurrentCombo.BossActionList.Count)
         {
             CurrentCombo.BossActionList[CurrentAction].ActionScript.Cast(TargetPointsForActions[CurrentAction], CurrentAct);
