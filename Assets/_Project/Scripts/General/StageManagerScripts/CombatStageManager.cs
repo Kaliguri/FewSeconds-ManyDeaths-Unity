@@ -13,7 +13,7 @@ using UnityEngine.Tilemaps;
 public class CombatStageManager : NetworkBehaviour
 {
     public float PlayerTurnTime;
-    [SerializeField] float TimeBeforeBattleStarts = 5f;
+    [SerializeField] float TimeBeforeBattleStarts = 2f;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI confirmationText;
     [SerializeField] private Button confirmationButton;
@@ -74,7 +74,7 @@ public class CombatStageManager : NetworkBehaviour
 
         _stages = new List<GameState> { predictionStage, playerTurnStage, resultStage, bossTurnStage };
 
-        Invoke(nameof(StartBattle), TimeBeforeBattleStarts);
+        StartBattle();
     }
 
     private void StartBattle()

@@ -39,11 +39,6 @@ public class PredictionStage : GameState
         Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo);
     }
 
-    private void ChoiceNewBossCombo()
-    {
-        bossManager.ChoiceCombo();
-    }
-
     private void StartNewBossCombo()
     {
         BossManager.instance.CastCombo();

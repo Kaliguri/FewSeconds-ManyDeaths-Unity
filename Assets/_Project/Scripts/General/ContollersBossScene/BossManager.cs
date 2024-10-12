@@ -131,7 +131,6 @@ public class BossManager : NetworkBehaviour
 
     public void ChoiceCombo()
     {
-        Debug.Log("ChoiceCombo");
         List<BossComboData> ComboList = Data.AttacksInActList[CurrentAct].ComboAttackList;
         int currentComboIndex = Random.Range(0, ComboList.Count);
         ChoiceComboRpc(currentComboIndex);
