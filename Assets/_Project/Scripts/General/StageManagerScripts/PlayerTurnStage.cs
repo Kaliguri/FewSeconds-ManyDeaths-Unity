@@ -147,6 +147,7 @@ public class PlayerTurnStage : GameState
 
     private void EndTurn()
     {
+        Debug.Log("EndTurn");
         if (CombatStageManager.instance.currentStage is PlayerTurnStage && BossManager.instance.CurrentAction == 3259720)
         {
             gameStateManager.TransitionToNextStage();
