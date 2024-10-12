@@ -30,7 +30,7 @@ public class PredictionStage : GameState
 
         GlobalEventSystem.SendPredictionStageStarted();
 
-        Debug.Log("Entering Prediction Stage");
+        //Debug.Log("Entering Prediction Stage");
         RestoreEnergy();
 
 

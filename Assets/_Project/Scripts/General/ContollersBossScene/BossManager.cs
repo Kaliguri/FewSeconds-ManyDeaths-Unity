@@ -140,7 +140,6 @@ public class BossManager : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void ChoiceComboRpc(int comboIndex)
     {
-        Debug.Log("ChoiceComboRpc");
         CurrentCombo = Data.AttacksInActList[CurrentAct].ComboAttackList[comboIndex];
     }
 
@@ -161,7 +160,6 @@ public class BossManager : NetworkBehaviour
 
     public void CastCombo()
     {
-        Debug.Log(CurrentCombo);
         CurrentAction = 0;
         SpawnCoordinates = CurrentCoordinates;
         CastAction();
