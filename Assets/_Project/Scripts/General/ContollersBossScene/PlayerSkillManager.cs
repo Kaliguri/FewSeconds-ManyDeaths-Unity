@@ -91,6 +91,7 @@ public class PlayerSkillManager : NetworkBehaviour
         Debug.Log("StartSkillSystem for player " + turnPriority[orderInTurnPriority]);
         if (turnPriority[orderInTurnPriority] == playerID)
         {
+            Debug.Log("Im casting, im player " + playerID);
             _orderInTurnPriority = orderInTurnPriority;
             currentAction = 0;
             skillIndex = 0;
