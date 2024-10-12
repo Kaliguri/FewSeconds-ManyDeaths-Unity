@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shield
+  m_Name: Shield Particle
   m_Shader: {fileID: -6465566751694194690, guid: 0de3a1120e7e1b541b10102933d6003a,
     type: 3}
   m_Parent: {fileID: 0}
