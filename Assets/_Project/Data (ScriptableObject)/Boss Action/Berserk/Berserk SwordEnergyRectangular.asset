@@ -28,5 +28,5 @@ MonoBehaviour:
         sliceSpeed: 5
         slicePrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
           type: 3}
-        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
-        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        castSFX: {fileID: 11400000, guid: 2d53a32ca83cb9448b2da3e863370c20, type: 2}
+        hitSFX: {fileID: 11400000, guid: 4fc4ec9a89b2d7443a5d07709c0cae4d, type: 2}

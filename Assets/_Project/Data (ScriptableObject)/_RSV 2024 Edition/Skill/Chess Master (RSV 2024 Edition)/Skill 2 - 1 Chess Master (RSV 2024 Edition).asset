@@ -50,6 +50,6 @@ MonoBehaviour:
           type: 3}
         AreaVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
           type: 3}
-        castSFX: {fileID: 11400000, guid: 1018aa10cf83d3f48b41617cc5955472, type: 2}
+        castSFX: {fileID: 11400000, guid: 88dd010b1495a7e47a15f03ae07546bf, type: 2}
         CastlingPrefab: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
           type: 3}

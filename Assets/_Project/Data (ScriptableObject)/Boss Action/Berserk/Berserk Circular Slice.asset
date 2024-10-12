@@ -23,8 +23,10 @@ MonoBehaviour:
       type: {class: BerserkCircularSlice, ns: , asm: Assembly-CSharp}
       data:
         damage: 30
+        radius: 2
+        radiusUpgrade: 1
         timeBetweenCastAndDamage: 1
         affectedTile: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}
-        castSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
-        hitSFX: {fileID: 11400000, guid: c7d93c182e950994d841d009c744f5e9, type: 2}
+        castSFX: {fileID: 11400000, guid: 2fa396d7ebe59384d8017857f85f0b0c, type: 2}
+        hitSFX: {fileID: 11400000, guid: eb800f4c925a52a4fa95f0c57195449d, type: 2}
