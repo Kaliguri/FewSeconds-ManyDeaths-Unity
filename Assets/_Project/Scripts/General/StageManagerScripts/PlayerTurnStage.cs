@@ -80,7 +80,7 @@ public class PlayerTurnStage : GameState
     private void StartNewBossComboAfterTime()
     {
         if (CombatStageManager.instance.currentStage is PlayerTurnStage && !endingTurn) Invoke(nameof(StartNewBossCombo), timeBetweeenNewBossCombo);
-        else if (CombatStageManager.instance.currentStage is PlayerTurnStage) EndTurn();
+        else if (CombatStageManager.instance.currentStage is PlayerTurnStage && endingTurn) EndTurn();
     }
 
     private void StartNewBossCombo()
