@@ -147,13 +147,13 @@ public class BossManager : NetworkBehaviour
 
     private void GetTargetPointsForActions()
     {
+        Debug.Log("GetTargetPointsForActions");
         for (int i = 0; i < CurrentCombo.BossActionList.Count; i++)
         {
             List<Vector2> TargetPoints = CurrentCombo.BossActionList[i].ActionScript.GetCastPoint(CurrentAct);
             bool isEnd = i == CurrentCombo.BossActionList.Count - 1;
             GetTargetPointsForActionsRpc(TargetPoints.ToArray(), isEnd);
         }
-        Debug.Log("GetTargetPointsForActions");
     }
 
     [Rpc(SendTo.ClientsAndHost)]
