@@ -46,7 +46,7 @@ MonoBehaviour:
         SkillPrefabDuration: 1
         TilePrefab: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
           type: 3}
-        CastVFXPrefab: {fileID: 3025759333766750100, guid: 8eed71ebb3ef8a34b9e3f87c23cb0340,
+        CastVFXPrefab: {fileID: 1444195749774712042, guid: b4509da2127c63d409ce9ce066f3edbc,
           type: 3}
         AreaVFXPrefab: {fileID: 3077128742469829599, guid: 812c842afcf22d7489b1fd76838356e6,
           type: 3}
