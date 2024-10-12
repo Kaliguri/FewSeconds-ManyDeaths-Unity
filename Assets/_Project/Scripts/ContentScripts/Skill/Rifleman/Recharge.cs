@@ -12,11 +12,18 @@ public class Recharge : SkillScript
     [Header("Quick Shot")]
 
     [Header("Stats")]
-    [SerializeField] float bulletReload;
-    [SerializeField] float extraButtetForAllyNear;
+    [SerializeField] int bulletReload = 2;
+    [SerializeField] int extraButtetForAllyNear = 1;
 
     [Header("Prefabs")]
     [SerializeField] GameObject reloadPrefab;
+
+    [Header("Localize")]
+    public new List<int> LocalizeVariablesList = new();
+    public override List<int> GetLocalizeVariablesList()
+    {
+        return LocalizeVariablesList;
+    }
 
 
 
@@ -51,8 +58,10 @@ public class Recharge : SkillScript
 
     private void CastRecharge(int playerID)
     {
-        if (IsPlayersNear()) shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + 2);
-        else shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + 1);
+        if (IsPlayersNear()) shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + bulletReload);
+        else shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + extraButtetForAllyNear);
+
+        LocalizeVariablesList[0] = shotsManager.GetShotsCount(playerID);
     }
 
     private bool IsPlayersNear()

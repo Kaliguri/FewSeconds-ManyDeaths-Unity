@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class ShotsManager : MonoBehaviour
 {
-    [SerializeField] private List<int> maxShotsCountList = new List<int> { 6, 6, 6, 6 };
-    private List<int> shotsCountList = new();
+    public int maxBulletCount =  6;
+    private List<int> currentBulletCountList = new();
 
     private void Awake()
     {
-        for (int i = 0; i < maxShotsCountList.Count; i++)
+        for (int i = 0; i < PlayerInfoData.instance.PlayerCount; i++)
         {
-            shotsCountList.Add(maxShotsCountList[i]);
+            currentBulletCountList.Add(maxBulletCount);
         }
     }
 
     public int GetShotsCount(int playerID)
     {
-        return shotsCountList[playerID];
+        return currentBulletCountList[playerID];
     }
 
     public void SetShotsCount(int playerID, int newCount)
     {
-        if (newCount <= 3) shotsCountList[playerID] = newCount;
-        else if (newCount >= 0) shotsCountList[playerID] = 3;
-        else shotsCountList[playerID] = 0;
+        if (newCount <= 3) currentBulletCountList[playerID] = newCount;
+        else if (newCount >= 0) currentBulletCountList[playerID] = 3;
+        else currentBulletCountList[playerID] = 0;
     }
 }

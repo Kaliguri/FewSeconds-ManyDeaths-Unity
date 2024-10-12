@@ -27,6 +27,13 @@ public class QuickShot : SkillScript
 
     [Header("SFX")]
     [SerializeField] SoundEvent hitSFX;
+
+    [Header("Localize")]
+    public new List<int> LocalizeVariablesList = new();
+    public override List<int> GetLocalizeVariablesList()
+    {
+        return LocalizeVariablesList;
+    }
     
     
     private ShotsManager shotsManager => GameObject.FindObjectOfType<ShotsManager>();
@@ -66,6 +73,8 @@ public class QuickShot : SkillScript
             shotsManager.SetShotsCount(playerID, shotsCount - 1);
             MonoInstance.instance.StartCoroutine(ShotMovement(playerID));
         }
+
+        LocalizeVariablesList[0] = shotsManager.GetShotsCount(playerID);
     }
 
     private IEnumerator ShotMovement(int playerID)

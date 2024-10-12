@@ -149,7 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cd5468a516c1f47ae3c69f63211ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StyleNumber: 1
+  IsTooltip: 1
+  Style: {fileID: 0}
+  FontStyleNumber: 1
 --- !u!114 &8141332490676952837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,7 +698,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cd5468a516c1f47ae3c69f63211ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StyleNumber: 0
+  IsTooltip: 1
+  Style: {fileID: 0}
+  FontStyleNumber: 0
 --- !u!114 &6256454914381473396
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
     [Title("Local Variables")]
     public int EnergyCostValue = 0;
     public int CooldownValue = 0;
+    public List<int> ExtraVariablesList = new();
 
 
     #region TooltipV3 ParentMethods
@@ -64,6 +65,7 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
         
         EnergyCostValue = skillData.SkillScript.EnergyCost;
         CooldownValue = skillData.SkillScript.SkillCooldown;
+        ExtraVariablesList = skillData.SkillScript.GetLocalizeVariablesList();
     }
 
     #endregion

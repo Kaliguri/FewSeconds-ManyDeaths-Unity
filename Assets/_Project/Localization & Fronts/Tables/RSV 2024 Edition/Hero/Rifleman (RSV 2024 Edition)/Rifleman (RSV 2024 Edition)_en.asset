@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 303b1c8311a6a5646abc9e36cd5174ba, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4835066345727197285
   m_TableData:
   - m_Id: 21029531648
     m_Localized: ' Weapon of Ligh'
@@ -54,12 +55,14 @@ MonoBehaviour:
 
       Damage is increased by 1.5 times if you have an ally nearby.'
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 4835066345727197285
   - m_Id: 367609065472
     m_Localized: "Reloads the clip, restoring 1 round. \r\nThe skill can restore
       2 rounds if you have an ally nearby."
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 4835066345727197285
   - m_Id: 355403640832
     m_Localized: 'Increases the maximum amount of energy of all heroes in a 3x3 zone
       (self-centred zone) by 1 unit.
@@ -86,4 +89,11 @@ MonoBehaviour:
       m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4835066345727197285
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 303377494016
+        - id: 367609065472
