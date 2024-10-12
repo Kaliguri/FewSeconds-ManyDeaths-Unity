@@ -7,11 +7,22 @@ public class ShotsManager : MonoBehaviour
     public int maxBulletCount =  6;
     private List<int> currentBulletCountList = new();
 
+    [SerializeField] List<GameObject> bulletInfoList;
+    [SerializeField] HeroData riflemanHeroData;
+
     private void Awake()
     {
-        for (int i = 0; i < PlayerInfoData.instance.PlayerCount; i++)
+        foreach (var info in bulletInfoList)
+        {
+            info.SetActive(false);
+        }
+
+        var playerData = PlayerInfoData.instance;
+
+        for (int i = 0; i < playerData.PlayerCount; i++)
         {
             currentBulletCountList.Add(maxBulletCount);
+            if (playerData.HeroDataList[i] == riflemanHeroData)  bulletInfoList[i].SetActive(true);
         }
     }
 

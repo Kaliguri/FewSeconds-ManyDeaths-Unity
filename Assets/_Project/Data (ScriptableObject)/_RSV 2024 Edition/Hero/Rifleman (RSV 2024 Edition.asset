@@ -42,7 +42,7 @@ MonoBehaviour:
   HeroTypeData: {fileID: 11400000, guid: 8961fcd069523384591fbc97f9a88b19, type: 2}
   GameObjectSpritePrefab: {fileID: 6372532583127048749, guid: d396e662df40dfe4c89b78c24d25909f,
     type: 3}
-  HeroIcon: {fileID: 21300000, guid: 20b48a3564a2c3b4b94b5676eb4232b1, type: 3}
+  HeroIcon: {fileID: 21300000, guid: b1c7a1ca7704954438a7013e083091a5, type: 3}
   MaxHPModif: 10
   SkillList:
   - SkillVariationsList:
@@ -53,7 +53,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 32d24289fe0e39448836959cdc400a90, type: 2}
   - SkillVariationsList:
     - {fileID: 11400000, guid: f040f19ad47928543b4cd5883131a97b, type: 2}
-  - SkillVariationsList: []
+  - SkillVariationsList:
+    - {fileID: 11400000, guid: 41f90c6257d45d64da84d091207990cf, type: 2}
   TalentList:
   - {fileID: 11400000, guid: 95899f32e119b914b835742933557a41, type: 2}
   - {fileID: 11400000, guid: 581ee896eaf8d12489c1222c26305567, type: 2}

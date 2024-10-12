@@ -32,9 +32,20 @@ MonoBehaviour:
     m_LocalVariables: []
   SkillIcon: {fileID: 21300000, guid: 20b48a3564a2c3b4b94b5676eb4232b1, type: 3}
   SkillScript:
-    rid: -2
+    rid: 4835066371322413082
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 4835066371322413082
+      type: {class: SkillScript, ns: , asm: Assembly-CSharp}
+      data:
+        EnergyCost: 0
+        SkillCooldown: 0
+        IsMovable: 0
+        TargetCount: 1
+        SkillPrefabDuration: 1
+        TilePrefab: {fileID: 0}
+        CastVFXPrefab: {fileID: 0}
+        AreaVFXPrefab: {fileID: 0}
+        castSFX: {fileID: 0}
+        LocalizeVariablesList: 

@@ -156,7 +156,7 @@ MonoBehaviour:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe20c7cb4ba1e65419bb1634325aacd8
-    m_Address: Stage Name_en
+    m_Address: GUI_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

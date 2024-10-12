@@ -30,8 +30,6 @@ public class TooltipV3SkillManager : TooltipV3ParentManager
 
 
     #region TooltipV3 ParentMethods
-    public void OnDestroy() { HideTooltip();}
-    public void OnDisable() { HideTooltip();}
 
     new void Awake()
     {

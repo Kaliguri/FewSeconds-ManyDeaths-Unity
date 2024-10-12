@@ -20,9 +20,6 @@ public class TooltipV3BasicManager : TooltipV3ParentManager
     [SerializeField] LocalizeStringEvent Header;
     [SerializeField] LocalizeStringEvent Description;
 
-    public void OnDestroy() { HideTooltip();}
-    public void OnDisable() { HideTooltip();}
-
     new void Awake()
     {
         TooltipContentShow();

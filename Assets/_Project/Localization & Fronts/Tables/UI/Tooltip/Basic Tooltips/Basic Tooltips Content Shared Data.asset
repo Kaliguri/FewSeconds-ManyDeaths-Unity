@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: Energy Description
     m_Metadata:
       m_Items: []
+  - m_Id: 2209112464371712
+    m_Key: TurnOrder _Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2209147067379712
+    m_Key: TurnOrder Description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

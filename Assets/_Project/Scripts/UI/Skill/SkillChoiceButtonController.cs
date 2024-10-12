@@ -28,9 +28,12 @@ public class SkillChoiceButtonController : UISkillV3
         //Debug.Log(playerInfoData.SkillChoiceList.Count);
         //Debug.Log(playerInfoData.SkillChoiceList[playerID].Count);
 
+        if (SkillNumber <= 3)
+        {
         playerInfoData.SkillChoiceList[playerID].variationList[SkillNumber] = VariationSkillNumber;
         GlobalEventSystem.SendSkillChanged();
         GlobalEventSystem.SendPlayerChoiceActionUpdate(SkillNumber, playerID, VariationSkillNumber);
+        }
     }
 
 }

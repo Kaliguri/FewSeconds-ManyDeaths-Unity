@@ -30,6 +30,14 @@ MonoBehaviour:
       of stored energy is ~8' units."
     m_Metadata:
       m_Items: []
+  - m_Id: 2209112464371712
+    m_Localized: About Turn Order
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2209147067379712
+    m_Localized: Each round, the order of the players' moves changes randomly
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -80,7 +80,7 @@ MonoBehaviour:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6860c2c937cfe4f4aa5998544a84fadf
-    m_Address: Stage Name_ru
+    m_Address: GUI_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
