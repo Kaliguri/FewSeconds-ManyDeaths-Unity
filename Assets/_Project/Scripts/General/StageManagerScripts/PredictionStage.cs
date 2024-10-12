@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PredictionStage : GameState
 {
-    [SerializeField] float timeBeforeBossCombo = 0.5f;
+    [SerializeField] float timeBeforeBossCombo = 1f;
 
     private BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
@@ -25,7 +25,7 @@ public class PredictionStage : GameState
     {
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
-            Invoke(nameof(ChoiceNewBossCombo), timeBeforeBossCombo);
+            bossManager.ChoiceCombo();
         }
 
         GlobalEventSystem.SendPredictionStageStarted();
@@ -36,7 +36,7 @@ public class PredictionStage : GameState
 
         ShieldsRemove();
 
-        Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo * 2f);
+        Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo);
     }
 
     private void ChoiceNewBossCombo()
