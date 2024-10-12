@@ -54,19 +54,30 @@ public class KnightsMove : SkillScript
         List<MapObject> objectsInFirstPointList = GetObjectsFromPoint(SelectedCellCoordinate[0]).ToList();
         List<MapObject> objectsInSecondPointList = GetObjectsFromPoint(SelectedCellCoordinate[1]).ToList();
 
-        MapObject heroMapObject = new();
-        foreach (MapObject mapObject in objectsInFirstPointList) if (mapObject is Hero) heroMapObject = mapObject;
-
         if (objectsInSecondPointList.Count == 0 && objectsInFirstPointList.Count > 0)
         {
-            GlobalEventSystem.SendPlayerStartMove();
-            int heroID = heroMapObject.ID;
-            GameObject heroObject = combatPlayerDataInStage.PlayersHeroes[heroID];
-            if (heroObject.GetComponent<NetworkObject>().IsOwner) heroObject.transform.position = SelectedCellCoordinate[1] + mapClass.tileZero;
-            combatPlayerDataInStage.HeroCoordinates[heroID] = SelectedCellCoordinate[1];
-            GlobalEventSystem.SendPlayerEndMove();
-            mapClass.RemoveHero(SelectedCellCoordinate[0], heroID);
-            mapClass.SetHero(SelectedCellCoordinate[1], heroID);
+            for (int i = 0; i < objectsInFirstPointList.Count; i++)
+            {
+                if (objectsInFirstPointList[i] is Hero)
+                {
+                    GlobalEventSystem.SendPlayerStartMove();
+                    int heroID = objectsInFirstPointList[i].ID;
+                    mapClass.RemoveHero(SelectedCellCoordinate[0], heroID);
+                    GameObject heroObject = combatPlayerDataInStage.PlayersHeroes[heroID];
+                    if (heroObject.GetComponent<NetworkObject>().IsOwner) heroObject.transform.position = SelectedCellCoordinate[1] + mapClass.tileZero;
+                    combatPlayerDataInStage.HeroCoordinates[heroID] = SelectedCellCoordinate[1];
+                    GlobalEventSystem.SendPlayerEndMove();
+                    mapClass.SetHero(SelectedCellCoordinate[1], heroID);
+                }
+                else if (objectsInFirstPointList[i] is Boss)
+                {
+                    mapClass.RemoveBoss(SelectedCellCoordinate[0]);
+                    bossManager.BossGameObject.transform.position = SelectedCellCoordinate[1] + mapClass.tileZero;
+                    bossManager.CurrentCoordinates = SelectedCellCoordinate[1];
+                    mapClass.SetBoss(SelectedCellCoordinate[1]);
+                }
+            }
+
         }
     }
 }
