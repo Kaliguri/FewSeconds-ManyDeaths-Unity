@@ -30,7 +30,6 @@ public class InspiringSpeak : SkillScript
     protected override void CastFX()
     {
         CastVFX(new List<Vector2> { ActualHeroPosition }, CastVFXPrefab);
-        CastVFX(GetArea(), AreaVFXPrefab);
         if (castSFX != null) castSFX.Play(combatPlayerDataInStage.transform);
     }
 
@@ -52,7 +51,12 @@ public class InspiringSpeak : SkillScript
         List<int> playersIdList = new();
         foreach (MapObject mapObject in mapObjectList) if (mapObject is Hero) playersIdList.Add(mapObject.ID);
 
-        for (int i = 0; i < playersIdList.Count; i++) combatPlayerDataInStage._TotalStatsList[playersIdList[i]].general.MaxEnergy += 1;
+        for (int i = 0; i < playersIdList.Count; i++) 
+        { 
+            combatPlayerDataInStage._TotalStatsList[playersIdList[i]].general.MaxEnergy += 1;
+
+            CastVFX(new List<Vector2> { combatPlayerDataInStage.HeroCoordinates[playersIdList[i]] }, AreaVFXPrefab);
+        }
 
         GlobalEventSystem.SendEnergyChange();
     }
