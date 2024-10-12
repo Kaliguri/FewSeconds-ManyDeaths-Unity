@@ -73,7 +73,7 @@ public class CombatStageManager : NetworkBehaviour
 
         _stages = new List<GameState> { predictionStage, playerTurnStage, resultStage, bossTurnStage };
 
-        Invoke(nameof(StartBattle), 5f);
+        Invoke(nameof(StartBattle), 2f);
     }
 
     private void StartBattle()

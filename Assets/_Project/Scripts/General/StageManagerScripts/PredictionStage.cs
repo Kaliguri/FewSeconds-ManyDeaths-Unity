@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PredictionStage : GameState
 {
+    [SerializeField] float timeBeforeBossCombo = 0.5f;
+
     private BossManager bossManager => GameObject.FindObjectOfType<BossManager>();
     private CombatPlayerDataInStage combatPlayerDataInStage => FindObjectOfType<CombatPlayerDataInStage>();
     private PlayerInfoData playerInfoData => GameObject.FindObjectOfType<PlayerInfoData>();
@@ -21,19 +23,25 @@ public class PredictionStage : GameState
 
     public override void Enter()
     {
-        GlobalEventSystem.SendPredictionStageStarted();
-
-        Debug.Log("Entering Prediction Stage");
-        RestoreEnergy();
-
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
             bossManager.ChoiceCombo();
         }
 
+        GlobalEventSystem.SendPredictionStageStarted();
+
+        Debug.Log("Entering Prediction Stage");
+        RestoreEnergy();
+
+
         ShieldsRemove();
 
-        bossManager.CastCombo();
+        Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo);
+    }
+
+    private void StartNewBossCombo()
+    {
+        BossManager.instance.CastCombo();
     }
 
     public override void Exit()

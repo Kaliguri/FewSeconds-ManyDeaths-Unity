@@ -10,8 +10,9 @@ public class PainfulTimeShift : SkillScript
 
     [Header("Stats")]
     [SerializeField] float damageValue = 10f;
+    [SerializeField] float damageMultiplayer = 0.5f;
     [SerializeField] int restoreEnergyValue = 1;
-    
+
 
     [Header("Prefabs")]
     [SerializeField] GameObject PainfulTimeShiftPrefab;
@@ -57,6 +58,11 @@ public class PainfulTimeShift : SkillScript
                 CombatMethods.ApplayDamage(damageValue, GetHeroCombatObject(playerID), combatObject);
                 NetworkInstance.instance.ChangePlayerEnergyRpc(combatPlayerDataInStage._TotalStatsList[combatObject.ObjectID].currentCombat.CurrentEnergy + restoreEnergyValue, combatObject.ObjectID);
             }
+            else if (combatObject is BossCombatObject)
+            {
+                CombatMethods.ApplayDamage(damageValue * damageMultiplayer, GetHeroCombatObject(playerID), combatObject);
+            }
+            else CombatMethods.ApplayDamage(damageValue, GetHeroCombatObject(playerID), combatObject);
         }
     }
 }

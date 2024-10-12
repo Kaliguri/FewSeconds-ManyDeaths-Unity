@@ -13,7 +13,7 @@ public static class CombatMethods
 
         if (value > targetType.GetData().CurrentShield)
         {
-            Debug.Log(targetType.GetPosition());
+            //Debug.Log(targetType.GetPosition());
             if (targetType.GetData().CurrentShield > 0) DamageNumberManager.instance.Spawn(1, targetType.GetPosition(), value);
             value -= targetType.GetData().CurrentShield;
             targetType.GetData().CurrentShield = 0;
