@@ -25,7 +25,7 @@ public class BerserkCircularSliceWithStep : BossActionScript
         CastStart(targetPoints, act);
         castSFX.Play(bossManager.transform);
 
-        Debug.Log("Cast Berserk Circular Slice With Step!");
+        //Debug.Log("Cast Berserk Circular Slice With Step!");
         CastCircularSlice();
     }
 

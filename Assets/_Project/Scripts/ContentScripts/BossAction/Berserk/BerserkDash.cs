@@ -29,7 +29,7 @@ public class BerserkDash : BossActionScript
         CastStart(targetPoints, act);
         castSFX.Play(bossManager.transform);
 
-        Debug.Log("Cast Berserk Dash!");
+        //Debug.Log("Cast Berserk Dash!");
         CastBerserkDash();
     }
 

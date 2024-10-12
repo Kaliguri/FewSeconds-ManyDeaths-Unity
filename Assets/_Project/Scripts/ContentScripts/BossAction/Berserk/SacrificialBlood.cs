@@ -39,7 +39,7 @@ public class SacrificialBlood : BossActionScript
         CastStart(targetPoints, act);
         castSFX.Play(bossManager.transform);
 
-        Debug.Log("Cast Berserk Sacrificial Blood!");
+        //Debug.Log("Cast Berserk Sacrificial Blood!");
 
         CastSacrificialBlood();
     }

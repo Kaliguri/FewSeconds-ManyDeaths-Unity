@@ -32,7 +32,7 @@ public class SwordEnergyDiagonally : BossActionScript
         CastStart(targetPoints, act);
         castSFX.Play(bossManager.transform);
 
-        Debug.Log("Cast Berserk Sword Energy Diagonally!");
+        //Debug.Log("Cast Berserk Sword Energy Diagonally!");
         CastSwordEnergyRectangulare();
     }
 

@@ -39,8 +39,8 @@ public class ShotsManager : MonoBehaviour
 
     public void SetShotsCount(int playerID, int newCount)
     {
-        if (newCount <= 3) currentBulletCountList[playerID] = newCount;
-        else if (newCount >= 0) currentBulletCountList[playerID] = 3;
+        if (newCount <= maxBulletCount && newCount >= 0) currentBulletCountList[playerID] = newCount;
+        else if (newCount > maxBulletCount) currentBulletCountList[playerID] = maxBulletCount;
         else currentBulletCountList[playerID] = 0;
 
         bulletValueList[playerID].text = currentBulletCountList[playerID] + "/" + maxBulletCount;

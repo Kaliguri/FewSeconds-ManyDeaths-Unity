@@ -37,7 +37,7 @@ public class BossActionScript
 
     protected void CastEnd()
     {
-        Debug.Log("CastActionEnd");
+        //Debug.Log("CastActionEnd");
         GlobalEventSystem.SendBossActionEnd();
     }
 

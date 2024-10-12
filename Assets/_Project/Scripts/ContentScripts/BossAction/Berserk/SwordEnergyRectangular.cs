@@ -34,7 +34,7 @@ public class SwordEnergyRectangular : BossActionScript
         CastStart(targetPoints, act);
         castSFX.Play(bossManager.transform);
 
-        Debug.Log("Cast Berserk Sword Energy Rectangular!");
+        //Debug.Log("Cast Berserk Sword Energy Rectangular!");
         CastSwordEnergyRectangulare();
     }
 
