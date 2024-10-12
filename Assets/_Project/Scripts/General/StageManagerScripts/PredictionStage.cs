@@ -25,7 +25,7 @@ public class PredictionStage : GameState
     {
         if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
         {
-            bossManager.ChoiceCombo();
+            Invoke(nameof(ChoiceNewBossCombo), timeBeforeBossCombo);
         }
 
         GlobalEventSystem.SendPredictionStageStarted();
@@ -36,7 +36,12 @@ public class PredictionStage : GameState
 
         ShieldsRemove();
 
-        Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo);
+        Invoke(nameof(StartNewBossCombo), timeBeforeBossCombo * 1.1f);
+    }
+
+    private void ChoiceNewBossCombo()
+    {
+        bossManager.ChoiceCombo();
     }
 
     private void StartNewBossCombo()
