@@ -47,12 +47,13 @@ public class PlayerTurnStage : GameState
     {
         endingTurn = false;
         //Debug.Log("Enter Player Turn Stage");
-        if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
+        if (NetworkManager.Singleton.IsServer)
         {
             remainingTime.Value = maxTurnTime;
             playersConfirmed.Value = 0;
             timer = gameStateManager.StartCoroutine(Timer());
         }
+        else Invoke(nameof(StartNewBossCombo), timeBetweeenNewBossCombo);
         inputActions.Enable();
 
         EnablePlayerTurnUI(true);
@@ -63,6 +64,8 @@ public class PlayerTurnStage : GameState
     public override void Exit()
     {
         GlobalEventSystem.SendPlayerTurnStageEnded();
+        EnablePlayerTurnUI(false);
+        inputActions.Disable();
     }
 
     public override void UpdateStage()
@@ -150,6 +153,7 @@ public class PlayerTurnStage : GameState
     private void EndTurn()
     {
         gameStateManager.TransitionToNextStage();
+        EnablePlayerTurnUI(false);
 
         GlobalEventSystem.SendPlayerTurnEndConfirmed();
     }
