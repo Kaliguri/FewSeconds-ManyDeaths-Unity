@@ -27,8 +27,11 @@ public class QuickShot : SkillScript
 
     [Header("SFX")]
     [SerializeField] SoundEvent hitSFX;
-        
-    
+
+    [Header("Prefabs")]
+    [SerializeField] GameObject HitVFXPrefab;
+
+
     private ShotsManager shotsManager => GameObject.FindObjectOfType<ShotsManager>();
 
     public override void Cast(Vector2 heroPosition, Vector2 actualHeroPosition, Vector2[] selectedCellCoordinate, int playerID, int skillIndex = 0)
@@ -64,6 +67,7 @@ public class QuickShot : SkillScript
         if (shotsCount > 0)
         {
             shotsManager.SetShotsCount(playerID, shotsCount - 1);
+            SpawnSkillObjects(SelectedCellCoordinate.ToList(), AreaVFXPrefab);
             MonoInstance.instance.StartCoroutine(ShotMovement(playerID));
         }
     }
@@ -111,6 +115,6 @@ public class QuickShot : SkillScript
             if (hitSFX != null) hitSFX.Play(combatPlayerDataInStage.transform);
         }
 
-        SpawnSkillObjects(SelectedCellCoordinate.ToList(), AreaVFXPrefab);
+        SpawnSkillObjects(SelectedCellCoordinate.ToList(), HitVFXPrefab);
     }
 }
