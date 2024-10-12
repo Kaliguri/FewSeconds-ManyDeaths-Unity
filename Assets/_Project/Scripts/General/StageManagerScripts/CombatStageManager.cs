@@ -30,7 +30,7 @@ public class CombatStageManager : NetworkBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
-        GlobalEventSystem.AllPlayerSpawned.AddListener(StartBattle);
+        GlobalEventSystem.PlayerDataUpdated.AddListener(StartBattle);
         GlobalEventSystem.AllPlayersDied.AddListener(LoseBattle);
         GlobalEventSystem.BossDied.AddListener(WinBattle);
     }

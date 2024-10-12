@@ -38,6 +38,8 @@ public class OnSpawn : NetworkBehaviour
         Vector2 tileCenterPos = mapClass.gameplayTilemap.GetCellCenterWorld(tile);
         Vector2 targetPoint = tileCenterPos - mapClass.tileZero;
         combatPlayerDataInStage.UpdatePlayersCoordinates(targetPoint, ownerPlayerID);
+
+        GlobalEventSystem.SendPlayerDataUpdated();
     }
 
     public override void OnNetworkDespawn()
