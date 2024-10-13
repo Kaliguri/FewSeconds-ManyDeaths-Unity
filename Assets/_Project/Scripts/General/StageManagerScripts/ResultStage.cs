@@ -90,12 +90,14 @@ public class ResultStage : GameState
             EndMoving = true;
             GlobalEventSystem.SendAllPlayersEndMoving();
             Invoke(nameof(SendStartCastPlayer), TimeBeforeFirstPlayerCast);
+            Debug.Log("PlayerEndMovind.Value >= playerCount");
         }
 
         if (NetworkManager.Singleton.IsServer)
         {
             if (PlayerEndResultTurn.Value >= playerCount)
             {
+                Debug.Log("PlayerEndResultTurn.Value >= playerCount");
                 EndTurn();
             }
         }

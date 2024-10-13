@@ -55,7 +55,7 @@ public class SwordEnergyRectangular : BossActionScript
 
         for (int i = 0; i < TargetPoints.Count; i++)
         {
-            Debug.Log(TargetPoints[i]);
+            //Debug.Log(TargetPoints[i]);
             List<Vector2> targetLine = GridAreaMethods.CoordinateLine(bossManager.CurrentCoordinates, bossManager.CurrentCoordinates + TargetPoints[i]);
             CastAreaForSkill(targetLine);
             MonoInstance.instance.StartCoroutine(SliceMovement(targetLine));

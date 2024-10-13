@@ -59,8 +59,6 @@ public class BerserkDash : BossActionScript
         {
             if (i > 0) fromTile = TargetPoints[i - 1];
             List<PathNode> pathToRandomNodes = mapClass.gridPathfinding.FindPath((int)fromTile.x, (int)fromTile.y, (int)TargetPoints[i].x, (int)TargetPoints[i].y);
-            Debug.Log(TargetPoints);
-            Debug.Log(pathToRandomNodes);
             pathList.Add(PathNodeToVector2(pathToRandomNodes));
             if (act > 0) CastAreaForSkill(PathNodeToVector2(pathToRandomNodes));
         }
