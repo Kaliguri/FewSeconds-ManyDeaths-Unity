@@ -102,6 +102,10 @@ public class PlayerSkillManager : NetworkBehaviour
 
     private void CastAction()
     {
+        if (turnPriority[_orderInTurnPriority] != playerID)
+        {
+            return;
+        }
         if (currentAction < SkillList.Count && combatPlayerDataInStage.aliveStatus[playerID])
         {
             Vector2[] TargetPoints = TargetTileList[currentAction].ToArray();
