@@ -48,12 +48,12 @@ public class ResultStage : GameState
 
     private void ConfirmPlayerEndResultTurning(int orderInTurnPriority)
     {
-        SendSendAllPlayersEndMovingRpc(orderInTurnPriority + 1);
+        SendAllPlayersEndMovingRpc(orderInTurnPriority + 1);
         ConfirmPlayerEndResultTurnRpc();
     }
 
     [Rpc(SendTo.ClientsAndHost)]
-    private void SendSendAllPlayersEndMovingRpc(int orderInTurnPriority)
+    private void SendAllPlayersEndMovingRpc(int orderInTurnPriority)
     {
         GlobalEventSystem.SendStartCastPlayer(orderInTurnPriority);
     }
@@ -105,7 +105,7 @@ public class ResultStage : GameState
 
     private void SendStartCastPlayer()
     {
-        SendSendAllPlayersEndMovingRpc(0);
+        SendAllPlayersEndMovingRpc(0);
     }
 
     [Rpc(SendTo.Server)]
