@@ -55,6 +55,7 @@ public class ResultStage : GameState
     [Rpc(SendTo.ClientsAndHost)]
     private void SendAllPlayersEndMovingRpc(int orderInTurnPriority)
     {
+        Debug.Log("bag?");
         GlobalEventSystem.SendStartCastPlayer(orderInTurnPriority);
     }
 
