@@ -120,6 +120,7 @@ public class PlayerTurnStage : GameState
 
     public void ConfirmEndTurn()
     {
+        Debug.Log("ConfirmEndTurn");
         inputActions.Disable();
         ConfirmEndTurnRpc();
 
