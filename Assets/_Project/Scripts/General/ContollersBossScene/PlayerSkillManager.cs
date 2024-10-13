@@ -92,7 +92,6 @@ public class PlayerSkillManager : NetworkBehaviour
         _orderInTurnPriority = orderInTurnPriority;
         if (orderInTurnPriority < turnPriority.Count && turnPriority[orderInTurnPriority] == playerID && !casted)
         {
-            Debug.Log("Im casting, im player " + playerID);
             casted = true;
             currentAction = 0;
             skillIndex = 0;
@@ -128,7 +127,6 @@ public class PlayerSkillManager : NetworkBehaviour
             TargetTileList.Clear();
             characterCastCoordinate.Clear();
             Invoke(nameof(SendPlayerEndResultTurnEvent), timeBetweenPlayerCast);
-            Debug.Log("CastingEnded");
         }
     }
 

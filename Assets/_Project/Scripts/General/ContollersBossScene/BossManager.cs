@@ -107,6 +107,12 @@ public class BossManager : NetworkBehaviour
 
     void ChangeAct()
     {
+        if (NetworkManager.Singleton.IsServer) ChangeArcRpc();
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void ChangeArcRpc()
+    {
         if (CurrentAct + 1 < HPActList.Count)
         {
             CurrentAct += 1;

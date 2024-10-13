@@ -82,14 +82,13 @@ public class PlayerTurnStage : GameState
 
     private void StartNewBossComboAfterTime()
     {
-        Debug.Log("is eneding turn? = " + endingTurn);
         if (CombatStageManager.instance.currentStage is PlayerTurnStage && !endingTurn) Invoke(nameof(StartNewBossCombo), timeBetweeenNewBossCombo);
         else if (CombatStageManager.instance.currentStage is PlayerTurnStage && endingTurn) EndTurn();
     }
 
     private void StartNewBossCombo()
     {
-        if (!endingTurn) BossManager.instance.CastCombo();
+        BossManager.instance.CastCombo();
     }
 
     private void UpdateConfirmationUI(int previousValue, int newValue)
