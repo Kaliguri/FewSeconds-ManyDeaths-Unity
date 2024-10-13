@@ -132,7 +132,6 @@ public class BossManager : NetworkBehaviour
 
     public void ChoiceCombo()
     {
-        Debug.Log("ChoiceCombo");
         List<BossComboData> ComboList = Data.AttacksInActList[CurrentAct].ComboAttackList;
         int currentComboIndex = Random.Range(0, ComboList.Count);
         ChoiceComboRpc(currentComboIndex);
@@ -142,13 +141,11 @@ public class BossManager : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void ChoiceComboRpc(int comboIndex)
     {
-        Debug.Log("ChoiceComboRpc");
         CurrentCombo = Data.AttacksInActList[CurrentAct].ComboAttackList[comboIndex];
     }
 
     private void GetTargetPointsForActions()
     {
-        Debug.Log("GetTargetPointsForActions");
         for (int i = 0; i < CurrentCombo.BossActionList.Count; i++)
         {
             List<Vector2> TargetPoints = CurrentCombo.BossActionList[i].ActionScript.GetCastPoint(CurrentAct);
@@ -166,7 +163,6 @@ public class BossManager : NetworkBehaviour
 
     private void SendTargetPointsForActionsChoosed()
     {
-        Debug.Log("GetTargetPointsForActionsRpc");
         GlobalEventSystem.SendTargetPointsForActionsChoosed(); 
     }
 
@@ -179,12 +175,12 @@ public class BossManager : NetworkBehaviour
 
     private void CastAction()
     {
-        if (CurrentAction < CurrentCombo.BossActionList.Count)
+        if (CurrentAction < CurrentCombo.BossActionList.Count && CombatStageManager.instance.currentStage is not ResultStage)
         {
             CurrentCombo.BossActionList[CurrentAction].ActionScript.Cast(TargetPointsForActions[CurrentAction], CurrentAct);
             CurrentAction++;
         }
-        else
+        else if (CombatStageManager.instance.currentStage is not ResultStage)
         {
             if (CombatStageManager.instance.currentStage is BossTurnStage) ClearTargetPointsForActions();
             else
