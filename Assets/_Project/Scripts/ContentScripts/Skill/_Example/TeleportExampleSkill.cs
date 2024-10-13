@@ -13,7 +13,7 @@ public class TeleportExampleSkill : SkillScript
 
         CastTeleport(skillIndex);
 
-        CastEnd();
+        if (skillIndex == 0) CastEnd();
     }
 
     private void CastTeleport(int skillIndex)

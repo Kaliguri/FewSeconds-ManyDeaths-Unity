@@ -29,8 +29,8 @@ public class KnightsMove : SkillScript
             CastFX();
 
             CastRoyalMove();
+            CastEnd();
         }
-        CastEnd();
 
     }
 

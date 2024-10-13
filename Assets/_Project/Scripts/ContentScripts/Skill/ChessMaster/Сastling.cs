@@ -24,9 +24,9 @@ public class Сastling : SkillScript
             CastFX();
 
             CastTeleport(skillIndex);
+            CastEnd();
         }
 
-        CastEnd();
     }
 
     private void CastTeleport(int skillIndex)
