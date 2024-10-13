@@ -40,7 +40,7 @@ MonoBehaviour:
       type: {class: "\u0421astling", ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 3
-        SkillCooldown: 1
+        SkillCooldown: 2
         IsMovable: 0
         TargetCount: 2
         SkillPrefabDuration: 1

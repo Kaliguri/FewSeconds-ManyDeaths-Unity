@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: Exit in lobby
     m_Metadata:
       m_Items: []
+  - m_Id: 16655242593906688
+    m_Localized: You have to take unique heroes!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

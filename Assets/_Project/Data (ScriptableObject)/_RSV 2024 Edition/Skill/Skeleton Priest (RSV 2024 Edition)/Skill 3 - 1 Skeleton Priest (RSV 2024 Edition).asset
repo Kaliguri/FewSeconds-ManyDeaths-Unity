@@ -40,7 +40,7 @@ MonoBehaviour:
       type: {class: CrossOfLife, ns: , asm: Assembly-CSharp}
       data:
         EnergyCost: 6
-        SkillCooldown: 2
+        SkillCooldown: 3
         IsMovable: 0
         TargetCount: 1
         SkillPrefabDuration: 1
