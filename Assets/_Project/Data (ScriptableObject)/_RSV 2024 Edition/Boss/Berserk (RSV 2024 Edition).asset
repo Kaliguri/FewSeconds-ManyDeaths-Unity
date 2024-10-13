@@ -37,7 +37,9 @@ MonoBehaviour:
   AttacksInActList:
   - ComboAttackList:
     - {fileID: 11400000, guid: 4e0cbe6376339fd40a6f039bfba4e67c, type: 2}
+    - {fileID: 11400000, guid: 5d1a7860be4cc9d408aa627a4ba6e064, type: 2}
     - {fileID: 11400000, guid: 98360ba498f95e74bb7a628fe4de0fbc, type: 2}
+    - {fileID: 11400000, guid: f5f4111d3bf9da74d8f7dc1f85a5d544, type: 2}
   - ComboAttackList:
     - {fileID: 11400000, guid: ea44b1ed4a2c90245a4a7f5f422c2048, type: 2}
     - {fileID: 11400000, guid: 2985fda8ea552064aa2c29c4900daf2e, type: 2}
