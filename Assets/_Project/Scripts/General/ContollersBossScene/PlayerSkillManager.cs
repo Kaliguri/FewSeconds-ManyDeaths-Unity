@@ -124,6 +124,7 @@ public class PlayerSkillManager : NetworkBehaviour
             TargetTileList.Clear();
             characterCastCoordinate.Clear();
             Invoke(nameof(SendPlayerEndResultTurnEvent), timeBetweenPlayerCast);
+            Debug.Log("CastingEnded");
         }
     }
 
