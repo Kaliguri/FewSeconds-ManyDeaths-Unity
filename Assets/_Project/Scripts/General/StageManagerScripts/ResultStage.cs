@@ -66,15 +66,15 @@ public class ResultStage : GameState
         {
             PlayerEndMovind.Value = 0;
             PlayerEndResultTurn.Value = 0;
+            Invoke(nameof(SendStartResultStageForFirstPlayer), TimeBeforeFirstPlayerMovement);
         }
 
         GlobalEventSystem.SendResultStageStarted();
-        Invoke(nameof(SendStartResultStageForFirstPlayer), TimeBeforeFirstPlayerMovement);
     }
 
     private void SendStartResultStageForFirstPlayer()
     {
-        GlobalEventSystem.SendStartResultStageForPlayer(0);
+        SendStartResultStageForPlayerRpc(0);
     }
 
     public override void Exit()
@@ -89,7 +89,7 @@ public class ResultStage : GameState
         {
             EndMoving = true;
             GlobalEventSystem.SendAllPlayersEndMoving();
-            Invoke(nameof(SendStartCastPlayer), TimeBeforeFirstPlayerCast);
+            if (NetworkManager.Singleton.IsServer) Invoke(nameof(SendStartCastPlayer), TimeBeforeFirstPlayerCast);
             Debug.Log("PlayerEndMovind.Value >= playerCount");
         }
 
@@ -105,7 +105,7 @@ public class ResultStage : GameState
 
     private void SendStartCastPlayer()
     {
-        GlobalEventSystem.SendStartCastPlayer(0);
+        SendSendAllPlayersEndMovingRpc(0);
     }
 
     [Rpc(SendTo.Server)]
