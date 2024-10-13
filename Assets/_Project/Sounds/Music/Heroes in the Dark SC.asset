@@ -19,14 +19,14 @@ MonoBehaviour:
         type: 2}
       expandPreview: 1
       expandAudioClips: 1
-      expandSettings: 0
+      expandSettings: 1
       previewCurves: 1
       audioMixerGroup: {fileID: 0}
       priority: 1
       distanceEnabled: 0
       distanceScale: 100
       preventEndClicks: 1
-      loopEnabled: 0
+      loopEnabled: 1
       followPosition: 0
       stopIfTransformIsNull: 0
       randomStartPosition: 0

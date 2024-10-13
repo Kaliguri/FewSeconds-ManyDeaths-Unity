@@ -49,12 +49,13 @@ public class BossManager : NetworkBehaviour
 
     [Header("Stats")]
     public float alfhaForGhost = 0.5f;
+    [SerializeField] float TimeBetweenActions = 1f;
 
     private CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
     private MapClass mapClass => GameObject.FindGameObjectWithTag("MapController").GetComponent<MapClass>();
     private Vector2 tileZero => mapClass.tileZero;
     private List<List<Vector2>> TargetPointsForActions = new();
-    private float TimeBetweenActions = 1f;
+    
     public static BossManager instance = null;
 
 

@@ -54,3 +54,7 @@ MonoBehaviour:
         LocalizeVariablesList: 
         RoyalMovePrefab: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
           type: 3}
+        startVFXPrefab: {fileID: 612230485557653181, guid: e2754fb2be60d784290b01f4715a5269,
+          type: 3}
+        endVFXPrefab: {fileID: 3929621663410115169, guid: 59c900deb6fbbe44a9e5a483ff61eed9,
+          type: 3}

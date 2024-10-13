@@ -48,7 +48,7 @@ MonoBehaviour:
           type: 3}
         CastVFXPrefab: {fileID: 1368314656990933555, guid: 33bc03ab66bebf34c80cf5fe4e022803,
           type: 3}
-        AreaVFXPrefab: {fileID: 7931431598131530404, guid: 5acd1c757bd08d34b99e5b372894df02,
+        AreaVFXPrefab: {fileID: 7550619880752394139, guid: 2f8adb9defd774c49b564bb2fbea7c4c,
           type: 3}
         castSFX: {fileID: 11400000, guid: 63b7086822d32f54b8ef64ddc6566cd7, type: 2}
         LocalizeVariablesList: 00000000000000000000000000000000
