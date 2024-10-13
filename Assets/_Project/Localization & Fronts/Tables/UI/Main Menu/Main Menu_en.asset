@@ -46,6 +46,18 @@ MonoBehaviour:
     m_Localized: How to play?
     m_Metadata:
       m_Items: []
+  - m_Id: 16651975952510976
+    m_Localized: Return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16652034098147328
+    m_Localized: To Main Manu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16659092881092608
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
