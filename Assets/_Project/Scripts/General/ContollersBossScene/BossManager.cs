@@ -161,7 +161,13 @@ public class BossManager : NetworkBehaviour
     private void GetTargetPointsForActionsRpc(Vector2[] TargetPoints, bool isEnd)
     {
         TargetPointsForActions.Add(TargetPoints.ToList());
-        if (isEnd) GlobalEventSystem.SendTargetPointsForActionsChoosed();
+        if (isEnd) { Invoke(nameof(SendTargetPointsForActionsChoosed), TimeBetweenActions); }
+    }
+
+    private void SendTargetPointsForActionsChoosed()
+    {
+        Debug.Log("GetTargetPointsForActionsRpc");
+        GlobalEventSystem.SendTargetPointsForActionsChoosed(); 
     }
 
     public void CastCombo()
