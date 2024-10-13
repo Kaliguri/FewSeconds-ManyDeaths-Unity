@@ -22,7 +22,7 @@ public class PredictionStage : GameState
 
     public override void Enter()
     {
-        if (NetworkManager.Singleton.IsServer && gameStateManager.IsSpawned)
+        if (NetworkManager.Singleton.IsServer)
         {
             bossManager.ChoiceCombo();
         }

@@ -100,7 +100,7 @@ public class SwordEnergyRectangular : BossActionScript
 
     private Vector2 GetBoundaryTile(Vector2 fromTile, Direction direction)
     {
-        Vector2 boundaryTile = new();
+        Vector2 boundaryTile = new Vector2(0, 1);
 
         switch (direction)
         {
