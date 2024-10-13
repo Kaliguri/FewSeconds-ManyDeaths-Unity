@@ -160,11 +160,14 @@ public class PlayerTurnStage : GameState
 
     private void StartEndingTurn()
     {
-        Debug.Log("StartEndingTurn");
-        endingTurn = true;
-        EnablePlayerTurnUI(false);
-        GlobalEventSystem.SendPlayerTurnEnding();
-        inputActions.Disable();
+        if (!endingTurn)
+        {   
+            Debug.Log("StartEndingTurn");
+            EnablePlayerTurnUI(false);
+            GlobalEventSystem.SendPlayerTurnEnding();
+            inputActions.Disable();
+            endingTurn = true;
+        }
     }
 
     private void EnablePlayerTurnUI(bool enable)
