@@ -37,6 +37,7 @@ public class PlayerSkillManager : NetworkBehaviour
     private HeroData heroData => playerInfoData.HeroDataList[playerID];
     private Vector2 actualCastPosition => playerMovementController.LastPosition;
     private int _orderInTurnPriority;
+    private bool casted = false;
     public static PlayerSkillManager instance = null;
 
 
@@ -89,9 +90,10 @@ public class PlayerSkillManager : NetworkBehaviour
     private void StartSkillSystem(int orderInTurnPriority)
     {
         Debug.Log("StartSkillSystem for player " + turnPriority[orderInTurnPriority]);
-        if (orderInTurnPriority < turnPriority.Count && turnPriority[orderInTurnPriority] == playerID)
+        if (orderInTurnPriority < turnPriority.Count && turnPriority[orderInTurnPriority] == playerID && !casted)
         {
             Debug.Log("Im casting, im player " + playerID);
+            casted = true;
             _orderInTurnPriority = orderInTurnPriority;
             currentAction = 0;
             skillIndex = 0;
@@ -148,6 +150,7 @@ public class PlayerSkillManager : NetworkBehaviour
     void StartDefineSkills()
     {
         if (isAlive) inputActions.Enable();
+        casted = false;
     }
 
     private void CanselAction()
