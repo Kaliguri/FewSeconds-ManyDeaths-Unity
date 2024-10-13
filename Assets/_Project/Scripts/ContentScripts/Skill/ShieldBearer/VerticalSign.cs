@@ -23,7 +23,7 @@ public class VerticalSign : SkillScript
         SpawnSkillSpawnSpritesPrefab();
         ApplayShield(playerID);
 
-        if (skillIndex == 0) CastEnd();
+        CastEnd();
 
     }
 

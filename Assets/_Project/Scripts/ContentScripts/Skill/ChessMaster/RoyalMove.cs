@@ -30,8 +30,8 @@ public class RoyalMove : SkillScript
             CastFX();
 
             CastRoyalMove();
-            CastEnd();
         }
+        CastEnd();
 
 
     }

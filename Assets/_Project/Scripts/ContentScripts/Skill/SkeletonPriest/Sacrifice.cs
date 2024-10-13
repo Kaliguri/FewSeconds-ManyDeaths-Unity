@@ -26,7 +26,7 @@ public class Sacrifice : SkillScript
         SpawnSkillSpawnSpritesPrefab();
         ApplayHeal(playerID);
 
-        if (skillIndex == 0) CastEnd();
+        CastEnd();
 
     }
     protected override void CastFX()

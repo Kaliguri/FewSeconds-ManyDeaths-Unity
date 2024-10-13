@@ -24,7 +24,7 @@ public class InspiringSpeak : SkillScript
 
         CastInspiringSpeak(playerID);
 
-        if (skillIndex == 0) CastEnd();
+        CastEnd();
     }
 
     protected override void CastFX()

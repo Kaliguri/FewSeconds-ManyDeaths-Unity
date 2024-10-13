@@ -28,7 +28,7 @@ public class CrossOfLife : SkillScript
         SpawnSkillSpawnSpritesPrefab();
         ApplayHeal(playerID);
 
-        if (skillIndex == 0) CastEnd();
+        CastEnd();
 
     }
 

@@ -28,7 +28,7 @@ public class Invincibility : SkillScript
         SpawnSkillSpawnSpritesPrefab();
         ApplayShield(playerID);
 
-        if (skillIndex == 0) CastEnd();
+        CastEnd();
 
     }
     public override List<Vector2> Area(Vector2 characterCellCoordinate, Vector2 selectedCellCoordinate, int skillIndex = 0)

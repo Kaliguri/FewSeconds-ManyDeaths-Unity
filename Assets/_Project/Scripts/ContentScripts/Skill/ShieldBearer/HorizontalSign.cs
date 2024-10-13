@@ -22,7 +22,7 @@ public class HorizontalSign : SkillScript
         SpawnSkillSpawnSpritesPrefab();
         ApplayShield(playerID);
 
-        if (skillIndex == 0) CastEnd();
+        CastEnd();
 
     }
     protected override void CastFX()

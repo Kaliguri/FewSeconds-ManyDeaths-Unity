@@ -28,7 +28,7 @@ public class Recharge : SkillScript
 
         CastRecharge(playerID);
 
-        if (skillIndex == 0) CastEnd();
+        CastEnd();
     }
     protected override void CastFX()
     {
