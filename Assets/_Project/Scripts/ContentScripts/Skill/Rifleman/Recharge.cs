@@ -51,7 +51,7 @@ public class Recharge : SkillScript
     private void CastRecharge(int playerID)
     {
         if (IsPlayersNear()) shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + bulletReload);
-        else shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + extraButtetForAllyNear);
+        else shotsManager.SetShotsCount(playerID, shotsManager.GetShotsCount(playerID) + bulletReload + extraButtetForAllyNear);
     }
 
     private bool IsPlayersNear()
