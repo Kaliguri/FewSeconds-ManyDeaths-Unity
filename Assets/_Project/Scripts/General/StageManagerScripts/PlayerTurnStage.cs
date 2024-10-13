@@ -88,7 +88,7 @@ public class PlayerTurnStage : GameState
 
     private void StartNewBossCombo()
     {
-        BossManager.instance.CastCombo();
+        if (!endingTurn) BossManager.instance.CastCombo();
     }
 
     private void UpdateConfirmationUI(int previousValue, int newValue)
