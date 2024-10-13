@@ -60,10 +60,14 @@ public class Recharge : SkillScript
 
         for (int i = 0; i < areaAround.Count; i++)
         {
-            List<MapObject> mapObjects = GetObjectsFromPoint(areaAround[i]);
-            for (int j = 0; j < mapObjects.Count; j++)
+            Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(areaAround[i] + mapClass.tileZero);
+            if (mapClass.gameplayTilemap.HasTile(tile))
             {
-                if (mapObjects[j] is Hero) return true;
+                List<MapObject> mapObjects = GetObjectsFromPoint(areaAround[i]);
+                for (int j = 0; j < mapObjects.Count; j++)
+                {
+                    if (mapObjects[j] is Hero) return true;
+                }
             }
         }
 
