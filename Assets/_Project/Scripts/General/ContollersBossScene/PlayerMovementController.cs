@@ -190,7 +190,7 @@ public class PlayerMovementController : NetworkBehaviour
 
     private void StartMoving(int orderInTurnPriority)
     {
-        if (turnPriority[orderInTurnPriority] == playerId) 
+        if (orderInTurnPriority < turnPriority.Count && turnPriority[orderInTurnPriority] == playerId) 
         {
             CorrectingPath();
             StartCoroutine("MovePlayer", orderInTurnPriority); 

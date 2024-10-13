@@ -88,10 +88,11 @@ public class PlayerSkillManager : NetworkBehaviour
 
     private void StartSkillSystem(int orderInTurnPriority)
     {
-        //Debug.Log("StartSkillSystem for player " + turnPriority[orderInTurnPriority]);
-        if (turnPriority[orderInTurnPriority] == playerID)
+        Debug.Log("StartSkillSystem for player " + turnPriority[orderInTurnPriority]);
+        Debug.Log("im player " + playerID);
+        if (orderInTurnPriority < turnPriority.Count && turnPriority[orderInTurnPriority] == playerID)
         {
-            //Debug.Log("Im casting, im player " + playerID);
+            Debug.Log("Im casting, im player " + playerID);
             _orderInTurnPriority = orderInTurnPriority;
             currentAction = 0;
             skillIndex = 0;
@@ -122,7 +123,7 @@ public class PlayerSkillManager : NetworkBehaviour
             skillNumberList.Clear();
             TargetTileList.Clear();
             characterCastCoordinate.Clear();
-            Invoke("SendPlayerEndResultTurnEvent", timeBetweenPlayerCast);
+            Invoke(nameof(SendPlayerEndResultTurnEvent), timeBetweenPlayerCast);
         }
     }
 
