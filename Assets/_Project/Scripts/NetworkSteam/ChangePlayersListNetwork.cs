@@ -38,6 +38,11 @@ public class ChangePlayersListNetwork : NetworkBehaviour
             Debug.Log("Update data from player " + ID);
             ChangeHeroRpc(ID, GetHeroDataID(playerInfoData.HeroDataList[ID]));
             ChangeColorRpc(playerInfoData.ColorList[ID], ID);
+            if (playerInfoData.HeroDataList[ID].SkillList == null)
+            {
+                Debug.Log("SkillList is null for player " + ID);
+                return;
+            }
             for (int SkillNumber = 0; SkillNumber < playerInfoData.HeroDataList[ID].SkillList.Count; SkillNumber++)
             {
                 ChangeSkill(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
