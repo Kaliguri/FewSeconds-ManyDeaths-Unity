@@ -48,7 +48,7 @@ public class GameMainMenuManager : MonoBehaviour
     public void GoMainMenu()
     {
         Destroy(PlayerInfoData.instance.transform.parent.gameObject);
-        SceneLoaderManager.instance.LoadScene(MainMenuSceneName, true);
+        SceneLoaderManager.instance.LoadScene(MainMenuSceneName, false);
         
     }
 
