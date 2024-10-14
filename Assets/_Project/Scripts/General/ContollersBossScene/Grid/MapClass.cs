@@ -109,7 +109,7 @@ public class MapClass : NetworkBehaviour
     public void SetBoss(Vector2 tile)
     {
         //Debug.LogError("Tile: " + tile.x + " " + tile.y);
-        Debug.LogError(TilesInfoArray.Length);
+        //Debug.LogError(TilesInfoArray.Length);
         TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.Add(new Boss());
     }
 
