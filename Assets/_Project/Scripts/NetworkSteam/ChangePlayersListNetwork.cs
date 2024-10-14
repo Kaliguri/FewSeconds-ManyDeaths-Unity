@@ -38,12 +38,8 @@ public class ChangePlayersListNetwork : NetworkBehaviour
             Debug.Log("Update data from player " + ID);
             ChangeHeroRpc(ID, GetHeroDataID(playerInfoData.HeroDataList[ID]));
             ChangeColorRpc(playerInfoData.ColorList[ID], ID);
-            for (int SkillNumber = 0; SkillNumber < playerInfoData.HeroDataList[ID].SkillList.Count; SkillNumber++)
+            for (int SkillNumber = 0; SkillNumber < playerInfoData.SkillChoiceList[ID].variationList.Count; SkillNumber++)
             {
-                Debug.Log("ID " + ID);
-                Debug.Log("playerInfoData.SkillChoiceList.Count " + playerInfoData.SkillChoiceList.Count);
-                Debug.Log("SkillNumber " + SkillNumber);
-                Debug.Log("playerInfoData.SkillChoiceList[ID].variationList.Count " + playerInfoData.SkillChoiceList[ID].variationList.Count);
                 ChangeSkill(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
             }
         }
