@@ -131,6 +131,12 @@ MonoBehaviour:
     SkillCooldown: 0
     IsMovable: 0
     TargetCount: 1
+    SkillPrefabDuration: 1
+    TilePrefab: {fileID: 0}
+    CastVFXPrefab: {fileID: 0}
+    AreaVFXPrefab: {fileID: 0}
+    castSFX: {fileID: 0}
+    LocalizeVariablesList: 
   TargetPoints: 0
   SkillList: []
 --- !u!114 &4572515052974823652
@@ -240,6 +246,7 @@ MonoBehaviour:
   SpawnCoordinates: {x: 0, y: 0}
   CurrentCoordinates: {x: 0, y: 0}
   BossGameObject: {fileID: 0}
+  GhostBossGameObject: {fileID: 0}
   CurrentAct: 0
   CurrentAction: 0
   CurrentCombo: {fileID: 0}
@@ -248,6 +255,8 @@ MonoBehaviour:
     CurrentHP: 0
     CurrentShield: 0
     CurrentEnergy: 0
+  alfhaForGhost: 0.5
+  TimeBetweenActions: 1
 --- !u!114 &9163288949737520634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +321,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  alfhaParameter: 0.5
 --- !u!114 &8823222167112016788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +490,7 @@ MonoBehaviour:
   confirmationButton: {fileID: 0}
   WinMenu: {fileID: 0}
   LoseMenu: {fileID: 0}
+  currentStage: {fileID: 0}
 --- !u!114 &1430126018791946820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca758f841b78bc74f8c03ae2335c9f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweeenNewBossCombo: 0
 --- !u!114 &1615488258498914327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04111e04b6f2c241990c75e9ce1b401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeBetweenRounds: 1
 --- !u!1 &7711682317342342888
 GameObject:
   m_ObjectHideFlags: 0
