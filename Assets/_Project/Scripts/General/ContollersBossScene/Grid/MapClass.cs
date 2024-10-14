@@ -18,7 +18,7 @@ public class MapClass : NetworkBehaviour
     public List<Vector2> AllTiles = new();
     public Pathfinding gridPathfinding;
 
-    private TileInfo[,] TileMap;
+    private TileInfo[,] TilesInfoArray;
     private GameObject DownLeftPoint => FindObjectOfType<DownLeftPointTag>().gameObject;
     private Vector3Int DownLeftTile;
     //[SerializeField] TileBase terrainTile;
@@ -32,11 +32,15 @@ public class MapClass : NetworkBehaviour
 
     void Start()
     {
-        TileMap = new TileInfo[Max_A, Max_B];
+        TilesInfoArray = new TileInfo[Max_A, Max_B];
+        
         DownLeftTile = gameplayTilemap.WorldToCell(DownLeftPoint.transform.position);
         tileZero = gameplayTilemap.GetCellCenterWorld(DownLeftTile);
         FindTerrain();
         gridPathfinding = new Pathfinding(Max_A, Max_B);
+
+        //Debug.LogError("Start?");
+        GlobalEventSystem.SendMapClassInitialized();
     }
 
     void FindTerrain()
@@ -51,10 +55,10 @@ public class MapClass : NetworkBehaviour
 
                 //if (gameplayTilemap.GetTile(TempTile) != terrainTile) Map[i,j] = GetMapObjectLists.Free;
                 //else Map[i,j] = GetMapObjectLists.Terrain;
-                TileMap[i, j] = new TileInfo();
+                TilesInfoArray[i, j] = new TileInfo();
                 if (!gameplayTilemap.HasTile(TempTile))
                 {
-                    TileMap[i, j].MapObjectList = new()
+                    TilesInfoArray[i, j].MapObjectList = new()
                     {
                         new NoPlayableTile()
                     };
@@ -66,13 +70,13 @@ public class MapClass : NetworkBehaviour
 
     public bool IsPlayable(Vector2 tile)
     {
-        if (TileMap[(int)tile.x, (int)tile.y].MapObjectList.Exists(x => x is NoPlayableTile)) return false;
+        if (TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.Exists(x => x is NoPlayableTile)) return false;
         return true;
     }
 
     public List<MapObject> GetMapObjectList(Vector2 tile)
     {
-        return TileMap[(int)tile.x, (int)tile.y].MapObjectList;
+        return TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList;
     }
 
     public List<MapObject> MapObjectCheck(List<Vector2> areaList)
@@ -99,44 +103,44 @@ public class MapClass : NetworkBehaviour
 
     public void SetHero(Vector2 tile, int playerID)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new Hero(playerID));
+        TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.Add(new Hero(playerID));
     }
 
     public void SetBoss(Vector2 tile)
     {
-        Debug.LogError("Tile: " + tile.x + " " + tile.y);
-        Debug.LogError(TileMap.Length);
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new Boss());
+        //Debug.LogError("Tile: " + tile.x + " " + tile.y);
+        Debug.LogError(TilesInfoArray.Length);
+        TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.Add(new Boss());
     }
 
     public void SetTempBloked(Vector2 tile)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new TempBloked());
+        TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.Add(new TempBloked());
     }
 
     public void SetCorpse(Vector2 tile, int playerID)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new Corpse(playerID));
+        TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.Add(new Corpse(playerID));
     }
 
     public void RemoveHero(Vector2 tile, int playerID)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Hero && x.ID == playerID);
+        TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Hero && x.ID == playerID);
     }
 
     public void RemoveCorpse(Vector2 tile, int playerID)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Corpse && x.ID == playerID);
+        TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Corpse && x.ID == playerID);
     }
 
     public void RemoveBoss(Vector2 tile)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Boss);
+        TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is Boss);
     }
 
     public void RemoveTempBloked(Vector2 tile)
     {
-        TileMap[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is TempBloked);
+        TilesInfoArray[(int)tile.x, (int)tile.y].MapObjectList.RemoveAll(x => x is TempBloked);
     }
 
     #endregion

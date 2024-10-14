@@ -30,6 +30,9 @@ public static class GlobalEventSystem
     public static UnityEvent BossManagerInitialized = new();
     public static void SendBossManagerInitialized() { BossManagerInitialized.Invoke(); }
 
+    public static UnityEvent MapClassInitialized = new();
+    public static void SendMapClassInitialized() { MapClassInitialized.Invoke(); }
+
     public static UnityEvent EnergyChange = new();
     public static void SendEnergyChange() { EnergyChange.Invoke(); }
 

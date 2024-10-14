@@ -60,6 +60,7 @@ public class BossManager : NetworkBehaviour
 
     void Awake()
     {
+        GlobalEventSystem.MapClassInitialized.AddListener(Inizialize);
         GlobalEventSystem.BossActionEnd.AddListener(CastActionAfterTime);
         GlobalEventSystem.BossHPChanged.AddListener(CheckHP);
         GlobalEventSystem.PlayerTurnStageEnded.AddListener(StopCombo);
@@ -70,7 +71,7 @@ public class BossManager : NetworkBehaviour
     void Start()
     {
         //SpawnCoordinates = new Vector2(15,3);
-        Inizialize();
+        //Inizialize();
     }
 
     public override void OnNetworkSpawn()
