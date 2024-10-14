@@ -104,6 +104,8 @@ public class MapClass : NetworkBehaviour
 
     public void SetBoss(Vector2 tile)
     {
+        Debug.LogError("Tile: " + tile.x + " " + tile.y);
+        Debug.LogError(TileMap.Length);
         TileMap[(int)tile.x, (int)tile.y].MapObjectList.Add(new Boss());
     }
 

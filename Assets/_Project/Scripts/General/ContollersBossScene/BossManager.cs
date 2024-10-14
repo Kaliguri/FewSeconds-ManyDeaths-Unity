@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossManager : NetworkBehaviour
@@ -11,7 +10,7 @@ public class BossManager : NetworkBehaviour
     public BossVariationData Data;
 
     [FoldoutGroup("General")]
-    [SerializeField] private Vector2 SpawnCoordinates;
+    [SerializeField] Vector2 SpawnCoordinates;
     [HideInInspector]
     public Vector2 CurrentCoordinates;
 
@@ -70,6 +69,7 @@ public class BossManager : NetworkBehaviour
 
     void Start()
     {
+        //SpawnCoordinates = new Vector2(15,3);
         Inizialize();
     }
 
@@ -132,7 +132,7 @@ public class BossManager : NetworkBehaviour
         Color bossColor = GhostBossGameObject.GetComponentInChildren<SpriteRenderer>().color;
         GhostBossGameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(bossColor.r, bossColor.g, bossColor.b, bossColor.a * alfhaForGhost);
         GhostBossGameObject.SetActive(false);
-        mapClass.SetBoss(SpawnCoordinates);
+        MapClass.instance.SetBoss(SpawnCoordinates);
         CurrentCoordinates = SpawnCoordinates;
     }
 

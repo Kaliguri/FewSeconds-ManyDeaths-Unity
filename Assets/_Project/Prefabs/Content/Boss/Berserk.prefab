@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1921392211288332909}
   - component: {fileID: 6109511189820014847}
+  - component: {fileID: 1534819495588753319}
   m_Layer: 0
   m_Name: BerserkSprite
   m_TagString: Untagged
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1534819495588753319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914391005453167716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da60ee3b81f3e040839aac7fa188ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Devider: 10000
 --- !u!1 &3969440717209018380
 GameObject:
   m_ObjectHideFlags: 0
