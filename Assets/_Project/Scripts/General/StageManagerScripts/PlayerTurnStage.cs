@@ -95,7 +95,7 @@ public class PlayerTurnStage : GameState
     {
         if (confirmationText != null)
         {
-            confirmationText.text = $"{newValue}/{combatPlayerDataInStage.CountOfAlivePlayers()} players confirmed";
+            confirmationText.text = newValue + "/" + combatPlayerDataInStage.CountOfAlivePlayers();
         }
     }
 

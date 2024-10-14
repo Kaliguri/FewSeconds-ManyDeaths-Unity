@@ -25,7 +25,7 @@ MonoBehaviour:
         affectedTile: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}
         damage: 20
-        sliceSpeed: 20
+        sliceSpeed: 8
         slicePrefab: {fileID: 193912397921672118, guid: ab06dcfd7b65bc5419ac6744120b73e4,
           type: 3}
         castSFX: {fileID: 11400000, guid: 2d53a32ca83cb9448b2da3e863370c20, type: 2}
