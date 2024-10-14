@@ -26,13 +26,13 @@ public class ChangePlayersListNetwork : NetworkBehaviour
 
     private void UpdateClientData(ulong id)
     {
-        if (NetworkManager.Singleton.IsHost) SendDataFromHostToNewClient();
-        //Debug.Log("UpdateClientData");
+        if (NetworkManager.Singleton.IsHost) SendDataFromHostToClient();
     }
 
-    private void SendDataFromHostToNewClient()
+    private void SendDataFromHostToClient()
     {
         Debug.Log("SendDataFromHostToNewClient");
+        UpdateOldClientsRpc();
         for (int ID = 0; ID < playerInfoData.PlayerCount; ID++)
         {
             Debug.Log("Update data from player " + ID);
@@ -43,6 +43,12 @@ public class ChangePlayersListNetwork : NetworkBehaviour
                 ChangeSkill(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
             }
         }
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void UpdateOldClientsRpc()
+    {
+        GlobalEventSystem.SendPlayerLobbyUpdate(0);
     }
 
     private void ChangeSkill(int SkillNumber, int ID, int variationSkillNumber)
