@@ -16,7 +16,7 @@ public class BossActionScript
     protected CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
     protected List<Vector2> TargetPoints = new();
     protected int act;
-    protected List<GameObject> affectedTiles = null;
+    protected List<GameObject> affectedTiles = new();
     protected GameState castStage;
 
     public virtual void Cast(List<Vector2> targetPoints, int act)
@@ -78,6 +78,7 @@ public class BossActionScript
 
     protected virtual void CastAreaForSkill(List<Vector2> circularList)
     {
+        if (circularList == null) return;
         for (int i = 0; i < circularList.Count; i++)
         {
             Vector3Int tile = mapClass.gameplayTilemap.WorldToCell(circularList[i] + mapClass.tileZero);
@@ -96,7 +97,7 @@ public class BossActionScript
 
     protected void DestroyAffectedTilesPrefabs()
     {
-        if (affectedTiles == null) return;
+        if (affectedTiles.Count == 0) return;
         for (int i = affectedTiles.Count - 1; i >= 0; i--)
         {
             if (i < affectedTiles.Count)
