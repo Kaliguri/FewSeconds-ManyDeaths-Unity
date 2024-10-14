@@ -12,8 +12,6 @@ public class MainMenuLoader : MonoBehaviour
     [SerializeField] string MainMenuScenePath;
     public string MainMenuScene;
 
-    private SceneLoaderManager sceneLoaderManager => FindObjectOfType<SceneLoaderManager>();
-
     void Start()
     {
         StartCoroutine(LoadMainScene());
@@ -22,6 +20,6 @@ public class MainMenuLoader : MonoBehaviour
     public IEnumerator LoadMainScene()
     {
         yield return new WaitUntil(() => NetworkManager.Singleton != null);
-        sceneLoaderManager.LoadScene(MainMenuScene, false);
+        SceneLoaderManager.instance.LoadScene(MainMenuScene, false);
     }
 }

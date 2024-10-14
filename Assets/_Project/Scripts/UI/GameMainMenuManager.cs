@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Steamworks;
+using Unity.Netcode;
+using Steamworks.Data;
 using UnityEngine;
 
 public class GameMainMenuManager : MonoBehaviour
@@ -48,6 +51,9 @@ public class GameMainMenuManager : MonoBehaviour
     public void GoMainMenu()
     {
         Destroy(PlayerInfoData.instance.transform.parent.gameObject);
+        LobbySaver.instance.currentLobby?.Leave();
+        LobbySaver.instance.currentLobby = null;
+        NetworkManager.Singleton.Shutdown();
         SceneLoaderManager.instance.LoadScene(MainMenuSceneName, false);
         
     }
