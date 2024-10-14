@@ -53,6 +53,7 @@ public class PlayerInfoData : MonoBehaviour
     private void ConnectPlayer(ulong obj)
     {
         UpdatePlayerNickList();
+        Debug.Log("newPlayerConnected");
     }
 
     private void DisconnectPlayer(ulong obj)
