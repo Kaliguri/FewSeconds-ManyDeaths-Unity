@@ -38,7 +38,6 @@ public class ChangePlayersListNetwork : NetworkBehaviour
             Debug.Log("Update data from player " + ID);
             ChangeHeroRpc(ID, GetHeroDataID(playerInfoData.HeroDataList[ID]));
             ChangeColorRpc(playerInfoData.ColorList[ID], ID);
-            if (playerInfoData.HeroDataList[ID].SkillList == null)
             for (int SkillNumber = 0; SkillNumber < playerInfoData.HeroDataList[ID].SkillList.Count; SkillNumber++)
             {
                 Debug.Log("ID " + ID);
