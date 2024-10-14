@@ -56,7 +56,7 @@ MonoBehaviour:
         timeBeforeShot: 0.3
         spawnModification: {x: 0.65, y: 0.45}
         shotSpeed: 20
-        QuickShotPrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
+        QuickShotPrefab: {fileID: 193912397921672118, guid: 88f3aa76b8d0fd64fb364488e26a4c0f,
           type: 3}
         hitSFX: {fileID: 11400000, guid: 1e2fb8af6dd81614e9c4f04ae6bcb790, type: 2}
         HitVFXPrefab: {fileID: 4086978885338029871, guid: 73814a7e43ce9d34b9e36d2caca5fbda,

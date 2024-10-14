@@ -109,6 +109,14 @@ MonoBehaviour:
       dealt.\r\n\r\nHis actions get stronger with each passing phase of combat!"
     m_Metadata:
       m_Items: []
+  - m_Id: 1464818199769088
+    m_Localized: You win!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1464842447040512
+    m_Localized: "You lost! \r\nWill you try again?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

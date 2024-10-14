@@ -33,7 +33,7 @@ MonoBehaviour:
         startCirclingTime: 1
         particleMoveTime: 1
         centerModification: {x: -0.1, y: 0.3}
-        bloodParticlePrefab: {fileID: 193912397921672118, guid: 90079a06d5f208f4f9de5ba2c856f2c8,
+        bloodParticlePrefab: {fileID: 193912397921672118, guid: ab06dcfd7b65bc5419ac6744120b73e4,
           type: 3}
         castSFX: {fileID: 11400000, guid: 4a3889baa4f68bd48998dd5ebacb0c63, type: 2}
         sendSFX: {fileID: 11400000, guid: 31fab23cfbf6d1742b02dc0bb054a262, type: 2}
