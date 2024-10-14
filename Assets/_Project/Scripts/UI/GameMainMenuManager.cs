@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using VFavorites.Libs;
 
 public class GameMainMenuManager : MonoBehaviour
 {
@@ -48,7 +47,7 @@ public class GameMainMenuManager : MonoBehaviour
 
     public void GoMainMenu()
     {
-        PlayerInfoData.instance.transform.parent.gameObject.Destroy();
+        Destroy(PlayerInfoData.instance.transform.parent.gameObject);
         SceneLoaderManager.instance.LoadScene(MainMenuSceneName, true);
         
     }

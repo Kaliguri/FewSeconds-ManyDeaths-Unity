@@ -172,16 +172,15 @@ MonoBehaviour:
   - 
   - 
   HeroDataList:
-  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
-  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
-  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
-  - {fileID: 11400000, guid: b47ca06bac2f25d4ca9d920f51270f9e, type: 2}
+  - {fileID: 11400000, guid: 7d8fbe6b1d6816142ba33df6c817adbe, type: 2}
+  - {fileID: 11400000, guid: d9b1d7f4412b6d7409e7e7e0eaee4372, type: 2}
+  - {fileID: 11400000, guid: 14e2834b59db3e149bc36a1c8dadb53d, type: 2}
+  - {fileID: 11400000, guid: bbb9b5726c00d4d44a5afdc7c3a921ff, type: 2}
   SkillChoiceList:
   - variationList: 00000000000000000000000000000000
   - variationList: 00000000000000000000000000000000
   - variationList: 00000000000000000000000000000000
   - variationList: 00000000000000000000000000000000
-  TurnPriority: 00000000010000000200000003000000
 --- !u!114 &9010912978174925477
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -42,8 +42,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 367609065472
-    m_Localized: Deals 10 damage to a creature, but restores 1 unit of energy to
-      it.
+    m_Localized: 'Deals *16 damage to the creature'', but restores ~1 energy to it''.
+
+
+      Deals
+      half as much damage to the boss.'
     m_Metadata:
       m_Items: []
   - m_Id: 355403640832

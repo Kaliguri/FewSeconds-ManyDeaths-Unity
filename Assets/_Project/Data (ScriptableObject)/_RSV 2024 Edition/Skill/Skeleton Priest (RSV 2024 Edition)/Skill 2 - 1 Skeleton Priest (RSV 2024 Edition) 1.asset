@@ -52,7 +52,8 @@ MonoBehaviour:
           type: 3}
         castSFX: {fileID: 11400000, guid: 09860f03b6f006f4bbb13117dd480769, type: 2}
         LocalizeVariablesList: 
-        damageValue: 10
+        damageValue: 16
+        damageMultiplayer: 0.5
         restoreEnergyValue: 1
         PainfulTimeShiftPrefab: {fileID: 1186777461074907986, guid: e4060e7ff24d6154aab91659fed774d4,
           type: 3}
