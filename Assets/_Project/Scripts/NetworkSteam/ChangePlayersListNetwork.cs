@@ -45,6 +45,16 @@ public class ChangePlayersListNetwork : NetworkBehaviour
             }
             for (int SkillNumber = 0; SkillNumber < playerInfoData.HeroDataList[ID].SkillList.Count; SkillNumber++)
             {
+                if (playerInfoData.SkillChoiceList == null)
+                {
+                    Debug.Log("playerInfoData.SkillChoiceList is null for player " + ID);
+                    continue;
+                }
+                if (playerInfoData.SkillChoiceList[ID].variationList == null)
+                {
+                    Debug.Log("playerInfoData.SkillChoiceList[ID].variationList is null for player " + ID);
+                    continue;
+                }
                 ChangeSkill(SkillNumber, ID, playerInfoData.SkillChoiceList[ID].variationList[SkillNumber]);
             }
         }
