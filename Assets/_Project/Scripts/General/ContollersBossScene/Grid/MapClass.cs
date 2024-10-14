@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MapClass : NetworkBehaviour
+public class MapClass : MonoBehaviour
 {
     [Title("Settings")]
     [SerializeField] public int Max_A;
@@ -28,16 +27,16 @@ public class MapClass : NetworkBehaviour
     {
         if (instance == null) {instance = this;}
         GlobalEventSystem.PlayerDied.AddListener(PlayerDied);
+        TilesInfoArray = new TileInfo[Max_A, Max_B];
+        gridPathfinding = new Pathfinding(Max_A, Max_B);
     }
 
     void Start()
     {
-        TilesInfoArray = new TileInfo[Max_A, Max_B];
         
         DownLeftTile = gameplayTilemap.WorldToCell(DownLeftPoint.transform.position);
         tileZero = gameplayTilemap.GetCellCenterWorld(DownLeftTile);
         FindTerrain();
-        gridPathfinding = new Pathfinding(Max_A, Max_B);
 
         //Debug.LogError("Start?");
         GlobalEventSystem.SendMapClassInitialized();

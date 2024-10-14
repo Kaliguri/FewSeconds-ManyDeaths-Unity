@@ -72,7 +72,7 @@ public class BerserkDash : BossActionScript
         if (CombatStageManager.instance.currentStage is BossTurnStage) mapClass.SetBoss(TargetPoints[TargetPoints.Count - 1]);
         bossManager.CurrentCoordinates = TargetPoints[TargetPoints.Count - 1];
 
-        DestroyAffectedTilesPrefabs();
+        if (act > 0) DestroyAffectedTilesPrefabs();
 
         CastEnd();
     }

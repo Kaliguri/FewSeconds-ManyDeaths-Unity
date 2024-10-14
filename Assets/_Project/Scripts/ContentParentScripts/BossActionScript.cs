@@ -16,7 +16,7 @@ public class BossActionScript
     protected CombatPlayerDataInStage combatPlayerDataInStage => GameObject.FindObjectOfType<CombatPlayerDataInStage>();
     protected List<Vector2> TargetPoints = new();
     protected int act;
-    protected List<GameObject> affectedTiles;
+    protected List<GameObject> affectedTiles = null;
     protected GameState castStage;
 
     public virtual void Cast(List<Vector2> targetPoints, int act)
@@ -96,6 +96,7 @@ public class BossActionScript
 
     protected void DestroyAffectedTilesPrefabs()
     {
+        if (affectedTiles == null) return;
         for (int i = affectedTiles.Count - 1; i >= 0; i--)
         {
             if (i < affectedTiles.Count)
