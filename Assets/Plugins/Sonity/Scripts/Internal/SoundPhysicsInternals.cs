@@ -100,7 +100,7 @@ namespace Sonity.Internal {
                     for (int i = 0; i < frictionSoundPhysicsParts.Length; i++) {
                         if (CheckCollisionTag(frictionSoundPhysicsParts[i], collision.transform.tag)) {
                             // Set SoundParameter
-                            frictionSoundParameter.Intensity = cachedRigidbody.velocity.magnitude;
+                            frictionSoundParameter.Intensity = cachedRigidbody.linearVelocity.magnitude;
                             // Play friction
                             if (!frictionIsPlaying) {
                                 frictionIsPlaying = true;
@@ -123,7 +123,7 @@ namespace Sonity.Internal {
                     for (int i = 0; i < frictionSoundPhysicsParts.Length; i++) {
                         if (CheckCollisionTag(frictionSoundPhysicsParts[i], collision.transform.tag)) {
                             // Set SoundParameter
-                            frictionSoundParameter.Intensity = cachedRigidbody2D.velocity.magnitude;
+                            frictionSoundParameter.Intensity = cachedRigidbody2D.linearVelocity.magnitude;
                             // Play friction
                             if (!frictionIsPlaying) {
                                 frictionIsPlaying = true;

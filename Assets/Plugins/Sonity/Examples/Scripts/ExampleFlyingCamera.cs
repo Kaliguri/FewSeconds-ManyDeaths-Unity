@@ -1,4 +1,4 @@
-// Created by Victor Engström
+// Created by Victor Engstrï¿½m
 // Copyright 2023 Sonigon AB
 // http://www.sonity.org/
 
@@ -31,7 +31,7 @@ namespace ExampleSonity {
             Physics.gravity = new Vector3(0f, -9.81f, 0f);
             cachedRigidbody = gameObject.AddComponent<Rigidbody>();
             cachedRigidbody.useGravity = false;
-            cachedRigidbody.drag = 4f;
+            cachedRigidbody.linearDamping = 4f;
         }
 
         void Update() {
