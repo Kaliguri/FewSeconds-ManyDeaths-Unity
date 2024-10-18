@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 4568891408916683060, guid: 1b152c2a5aa496d4ea5f96b3d458b926,
         type: 3}
       propertyPath: m_Name
-      value: Terrain Tile Selector Variant
+      value: Terrain Tile Selector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

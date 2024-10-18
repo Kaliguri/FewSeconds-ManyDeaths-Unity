@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 345301630910941340, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
       propertyPath: m_Name
-      value: Available Tile For Skill Variant
+      value: Available Tile For Skill
       objectReference: {fileID: 0}
     - target: {fileID: 726831059037436721, guid: d6c2d676138e1fc4ca967c2b8fcb7178,
         type: 3}
