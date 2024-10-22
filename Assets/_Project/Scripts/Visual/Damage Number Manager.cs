@@ -1,24 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using DamageNumbersPro;
+using NUnit.Framework;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class DamageNumberManager : MonoBehaviour
 {
-    /*
-    [Title("Variants")]
-    public DamageNumber Damage;
-    public DamageNumber Heal;
-    public DamageNumber Shield;
-    */
 
     [Title("Prefabs")]
     [SerializeField] GameObject prefabParentObject;
 
-    private List<DamageNumber> prefabsList = new();
-    //private List<DamageNumber> variantsList = new();
-    //private Vector2 tileZero => MapClass.instance.tileZero;
+    [SerializeField] List<DamageNumber> prefabsList = new();
 
     public static DamageNumberManager instance = null;
     void Awake()
@@ -28,30 +21,61 @@ public class DamageNumberManager : MonoBehaviour
 
     void Start()
     {
-        GetDamageNumberPrefabs();
         //variantsListInizialize();
         prefabParentObject.SetActive(false);
     }
 
-    void GetDamageNumberPrefabs()
+    void TextSpawn(int prefabID, Vector3 position, string textNumber, float scale = 1f, bool IsText = false)
     {
-        var parentTransform = prefabParentObject.transform;
-        for(int n = 0; n < parentTransform.childCount; n++)
+        if (prefabsList.Count >= prefabID)
         {
-            //Debug.Log(prefabsList + " " + parentTransform.GetChild(n).GetComponent<DamageNumber>());
-            prefabsList.Add(parentTransform.GetChild(n).GetComponent<DamageNumber>());
+
+        DamageNumber damageNumber = prefabsList[prefabID].Spawn(position, textNumber); 
+        damageNumber.transform.localScale *= scale;
+
+        if (IsText)
+            {
+                damageNumber.enableNumber = false;
+                damageNumber.leftText = textNumber;
+            }
         }
+
+        else Debug.LogError("Not prefab for Damage Number Manager!");
     }
 
-    /*void variantsListInizialize()
+    string AddPlusOrMinus(string value)
     {
-        Damage = prefabsList[0];
-        Heal = prefabsList[0];
-        Shield = prefabsList[0];
-    }*/
+        var intValue = int.Parse(value);
 
-    public void Spawn(int prefabID, Vector3 position, float number)
+        if (intValue > 0) 
+        return "+" + value;
+
+        else if (intValue < 0) 
+        return "-" + value;
+
+        else
+        return value;
+    }
+
+
+    public void SpawnDamageText(Vector3 position, string textNumber, float scale = 1f)
     {
-        DamageNumber damageNumber = prefabsList[prefabID].Spawn(position, number); 
+        TextSpawn(0, position, textNumber, scale);
+    }
+    public void SpawnShieldChangeText(Vector3 position, string textNumber, float scale = 1f)
+    {   
+        TextSpawn(1, position, AddPlusOrMinus(textNumber), scale);
+    }
+    public void SpawnHealText(Vector3 position, string textNumber, float scale = 1f)
+    {
+        TextSpawn(2, position, textNumber, scale);
+    }
+    public void SpawnAmmoText(Vector3 position, string textNumber, float scale = 1f)
+    {
+        TextSpawn(3, position, AddPlusOrMinus(textNumber), scale);
+    }
+    public void SpawnInfoText(Vector3 position, string textNumber, float scale = 1f)
+    {
+        TextSpawn(4, position, textNumber, scale, IsText: true);
     }
 }

@@ -14,17 +14,17 @@ public static class CombatMethods
         if (value > targetType.GetData().CurrentShield)
         {
             //Debug.Log(targetType.GetPosition());
-            if (targetType.GetData().CurrentShield > 0) DamageNumberManager.instance.Spawn(1, targetType.GetPosition(), value);
+            if (targetType.GetData().CurrentShield > 0) DamageNumberManager.instance.SpawnShieldChangeText(targetType.GetPosition(), value.ToString());
             value -= targetType.GetData().CurrentShield;
             targetType.GetData().CurrentShield = 0;
 
-            DamageNumberManager.instance.Spawn(0, targetType.GetPosition(), value);
+            DamageNumberManager.instance.SpawnDamageText(targetType.GetPosition(), value.ToString());
             targetType.GetData().CurrentHP -= value;
             if (targetType.GetData().CurrentHP < 0) targetType.GetData().CurrentHP = 0;
         }
         else
         {
-            DamageNumberManager.instance.Spawn(1, targetType.GetPosition(), value);
+            DamageNumberManager.instance.SpawnShieldChangeText(targetType.GetPosition(), value.ToString());
             targetType.GetData().CurrentShield -= value;
         }
 
@@ -44,7 +44,7 @@ public static class CombatMethods
         float modif = creatorType.GetModifiers().HealModif * (1 - targetType.GetModifiers().HealEffectiveResist);
         value *= modif;
 
-        DamageNumberManager.instance.Spawn(2, targetType.GetPosition(), value);
+        DamageNumberManager.instance.SpawnHealText(targetType.GetPosition(), value.ToString());
         if (targetType.GetData().CurrentHP + value >= targetType.GetData().MaxHP) targetType.GetData().CurrentHP = targetType.GetData().MaxHP;
         else targetType.GetData().CurrentHP += value;
 
@@ -63,7 +63,7 @@ public static class CombatMethods
         float modif = creatorType.GetModifiers().ShieldModif * (1 - targetType.GetModifiers().ShieldEffectiveResist);
         value *= modif;
 
-        DamageNumberManager.instance.Spawn(3, targetType.GetPosition(), value);
+        DamageNumberManager.instance.SpawnShieldChangeText(targetType.GetPosition(), value.ToString());
         targetType.GetData().CurrentShield += value;
 
         if (targetType is HeroCombatObject)
