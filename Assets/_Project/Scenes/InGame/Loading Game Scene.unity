@@ -962,21 +962,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1856223399}
-    - target: {fileID: 4909666085454723405, guid: 920aec64c2f4dd6419353bafde8fc0b1,
-        type: 3}
-      propertyPath: enableNumber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909666085454723405, guid: 920aec64c2f4dd6419353bafde8fc0b1,
-        type: 3}
-      propertyPath: enableLeftText
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909666085454723405, guid: 920aec64c2f4dd6419353bafde8fc0b1,
-        type: 3}
-      propertyPath: numberSettings.alpha
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5290356013593173531, guid: 920aec64c2f4dd6419353bafde8fc0b1,
         type: 3}
       propertyPath: m_Mesh
@@ -992,11 +977,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1282913967}
-    - target: {fileID: 7256734830163355263, guid: 920aec64c2f4dd6419353bafde8fc0b1,
-        type: 3}
-      propertyPath: m_text
-      value: hi!
-      objectReference: {fileID: 0}
     - target: {fileID: 7503300989276689659, guid: 920aec64c2f4dd6419353bafde8fc0b1,
         type: 3}
       propertyPath: m_Mesh
